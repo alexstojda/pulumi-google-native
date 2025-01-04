@@ -21,13 +21,13 @@ class SchemaArgs:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
-                 struct_schema: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 struct_schema: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         The set of arguments for constructing a Schema resource.
         :param pulumi.Input[str] schema_id: Required. The ID to use for the Schema, which will become the final component of the Schema.name. This field should conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters.
         :param pulumi.Input[str] json_schema: The JSON representation of the schema.
         :param pulumi.Input[str] name: Immutable. The full resource name of the schema, in the format of `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`. This field must be a UTF-8 encoded string with a length limit of 1024 characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] struct_schema: The structured representation of the schema.
+        :param pulumi.Input[Mapping[str, Any]] struct_schema: The structured representation of the schema.
         """
         pulumi.set(__self__, "collection_id", collection_id)
         pulumi.set(__self__, "data_store_id", data_store_id)
@@ -117,14 +117,14 @@ class SchemaArgs:
 
     @property
     @pulumi.getter(name="structSchema")
-    def struct_schema(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def struct_schema(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The structured representation of the schema.
         """
         return pulumi.get(self, "struct_schema")
 
     @struct_schema.setter
-    def struct_schema(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def struct_schema(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "struct_schema", value)
 
 
@@ -140,7 +140,7 @@ class Schema(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
-                 struct_schema: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 struct_schema: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  __props__=None):
         """
         Creates a Schema.
@@ -150,7 +150,7 @@ class Schema(pulumi.CustomResource):
         :param pulumi.Input[str] json_schema: The JSON representation of the schema.
         :param pulumi.Input[str] name: Immutable. The full resource name of the schema, in the format of `projects/{project}/locations/{location}/collections/{collection}/dataStores/{data_store}/schemas/{schema}`. This field must be a UTF-8 encoded string with a length limit of 1024 characters.
         :param pulumi.Input[str] schema_id: Required. The ID to use for the Schema, which will become the final component of the Schema.name. This field should conform to [RFC-1034](https://tools.ietf.org/html/rfc1034) standard with a length limit of 63 characters.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] struct_schema: The structured representation of the schema.
+        :param pulumi.Input[Mapping[str, Any]] struct_schema: The structured representation of the schema.
         """
         ...
     @overload
@@ -183,7 +183,7 @@ class Schema(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  project: Optional[pulumi.Input[str]] = None,
                  schema_id: Optional[pulumi.Input[str]] = None,
-                 struct_schema: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 struct_schema: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -207,7 +207,7 @@ class Schema(pulumi.CustomResource):
                 raise TypeError("Missing required property 'schema_id'")
             __props__.__dict__["schema_id"] = schema_id
             __props__.__dict__["struct_schema"] = struct_schema
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collection_id", "data_store_id", "location", "project", "schema_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["collectionId", "dataStoreId", "location", "project", "schemaId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Schema, __self__).__init__(
             'google-native:discoveryengine/v1beta:Schema',
@@ -287,7 +287,7 @@ class Schema(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="structSchema")
-    def struct_schema(self) -> pulumi.Output[Mapping[str, str]]:
+    def struct_schema(self) -> pulumi.Output[Mapping[str, Any]]:
         """
         The structured representation of the schema.
         """

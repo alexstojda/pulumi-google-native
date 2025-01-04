@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The HTTP method to use for the request. PATCH and OPTIONS are not permitted.
@@ -152,10 +151,17 @@ func (o AppEngineHttpTargetHttpMethodPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppEngineHttpTargetHttpMethodInput is an input type that accepts AppEngineHttpTargetHttpMethodArgs and AppEngineHttpTargetHttpMethodOutput values.
-// You can construct a concrete instance of `AppEngineHttpTargetHttpMethodInput` via:
+// AppEngineHttpTargetHttpMethodInput is an input type that accepts values of the AppEngineHttpTargetHttpMethod enum
+// A concrete instance of `AppEngineHttpTargetHttpMethodInput` can be one of the following:
 //
-//	AppEngineHttpTargetHttpMethodArgs{...}
+//	AppEngineHttpTargetHttpMethodHttpMethodUnspecified
+//	AppEngineHttpTargetHttpMethodPost
+//	AppEngineHttpTargetHttpMethodGet
+//	AppEngineHttpTargetHttpMethodHead
+//	AppEngineHttpTargetHttpMethodPut
+//	AppEngineHttpTargetHttpMethodDelete
+//	AppEngineHttpTargetHttpMethodPatch
+//	AppEngineHttpTargetHttpMethodOptions
 type AppEngineHttpTargetHttpMethodInput interface {
 	pulumi.Input
 
@@ -188,12 +194,6 @@ func (in *appEngineHttpTargetHttpMethodPtr) ToAppEngineHttpTargetHttpMethodPtrOu
 
 func (in *appEngineHttpTargetHttpMethodPtr) ToAppEngineHttpTargetHttpMethodPtrOutputWithContext(ctx context.Context) AppEngineHttpTargetHttpMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppEngineHttpTargetHttpMethodPtrOutput)
-}
-
-func (in *appEngineHttpTargetHttpMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*AppEngineHttpTargetHttpMethod] {
-	return pulumix.Output[*AppEngineHttpTargetHttpMethod]{
-		OutputState: in.ToAppEngineHttpTargetHttpMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Which HTTP method to use for the request.
@@ -337,10 +337,17 @@ func (o HttpTargetHttpMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// HttpTargetHttpMethodInput is an input type that accepts HttpTargetHttpMethodArgs and HttpTargetHttpMethodOutput values.
-// You can construct a concrete instance of `HttpTargetHttpMethodInput` via:
+// HttpTargetHttpMethodInput is an input type that accepts values of the HttpTargetHttpMethod enum
+// A concrete instance of `HttpTargetHttpMethodInput` can be one of the following:
 //
-//	HttpTargetHttpMethodArgs{...}
+//	HttpTargetHttpMethodHttpMethodUnspecified
+//	HttpTargetHttpMethodPost
+//	HttpTargetHttpMethodGet
+//	HttpTargetHttpMethodHead
+//	HttpTargetHttpMethodPut
+//	HttpTargetHttpMethodDelete
+//	HttpTargetHttpMethodPatch
+//	HttpTargetHttpMethodOptions
 type HttpTargetHttpMethodInput interface {
 	pulumi.Input
 
@@ -373,12 +380,6 @@ func (in *httpTargetHttpMethodPtr) ToHttpTargetHttpMethodPtrOutput() HttpTargetH
 
 func (in *httpTargetHttpMethodPtr) ToHttpTargetHttpMethodPtrOutputWithContext(ctx context.Context) HttpTargetHttpMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HttpTargetHttpMethodPtrOutput)
-}
-
-func (in *httpTargetHttpMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*HttpTargetHttpMethod] {
-	return pulumix.Output[*HttpTargetHttpMethod]{
-		OutputState: in.ToHttpTargetHttpMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Indicates the category (image, audio, video etc.) of the original content.
@@ -144,10 +143,13 @@ func (o DocumentContentCategoryPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentContentCategoryInput is an input type that accepts DocumentContentCategoryArgs and DocumentContentCategoryOutput values.
-// You can construct a concrete instance of `DocumentContentCategoryInput` via:
+// DocumentContentCategoryInput is an input type that accepts values of the DocumentContentCategory enum
+// A concrete instance of `DocumentContentCategoryInput` can be one of the following:
 //
-//	DocumentContentCategoryArgs{...}
+//	DocumentContentCategoryContentCategoryUnspecified
+//	DocumentContentCategoryContentCategoryImage
+//	DocumentContentCategoryContentCategoryAudio
+//	DocumentContentCategoryContentCategoryVideo
 type DocumentContentCategoryInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *documentContentCategoryPtr) ToDocumentContentCategoryPtrOutput() Docum
 
 func (in *documentContentCategoryPtr) ToDocumentContentCategoryPtrOutputWithContext(ctx context.Context) DocumentContentCategoryPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentContentCategoryPtrOutput)
-}
-
-func (in *documentContentCategoryPtr) ToOutput(ctx context.Context) pulumix.Output[*DocumentContentCategory] {
-	return pulumix.Output[*DocumentContentCategory]{
-		OutputState: in.ToDocumentContentCategoryPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // This is used when DocAI was not used to load the document and parsing/ extracting is needed for the inline_raw_document. For example, if inline_raw_document is the byte representation of a PDF file, then this should be set to: RAW_DOCUMENT_FILE_TYPE_PDF.
@@ -327,10 +323,16 @@ func (o DocumentRawDocumentFileTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentRawDocumentFileTypeInput is an input type that accepts DocumentRawDocumentFileTypeArgs and DocumentRawDocumentFileTypeOutput values.
-// You can construct a concrete instance of `DocumentRawDocumentFileTypeInput` via:
+// DocumentRawDocumentFileTypeInput is an input type that accepts values of the DocumentRawDocumentFileType enum
+// A concrete instance of `DocumentRawDocumentFileTypeInput` can be one of the following:
 //
-//	DocumentRawDocumentFileTypeArgs{...}
+//	DocumentRawDocumentFileTypeRawDocumentFileTypeUnspecified
+//	DocumentRawDocumentFileTypeRawDocumentFileTypePdf
+//	DocumentRawDocumentFileTypeRawDocumentFileTypeDocx
+//	DocumentRawDocumentFileTypeRawDocumentFileTypeXlsx
+//	DocumentRawDocumentFileTypeRawDocumentFileTypePptx
+//	DocumentRawDocumentFileTypeRawDocumentFileTypeText
+//	DocumentRawDocumentFileTypeRawDocumentFileTypeTiff
 type DocumentRawDocumentFileTypeInput interface {
 	pulumi.Input
 
@@ -363,12 +365,6 @@ func (in *documentRawDocumentFileTypePtr) ToDocumentRawDocumentFileTypePtrOutput
 
 func (in *documentRawDocumentFileTypePtr) ToDocumentRawDocumentFileTypePtrOutputWithContext(ctx context.Context) DocumentRawDocumentFileTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentRawDocumentFileTypePtrOutput)
-}
-
-func (in *documentRawDocumentFileTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DocumentRawDocumentFileType] {
-	return pulumix.Output[*DocumentRawDocumentFileType]{
-		OutputState: in.ToDocumentRawDocumentFileTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Identifies the type of operation.
@@ -504,10 +500,13 @@ func (o GoogleCloudContentwarehouseV1AccessControlActionOperationTypePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudContentwarehouseV1AccessControlActionOperationTypeInput is an input type that accepts GoogleCloudContentwarehouseV1AccessControlActionOperationTypeArgs and GoogleCloudContentwarehouseV1AccessControlActionOperationTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudContentwarehouseV1AccessControlActionOperationTypeInput` via:
+// GoogleCloudContentwarehouseV1AccessControlActionOperationTypeInput is an input type that accepts values of the GoogleCloudContentwarehouseV1AccessControlActionOperationType enum
+// A concrete instance of `GoogleCloudContentwarehouseV1AccessControlActionOperationTypeInput` can be one of the following:
 //
-//	GoogleCloudContentwarehouseV1AccessControlActionOperationTypeArgs{...}
+//	GoogleCloudContentwarehouseV1AccessControlActionOperationTypeUnknown
+//	GoogleCloudContentwarehouseV1AccessControlActionOperationTypeAddPolicyBinding
+//	GoogleCloudContentwarehouseV1AccessControlActionOperationTypeRemovePolicyBinding
+//	GoogleCloudContentwarehouseV1AccessControlActionOperationTypeReplacePolicyBinding
 type GoogleCloudContentwarehouseV1AccessControlActionOperationTypeInput interface {
 	pulumi.Input
 
@@ -540,12 +539,6 @@ func (in *googleCloudContentwarehouseV1AccessControlActionOperationTypePtr) ToGo
 
 func (in *googleCloudContentwarehouseV1AccessControlActionOperationTypePtr) ToGoogleCloudContentwarehouseV1AccessControlActionOperationTypePtrOutputWithContext(ctx context.Context) GoogleCloudContentwarehouseV1AccessControlActionOperationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudContentwarehouseV1AccessControlActionOperationTypePtrOutput)
-}
-
-func (in *googleCloudContentwarehouseV1AccessControlActionOperationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudContentwarehouseV1AccessControlActionOperationType] {
-	return pulumix.Output[*GoogleCloudContentwarehouseV1AccessControlActionOperationType]{
-		OutputState: in.ToGoogleCloudContentwarehouseV1AccessControlActionOperationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The retrieval importance of the property during search.
@@ -687,10 +680,16 @@ func (o GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportancePtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceInput is an input type that accepts GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceArgs and GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceOutput values.
-// You can construct a concrete instance of `GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceInput` via:
+// GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceInput is an input type that accepts values of the GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportance enum
+// A concrete instance of `GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceInput` can be one of the following:
 //
-//	GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceArgs{...}
+//	GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceRetrievalImportanceUnspecified
+//	GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceHighest
+//	GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceHigher
+//	GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceHigh
+//	GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceMedium
+//	GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceLow
+//	GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceLowest
 type GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportanceInput interface {
 	pulumi.Input
 
@@ -723,12 +722,6 @@ func (in *googleCloudContentwarehouseV1PropertyDefinitionRetrievalImportancePtr)
 
 func (in *googleCloudContentwarehouseV1PropertyDefinitionRetrievalImportancePtr) ToGoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportancePtrOutputWithContext(ctx context.Context) GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportancePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportancePtrOutput)
-}
-
-func (in *googleCloudContentwarehouseV1PropertyDefinitionRetrievalImportancePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportance] {
-	return pulumix.Output[*GoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportance]{
-		OutputState: in.ToGoogleCloudContentwarehouseV1PropertyDefinitionRetrievalImportancePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Identifies the trigger type for running the policy.
@@ -866,10 +859,14 @@ func (o GoogleCloudContentwarehouseV1RuleTriggerTypePtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudContentwarehouseV1RuleTriggerTypeInput is an input type that accepts GoogleCloudContentwarehouseV1RuleTriggerTypeArgs and GoogleCloudContentwarehouseV1RuleTriggerTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudContentwarehouseV1RuleTriggerTypeInput` via:
+// GoogleCloudContentwarehouseV1RuleTriggerTypeInput is an input type that accepts values of the GoogleCloudContentwarehouseV1RuleTriggerType enum
+// A concrete instance of `GoogleCloudContentwarehouseV1RuleTriggerTypeInput` can be one of the following:
 //
-//	GoogleCloudContentwarehouseV1RuleTriggerTypeArgs{...}
+//	GoogleCloudContentwarehouseV1RuleTriggerTypeUnknown
+//	GoogleCloudContentwarehouseV1RuleTriggerTypeOnCreate
+//	GoogleCloudContentwarehouseV1RuleTriggerTypeOnUpdate
+//	GoogleCloudContentwarehouseV1RuleTriggerTypeOnCreateLink
+//	GoogleCloudContentwarehouseV1RuleTriggerTypeOnDeleteLink
 type GoogleCloudContentwarehouseV1RuleTriggerTypeInput interface {
 	pulumi.Input
 
@@ -902,12 +899,6 @@ func (in *googleCloudContentwarehouseV1RuleTriggerTypePtr) ToGoogleCloudContentw
 
 func (in *googleCloudContentwarehouseV1RuleTriggerTypePtr) ToGoogleCloudContentwarehouseV1RuleTriggerTypePtrOutputWithContext(ctx context.Context) GoogleCloudContentwarehouseV1RuleTriggerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudContentwarehouseV1RuleTriggerTypePtrOutput)
-}
-
-func (in *googleCloudContentwarehouseV1RuleTriggerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudContentwarehouseV1RuleTriggerType] {
-	return pulumix.Output[*GoogleCloudContentwarehouseV1RuleTriggerType]{
-		OutputState: in.ToGoogleCloudContentwarehouseV1RuleTriggerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type for update.
@@ -1071,10 +1062,17 @@ func (o GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypePtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeInput is an input type that accepts GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeArgs and GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeInput` via:
+// GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeInput is an input type that accepts values of the GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutType enum
+// A concrete instance of `GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeInput` can be one of the following:
 //
-//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeArgs{...}
+//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeLayoutTypeUnspecified
+//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeBlock
+//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeParagraph
+//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeLine
+//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeToken
+//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeVisualElement
+//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeTable
+//	GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeFormField
 type GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypeInput interface {
 	pulumi.Input
 
@@ -1107,12 +1105,6 @@ func (in *googleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypePtr) ToGoogl
 
 func (in *googleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypePtr) ToGoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypePtrOutputWithContext(ctx context.Context) GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypePtrOutput)
-}
-
-func (in *googleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutType] {
-	return pulumix.Output[*GoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutType]{
-		OutputState: in.ToGoogleCloudDocumentaiV1DocumentPageAnchorPageRefLayoutTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Detected orientation for the Layout.
@@ -1250,10 +1242,14 @@ func (o GoogleCloudDocumentaiV1DocumentPageLayoutOrientationPtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDocumentaiV1DocumentPageLayoutOrientationInput is an input type that accepts GoogleCloudDocumentaiV1DocumentPageLayoutOrientationArgs and GoogleCloudDocumentaiV1DocumentPageLayoutOrientationOutput values.
-// You can construct a concrete instance of `GoogleCloudDocumentaiV1DocumentPageLayoutOrientationInput` via:
+// GoogleCloudDocumentaiV1DocumentPageLayoutOrientationInput is an input type that accepts values of the GoogleCloudDocumentaiV1DocumentPageLayoutOrientation enum
+// A concrete instance of `GoogleCloudDocumentaiV1DocumentPageLayoutOrientationInput` can be one of the following:
 //
-//	GoogleCloudDocumentaiV1DocumentPageLayoutOrientationArgs{...}
+//	GoogleCloudDocumentaiV1DocumentPageLayoutOrientationOrientationUnspecified
+//	GoogleCloudDocumentaiV1DocumentPageLayoutOrientationPageUp
+//	GoogleCloudDocumentaiV1DocumentPageLayoutOrientationPageRight
+//	GoogleCloudDocumentaiV1DocumentPageLayoutOrientationPageDown
+//	GoogleCloudDocumentaiV1DocumentPageLayoutOrientationPageLeft
 type GoogleCloudDocumentaiV1DocumentPageLayoutOrientationInput interface {
 	pulumi.Input
 
@@ -1286,12 +1282,6 @@ func (in *googleCloudDocumentaiV1DocumentPageLayoutOrientationPtr) ToGoogleCloud
 
 func (in *googleCloudDocumentaiV1DocumentPageLayoutOrientationPtr) ToGoogleCloudDocumentaiV1DocumentPageLayoutOrientationPtrOutputWithContext(ctx context.Context) GoogleCloudDocumentaiV1DocumentPageLayoutOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDocumentaiV1DocumentPageLayoutOrientationPtrOutput)
-}
-
-func (in *googleCloudDocumentaiV1DocumentPageLayoutOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDocumentaiV1DocumentPageLayoutOrientation] {
-	return pulumix.Output[*GoogleCloudDocumentaiV1DocumentPageLayoutOrientation]{
-		OutputState: in.ToGoogleCloudDocumentaiV1DocumentPageLayoutOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Detected break type.
@@ -1427,10 +1417,13 @@ func (o GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypePtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeInput is an input type that accepts GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeArgs and GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeInput` via:
+// GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeInput is an input type that accepts values of the GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakType enum
+// A concrete instance of `GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeInput` can be one of the following:
 //
-//	GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeArgs{...}
+//	GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeTypeUnspecified
+//	GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeSpace
+//	GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeWideSpace
+//	GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeHyphen
 type GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypeInput interface {
 	pulumi.Input
 
@@ -1463,12 +1456,6 @@ func (in *googleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypePtr) ToGoogle
 
 func (in *googleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypePtr) ToGoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypePtrOutputWithContext(ctx context.Context) GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypePtrOutput)
-}
-
-func (in *googleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakType] {
-	return pulumix.Output[*GoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakType]{
-		OutputState: in.ToGoogleCloudDocumentaiV1DocumentPageTokenDetectedBreakTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of provenance operation.
@@ -1612,10 +1599,17 @@ func (o GoogleCloudDocumentaiV1DocumentProvenanceTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDocumentaiV1DocumentProvenanceTypeInput is an input type that accepts GoogleCloudDocumentaiV1DocumentProvenanceTypeArgs and GoogleCloudDocumentaiV1DocumentProvenanceTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDocumentaiV1DocumentProvenanceTypeInput` via:
+// GoogleCloudDocumentaiV1DocumentProvenanceTypeInput is an input type that accepts values of the GoogleCloudDocumentaiV1DocumentProvenanceType enum
+// A concrete instance of `GoogleCloudDocumentaiV1DocumentProvenanceTypeInput` can be one of the following:
 //
-//	GoogleCloudDocumentaiV1DocumentProvenanceTypeArgs{...}
+//	GoogleCloudDocumentaiV1DocumentProvenanceTypeOperationTypeUnspecified
+//	GoogleCloudDocumentaiV1DocumentProvenanceTypeAdd
+//	GoogleCloudDocumentaiV1DocumentProvenanceTypeRemove
+//	GoogleCloudDocumentaiV1DocumentProvenanceTypeUpdate
+//	GoogleCloudDocumentaiV1DocumentProvenanceTypeReplace
+//	GoogleCloudDocumentaiV1DocumentProvenanceTypeEvalRequested
+//	GoogleCloudDocumentaiV1DocumentProvenanceTypeEvalApproved
+//	GoogleCloudDocumentaiV1DocumentProvenanceTypeEvalSkipped
 type GoogleCloudDocumentaiV1DocumentProvenanceTypeInput interface {
 	pulumi.Input
 
@@ -1648,12 +1642,6 @@ func (in *googleCloudDocumentaiV1DocumentProvenanceTypePtr) ToGoogleCloudDocumen
 
 func (in *googleCloudDocumentaiV1DocumentProvenanceTypePtr) ToGoogleCloudDocumentaiV1DocumentProvenanceTypePtrOutputWithContext(ctx context.Context) GoogleCloudDocumentaiV1DocumentProvenanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDocumentaiV1DocumentProvenanceTypePtrOutput)
-}
-
-func (in *googleCloudDocumentaiV1DocumentProvenanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDocumentaiV1DocumentProvenanceType] {
-	return pulumix.Output[*GoogleCloudDocumentaiV1DocumentProvenanceType]{
-		OutputState: in.ToGoogleCloudDocumentaiV1DocumentProvenanceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -1789,10 +1777,13 @@ func (o GoogleIamV1AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts GoogleIamV1AuditLogConfigLogTypeArgs and GoogleIamV1AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` via:
+// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts values of the GoogleIamV1AuditLogConfigLogType enum
+// A concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	GoogleIamV1AuditLogConfigLogTypeArgs{...}
+//	GoogleIamV1AuditLogConfigLogTypeLogTypeUnspecified
+//	GoogleIamV1AuditLogConfigLogTypeAdminRead
+//	GoogleIamV1AuditLogConfigLogTypeDataWrite
+//	GoogleIamV1AuditLogConfigLogTypeDataRead
 type GoogleIamV1AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -1825,12 +1816,6 @@ func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTyp
 
 func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) GoogleIamV1AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamV1AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *googleIamV1AuditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamV1AuditLogConfigLogType] {
-	return pulumix.Output[*GoogleIamV1AuditLogConfigLogType]{
-		OutputState: in.ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

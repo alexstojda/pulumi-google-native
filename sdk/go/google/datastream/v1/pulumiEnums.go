@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Compression of the loaded JSON file.
@@ -142,10 +141,12 @@ func (o JsonFileFormatCompressionPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// JsonFileFormatCompressionInput is an input type that accepts JsonFileFormatCompressionArgs and JsonFileFormatCompressionOutput values.
-// You can construct a concrete instance of `JsonFileFormatCompressionInput` via:
+// JsonFileFormatCompressionInput is an input type that accepts values of the JsonFileFormatCompression enum
+// A concrete instance of `JsonFileFormatCompressionInput` can be one of the following:
 //
-//	JsonFileFormatCompressionArgs{...}
+//	JsonFileFormatCompressionJsonCompressionUnspecified
+//	JsonFileFormatCompressionNoCompression
+//	JsonFileFormatCompressionGzip
 type JsonFileFormatCompressionInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *jsonFileFormatCompressionPtr) ToJsonFileFormatCompressionPtrOutput() J
 
 func (in *jsonFileFormatCompressionPtr) ToJsonFileFormatCompressionPtrOutputWithContext(ctx context.Context) JsonFileFormatCompressionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JsonFileFormatCompressionPtrOutput)
-}
-
-func (in *jsonFileFormatCompressionPtr) ToOutput(ctx context.Context) pulumix.Output[*JsonFileFormatCompression] {
-	return pulumix.Output[*JsonFileFormatCompression]{
-		OutputState: in.ToJsonFileFormatCompressionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The schema file format along JSON data files.
@@ -317,10 +312,12 @@ func (o JsonFileFormatSchemaFileFormatPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// JsonFileFormatSchemaFileFormatInput is an input type that accepts JsonFileFormatSchemaFileFormatArgs and JsonFileFormatSchemaFileFormatOutput values.
-// You can construct a concrete instance of `JsonFileFormatSchemaFileFormatInput` via:
+// JsonFileFormatSchemaFileFormatInput is an input type that accepts values of the JsonFileFormatSchemaFileFormat enum
+// A concrete instance of `JsonFileFormatSchemaFileFormatInput` can be one of the following:
 //
-//	JsonFileFormatSchemaFileFormatArgs{...}
+//	JsonFileFormatSchemaFileFormatSchemaFileFormatUnspecified
+//	JsonFileFormatSchemaFileFormatNoSchemaFile
+//	JsonFileFormatSchemaFileFormatAvroSchemaFile
 type JsonFileFormatSchemaFileFormatInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *jsonFileFormatSchemaFileFormatPtr) ToJsonFileFormatSchemaFileFormatPtr
 
 func (in *jsonFileFormatSchemaFileFormatPtr) ToJsonFileFormatSchemaFileFormatPtrOutputWithContext(ctx context.Context) JsonFileFormatSchemaFileFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JsonFileFormatSchemaFileFormatPtrOutput)
-}
-
-func (in *jsonFileFormatSchemaFileFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*JsonFileFormatSchemaFileFormat] {
-	return pulumix.Output[*JsonFileFormatSchemaFileFormat]{
-		OutputState: in.ToJsonFileFormatSchemaFileFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The state of the stream.
@@ -504,10 +495,18 @@ func (o StreamStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// StreamStateEnumInput is an input type that accepts StreamStateEnumArgs and StreamStateEnumOutput values.
-// You can construct a concrete instance of `StreamStateEnumInput` via:
+// StreamStateEnumInput is an input type that accepts values of the StreamStateEnum enum
+// A concrete instance of `StreamStateEnumInput` can be one of the following:
 //
-//	StreamStateEnumArgs{...}
+//	StreamStateEnumStateUnspecified
+//	StreamStateEnumNotStarted
+//	StreamStateEnumRunning
+//	StreamStateEnumPaused
+//	StreamStateEnumMaintenance
+//	StreamStateEnumFailed
+//	StreamStateEnumFailedPermanently
+//	StreamStateEnumStarting
+//	StreamStateEnumDraining
 type StreamStateEnumInput interface {
 	pulumi.Input
 
@@ -540,12 +539,6 @@ func (in *streamStateEnumPtr) ToStreamStateEnumPtrOutput() StreamStateEnumPtrOut
 
 func (in *streamStateEnumPtr) ToStreamStateEnumPtrOutputWithContext(ctx context.Context) StreamStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StreamStateEnumPtrOutput)
-}
-
-func (in *streamStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*StreamStateEnum] {
-	return pulumix.Output[*StreamStateEnum]{
-		OutputState: in.ToStreamStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

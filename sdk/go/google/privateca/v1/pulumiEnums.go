@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. The Tier of this CaPool.
@@ -319,10 +315,12 @@ func (o CaPoolTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// CaPoolTierInput is an input type that accepts CaPoolTierArgs and CaPoolTierOutput values.
-// You can construct a concrete instance of `CaPoolTierInput` via:
+// CaPoolTierInput is an input type that accepts values of the CaPoolTier enum
+// A concrete instance of `CaPoolTierInput` can be one of the following:
 //
-//	CaPoolTierArgs{...}
+//	CaPoolTierTierUnspecified
+//	CaPoolTierEnterprise
+//	CaPoolTierDevops
 type CaPoolTierInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *caPoolTierPtr) ToCaPoolTierPtrOutput() CaPoolTierPtrOutput {
 
 func (in *caPoolTierPtr) ToCaPoolTierPtrOutputWithContext(ctx context.Context) CaPoolTierPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CaPoolTierPtrOutput)
-}
-
-func (in *caPoolTierPtr) ToOutput(ctx context.Context) pulumix.Output[*CaPoolTier] {
-	return pulumix.Output[*CaPoolTier]{
-		OutputState: in.ToCaPoolTierPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. The Type of this CertificateAuthority.
@@ -494,10 +486,12 @@ func (o CertificateAuthorityTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// CertificateAuthorityTypeInput is an input type that accepts CertificateAuthorityTypeArgs and CertificateAuthorityTypeOutput values.
-// You can construct a concrete instance of `CertificateAuthorityTypeInput` via:
+// CertificateAuthorityTypeInput is an input type that accepts values of the CertificateAuthorityType enum
+// A concrete instance of `CertificateAuthorityTypeInput` can be one of the following:
 //
-//	CertificateAuthorityTypeArgs{...}
+//	CertificateAuthorityTypeTypeUnspecified
+//	CertificateAuthorityTypeSelfSigned
+//	CertificateAuthorityTypeSubordinate
 type CertificateAuthorityTypeInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *certificateAuthorityTypePtr) ToCertificateAuthorityTypePtrOutput() Cer
 
 func (in *certificateAuthorityTypePtr) ToCertificateAuthorityTypePtrOutputWithContext(ctx context.Context) CertificateAuthorityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateAuthorityTypePtrOutput)
-}
-
-func (in *certificateAuthorityTypePtr) ToOutput(ctx context.Context) pulumix.Output[*CertificateAuthorityType] {
-	return pulumix.Output[*CertificateAuthorityType]{
-		OutputState: in.ToCertificateAuthorityTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CertificateExtensionConstraintsKnownExtensionsItem string
@@ -676,10 +664,16 @@ func (o CertificateExtensionConstraintsKnownExtensionsItemPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// CertificateExtensionConstraintsKnownExtensionsItemInput is an input type that accepts CertificateExtensionConstraintsKnownExtensionsItemArgs and CertificateExtensionConstraintsKnownExtensionsItemOutput values.
-// You can construct a concrete instance of `CertificateExtensionConstraintsKnownExtensionsItemInput` via:
+// CertificateExtensionConstraintsKnownExtensionsItemInput is an input type that accepts values of the CertificateExtensionConstraintsKnownExtensionsItem enum
+// A concrete instance of `CertificateExtensionConstraintsKnownExtensionsItemInput` can be one of the following:
 //
-//	CertificateExtensionConstraintsKnownExtensionsItemArgs{...}
+//	CertificateExtensionConstraintsKnownExtensionsItemKnownCertificateExtensionUnspecified
+//	CertificateExtensionConstraintsKnownExtensionsItemBaseKeyUsage
+//	CertificateExtensionConstraintsKnownExtensionsItemExtendedKeyUsage
+//	CertificateExtensionConstraintsKnownExtensionsItemCaOptions
+//	CertificateExtensionConstraintsKnownExtensionsItemPolicyIds
+//	CertificateExtensionConstraintsKnownExtensionsItemAiaOcspServers
+//	CertificateExtensionConstraintsKnownExtensionsItemNameConstraints
 type CertificateExtensionConstraintsKnownExtensionsItemInput interface {
 	pulumi.Input
 
@@ -712,12 +706,6 @@ func (in *certificateExtensionConstraintsKnownExtensionsItemPtr) ToCertificateEx
 
 func (in *certificateExtensionConstraintsKnownExtensionsItemPtr) ToCertificateExtensionConstraintsKnownExtensionsItemPtrOutputWithContext(ctx context.Context) CertificateExtensionConstraintsKnownExtensionsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateExtensionConstraintsKnownExtensionsItemPtrOutput)
-}
-
-func (in *certificateExtensionConstraintsKnownExtensionsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*CertificateExtensionConstraintsKnownExtensionsItem] {
-	return pulumix.Output[*CertificateExtensionConstraintsKnownExtensionsItem]{
-		OutputState: in.ToCertificateExtensionConstraintsKnownExtensionsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CertificateExtensionConstraintsKnownExtensionsItemArrayInput is an input type that accepts CertificateExtensionConstraintsKnownExtensionsItemArray and CertificateExtensionConstraintsKnownExtensionsItemArrayOutput values.
@@ -896,10 +884,12 @@ func (o CertificateSubjectModePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// CertificateSubjectModeInput is an input type that accepts CertificateSubjectModeArgs and CertificateSubjectModeOutput values.
-// You can construct a concrete instance of `CertificateSubjectModeInput` via:
+// CertificateSubjectModeInput is an input type that accepts values of the CertificateSubjectMode enum
+// A concrete instance of `CertificateSubjectModeInput` can be one of the following:
 //
-//	CertificateSubjectModeArgs{...}
+//	CertificateSubjectModeSubjectRequestModeUnspecified
+//	CertificateSubjectModeDefault
+//	CertificateSubjectModeReflectedSpiffe
 type CertificateSubjectModeInput interface {
 	pulumi.Input
 
@@ -932,12 +922,6 @@ func (in *certificateSubjectModePtr) ToCertificateSubjectModePtrOutput() Certifi
 
 func (in *certificateSubjectModePtr) ToCertificateSubjectModePtrOutputWithContext(ctx context.Context) CertificateSubjectModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateSubjectModePtrOutput)
-}
-
-func (in *certificateSubjectModePtr) ToOutput(ctx context.Context) pulumix.Output[*CertificateSubjectMode] {
-	return pulumix.Output[*CertificateSubjectMode]{
-		OutputState: in.ToCertificateSubjectModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. A signature algorithm that must be used. If this is omitted, any EC-based signature algorithm will be allowed.
@@ -1073,10 +1057,13 @@ func (o EcKeyTypeSignatureAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// EcKeyTypeSignatureAlgorithmInput is an input type that accepts EcKeyTypeSignatureAlgorithmArgs and EcKeyTypeSignatureAlgorithmOutput values.
-// You can construct a concrete instance of `EcKeyTypeSignatureAlgorithmInput` via:
+// EcKeyTypeSignatureAlgorithmInput is an input type that accepts values of the EcKeyTypeSignatureAlgorithm enum
+// A concrete instance of `EcKeyTypeSignatureAlgorithmInput` can be one of the following:
 //
-//	EcKeyTypeSignatureAlgorithmArgs{...}
+//	EcKeyTypeSignatureAlgorithmEcSignatureAlgorithmUnspecified
+//	EcKeyTypeSignatureAlgorithmEcdsaP256
+//	EcKeyTypeSignatureAlgorithmEcdsaP384
+//	EcKeyTypeSignatureAlgorithmEddsa25519
 type EcKeyTypeSignatureAlgorithmInput interface {
 	pulumi.Input
 
@@ -1109,12 +1096,6 @@ func (in *ecKeyTypeSignatureAlgorithmPtr) ToEcKeyTypeSignatureAlgorithmPtrOutput
 
 func (in *ecKeyTypeSignatureAlgorithmPtr) ToEcKeyTypeSignatureAlgorithmPtrOutputWithContext(ctx context.Context) EcKeyTypeSignatureAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EcKeyTypeSignatureAlgorithmPtrOutput)
-}
-
-func (in *ecKeyTypeSignatureAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*EcKeyTypeSignatureAlgorithm] {
-	return pulumix.Output[*EcKeyTypeSignatureAlgorithm]{
-		OutputState: in.ToEcKeyTypeSignatureAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The algorithm to use for creating a managed Cloud KMS key for a for a simplified experience. All managed keys will be have their ProtectionLevel as `HSM`.
@@ -1260,10 +1241,18 @@ func (o KeyVersionSpecAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyVersionSpecAlgorithmInput is an input type that accepts KeyVersionSpecAlgorithmArgs and KeyVersionSpecAlgorithmOutput values.
-// You can construct a concrete instance of `KeyVersionSpecAlgorithmInput` via:
+// KeyVersionSpecAlgorithmInput is an input type that accepts values of the KeyVersionSpecAlgorithm enum
+// A concrete instance of `KeyVersionSpecAlgorithmInput` can be one of the following:
 //
-//	KeyVersionSpecAlgorithmArgs{...}
+//	KeyVersionSpecAlgorithmSignHashAlgorithmUnspecified
+//	KeyVersionSpecAlgorithmRsaPss2048Sha256
+//	KeyVersionSpecAlgorithmRsaPss3072Sha256
+//	KeyVersionSpecAlgorithmRsaPss4096Sha256
+//	KeyVersionSpecAlgorithmRsaPkcs12048Sha256
+//	KeyVersionSpecAlgorithmRsaPkcs13072Sha256
+//	KeyVersionSpecAlgorithmRsaPkcs14096Sha256
+//	KeyVersionSpecAlgorithmEcP256Sha256
+//	KeyVersionSpecAlgorithmEcP384Sha384
 type KeyVersionSpecAlgorithmInput interface {
 	pulumi.Input
 
@@ -1296,12 +1285,6 @@ func (in *keyVersionSpecAlgorithmPtr) ToKeyVersionSpecAlgorithmPtrOutput() KeyVe
 
 func (in *keyVersionSpecAlgorithmPtr) ToKeyVersionSpecAlgorithmPtrOutputWithContext(ctx context.Context) KeyVersionSpecAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyVersionSpecAlgorithmPtrOutput)
-}
-
-func (in *keyVersionSpecAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*KeyVersionSpecAlgorithm] {
-	return pulumix.Output[*KeyVersionSpecAlgorithm]{
-		OutputState: in.ToKeyVersionSpecAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The format of the public key.
@@ -1433,10 +1416,11 @@ func (o PublicKeyFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublicKeyFormatInput is an input type that accepts PublicKeyFormatArgs and PublicKeyFormatOutput values.
-// You can construct a concrete instance of `PublicKeyFormatInput` via:
+// PublicKeyFormatInput is an input type that accepts values of the PublicKeyFormat enum
+// A concrete instance of `PublicKeyFormatInput` can be one of the following:
 //
-//	PublicKeyFormatArgs{...}
+//	PublicKeyFormatKeyFormatUnspecified
+//	PublicKeyFormatPem
 type PublicKeyFormatInput interface {
 	pulumi.Input
 
@@ -1469,12 +1453,6 @@ func (in *publicKeyFormatPtr) ToPublicKeyFormatPtrOutput() PublicKeyFormatPtrOut
 
 func (in *publicKeyFormatPtr) ToPublicKeyFormatPtrOutputWithContext(ctx context.Context) PublicKeyFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PublicKeyFormatPtrOutput)
-}
-
-func (in *publicKeyFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*PublicKeyFormat] {
-	return pulumix.Output[*PublicKeyFormat]{
-		OutputState: in.ToPublicKeyFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Specifies the encoding format of each CertificateAuthority's CA certificate and CRLs. If this is omitted, CA certificates and CRLs will be published in PEM.
@@ -1608,10 +1586,12 @@ func (o PublishingOptionsEncodingFormatPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublishingOptionsEncodingFormatInput is an input type that accepts PublishingOptionsEncodingFormatArgs and PublishingOptionsEncodingFormatOutput values.
-// You can construct a concrete instance of `PublishingOptionsEncodingFormatInput` via:
+// PublishingOptionsEncodingFormatInput is an input type that accepts values of the PublishingOptionsEncodingFormat enum
+// A concrete instance of `PublishingOptionsEncodingFormatInput` can be one of the following:
 //
-//	PublishingOptionsEncodingFormatArgs{...}
+//	PublishingOptionsEncodingFormatEncodingFormatUnspecified
+//	PublishingOptionsEncodingFormatPem
+//	PublishingOptionsEncodingFormatDer
 type PublishingOptionsEncodingFormatInput interface {
 	pulumi.Input
 
@@ -1644,12 +1624,6 @@ func (in *publishingOptionsEncodingFormatPtr) ToPublishingOptionsEncodingFormatP
 
 func (in *publishingOptionsEncodingFormatPtr) ToPublishingOptionsEncodingFormatPtrOutputWithContext(ctx context.Context) PublishingOptionsEncodingFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PublishingOptionsEncodingFormatPtrOutput)
-}
-
-func (in *publishingOptionsEncodingFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*PublishingOptionsEncodingFormat] {
-	return pulumix.Output[*PublishingOptionsEncodingFormat]{
-		OutputState: in.ToPublishingOptionsEncodingFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

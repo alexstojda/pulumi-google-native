@@ -18,6 +18,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/url"
 	"os"
 	"path"
@@ -286,6 +287,7 @@ func PulumiSchema() (*schema.PackageSpec, *resources.CloudAPIMetadata, error) {
 		"importBasePath":               goBasePath,
 		"packageImportAliases":         golangImportAliases,
 		"liftSingleValueMethodReturns": true,
+		"respectSchemaVersion":         true,
 	})
 	pkg.Language["nodejs"] = rawMessage(map[string]interface{}{
 		"dependencies": map[string]string{
@@ -296,6 +298,7 @@ programs. This provider uses the Google Cloud REST API directly and therefore pr
 The provider is currently in public preview and is not recommended for production deployments yet. Breaking changes
 will be introduced in minor version releases.`,
 		"liftSingleValueMethodReturns": true,
+		"respectSchemaVersion":         true,
 	})
 
 	pkg.Language["python"] = rawMessage(map[string]interface{}{
@@ -312,6 +315,7 @@ will be introduced in minor version releases.`,
 		"pyproject": map[string]bool{
 			"enabled": true,
 		},
+		"respectSchemaVersion": true,
 	})
 
 	pkg.Language["csharp"] = rawMessage(map[string]interface{}{
@@ -320,11 +324,13 @@ will be introduced in minor version releases.`,
 		},
 		"namespaces":                   csharpNamespaces,
 		"liftSingleValueMethodReturns": true,
+		"respectSchemaVersion":         true,
 	})
 
 	pkg.Language["java"] = rawMessage(map[string]interface{}{
 		"packages":                     javaPackages,
 		"liftSingleValueMethodReturns": true,
+		"respectSchemaVersion":         true,
 	})
 
 	return &pkg, &metadata, nil
@@ -1244,6 +1250,15 @@ func (g *packageGenerator) genProperties(typeName string, typeSchema *discovery.
 		properties:    map[string]resources.CloudAPIProperty{},
 	}
 	for _, name := range codegen.SortedKeys(typeSchema.Properties) {
+		// Consult the unsupported properties map to see if we should
+		// skip this property altogether.
+		if overrides, ok := unsupportedPropertiesOverrides[typeName]; ok {
+			if contains(overrides, name) {
+				log.Printf("Skipping unsupported property %s in type %s", name, typeName)
+				continue
+			}
+		}
+
 		value := typeSchema.Properties[name]
 		sdkName := apiPropNameToSdkName(typeName, name)
 
@@ -1386,6 +1401,54 @@ func (g *packageGenerator) genTypeSpec(typeName, propName string, prop *discover
 			Type: "object",
 			Ref:  referencedTypeName,
 		}, nil
+	case prop.Type == "object" && prop.AdditionalProperties != nil:
+		// The prop is a map with a string key and a simple value
+		// if it doesn't have a ref.
+		if prop.AdditionalProperties.Ref == "" {
+			switch prop.AdditionalProperties.Type {
+			case "any":
+				return &schema.TypeSpec{
+					Type:                 "object",
+					AdditionalProperties: &schema.TypeSpec{Ref: "pulumi.json#/Any"},
+				}, nil
+			case "array":
+				typeSpec, err := g.genTypeSpec(propName, propName, prop.AdditionalProperties.Items, isOutput)
+				if err != nil {
+					return nil, err
+				}
+
+				return &schema.TypeSpec{
+					Type: "object",
+					AdditionalProperties: &schema.TypeSpec{
+						Type:  "array",
+						Items: typeSpec,
+					},
+				}, nil
+			case "nil":
+				return nil, errors.New(fmt.Sprintf("nil is not a valid array element type: %v", prop))
+			case "object":
+				return nil, errors.New(fmt.Sprintf("object is not a valid array element type: %v", prop))
+			default:
+				return &schema.TypeSpec{
+					Type: "object",
+					AdditionalProperties: &schema.TypeSpec{
+						Type: prop.AdditionalProperties.Type,
+					},
+				}, nil
+			}
+		}
+
+		// Otherwise, the value in-turn is a complex type.
+		typePropName := fmt.Sprintf(`%s%s`, typeName, ToUpperCamel(propName))
+		refTypeSpec, err := g.genTypeSpec(typePropName, propName, prop.AdditionalProperties, isOutput)
+		if err != nil {
+			return nil, errors.New(fmt.Sprintf("error generating type spec for $ref in additional properties %v", err))
+		}
+
+		return &schema.TypeSpec{
+			Type:                 "object",
+			AdditionalProperties: refTypeSpec,
+		}, nil
 	case len(prop.Enum) > 0 && !isOutput:
 		return g.genEnumType(typeName, propName, prop)
 	case prop.Type != "":
@@ -1519,7 +1582,7 @@ func isDeprecated(description string) bool {
 
 // isRequired returns true if the property or a parameter indicates that it is required.
 func isRequired(parameter discovery.JsonSchema) bool {
-	if parameter.Required == true {
+	if parameter.Required {
 		return true
 	}
 	return strings.HasPrefix(parameter.Description, "Required.")

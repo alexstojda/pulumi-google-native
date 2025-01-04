@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The policy of the feature.
@@ -144,10 +143,13 @@ func (o GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicy
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyInput is an input type that accepts GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyArgs and GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyOutput values.
-// You can construct a concrete instance of `GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyInput` via:
+// GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyInput is an input type that accepts values of the GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicy enum
+// A concrete instance of `GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyInput` can be one of the following:
 //
-//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyArgs{...}
+//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyPolicyUnspecified
+//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyAllowed
+//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyForbidden
+//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyRestricted
 type GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *googleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePoli
 
 func (in *googleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyPtr) ToGoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyPtrOutputWithContext(ctx context.Context) GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyPtrOutput)
-}
-
-func (in *googleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicy] {
-	return pulumix.Output[*GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicy]{
-		OutputState: in.ToGoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyFeaturePolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // linux_isolation allows overriding the docker runtime used for containers started on Linux.
@@ -319,10 +315,12 @@ func (o GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolatio
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationInput is an input type that accepts GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationArgs and GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationOutput values.
-// You can construct a concrete instance of `GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationInput` via:
+// GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationInput is an input type that accepts values of the GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolation enum
+// A concrete instance of `GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationInput` can be one of the following:
 //
-//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationArgs{...}
+//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationLinuxIsolationUnspecified
+//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationGvisor
+//	GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationOff
 type GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *googleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolat
 
 func (in *googleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationPtr) ToGoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationPtrOutputWithContext(ctx context.Context) GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationPtrOutput)
-}
-
-func (in *googleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolation] {
-	return pulumix.Output[*GoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolation]{
-		OutputState: in.ToGoogleDevtoolsRemotebuildexecutionAdminV1alphaFeaturePolicyLinuxIsolationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

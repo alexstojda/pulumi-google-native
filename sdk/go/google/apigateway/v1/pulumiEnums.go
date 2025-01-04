@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o ApigatewayAuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApigatewayAuditLogConfigLogTypeInput is an input type that accepts ApigatewayAuditLogConfigLogTypeArgs and ApigatewayAuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `ApigatewayAuditLogConfigLogTypeInput` via:
+// ApigatewayAuditLogConfigLogTypeInput is an input type that accepts values of the ApigatewayAuditLogConfigLogType enum
+// A concrete instance of `ApigatewayAuditLogConfigLogTypeInput` can be one of the following:
 //
-//	ApigatewayAuditLogConfigLogTypeArgs{...}
+//	ApigatewayAuditLogConfigLogTypeLogTypeUnspecified
+//	ApigatewayAuditLogConfigLogTypeAdminRead
+//	ApigatewayAuditLogConfigLogTypeDataWrite
+//	ApigatewayAuditLogConfigLogTypeDataRead
 type ApigatewayAuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *apigatewayAuditLogConfigLogTypePtr) ToApigatewayAuditLogConfigLogTypeP
 
 func (in *apigatewayAuditLogConfigLogTypePtr) ToApigatewayAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) ApigatewayAuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApigatewayAuditLogConfigLogTypePtrOutput)
-}
-
-func (in *apigatewayAuditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ApigatewayAuditLogConfigLogType] {
-	return pulumix.Output[*ApigatewayAuditLogConfigLogType]{
-		OutputState: in.ToApigatewayAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

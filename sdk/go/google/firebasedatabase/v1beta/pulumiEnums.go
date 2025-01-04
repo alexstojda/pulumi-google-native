@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Immutable. The database instance type. On creation only USER_DATABASE is allowed, which is also the default when omitted.
@@ -142,10 +141,12 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
-// You can construct a concrete instance of `InstanceTypeInput` via:
+// InstanceTypeInput is an input type that accepts values of the InstanceType enum
+// A concrete instance of `InstanceTypeInput` can be one of the following:
 //
-//	InstanceTypeArgs{...}
+//	InstanceTypeDatabaseInstanceTypeUnspecified
+//	InstanceTypeDefaultDatabase
+//	InstanceTypeUserDatabase
 type InstanceTypeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *instanceTypePtr) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (in *instanceTypePtr) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceTypePtrOutput)
-}
-
-func (in *instanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceType] {
-	return pulumix.Output[*InstanceType]{
-		OutputState: in.ToInstanceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

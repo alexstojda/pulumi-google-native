@@ -173,7 +173,7 @@ class GetTransferConfigResult:
 
     @property
     @pulumi.getter
-    def params(self) -> Mapping[str, str]:
+    def params(self) -> Mapping[str, Any]:
         """
         Parameters specific to each data source. For more information see the bq tab in the 'Setting up a data transfer' section for each data source. For example the parameters for Cloud Storage transfers are listed here: https://cloud.google.com/bigquery-transfer/docs/cloud-storage-transfer#bq
         """
@@ -213,13 +213,11 @@ class GetTransferConfigResult:
 
     @property
     @pulumi.getter(name="userId")
+    @_utilities.deprecated("""Deprecated. Unique ID of the user on whose behalf transfer is done.""")
     def user_id(self) -> str:
         """
         Deprecated. Unique ID of the user on whose behalf transfer is done.
         """
-        warnings.warn("""Deprecated. Unique ID of the user on whose behalf transfer is done.""", DeprecationWarning)
-        pulumi.log.warn("""user_id is deprecated: Deprecated. Unique ID of the user on whose behalf transfer is done.""")
-
         return pulumi.get(self, "user_id")
 
 

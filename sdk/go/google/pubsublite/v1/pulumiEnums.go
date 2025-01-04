@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The DeliveryRequirement for this subscription.
@@ -142,10 +141,12 @@ func (o DeliveryConfigDeliveryRequirementPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeliveryConfigDeliveryRequirementInput is an input type that accepts DeliveryConfigDeliveryRequirementArgs and DeliveryConfigDeliveryRequirementOutput values.
-// You can construct a concrete instance of `DeliveryConfigDeliveryRequirementInput` via:
+// DeliveryConfigDeliveryRequirementInput is an input type that accepts values of the DeliveryConfigDeliveryRequirement enum
+// A concrete instance of `DeliveryConfigDeliveryRequirementInput` can be one of the following:
 //
-//	DeliveryConfigDeliveryRequirementArgs{...}
+//	DeliveryConfigDeliveryRequirementDeliveryRequirementUnspecified
+//	DeliveryConfigDeliveryRequirementDeliverImmediately
+//	DeliveryConfigDeliveryRequirementDeliverAfterStored
 type DeliveryConfigDeliveryRequirementInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *deliveryConfigDeliveryRequirementPtr) ToDeliveryConfigDeliveryRequirem
 
 func (in *deliveryConfigDeliveryRequirementPtr) ToDeliveryConfigDeliveryRequirementPtrOutputWithContext(ctx context.Context) DeliveryConfigDeliveryRequirementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeliveryConfigDeliveryRequirementPtrOutput)
-}
-
-func (in *deliveryConfigDeliveryRequirementPtr) ToOutput(ctx context.Context) pulumix.Output[*DeliveryConfigDeliveryRequirement] {
-	return pulumix.Output[*DeliveryConfigDeliveryRequirement]{
-		OutputState: in.ToDeliveryConfigDeliveryRequirementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The desired state of this export. Setting this to values other than `ACTIVE` and `PAUSED` will result in an error.
@@ -321,10 +316,14 @@ func (o ExportConfigDesiredStatePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExportConfigDesiredStateInput is an input type that accepts ExportConfigDesiredStateArgs and ExportConfigDesiredStateOutput values.
-// You can construct a concrete instance of `ExportConfigDesiredStateInput` via:
+// ExportConfigDesiredStateInput is an input type that accepts values of the ExportConfigDesiredState enum
+// A concrete instance of `ExportConfigDesiredStateInput` can be one of the following:
 //
-//	ExportConfigDesiredStateArgs{...}
+//	ExportConfigDesiredStateStateUnspecified
+//	ExportConfigDesiredStateActive
+//	ExportConfigDesiredStatePaused
+//	ExportConfigDesiredStatePermissionDenied
+//	ExportConfigDesiredStateNotFound
 type ExportConfigDesiredStateInput interface {
 	pulumi.Input
 
@@ -357,12 +356,6 @@ func (in *exportConfigDesiredStatePtr) ToExportConfigDesiredStatePtrOutput() Exp
 
 func (in *exportConfigDesiredStatePtr) ToExportConfigDesiredStatePtrOutputWithContext(ctx context.Context) ExportConfigDesiredStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExportConfigDesiredStatePtrOutput)
-}
-
-func (in *exportConfigDesiredStatePtr) ToOutput(ctx context.Context) pulumix.Output[*ExportConfigDesiredState] {
-	return pulumix.Output[*ExportConfigDesiredState]{
-		OutputState: in.ToExportConfigDesiredStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

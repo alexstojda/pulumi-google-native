@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Optional. The type of IPv6 access for a cluster.
@@ -144,10 +143,13 @@ func (o GceClusterConfigPrivateIpv6GoogleAccessPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// GceClusterConfigPrivateIpv6GoogleAccessInput is an input type that accepts GceClusterConfigPrivateIpv6GoogleAccessArgs and GceClusterConfigPrivateIpv6GoogleAccessOutput values.
-// You can construct a concrete instance of `GceClusterConfigPrivateIpv6GoogleAccessInput` via:
+// GceClusterConfigPrivateIpv6GoogleAccessInput is an input type that accepts values of the GceClusterConfigPrivateIpv6GoogleAccess enum
+// A concrete instance of `GceClusterConfigPrivateIpv6GoogleAccessInput` can be one of the following:
 //
-//	GceClusterConfigPrivateIpv6GoogleAccessArgs{...}
+//	GceClusterConfigPrivateIpv6GoogleAccessPrivateIpv6GoogleAccessUnspecified
+//	GceClusterConfigPrivateIpv6GoogleAccessInheritFromSubnetwork
+//	GceClusterConfigPrivateIpv6GoogleAccessOutbound
+//	GceClusterConfigPrivateIpv6GoogleAccessBidirectional
 type GceClusterConfigPrivateIpv6GoogleAccessInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *gceClusterConfigPrivateIpv6GoogleAccessPtr) ToGceClusterConfigPrivateI
 
 func (in *gceClusterConfigPrivateIpv6GoogleAccessPtr) ToGceClusterConfigPrivateIpv6GoogleAccessPtrOutputWithContext(ctx context.Context) GceClusterConfigPrivateIpv6GoogleAccessPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GceClusterConfigPrivateIpv6GoogleAccessPtrOutput)
-}
-
-func (in *gceClusterConfigPrivateIpv6GoogleAccessPtr) ToOutput(ctx context.Context) pulumix.Output[*GceClusterConfigPrivateIpv6GoogleAccess] {
-	return pulumix.Output[*GceClusterConfigPrivateIpv6GoogleAccess]{
-		OutputState: in.ToGceClusterConfigPrivateIpv6GoogleAccessPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GkeNodePoolTargetRolesItem string
@@ -322,10 +318,14 @@ func (o GkeNodePoolTargetRolesItemPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// GkeNodePoolTargetRolesItemInput is an input type that accepts GkeNodePoolTargetRolesItemArgs and GkeNodePoolTargetRolesItemOutput values.
-// You can construct a concrete instance of `GkeNodePoolTargetRolesItemInput` via:
+// GkeNodePoolTargetRolesItemInput is an input type that accepts values of the GkeNodePoolTargetRolesItem enum
+// A concrete instance of `GkeNodePoolTargetRolesItemInput` can be one of the following:
 //
-//	GkeNodePoolTargetRolesItemArgs{...}
+//	GkeNodePoolTargetRolesItemRoleUnspecified
+//	GkeNodePoolTargetRolesItemDefault
+//	GkeNodePoolTargetRolesItemController
+//	GkeNodePoolTargetRolesItemSparkDriver
+//	GkeNodePoolTargetRolesItemSparkExecutor
 type GkeNodePoolTargetRolesItemInput interface {
 	pulumi.Input
 
@@ -358,12 +358,6 @@ func (in *gkeNodePoolTargetRolesItemPtr) ToGkeNodePoolTargetRolesItemPtrOutput()
 
 func (in *gkeNodePoolTargetRolesItemPtr) ToGkeNodePoolTargetRolesItemPtrOutputWithContext(ctx context.Context) GkeNodePoolTargetRolesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GkeNodePoolTargetRolesItemPtrOutput)
-}
-
-func (in *gkeNodePoolTargetRolesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GkeNodePoolTargetRolesItem] {
-	return pulumix.Output[*GkeNodePoolTargetRolesItem]{
-		OutputState: in.ToGkeNodePoolTargetRolesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GkeNodePoolTargetRolesItemArrayInput is an input type that accepts GkeNodePoolTargetRolesItemArray and GkeNodePoolTargetRolesItemArrayOutput values.
@@ -544,10 +538,13 @@ func (o InstanceGroupConfigPreemptibilityPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceGroupConfigPreemptibilityInput is an input type that accepts InstanceGroupConfigPreemptibilityArgs and InstanceGroupConfigPreemptibilityOutput values.
-// You can construct a concrete instance of `InstanceGroupConfigPreemptibilityInput` via:
+// InstanceGroupConfigPreemptibilityInput is an input type that accepts values of the InstanceGroupConfigPreemptibility enum
+// A concrete instance of `InstanceGroupConfigPreemptibilityInput` can be one of the following:
 //
-//	InstanceGroupConfigPreemptibilityArgs{...}
+//	InstanceGroupConfigPreemptibilityPreemptibilityUnspecified
+//	InstanceGroupConfigPreemptibilityNonPreemptible
+//	InstanceGroupConfigPreemptibilityPreemptible
+//	InstanceGroupConfigPreemptibilitySpot
 type InstanceGroupConfigPreemptibilityInput interface {
 	pulumi.Input
 
@@ -580,12 +577,6 @@ func (in *instanceGroupConfigPreemptibilityPtr) ToInstanceGroupConfigPreemptibil
 
 func (in *instanceGroupConfigPreemptibilityPtr) ToInstanceGroupConfigPreemptibilityPtrOutputWithContext(ctx context.Context) InstanceGroupConfigPreemptibilityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceGroupConfigPreemptibilityPtrOutput)
-}
-
-func (in *instanceGroupConfigPreemptibilityPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceGroupConfigPreemptibility] {
-	return pulumix.Output[*InstanceGroupConfigPreemptibility]{
-		OutputState: in.ToInstanceGroupConfigPreemptibilityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Kernel
@@ -719,10 +710,12 @@ func (o JupyterConfigKernelPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// JupyterConfigKernelInput is an input type that accepts JupyterConfigKernelArgs and JupyterConfigKernelOutput values.
-// You can construct a concrete instance of `JupyterConfigKernelInput` via:
+// JupyterConfigKernelInput is an input type that accepts values of the JupyterConfigKernel enum
+// A concrete instance of `JupyterConfigKernelInput` can be one of the following:
 //
-//	JupyterConfigKernelArgs{...}
+//	JupyterConfigKernelKernelUnspecified
+//	JupyterConfigKernelPython
+//	JupyterConfigKernelScala
 type JupyterConfigKernelInput interface {
 	pulumi.Input
 
@@ -755,12 +748,6 @@ func (in *jupyterConfigKernelPtr) ToJupyterConfigKernelPtrOutput() JupyterConfig
 
 func (in *jupyterConfigKernelPtr) ToJupyterConfigKernelPtrOutputWithContext(ctx context.Context) JupyterConfigKernelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JupyterConfigKernelPtrOutput)
-}
-
-func (in *jupyterConfigKernelPtr) ToOutput(ctx context.Context) pulumix.Output[*JupyterConfigKernel] {
-	return pulumix.Output[*JupyterConfigKernel]{
-		OutputState: in.ToJupyterConfigKernelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. A standard set of metrics is collected unless metricOverrides are specified for the metric source (see Custom metrics (https://cloud.google.com/dataproc/docs/guides/dataproc-metrics#custom_metrics) for more information).
@@ -906,10 +893,18 @@ func (o MetricMetricSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricMetricSourceInput is an input type that accepts MetricMetricSourceArgs and MetricMetricSourceOutput values.
-// You can construct a concrete instance of `MetricMetricSourceInput` via:
+// MetricMetricSourceInput is an input type that accepts values of the MetricMetricSource enum
+// A concrete instance of `MetricMetricSourceInput` can be one of the following:
 //
-//	MetricMetricSourceArgs{...}
+//	MetricMetricSourceMetricSourceUnspecified
+//	MetricMetricSourceMonitoringAgentDefaults
+//	MetricMetricSourceHdfs
+//	MetricMetricSourceSpark
+//	MetricMetricSourceYarn
+//	MetricMetricSourceSparkHistoryServer
+//	MetricMetricSourceHiveserver2
+//	MetricMetricSourceHivemetastore
+//	MetricMetricSourceFlink
 type MetricMetricSourceInput interface {
 	pulumi.Input
 
@@ -942,12 +937,6 @@ func (in *metricMetricSourcePtr) ToMetricMetricSourcePtrOutput() MetricMetricSou
 
 func (in *metricMetricSourcePtr) ToMetricMetricSourcePtrOutputWithContext(ctx context.Context) MetricMetricSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricMetricSourcePtrOutput)
-}
-
-func (in *metricMetricSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricMetricSource] {
-	return pulumix.Output[*MetricMetricSource]{
-		OutputState: in.ToMetricMetricSourcePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type NodeGroupRolesItem string
@@ -1078,10 +1067,11 @@ func (o NodeGroupRolesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// NodeGroupRolesItemInput is an input type that accepts NodeGroupRolesItemArgs and NodeGroupRolesItemOutput values.
-// You can construct a concrete instance of `NodeGroupRolesItemInput` via:
+// NodeGroupRolesItemInput is an input type that accepts values of the NodeGroupRolesItem enum
+// A concrete instance of `NodeGroupRolesItemInput` can be one of the following:
 //
-//	NodeGroupRolesItemArgs{...}
+//	NodeGroupRolesItemRoleUnspecified
+//	NodeGroupRolesItemDriver
 type NodeGroupRolesItemInput interface {
 	pulumi.Input
 
@@ -1114,12 +1104,6 @@ func (in *nodeGroupRolesItemPtr) ToNodeGroupRolesItemPtrOutput() NodeGroupRolesI
 
 func (in *nodeGroupRolesItemPtr) ToNodeGroupRolesItemPtrOutputWithContext(ctx context.Context) NodeGroupRolesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NodeGroupRolesItemPtrOutput)
-}
-
-func (in *nodeGroupRolesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*NodeGroupRolesItem] {
-	return pulumix.Output[*NodeGroupRolesItem]{
-		OutputState: in.ToNodeGroupRolesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NodeGroupRolesItemArrayInput is an input type that accepts NodeGroupRolesItemArray and NodeGroupRolesItemArrayOutput values.
@@ -1299,10 +1283,13 @@ func (o ReservationAffinityConsumeReservationTypePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReservationAffinityConsumeReservationTypeInput is an input type that accepts ReservationAffinityConsumeReservationTypeArgs and ReservationAffinityConsumeReservationTypeOutput values.
-// You can construct a concrete instance of `ReservationAffinityConsumeReservationTypeInput` via:
+// ReservationAffinityConsumeReservationTypeInput is an input type that accepts values of the ReservationAffinityConsumeReservationType enum
+// A concrete instance of `ReservationAffinityConsumeReservationTypeInput` can be one of the following:
 //
-//	ReservationAffinityConsumeReservationTypeArgs{...}
+//	ReservationAffinityConsumeReservationTypeTypeUnspecified
+//	ReservationAffinityConsumeReservationTypeNoReservation
+//	ReservationAffinityConsumeReservationTypeAnyReservation
+//	ReservationAffinityConsumeReservationTypeSpecificReservation
 type ReservationAffinityConsumeReservationTypeInput interface {
 	pulumi.Input
 
@@ -1335,12 +1322,6 @@ func (in *reservationAffinityConsumeReservationTypePtr) ToReservationAffinityCon
 
 func (in *reservationAffinityConsumeReservationTypePtr) ToReservationAffinityConsumeReservationTypePtrOutputWithContext(ctx context.Context) ReservationAffinityConsumeReservationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReservationAffinityConsumeReservationTypePtrOutput)
-}
-
-func (in *reservationAffinityConsumeReservationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ReservationAffinityConsumeReservationType] {
-	return pulumix.Output[*ReservationAffinityConsumeReservationType]{
-		OutputState: in.ToReservationAffinityConsumeReservationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type SoftwareConfigOptionalComponentsItem string
@@ -1497,10 +1478,24 @@ func (o SoftwareConfigOptionalComponentsItemPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SoftwareConfigOptionalComponentsItemInput is an input type that accepts SoftwareConfigOptionalComponentsItemArgs and SoftwareConfigOptionalComponentsItemOutput values.
-// You can construct a concrete instance of `SoftwareConfigOptionalComponentsItemInput` via:
+// SoftwareConfigOptionalComponentsItemInput is an input type that accepts values of the SoftwareConfigOptionalComponentsItem enum
+// A concrete instance of `SoftwareConfigOptionalComponentsItemInput` can be one of the following:
 //
-//	SoftwareConfigOptionalComponentsItemArgs{...}
+//	SoftwareConfigOptionalComponentsItemComponentUnspecified
+//	SoftwareConfigOptionalComponentsItemAnaconda
+//	SoftwareConfigOptionalComponentsItemDocker
+//	SoftwareConfigOptionalComponentsItemDruid
+//	SoftwareConfigOptionalComponentsItemFlink
+//	SoftwareConfigOptionalComponentsItemHbase
+//	SoftwareConfigOptionalComponentsItemHiveWebhcat
+//	SoftwareConfigOptionalComponentsItemHudi
+//	SoftwareConfigOptionalComponentsItemJupyter
+//	SoftwareConfigOptionalComponentsItemPresto
+//	SoftwareConfigOptionalComponentsItemTrino
+//	SoftwareConfigOptionalComponentsItemRanger
+//	SoftwareConfigOptionalComponentsItemSolr
+//	SoftwareConfigOptionalComponentsItemZeppelin
+//	SoftwareConfigOptionalComponentsItemZookeeper
 type SoftwareConfigOptionalComponentsItemInput interface {
 	pulumi.Input
 
@@ -1533,12 +1528,6 @@ func (in *softwareConfigOptionalComponentsItemPtr) ToSoftwareConfigOptionalCompo
 
 func (in *softwareConfigOptionalComponentsItemPtr) ToSoftwareConfigOptionalComponentsItemPtrOutputWithContext(ctx context.Context) SoftwareConfigOptionalComponentsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SoftwareConfigOptionalComponentsItemPtrOutput)
-}
-
-func (in *softwareConfigOptionalComponentsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*SoftwareConfigOptionalComponentsItem] {
-	return pulumix.Output[*SoftwareConfigOptionalComponentsItem]{
-		OutputState: in.ToSoftwareConfigOptionalComponentsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SoftwareConfigOptionalComponentsItemArrayInput is an input type that accepts SoftwareConfigOptionalComponentsItemArray and SoftwareConfigOptionalComponentsItemArrayOutput values.

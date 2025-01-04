@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The logic operator of the sub filter.
@@ -141,10 +140,12 @@ func (o CompositeFilterLogicOperatorPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// CompositeFilterLogicOperatorInput is an input type that accepts CompositeFilterLogicOperatorArgs and CompositeFilterLogicOperatorOutput values.
-// You can construct a concrete instance of `CompositeFilterLogicOperatorInput` via:
+// CompositeFilterLogicOperatorInput is an input type that accepts values of the CompositeFilterLogicOperator enum
+// A concrete instance of `CompositeFilterLogicOperatorInput` can be one of the following:
 //
-//	CompositeFilterLogicOperatorArgs{...}
+//	CompositeFilterLogicOperatorAnd
+//	CompositeFilterLogicOperatorOr
+//	CompositeFilterLogicOperatorNot
 type CompositeFilterLogicOperatorInput interface {
 	pulumi.Input
 
@@ -177,12 +178,6 @@ func (in *compositeFilterLogicOperatorPtr) ToCompositeFilterLogicOperatorPtrOutp
 
 func (in *compositeFilterLogicOperatorPtr) ToCompositeFilterLogicOperatorPtrOutputWithContext(ctx context.Context) CompositeFilterLogicOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CompositeFilterLogicOperatorPtrOutput)
-}
-
-func (in *compositeFilterLogicOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*CompositeFilterLogicOperator] {
-	return pulumix.Output[*CompositeFilterLogicOperator]{
-		OutputState: in.ToCompositeFilterLogicOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Ascending is the default sort order
@@ -312,10 +307,11 @@ func (o SortOptionsSortOrderPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// SortOptionsSortOrderInput is an input type that accepts SortOptionsSortOrderArgs and SortOptionsSortOrderOutput values.
-// You can construct a concrete instance of `SortOptionsSortOrderInput` via:
+// SortOptionsSortOrderInput is an input type that accepts values of the SortOptionsSortOrder enum
+// A concrete instance of `SortOptionsSortOrderInput` can be one of the following:
 //
-//	SortOptionsSortOrderArgs{...}
+//	SortOptionsSortOrderAscending
+//	SortOptionsSortOrderDescending
 type SortOptionsSortOrderInput interface {
 	pulumi.Input
 
@@ -348,12 +344,6 @@ func (in *sortOptionsSortOrderPtr) ToSortOptionsSortOrderPtrOutput() SortOptions
 
 func (in *sortOptionsSortOrderPtr) ToSortOptionsSortOrderPtrOutputWithContext(ctx context.Context) SortOptionsSortOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SortOptionsSortOrderPtrOutput)
-}
-
-func (in *sortOptionsSortOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*SortOptionsSortOrder] {
-	return pulumix.Output[*SortOptionsSortOrder]{
-		OutputState: in.ToSortOptionsSortOrderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Predefined content source for Google Apps.
@@ -492,10 +482,18 @@ func (o SourcePredefinedSourcePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// SourcePredefinedSourceInput is an input type that accepts SourcePredefinedSourceArgs and SourcePredefinedSourceOutput values.
-// You can construct a concrete instance of `SourcePredefinedSourceInput` via:
+// SourcePredefinedSourceInput is an input type that accepts values of the SourcePredefinedSource enum
+// A concrete instance of `SourcePredefinedSourceInput` can be one of the following:
 //
-//	SourcePredefinedSourceArgs{...}
+//	SourcePredefinedSourceNone
+//	SourcePredefinedSourceQueryHistory
+//	SourcePredefinedSourcePerson
+//	SourcePredefinedSourceGoogleDrive
+//	SourcePredefinedSourceGoogleGmail
+//	SourcePredefinedSourceGoogleSites
+//	SourcePredefinedSourceGoogleGroups
+//	SourcePredefinedSourceGoogleCalendar
+//	SourcePredefinedSourceGoogleKeep
 type SourcePredefinedSourceInput interface {
 	pulumi.Input
 
@@ -528,12 +526,6 @@ func (in *sourcePredefinedSourcePtr) ToSourcePredefinedSourcePtrOutput() SourceP
 
 func (in *sourcePredefinedSourcePtr) ToSourcePredefinedSourcePtrOutputWithContext(ctx context.Context) SourcePredefinedSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SourcePredefinedSourcePtrOutput)
-}
-
-func (in *sourcePredefinedSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*SourcePredefinedSource] {
-	return pulumix.Output[*SourcePredefinedSource]{
-		OutputState: in.ToSourcePredefinedSourcePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Importance of the source.
@@ -664,10 +656,12 @@ func (o SourceScoringConfigSourceImportancePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SourceScoringConfigSourceImportanceInput is an input type that accepts SourceScoringConfigSourceImportanceArgs and SourceScoringConfigSourceImportanceOutput values.
-// You can construct a concrete instance of `SourceScoringConfigSourceImportanceInput` via:
+// SourceScoringConfigSourceImportanceInput is an input type that accepts values of the SourceScoringConfigSourceImportance enum
+// A concrete instance of `SourceScoringConfigSourceImportanceInput` can be one of the following:
 //
-//	SourceScoringConfigSourceImportanceArgs{...}
+//	SourceScoringConfigSourceImportanceDefault
+//	SourceScoringConfigSourceImportanceLow
+//	SourceScoringConfigSourceImportanceHigh
 type SourceScoringConfigSourceImportanceInput interface {
 	pulumi.Input
 
@@ -700,12 +694,6 @@ func (in *sourceScoringConfigSourceImportancePtr) ToSourceScoringConfigSourceImp
 
 func (in *sourceScoringConfigSourceImportancePtr) ToSourceScoringConfigSourceImportancePtrOutputWithContext(ctx context.Context) SourceScoringConfigSourceImportancePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SourceScoringConfigSourceImportancePtrOutput)
-}
-
-func (in *sourceScoringConfigSourceImportancePtr) ToOutput(ctx context.Context) pulumix.Output[*SourceScoringConfigSourceImportance] {
-	return pulumix.Output[*SourceScoringConfigSourceImportance]{
-		OutputState: in.ToSourceScoringConfigSourceImportancePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

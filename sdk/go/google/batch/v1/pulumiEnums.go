@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The provisioning model.
@@ -144,10 +143,13 @@ func (o InstancePolicyProvisioningModelPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstancePolicyProvisioningModelInput is an input type that accepts InstancePolicyProvisioningModelArgs and InstancePolicyProvisioningModelOutput values.
-// You can construct a concrete instance of `InstancePolicyProvisioningModelInput` via:
+// InstancePolicyProvisioningModelInput is an input type that accepts values of the InstancePolicyProvisioningModel enum
+// A concrete instance of `InstancePolicyProvisioningModelInput` can be one of the following:
 //
-//	InstancePolicyProvisioningModelArgs{...}
+//	InstancePolicyProvisioningModelProvisioningModelUnspecified
+//	InstancePolicyProvisioningModelStandard
+//	InstancePolicyProvisioningModelSpot
+//	InstancePolicyProvisioningModelPreemptible
 type InstancePolicyProvisioningModelInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *instancePolicyProvisioningModelPtr) ToInstancePolicyProvisioningModelP
 
 func (in *instancePolicyProvisioningModelPtr) ToInstancePolicyProvisioningModelPtrOutputWithContext(ctx context.Context) InstancePolicyProvisioningModelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstancePolicyProvisioningModelPtrOutput)
-}
-
-func (in *instancePolicyProvisioningModelPtr) ToOutput(ctx context.Context) pulumix.Output[*InstancePolicyProvisioningModel] {
-	return pulumix.Output[*InstancePolicyProvisioningModel]{
-		OutputState: in.ToInstancePolicyProvisioningModelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Action to execute when ActionCondition is true. When RETRY_TASK is specified, we will retry failed tasks if we notice any exit code match and fail tasks if no match is found. Likewise, when FAIL_TASK is specified, we will fail tasks if we notice any exit code match and retry tasks if no match is found.
@@ -319,10 +315,12 @@ func (o LifecyclePolicyActionPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// LifecyclePolicyActionInput is an input type that accepts LifecyclePolicyActionArgs and LifecyclePolicyActionOutput values.
-// You can construct a concrete instance of `LifecyclePolicyActionInput` via:
+// LifecyclePolicyActionInput is an input type that accepts values of the LifecyclePolicyAction enum
+// A concrete instance of `LifecyclePolicyActionInput` can be one of the following:
 //
-//	LifecyclePolicyActionArgs{...}
+//	LifecyclePolicyActionActionUnspecified
+//	LifecyclePolicyActionRetryTask
+//	LifecyclePolicyActionFailTask
 type LifecyclePolicyActionInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *lifecyclePolicyActionPtr) ToLifecyclePolicyActionPtrOutput() Lifecycle
 
 func (in *lifecyclePolicyActionPtr) ToLifecyclePolicyActionPtrOutputWithContext(ctx context.Context) LifecyclePolicyActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LifecyclePolicyActionPtrOutput)
-}
-
-func (in *lifecyclePolicyActionPtr) ToOutput(ctx context.Context) pulumix.Output[*LifecyclePolicyAction] {
-	return pulumix.Output[*LifecyclePolicyAction]{
-		OutputState: in.ToLifecyclePolicyActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Where logs should be saved.
@@ -494,10 +486,12 @@ func (o LogsPolicyDestinationPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// LogsPolicyDestinationInput is an input type that accepts LogsPolicyDestinationArgs and LogsPolicyDestinationOutput values.
-// You can construct a concrete instance of `LogsPolicyDestinationInput` via:
+// LogsPolicyDestinationInput is an input type that accepts values of the LogsPolicyDestination enum
+// A concrete instance of `LogsPolicyDestinationInput` can be one of the following:
 //
-//	LogsPolicyDestinationArgs{...}
+//	LogsPolicyDestinationDestinationUnspecified
+//	LogsPolicyDestinationCloudLogging
+//	LogsPolicyDestinationPath
 type LogsPolicyDestinationInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *logsPolicyDestinationPtr) ToLogsPolicyDestinationPtrOutput() LogsPolic
 
 func (in *logsPolicyDestinationPtr) ToLogsPolicyDestinationPtrOutputWithContext(ctx context.Context) LogsPolicyDestinationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LogsPolicyDestinationPtrOutput)
-}
-
-func (in *logsPolicyDestinationPtr) ToOutput(ctx context.Context) pulumix.Output[*LogsPolicyDestination] {
-	return pulumix.Output[*LogsPolicyDestination]{
-		OutputState: in.ToLogsPolicyDestinationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The new job state.
@@ -677,10 +665,16 @@ func (o MessageNewJobStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MessageNewJobStateInput is an input type that accepts MessageNewJobStateArgs and MessageNewJobStateOutput values.
-// You can construct a concrete instance of `MessageNewJobStateInput` via:
+// MessageNewJobStateInput is an input type that accepts values of the MessageNewJobState enum
+// A concrete instance of `MessageNewJobStateInput` can be one of the following:
 //
-//	MessageNewJobStateArgs{...}
+//	MessageNewJobStateStateUnspecified
+//	MessageNewJobStateQueued
+//	MessageNewJobStateScheduled
+//	MessageNewJobStateRunning
+//	MessageNewJobStateSucceeded
+//	MessageNewJobStateFailed
+//	MessageNewJobStateDeletionInProgress
 type MessageNewJobStateInput interface {
 	pulumi.Input
 
@@ -713,12 +707,6 @@ func (in *messageNewJobStatePtr) ToMessageNewJobStatePtrOutput() MessageNewJobSt
 
 func (in *messageNewJobStatePtr) ToMessageNewJobStatePtrOutputWithContext(ctx context.Context) MessageNewJobStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MessageNewJobStatePtrOutput)
-}
-
-func (in *messageNewJobStatePtr) ToOutput(ctx context.Context) pulumix.Output[*MessageNewJobState] {
-	return pulumix.Output[*MessageNewJobState]{
-		OutputState: in.ToMessageNewJobStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The new task state.
@@ -860,10 +848,16 @@ func (o MessageNewTaskStatePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// MessageNewTaskStateInput is an input type that accepts MessageNewTaskStateArgs and MessageNewTaskStateOutput values.
-// You can construct a concrete instance of `MessageNewTaskStateInput` via:
+// MessageNewTaskStateInput is an input type that accepts values of the MessageNewTaskState enum
+// A concrete instance of `MessageNewTaskStateInput` can be one of the following:
 //
-//	MessageNewTaskStateArgs{...}
+//	MessageNewTaskStateStateUnspecified
+//	MessageNewTaskStatePending
+//	MessageNewTaskStateAssigned
+//	MessageNewTaskStateRunning
+//	MessageNewTaskStateFailed
+//	MessageNewTaskStateSucceeded
+//	MessageNewTaskStateUnexecuted
 type MessageNewTaskStateInput interface {
 	pulumi.Input
 
@@ -896,12 +890,6 @@ func (in *messageNewTaskStatePtr) ToMessageNewTaskStatePtrOutput() MessageNewTas
 
 func (in *messageNewTaskStatePtr) ToMessageNewTaskStatePtrOutputWithContext(ctx context.Context) MessageNewTaskStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MessageNewTaskStatePtrOutput)
-}
-
-func (in *messageNewTaskStatePtr) ToOutput(ctx context.Context) pulumix.Output[*MessageNewTaskState] {
-	return pulumix.Output[*MessageNewTaskState]{
-		OutputState: in.ToMessageNewTaskStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The message type.
@@ -1035,10 +1023,12 @@ func (o MessageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// MessageTypeInput is an input type that accepts MessageTypeArgs and MessageTypeOutput values.
-// You can construct a concrete instance of `MessageTypeInput` via:
+// MessageTypeInput is an input type that accepts values of the MessageType enum
+// A concrete instance of `MessageTypeInput` can be one of the following:
 //
-//	MessageTypeArgs{...}
+//	MessageTypeTypeUnspecified
+//	MessageTypeJobStateChanged
+//	MessageTypeTaskStateChanged
 type MessageTypeInput interface {
 	pulumi.Input
 
@@ -1071,12 +1061,6 @@ func (in *messageTypePtr) ToMessageTypePtrOutput() MessageTypePtrOutput {
 
 func (in *messageTypePtr) ToMessageTypePtrOutputWithContext(ctx context.Context) MessageTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MessageTypePtrOutput)
-}
-
-func (in *messageTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MessageType] {
-	return pulumix.Output[*MessageType]{
-		OutputState: in.ToMessageTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Scheduling policy for Tasks in the TaskGroup. The default value is AS_SOON_AS_POSSIBLE.
@@ -1210,10 +1194,12 @@ func (o TaskGroupSchedulingPolicyPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskGroupSchedulingPolicyInput is an input type that accepts TaskGroupSchedulingPolicyArgs and TaskGroupSchedulingPolicyOutput values.
-// You can construct a concrete instance of `TaskGroupSchedulingPolicyInput` via:
+// TaskGroupSchedulingPolicyInput is an input type that accepts values of the TaskGroupSchedulingPolicy enum
+// A concrete instance of `TaskGroupSchedulingPolicyInput` can be one of the following:
 //
-//	TaskGroupSchedulingPolicyArgs{...}
+//	TaskGroupSchedulingPolicySchedulingPolicyUnspecified
+//	TaskGroupSchedulingPolicyAsSoonAsPossible
+//	TaskGroupSchedulingPolicyInOrder
 type TaskGroupSchedulingPolicyInput interface {
 	pulumi.Input
 
@@ -1246,12 +1232,6 @@ func (in *taskGroupSchedulingPolicyPtr) ToTaskGroupSchedulingPolicyPtrOutput() T
 
 func (in *taskGroupSchedulingPolicyPtr) ToTaskGroupSchedulingPolicyPtrOutputWithContext(ctx context.Context) TaskGroupSchedulingPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskGroupSchedulingPolicyPtrOutput)
-}
-
-func (in *taskGroupSchedulingPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskGroupSchedulingPolicy] {
-	return pulumix.Output[*TaskGroupSchedulingPolicy]{
-		OutputState: in.ToTaskGroupSchedulingPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

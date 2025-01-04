@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The algorithm to use for autoscaling.
@@ -142,10 +141,12 @@ func (o AutoscalingSettingsAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// AutoscalingSettingsAlgorithmInput is an input type that accepts AutoscalingSettingsAlgorithmArgs and AutoscalingSettingsAlgorithmOutput values.
-// You can construct a concrete instance of `AutoscalingSettingsAlgorithmInput` via:
+// AutoscalingSettingsAlgorithmInput is an input type that accepts values of the AutoscalingSettingsAlgorithm enum
+// A concrete instance of `AutoscalingSettingsAlgorithmInput` can be one of the following:
 //
-//	AutoscalingSettingsAlgorithmArgs{...}
+//	AutoscalingSettingsAlgorithmAutoscalingAlgorithmUnknown
+//	AutoscalingSettingsAlgorithmAutoscalingAlgorithmNone
+//	AutoscalingSettingsAlgorithmAutoscalingAlgorithmBasic
 type AutoscalingSettingsAlgorithmInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *autoscalingSettingsAlgorithmPtr) ToAutoscalingSettingsAlgorithmPtrOutp
 
 func (in *autoscalingSettingsAlgorithmPtr) ToAutoscalingSettingsAlgorithmPtrOutputWithContext(ctx context.Context) AutoscalingSettingsAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AutoscalingSettingsAlgorithmPtrOutput)
-}
-
-func (in *autoscalingSettingsAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*AutoscalingSettingsAlgorithm] {
-	return pulumix.Output[*AutoscalingSettingsAlgorithm]{
-		OutputState: in.ToAutoscalingSettingsAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataSamplingConfigBehaviorsItem string
@@ -318,10 +313,13 @@ func (o DataSamplingConfigBehaviorsItemPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataSamplingConfigBehaviorsItemInput is an input type that accepts DataSamplingConfigBehaviorsItemArgs and DataSamplingConfigBehaviorsItemOutput values.
-// You can construct a concrete instance of `DataSamplingConfigBehaviorsItemInput` via:
+// DataSamplingConfigBehaviorsItemInput is an input type that accepts values of the DataSamplingConfigBehaviorsItem enum
+// A concrete instance of `DataSamplingConfigBehaviorsItemInput` can be one of the following:
 //
-//	DataSamplingConfigBehaviorsItemArgs{...}
+//	DataSamplingConfigBehaviorsItemDataSamplingBehaviorUnspecified
+//	DataSamplingConfigBehaviorsItemDisabled
+//	DataSamplingConfigBehaviorsItemAlwaysOn
+//	DataSamplingConfigBehaviorsItemExceptions
 type DataSamplingConfigBehaviorsItemInput interface {
 	pulumi.Input
 
@@ -354,12 +352,6 @@ func (in *dataSamplingConfigBehaviorsItemPtr) ToDataSamplingConfigBehaviorsItemP
 
 func (in *dataSamplingConfigBehaviorsItemPtr) ToDataSamplingConfigBehaviorsItemPtrOutputWithContext(ctx context.Context) DataSamplingConfigBehaviorsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataSamplingConfigBehaviorsItemPtrOutput)
-}
-
-func (in *dataSamplingConfigBehaviorsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*DataSamplingConfigBehaviorsItem] {
-	return pulumix.Output[*DataSamplingConfigBehaviorsItem]{
-		OutputState: in.ToDataSamplingConfigBehaviorsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DataSamplingConfigBehaviorsItemArrayInput is an input type that accepts DataSamplingConfigBehaviorsItemArray and DataSamplingConfigBehaviorsItemArrayOutput values.
@@ -538,10 +530,12 @@ func (o EnvironmentFlexResourceSchedulingGoalPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentFlexResourceSchedulingGoalInput is an input type that accepts EnvironmentFlexResourceSchedulingGoalArgs and EnvironmentFlexResourceSchedulingGoalOutput values.
-// You can construct a concrete instance of `EnvironmentFlexResourceSchedulingGoalInput` via:
+// EnvironmentFlexResourceSchedulingGoalInput is an input type that accepts values of the EnvironmentFlexResourceSchedulingGoal enum
+// A concrete instance of `EnvironmentFlexResourceSchedulingGoalInput` can be one of the following:
 //
-//	EnvironmentFlexResourceSchedulingGoalArgs{...}
+//	EnvironmentFlexResourceSchedulingGoalFlexrsUnspecified
+//	EnvironmentFlexResourceSchedulingGoalFlexrsSpeedOptimized
+//	EnvironmentFlexResourceSchedulingGoalFlexrsCostOptimized
 type EnvironmentFlexResourceSchedulingGoalInput interface {
 	pulumi.Input
 
@@ -574,12 +568,6 @@ func (in *environmentFlexResourceSchedulingGoalPtr) ToEnvironmentFlexResourceSch
 
 func (in *environmentFlexResourceSchedulingGoalPtr) ToEnvironmentFlexResourceSchedulingGoalPtrOutputWithContext(ctx context.Context) EnvironmentFlexResourceSchedulingGoalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentFlexResourceSchedulingGoalPtrOutput)
-}
-
-func (in *environmentFlexResourceSchedulingGoalPtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentFlexResourceSchedulingGoal] {
-	return pulumix.Output[*EnvironmentFlexResourceSchedulingGoal]{
-		OutputState: in.ToEnvironmentFlexResourceSchedulingGoalPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Executions stage states allow the same set of values as JobState.
@@ -733,10 +721,22 @@ func (o ExecutionStageStateExecutionStageStatePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExecutionStageStateExecutionStageStateInput is an input type that accepts ExecutionStageStateExecutionStageStateArgs and ExecutionStageStateExecutionStageStateOutput values.
-// You can construct a concrete instance of `ExecutionStageStateExecutionStageStateInput` via:
+// ExecutionStageStateExecutionStageStateInput is an input type that accepts values of the ExecutionStageStateExecutionStageState enum
+// A concrete instance of `ExecutionStageStateExecutionStageStateInput` can be one of the following:
 //
-//	ExecutionStageStateExecutionStageStateArgs{...}
+//	ExecutionStageStateExecutionStageStateJobStateUnknown
+//	ExecutionStageStateExecutionStageStateJobStateStopped
+//	ExecutionStageStateExecutionStageStateJobStateRunning
+//	ExecutionStageStateExecutionStageStateJobStateDone
+//	ExecutionStageStateExecutionStageStateJobStateFailed
+//	ExecutionStageStateExecutionStageStateJobStateCancelled
+//	ExecutionStageStateExecutionStageStateJobStateUpdated
+//	ExecutionStageStateExecutionStageStateJobStateDraining
+//	ExecutionStageStateExecutionStageStateJobStateDrained
+//	ExecutionStageStateExecutionStageStateJobStatePending
+//	ExecutionStageStateExecutionStageStateJobStateCancelling
+//	ExecutionStageStateExecutionStageStateJobStateQueued
+//	ExecutionStageStateExecutionStageStateJobStateResourceCleaningUp
 type ExecutionStageStateExecutionStageStateInput interface {
 	pulumi.Input
 
@@ -769,12 +769,6 @@ func (in *executionStageStateExecutionStageStatePtr) ToExecutionStageStateExecut
 
 func (in *executionStageStateExecutionStageStatePtr) ToExecutionStageStateExecutionStageStatePtrOutputWithContext(ctx context.Context) ExecutionStageStateExecutionStageStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExecutionStageStateExecutionStageStatePtrOutput)
-}
-
-func (in *executionStageStateExecutionStageStatePtr) ToOutput(ctx context.Context) pulumix.Output[*ExecutionStageStateExecutionStageState] {
-	return pulumix.Output[*ExecutionStageStateExecutionStageState]{
-		OutputState: in.ToExecutionStageStateExecutionStageStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of transform this stage is executing.
@@ -920,10 +914,18 @@ func (o ExecutionStageSummaryKindPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExecutionStageSummaryKindInput is an input type that accepts ExecutionStageSummaryKindArgs and ExecutionStageSummaryKindOutput values.
-// You can construct a concrete instance of `ExecutionStageSummaryKindInput` via:
+// ExecutionStageSummaryKindInput is an input type that accepts values of the ExecutionStageSummaryKind enum
+// A concrete instance of `ExecutionStageSummaryKindInput` can be one of the following:
 //
-//	ExecutionStageSummaryKindArgs{...}
+//	ExecutionStageSummaryKindUnknownKind
+//	ExecutionStageSummaryKindParDoKind
+//	ExecutionStageSummaryKindGroupByKeyKind
+//	ExecutionStageSummaryKindFlattenKind
+//	ExecutionStageSummaryKindReadKind
+//	ExecutionStageSummaryKindWriteKind
+//	ExecutionStageSummaryKindConstantKind
+//	ExecutionStageSummaryKindSingletonKind
+//	ExecutionStageSummaryKindShuffleKind
 type ExecutionStageSummaryKindInput interface {
 	pulumi.Input
 
@@ -958,13 +960,7 @@ func (in *executionStageSummaryKindPtr) ToExecutionStageSummaryKindPtrOutputWith
 	return pulumi.ToOutputWithContext(ctx, in).(ExecutionStageSummaryKindPtrOutput)
 }
 
-func (in *executionStageSummaryKindPtr) ToOutput(ctx context.Context) pulumix.Output[*ExecutionStageSummaryKind] {
-	return pulumix.Output[*ExecutionStageSummaryKind]{
-		OutputState: in.ToExecutionStageSummaryKindPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-// The current state of the job. Jobs are created in the `JOB_STATE_STOPPED` state unless otherwise specified. A job in the `JOB_STATE_RUNNING` state may asynchronously enter a terminal state. After a job has reached a terminal state, no further state updates may be made. This field may be mutated by the Cloud Dataflow service; callers cannot mutate it.
+// The current state of the job. Jobs are created in the `JOB_STATE_STOPPED` state unless otherwise specified. A job in the `JOB_STATE_RUNNING` state may asynchronously enter a terminal state. After a job has reached a terminal state, no further state updates may be made. This field might be mutated by the Dataflow service; callers cannot mutate it.
 type JobCurrentState string
 
 const (
@@ -1115,10 +1111,22 @@ func (o JobCurrentStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobCurrentStateInput is an input type that accepts JobCurrentStateArgs and JobCurrentStateOutput values.
-// You can construct a concrete instance of `JobCurrentStateInput` via:
+// JobCurrentStateInput is an input type that accepts values of the JobCurrentState enum
+// A concrete instance of `JobCurrentStateInput` can be one of the following:
 //
-//	JobCurrentStateArgs{...}
+//	JobCurrentStateJobStateUnknown
+//	JobCurrentStateJobStateStopped
+//	JobCurrentStateJobStateRunning
+//	JobCurrentStateJobStateDone
+//	JobCurrentStateJobStateFailed
+//	JobCurrentStateJobStateCancelled
+//	JobCurrentStateJobStateUpdated
+//	JobCurrentStateJobStateDraining
+//	JobCurrentStateJobStateDrained
+//	JobCurrentStateJobStatePending
+//	JobCurrentStateJobStateCancelling
+//	JobCurrentStateJobStateQueued
+//	JobCurrentStateJobStateResourceCleaningUp
 type JobCurrentStateInput interface {
 	pulumi.Input
 
@@ -1151,12 +1159,6 @@ func (in *jobCurrentStatePtr) ToJobCurrentStatePtrOutput() JobCurrentStatePtrOut
 
 func (in *jobCurrentStatePtr) ToJobCurrentStatePtrOutputWithContext(ctx context.Context) JobCurrentStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JobCurrentStatePtrOutput)
-}
-
-func (in *jobCurrentStatePtr) ToOutput(ctx context.Context) pulumix.Output[*JobCurrentState] {
-	return pulumix.Output[*JobCurrentState]{
-		OutputState: in.ToJobCurrentStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The job's requested state. Applies to `UpdateJob` requests. Set `requested_state` with `UpdateJob` requests to switch between the states `JOB_STATE_STOPPED` and `JOB_STATE_RUNNING`. You can also use `UpdateJob` requests to change a job's state from `JOB_STATE_RUNNING` to `JOB_STATE_CANCELLED`, `JOB_STATE_DONE`, or `JOB_STATE_DRAINED`. These states irrevocably terminate the job if it hasn't already reached a terminal state. This field has no effect on `CreateJob` requests.
@@ -1310,10 +1312,22 @@ func (o JobRequestedStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobRequestedStateInput is an input type that accepts JobRequestedStateArgs and JobRequestedStateOutput values.
-// You can construct a concrete instance of `JobRequestedStateInput` via:
+// JobRequestedStateInput is an input type that accepts values of the JobRequestedState enum
+// A concrete instance of `JobRequestedStateInput` can be one of the following:
 //
-//	JobRequestedStateArgs{...}
+//	JobRequestedStateJobStateUnknown
+//	JobRequestedStateJobStateStopped
+//	JobRequestedStateJobStateRunning
+//	JobRequestedStateJobStateDone
+//	JobRequestedStateJobStateFailed
+//	JobRequestedStateJobStateCancelled
+//	JobRequestedStateJobStateUpdated
+//	JobRequestedStateJobStateDraining
+//	JobRequestedStateJobStateDrained
+//	JobRequestedStateJobStatePending
+//	JobRequestedStateJobStateCancelling
+//	JobRequestedStateJobStateQueued
+//	JobRequestedStateJobStateResourceCleaningUp
 type JobRequestedStateInput interface {
 	pulumi.Input
 
@@ -1348,13 +1362,7 @@ func (in *jobRequestedStatePtr) ToJobRequestedStatePtrOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, in).(JobRequestedStatePtrOutput)
 }
 
-func (in *jobRequestedStatePtr) ToOutput(ctx context.Context) pulumix.Output[*JobRequestedState] {
-	return pulumix.Output[*JobRequestedState]{
-		OutputState: in.ToJobRequestedStatePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-// The type of Cloud Dataflow job.
+// The type of Dataflow job.
 type JobType string
 
 const (
@@ -1485,10 +1493,12 @@ func (o JobTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobTypeInput is an input type that accepts JobTypeArgs and JobTypeOutput values.
-// You can construct a concrete instance of `JobTypeInput` via:
+// JobTypeInput is an input type that accepts values of the JobType enum
+// A concrete instance of `JobTypeInput` can be one of the following:
 //
-//	JobTypeArgs{...}
+//	JobTypeJobTypeUnknown
+//	JobTypeJobTypeBatch
+//	JobTypeJobTypeStreaming
 type JobTypeInput interface {
 	pulumi.Input
 
@@ -1521,12 +1531,6 @@ func (in *jobTypePtr) ToJobTypePtrOutput() JobTypePtrOutput {
 
 func (in *jobTypePtr) ToJobTypePtrOutputWithContext(ctx context.Context) JobTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JobTypePtrOutput)
-}
-
-func (in *jobTypePtr) ToOutput(ctx context.Context) pulumix.Output[*JobType] {
-	return pulumix.Output[*JobType]{
-		OutputState: in.ToJobTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Configuration for VM IPs.
@@ -1660,10 +1664,12 @@ func (o RuntimeEnvironmentIpConfigurationPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuntimeEnvironmentIpConfigurationInput is an input type that accepts RuntimeEnvironmentIpConfigurationArgs and RuntimeEnvironmentIpConfigurationOutput values.
-// You can construct a concrete instance of `RuntimeEnvironmentIpConfigurationInput` via:
+// RuntimeEnvironmentIpConfigurationInput is an input type that accepts values of the RuntimeEnvironmentIpConfiguration enum
+// A concrete instance of `RuntimeEnvironmentIpConfigurationInput` can be one of the following:
 //
-//	RuntimeEnvironmentIpConfigurationArgs{...}
+//	RuntimeEnvironmentIpConfigurationWorkerIpUnspecified
+//	RuntimeEnvironmentIpConfigurationWorkerIpPublic
+//	RuntimeEnvironmentIpConfigurationWorkerIpPrivate
 type RuntimeEnvironmentIpConfigurationInput interface {
 	pulumi.Input
 
@@ -1696,12 +1702,6 @@ func (in *runtimeEnvironmentIpConfigurationPtr) ToRuntimeEnvironmentIpConfigurat
 
 func (in *runtimeEnvironmentIpConfigurationPtr) ToRuntimeEnvironmentIpConfigurationPtrOutputWithContext(ctx context.Context) RuntimeEnvironmentIpConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuntimeEnvironmentIpConfigurationPtrOutput)
-}
-
-func (in *runtimeEnvironmentIpConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*RuntimeEnvironmentIpConfiguration] {
-	return pulumix.Output[*RuntimeEnvironmentIpConfiguration]{
-		OutputState: in.ToRuntimeEnvironmentIpConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The support status for this SDK version.
@@ -1839,10 +1839,14 @@ func (o SdkVersionSdkSupportStatusPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// SdkVersionSdkSupportStatusInput is an input type that accepts SdkVersionSdkSupportStatusArgs and SdkVersionSdkSupportStatusOutput values.
-// You can construct a concrete instance of `SdkVersionSdkSupportStatusInput` via:
+// SdkVersionSdkSupportStatusInput is an input type that accepts values of the SdkVersionSdkSupportStatus enum
+// A concrete instance of `SdkVersionSdkSupportStatusInput` can be one of the following:
 //
-//	SdkVersionSdkSupportStatusArgs{...}
+//	SdkVersionSdkSupportStatusUnknown
+//	SdkVersionSdkSupportStatusSupported
+//	SdkVersionSdkSupportStatusStale
+//	SdkVersionSdkSupportStatusDeprecated
+//	SdkVersionSdkSupportStatusUnsupported
 type SdkVersionSdkSupportStatusInput interface {
 	pulumi.Input
 
@@ -1875,12 +1879,6 @@ func (in *sdkVersionSdkSupportStatusPtr) ToSdkVersionSdkSupportStatusPtrOutput()
 
 func (in *sdkVersionSdkSupportStatusPtr) ToSdkVersionSdkSupportStatusPtrOutputWithContext(ctx context.Context) SdkVersionSdkSupportStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SdkVersionSdkSupportStatusPtrOutput)
-}
-
-func (in *sdkVersionSdkSupportStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*SdkVersionSdkSupportStatus] {
-	return pulumix.Output[*SdkVersionSdkSupportStatus]{
-		OutputState: in.ToSdkVersionSdkSupportStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of transform.
@@ -2026,10 +2024,18 @@ func (o TransformSummaryKindPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TransformSummaryKindInput is an input type that accepts TransformSummaryKindArgs and TransformSummaryKindOutput values.
-// You can construct a concrete instance of `TransformSummaryKindInput` via:
+// TransformSummaryKindInput is an input type that accepts values of the TransformSummaryKind enum
+// A concrete instance of `TransformSummaryKindInput` can be one of the following:
 //
-//	TransformSummaryKindArgs{...}
+//	TransformSummaryKindUnknownKind
+//	TransformSummaryKindParDoKind
+//	TransformSummaryKindGroupByKeyKind
+//	TransformSummaryKindFlattenKind
+//	TransformSummaryKindReadKind
+//	TransformSummaryKindWriteKind
+//	TransformSummaryKindConstantKind
+//	TransformSummaryKindSingletonKind
+//	TransformSummaryKindShuffleKind
 type TransformSummaryKindInput interface {
 	pulumi.Input
 
@@ -2062,12 +2068,6 @@ func (in *transformSummaryKindPtr) ToTransformSummaryKindPtrOutput() TransformSu
 
 func (in *transformSummaryKindPtr) ToTransformSummaryKindPtrOutputWithContext(ctx context.Context) TransformSummaryKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TransformSummaryKindPtrOutput)
-}
-
-func (in *transformSummaryKindPtr) ToOutput(ctx context.Context) pulumix.Output[*TransformSummaryKind] {
-	return pulumix.Output[*TransformSummaryKind]{
-		OutputState: in.ToTransformSummaryKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The default package set to install. This allows the service to select a default set of packages which are useful to worker harnesses written in a particular language.
@@ -2203,10 +2203,13 @@ func (o WorkerPoolDefaultPackageSetPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkerPoolDefaultPackageSetInput is an input type that accepts WorkerPoolDefaultPackageSetArgs and WorkerPoolDefaultPackageSetOutput values.
-// You can construct a concrete instance of `WorkerPoolDefaultPackageSetInput` via:
+// WorkerPoolDefaultPackageSetInput is an input type that accepts values of the WorkerPoolDefaultPackageSet enum
+// A concrete instance of `WorkerPoolDefaultPackageSetInput` can be one of the following:
 //
-//	WorkerPoolDefaultPackageSetArgs{...}
+//	WorkerPoolDefaultPackageSetDefaultPackageSetUnknown
+//	WorkerPoolDefaultPackageSetDefaultPackageSetNone
+//	WorkerPoolDefaultPackageSetDefaultPackageSetJava
+//	WorkerPoolDefaultPackageSetDefaultPackageSetPython
 type WorkerPoolDefaultPackageSetInput interface {
 	pulumi.Input
 
@@ -2239,12 +2242,6 @@ func (in *workerPoolDefaultPackageSetPtr) ToWorkerPoolDefaultPackageSetPtrOutput
 
 func (in *workerPoolDefaultPackageSetPtr) ToWorkerPoolDefaultPackageSetPtrOutputWithContext(ctx context.Context) WorkerPoolDefaultPackageSetPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkerPoolDefaultPackageSetPtrOutput)
-}
-
-func (in *workerPoolDefaultPackageSetPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkerPoolDefaultPackageSet] {
-	return pulumix.Output[*WorkerPoolDefaultPackageSet]{
-		OutputState: in.ToWorkerPoolDefaultPackageSetPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Configuration for VM IPs.
@@ -2378,10 +2375,12 @@ func (o WorkerPoolIpConfigurationPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkerPoolIpConfigurationInput is an input type that accepts WorkerPoolIpConfigurationArgs and WorkerPoolIpConfigurationOutput values.
-// You can construct a concrete instance of `WorkerPoolIpConfigurationInput` via:
+// WorkerPoolIpConfigurationInput is an input type that accepts values of the WorkerPoolIpConfiguration enum
+// A concrete instance of `WorkerPoolIpConfigurationInput` can be one of the following:
 //
-//	WorkerPoolIpConfigurationArgs{...}
+//	WorkerPoolIpConfigurationWorkerIpUnspecified
+//	WorkerPoolIpConfigurationWorkerIpPublic
+//	WorkerPoolIpConfigurationWorkerIpPrivate
 type WorkerPoolIpConfigurationInput interface {
 	pulumi.Input
 
@@ -2414,12 +2413,6 @@ func (in *workerPoolIpConfigurationPtr) ToWorkerPoolIpConfigurationPtrOutput() W
 
 func (in *workerPoolIpConfigurationPtr) ToWorkerPoolIpConfigurationPtrOutputWithContext(ctx context.Context) WorkerPoolIpConfigurationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkerPoolIpConfigurationPtrOutput)
-}
-
-func (in *workerPoolIpConfigurationPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkerPoolIpConfiguration] {
-	return pulumix.Output[*WorkerPoolIpConfiguration]{
-		OutputState: in.ToWorkerPoolIpConfigurationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Sets the policy for determining when to turndown worker pool. Allowed values are: `TEARDOWN_ALWAYS`, `TEARDOWN_ON_SUCCESS`, and `TEARDOWN_NEVER`. `TEARDOWN_ALWAYS` means workers are always torn down regardless of whether the job succeeds. `TEARDOWN_ON_SUCCESS` means workers are torn down if the job succeeds. `TEARDOWN_NEVER` means the workers are never torn down. If the workers are not torn down by the service, they will continue to run and use Google Compute Engine VM resources in the user's project until they are explicitly terminated by the user. Because of this, Google recommends using the `TEARDOWN_ALWAYS` policy except for small, manually supervised test jobs. If unknown or unspecified, the service will attempt to choose a reasonable default.
@@ -2555,10 +2548,13 @@ func (o WorkerPoolTeardownPolicyPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkerPoolTeardownPolicyInput is an input type that accepts WorkerPoolTeardownPolicyArgs and WorkerPoolTeardownPolicyOutput values.
-// You can construct a concrete instance of `WorkerPoolTeardownPolicyInput` via:
+// WorkerPoolTeardownPolicyInput is an input type that accepts values of the WorkerPoolTeardownPolicy enum
+// A concrete instance of `WorkerPoolTeardownPolicyInput` can be one of the following:
 //
-//	WorkerPoolTeardownPolicyArgs{...}
+//	WorkerPoolTeardownPolicyTeardownPolicyUnknown
+//	WorkerPoolTeardownPolicyTeardownAlways
+//	WorkerPoolTeardownPolicyTeardownOnSuccess
+//	WorkerPoolTeardownPolicyTeardownNever
 type WorkerPoolTeardownPolicyInput interface {
 	pulumi.Input
 
@@ -2591,12 +2587,6 @@ func (in *workerPoolTeardownPolicyPtr) ToWorkerPoolTeardownPolicyPtrOutput() Wor
 
 func (in *workerPoolTeardownPolicyPtr) ToWorkerPoolTeardownPolicyPtrOutputWithContext(ctx context.Context) WorkerPoolTeardownPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkerPoolTeardownPolicyPtrOutput)
-}
-
-func (in *workerPoolTeardownPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkerPoolTeardownPolicy] {
-	return pulumix.Output[*WorkerPoolTeardownPolicy]{
-		OutputState: in.ToWorkerPoolTeardownPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

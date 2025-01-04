@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // **Beta Feature** The logging verbosity for device activity. If unspecified, DeviceRegistry.log_level will be used.
@@ -146,10 +145,14 @@ func (o DeviceLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeviceLogLevelInput is an input type that accepts DeviceLogLevelArgs and DeviceLogLevelOutput values.
-// You can construct a concrete instance of `DeviceLogLevelInput` via:
+// DeviceLogLevelInput is an input type that accepts values of the DeviceLogLevel enum
+// A concrete instance of `DeviceLogLevelInput` can be one of the following:
 //
-//	DeviceLogLevelArgs{...}
+//	DeviceLogLevelLogLevelUnspecified
+//	DeviceLogLevelNone
+//	DeviceLogLevelError
+//	DeviceLogLevelInfo
+//	DeviceLogLevelDebug
 type DeviceLogLevelInput interface {
 	pulumi.Input
 
@@ -182,12 +185,6 @@ func (in *deviceLogLevelPtr) ToDeviceLogLevelPtrOutput() DeviceLogLevelPtrOutput
 
 func (in *deviceLogLevelPtr) ToDeviceLogLevelPtrOutputWithContext(ctx context.Context) DeviceLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeviceLogLevelPtrOutput)
-}
-
-func (in *deviceLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*DeviceLogLevel] {
-	return pulumix.Output[*DeviceLogLevel]{
-		OutputState: in.ToDeviceLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates how to authorize and/or authenticate devices to access the gateway.
@@ -323,10 +320,13 @@ func (o GatewayConfigGatewayAuthMethodPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// GatewayConfigGatewayAuthMethodInput is an input type that accepts GatewayConfigGatewayAuthMethodArgs and GatewayConfigGatewayAuthMethodOutput values.
-// You can construct a concrete instance of `GatewayConfigGatewayAuthMethodInput` via:
+// GatewayConfigGatewayAuthMethodInput is an input type that accepts values of the GatewayConfigGatewayAuthMethod enum
+// A concrete instance of `GatewayConfigGatewayAuthMethodInput` can be one of the following:
 //
-//	GatewayConfigGatewayAuthMethodArgs{...}
+//	GatewayConfigGatewayAuthMethodGatewayAuthMethodUnspecified
+//	GatewayConfigGatewayAuthMethodAssociationOnly
+//	GatewayConfigGatewayAuthMethodDeviceAuthTokenOnly
+//	GatewayConfigGatewayAuthMethodAssociationAndDeviceAuthToken
 type GatewayConfigGatewayAuthMethodInput interface {
 	pulumi.Input
 
@@ -359,12 +359,6 @@ func (in *gatewayConfigGatewayAuthMethodPtr) ToGatewayConfigGatewayAuthMethodPtr
 
 func (in *gatewayConfigGatewayAuthMethodPtr) ToGatewayConfigGatewayAuthMethodPtrOutputWithContext(ctx context.Context) GatewayConfigGatewayAuthMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayConfigGatewayAuthMethodPtrOutput)
-}
-
-func (in *gatewayConfigGatewayAuthMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*GatewayConfigGatewayAuthMethod] {
-	return pulumix.Output[*GatewayConfigGatewayAuthMethod]{
-		OutputState: in.ToGatewayConfigGatewayAuthMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates whether the device is a gateway.
@@ -498,10 +492,12 @@ func (o GatewayConfigGatewayTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// GatewayConfigGatewayTypeInput is an input type that accepts GatewayConfigGatewayTypeArgs and GatewayConfigGatewayTypeOutput values.
-// You can construct a concrete instance of `GatewayConfigGatewayTypeInput` via:
+// GatewayConfigGatewayTypeInput is an input type that accepts values of the GatewayConfigGatewayType enum
+// A concrete instance of `GatewayConfigGatewayTypeInput` can be one of the following:
 //
-//	GatewayConfigGatewayTypeArgs{...}
+//	GatewayConfigGatewayTypeGatewayTypeUnspecified
+//	GatewayConfigGatewayTypeGateway
+//	GatewayConfigGatewayTypeNonGateway
 type GatewayConfigGatewayTypeInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *gatewayConfigGatewayTypePtr) ToGatewayConfigGatewayTypePtrOutput() Gat
 
 func (in *gatewayConfigGatewayTypePtr) ToGatewayConfigGatewayTypePtrOutputWithContext(ctx context.Context) GatewayConfigGatewayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayConfigGatewayTypePtrOutput)
-}
-
-func (in *gatewayConfigGatewayTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GatewayConfigGatewayType] {
-	return pulumix.Output[*GatewayConfigGatewayType]{
-		OutputState: in.ToGatewayConfigGatewayTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // If enabled, allows devices to use DeviceService via the HTTP protocol. Otherwise, any requests to DeviceService will fail for this registry.
@@ -673,10 +663,12 @@ func (o HttpConfigHttpEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// HttpConfigHttpEnabledStateInput is an input type that accepts HttpConfigHttpEnabledStateArgs and HttpConfigHttpEnabledStateOutput values.
-// You can construct a concrete instance of `HttpConfigHttpEnabledStateInput` via:
+// HttpConfigHttpEnabledStateInput is an input type that accepts values of the HttpConfigHttpEnabledState enum
+// A concrete instance of `HttpConfigHttpEnabledStateInput` can be one of the following:
 //
-//	HttpConfigHttpEnabledStateArgs{...}
+//	HttpConfigHttpEnabledStateHttpStateUnspecified
+//	HttpConfigHttpEnabledStateHttpEnabled
+//	HttpConfigHttpEnabledStateHttpDisabled
 type HttpConfigHttpEnabledStateInput interface {
 	pulumi.Input
 
@@ -709,12 +701,6 @@ func (in *httpConfigHttpEnabledStatePtr) ToHttpConfigHttpEnabledStatePtrOutput()
 
 func (in *httpConfigHttpEnabledStatePtr) ToHttpConfigHttpEnabledStatePtrOutputWithContext(ctx context.Context) HttpConfigHttpEnabledStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HttpConfigHttpEnabledStatePtrOutput)
-}
-
-func (in *httpConfigHttpEnabledStatePtr) ToOutput(ctx context.Context) pulumix.Output[*HttpConfigHttpEnabledState] {
-	return pulumix.Output[*HttpConfigHttpEnabledState]{
-		OutputState: in.ToHttpConfigHttpEnabledStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // If enabled, allows connections using the MQTT protocol. Otherwise, MQTT connections to this registry will fail.
@@ -848,10 +834,12 @@ func (o MqttConfigMqttEnabledStatePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MqttConfigMqttEnabledStateInput is an input type that accepts MqttConfigMqttEnabledStateArgs and MqttConfigMqttEnabledStateOutput values.
-// You can construct a concrete instance of `MqttConfigMqttEnabledStateInput` via:
+// MqttConfigMqttEnabledStateInput is an input type that accepts values of the MqttConfigMqttEnabledState enum
+// A concrete instance of `MqttConfigMqttEnabledStateInput` can be one of the following:
 //
-//	MqttConfigMqttEnabledStateArgs{...}
+//	MqttConfigMqttEnabledStateMqttStateUnspecified
+//	MqttConfigMqttEnabledStateMqttEnabled
+//	MqttConfigMqttEnabledStateMqttDisabled
 type MqttConfigMqttEnabledStateInput interface {
 	pulumi.Input
 
@@ -884,12 +872,6 @@ func (in *mqttConfigMqttEnabledStatePtr) ToMqttConfigMqttEnabledStatePtrOutput()
 
 func (in *mqttConfigMqttEnabledStatePtr) ToMqttConfigMqttEnabledStatePtrOutputWithContext(ctx context.Context) MqttConfigMqttEnabledStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MqttConfigMqttEnabledStatePtrOutput)
-}
-
-func (in *mqttConfigMqttEnabledStatePtr) ToOutput(ctx context.Context) pulumix.Output[*MqttConfigMqttEnabledState] {
-	return pulumix.Output[*MqttConfigMqttEnabledState]{
-		OutputState: in.ToMqttConfigMqttEnabledStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The certificate format.
@@ -1021,10 +1003,11 @@ func (o PublicKeyCertificateFormatPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublicKeyCertificateFormatInput is an input type that accepts PublicKeyCertificateFormatArgs and PublicKeyCertificateFormatOutput values.
-// You can construct a concrete instance of `PublicKeyCertificateFormatInput` via:
+// PublicKeyCertificateFormatInput is an input type that accepts values of the PublicKeyCertificateFormat enum
+// A concrete instance of `PublicKeyCertificateFormatInput` can be one of the following:
 //
-//	PublicKeyCertificateFormatArgs{...}
+//	PublicKeyCertificateFormatUnspecifiedPublicKeyCertificateFormat
+//	PublicKeyCertificateFormatX509CertificatePem
 type PublicKeyCertificateFormatInput interface {
 	pulumi.Input
 
@@ -1057,12 +1040,6 @@ func (in *publicKeyCertificateFormatPtr) ToPublicKeyCertificateFormatPtrOutput()
 
 func (in *publicKeyCertificateFormatPtr) ToPublicKeyCertificateFormatPtrOutputWithContext(ctx context.Context) PublicKeyCertificateFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PublicKeyCertificateFormatPtrOutput)
-}
-
-func (in *publicKeyCertificateFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*PublicKeyCertificateFormat] {
-	return pulumix.Output[*PublicKeyCertificateFormat]{
-		OutputState: in.ToPublicKeyCertificateFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The format of the key.
@@ -1200,10 +1177,14 @@ func (o PublicKeyCredentialFormatPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublicKeyCredentialFormatInput is an input type that accepts PublicKeyCredentialFormatArgs and PublicKeyCredentialFormatOutput values.
-// You can construct a concrete instance of `PublicKeyCredentialFormatInput` via:
+// PublicKeyCredentialFormatInput is an input type that accepts values of the PublicKeyCredentialFormat enum
+// A concrete instance of `PublicKeyCredentialFormatInput` can be one of the following:
 //
-//	PublicKeyCredentialFormatArgs{...}
+//	PublicKeyCredentialFormatUnspecifiedPublicKeyFormat
+//	PublicKeyCredentialFormatRsaPem
+//	PublicKeyCredentialFormatRsaX509Pem
+//	PublicKeyCredentialFormatEs256Pem
+//	PublicKeyCredentialFormatEs256X509Pem
 type PublicKeyCredentialFormatInput interface {
 	pulumi.Input
 
@@ -1236,12 +1217,6 @@ func (in *publicKeyCredentialFormatPtr) ToPublicKeyCredentialFormatPtrOutput() P
 
 func (in *publicKeyCredentialFormatPtr) ToPublicKeyCredentialFormatPtrOutputWithContext(ctx context.Context) PublicKeyCredentialFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PublicKeyCredentialFormatPtrOutput)
-}
-
-func (in *publicKeyCredentialFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*PublicKeyCredentialFormat] {
-	return pulumix.Output[*PublicKeyCredentialFormat]{
-		OutputState: in.ToPublicKeyCredentialFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // **Beta Feature** The default logging verbosity for activity from devices in this registry. The verbosity level can be overridden by Device.log_level.
@@ -1379,10 +1354,14 @@ func (o RegistryLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RegistryLogLevelInput is an input type that accepts RegistryLogLevelArgs and RegistryLogLevelOutput values.
-// You can construct a concrete instance of `RegistryLogLevelInput` via:
+// RegistryLogLevelInput is an input type that accepts values of the RegistryLogLevel enum
+// A concrete instance of `RegistryLogLevelInput` can be one of the following:
 //
-//	RegistryLogLevelArgs{...}
+//	RegistryLogLevelLogLevelUnspecified
+//	RegistryLogLevelNone
+//	RegistryLogLevelError
+//	RegistryLogLevelInfo
+//	RegistryLogLevelDebug
 type RegistryLogLevelInput interface {
 	pulumi.Input
 
@@ -1415,12 +1394,6 @@ func (in *registryLogLevelPtr) ToRegistryLogLevelPtrOutput() RegistryLogLevelPtr
 
 func (in *registryLogLevelPtr) ToRegistryLogLevelPtrOutputWithContext(ctx context.Context) RegistryLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RegistryLogLevelPtrOutput)
-}
-
-func (in *registryLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*RegistryLogLevel] {
-	return pulumix.Output[*RegistryLogLevel]{
-		OutputState: in.ToRegistryLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

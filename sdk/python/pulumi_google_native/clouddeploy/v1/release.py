@@ -368,7 +368,7 @@ class Release(pulumi.CustomResource):
             __props__.__dict__["target_renders"] = None
             __props__.__dict__["target_snapshots"] = None
             __props__.__dict__["uid"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["delivery_pipeline_id", "location", "project", "release_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["deliveryPipelineId", "location", "project", "releaseId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Release, __self__).__init__(
             'google-native:clouddeploy/v1:Release',
@@ -589,7 +589,7 @@ class Release(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetArtifacts")
-    def target_artifacts(self) -> pulumi.Output[Mapping[str, str]]:
+    def target_artifacts(self) -> pulumi.Output[Mapping[str, 'outputs.TargetArtifactResponse']]:
         """
         Map from target ID to the target artifacts created during the render operation.
         """
@@ -597,7 +597,7 @@ class Release(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="targetRenders")
-    def target_renders(self) -> pulumi.Output[Mapping[str, str]]:
+    def target_renders(self) -> pulumi.Output[Mapping[str, 'outputs.TargetRenderResponse']]:
         """
         Map from target ID to details of the render operation for that target.
         """

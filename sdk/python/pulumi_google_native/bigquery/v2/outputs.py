@@ -3443,24 +3443,20 @@ class JobConfigurationLoadResponse(dict):
 
     @property
     @pulumi.getter(name="schemaInline")
+    @_utilities.deprecated("""[Deprecated] The inline schema. For CSV schemas, specify as \"Field1:Type1[,Field2:Type2]*\". For example, \"foo:STRING, bar:INTEGER, baz:FLOAT\".""")
     def schema_inline(self) -> str:
         """
         [Deprecated] The inline schema. For CSV schemas, specify as "Field1:Type1[,Field2:Type2]*". For example, "foo:STRING, bar:INTEGER, baz:FLOAT".
         """
-        warnings.warn("""[Deprecated] The inline schema. For CSV schemas, specify as \"Field1:Type1[,Field2:Type2]*\". For example, \"foo:STRING, bar:INTEGER, baz:FLOAT\".""", DeprecationWarning)
-        pulumi.log.warn("""schema_inline is deprecated: [Deprecated] The inline schema. For CSV schemas, specify as \"Field1:Type1[,Field2:Type2]*\". For example, \"foo:STRING, bar:INTEGER, baz:FLOAT\".""")
-
         return pulumi.get(self, "schema_inline")
 
     @property
     @pulumi.getter(name="schemaInlineFormat")
+    @_utilities.deprecated("""[Deprecated] The format of the schemaInline property.""")
     def schema_inline_format(self) -> str:
         """
         [Deprecated] The format of the schemaInline property.
         """
-        warnings.warn("""[Deprecated] The format of the schemaInline property.""", DeprecationWarning)
-        pulumi.log.warn("""schema_inline_format is deprecated: [Deprecated] The format of the schemaInline property.""")
-
         return pulumi.get(self, "schema_inline_format")
 
     @property
@@ -3599,7 +3595,7 @@ class JobConfigurationQueryResponse(dict):
                  query_parameters: Sequence['outputs.QueryParameterResponse'],
                  range_partitioning: 'outputs.RangePartitioningResponse',
                  schema_update_options: Sequence[str],
-                 table_definitions: Mapping[str, str],
+                 table_definitions: Mapping[str, 'outputs.ExternalDataConfigurationResponse'],
                  time_partitioning: 'outputs.TimePartitioningResponse',
                  use_legacy_sql: bool,
                  use_query_cache: bool,
@@ -3625,7 +3621,7 @@ class JobConfigurationQueryResponse(dict):
         :param Sequence['QueryParameterResponse'] query_parameters: Query parameters for standard SQL queries.
         :param 'RangePartitioningResponse' range_partitioning: [TrustedTester] Range partitioning specification for this table. Only one of timePartitioning and rangePartitioning should be specified.
         :param Sequence[str] schema_update_options: Allows the schema of the destination table to be updated as a side effect of the query job. Schema update options are supported in two cases: when writeDisposition is WRITE_APPEND; when writeDisposition is WRITE_TRUNCATE and the destination table is a partition of a table, specified by partition decorators. For normal tables, WRITE_TRUNCATE will always overwrite the schema. One or more of the following values are specified: ALLOW_FIELD_ADDITION: allow adding a nullable field to the schema. ALLOW_FIELD_RELAXATION: allow relaxing a required field in the original schema to nullable.
-        :param Mapping[str, str] table_definitions: [Optional] If querying an external data source outside of BigQuery, describes the data format, location and other properties of the data source. By defining these properties, the data source can then be queried as if it were a standard BigQuery table.
+        :param Mapping[str, 'ExternalDataConfigurationResponse'] table_definitions: [Optional] If querying an external data source outside of BigQuery, describes the data format, location and other properties of the data source. By defining these properties, the data source can then be queried as if it were a standard BigQuery table.
         :param 'TimePartitioningResponse' time_partitioning: Time-based partitioning specification for the destination table. Only one of timePartitioning and rangePartitioning should be specified.
         :param bool use_legacy_sql: Specifies whether to use BigQuery's legacy SQL dialect for this query. The default value is true. If set to false, the query will use BigQuery's standard SQL: https://cloud.google.com/bigquery/sql-reference/ When useLegacySql is set to false, the value of flattenResults is ignored; query will be run as if flattenResults is false.
         :param bool use_query_cache: [Optional] Whether to look for the result in the query cache. The query cache is a best-effort cache that will be flushed whenever tables in the query are modified. Moreover, the query cache is only available when a query does not have a destination table specified. The default value is true.
@@ -3764,13 +3760,11 @@ class JobConfigurationQueryResponse(dict):
 
     @property
     @pulumi.getter(name="preserveNulls")
+    @_utilities.deprecated("""[Deprecated] This property is deprecated.""")
     def preserve_nulls(self) -> bool:
         """
         [Deprecated] This property is deprecated.
         """
-        warnings.warn("""[Deprecated] This property is deprecated.""", DeprecationWarning)
-        pulumi.log.warn("""preserve_nulls is deprecated: [Deprecated] This property is deprecated.""")
-
         return pulumi.get(self, "preserve_nulls")
 
     @property
@@ -3815,7 +3809,7 @@ class JobConfigurationQueryResponse(dict):
 
     @property
     @pulumi.getter(name="tableDefinitions")
-    def table_definitions(self) -> Mapping[str, str]:
+    def table_definitions(self) -> Mapping[str, 'outputs.ExternalDataConfigurationResponse']:
         """
         [Optional] If querying an external data source outside of BigQuery, describes the data format, location and other properties of the data source. By defining these properties, the data source can then be queried as if it were a standard BigQuery table.
         """
@@ -4503,24 +4497,20 @@ class JobStatistics2Response(dict):
 
     @property
     @pulumi.getter(name="modelTrainingCurrentIteration")
+    @_utilities.deprecated("""[Output only, Beta] Deprecated; do not use.""")
     def model_training_current_iteration(self) -> int:
         """
         [Output only, Beta] Deprecated; do not use.
         """
-        warnings.warn("""[Output only, Beta] Deprecated; do not use.""", DeprecationWarning)
-        pulumi.log.warn("""model_training_current_iteration is deprecated: [Output only, Beta] Deprecated; do not use.""")
-
         return pulumi.get(self, "model_training_current_iteration")
 
     @property
     @pulumi.getter(name="modelTrainingExpectedTotalIteration")
+    @_utilities.deprecated("""[Output only, Beta] Deprecated; do not use.""")
     def model_training_expected_total_iteration(self) -> str:
         """
         [Output only, Beta] Deprecated; do not use.
         """
-        warnings.warn("""[Output only, Beta] Deprecated; do not use.""", DeprecationWarning)
-        pulumi.log.warn("""model_training_expected_total_iteration is deprecated: [Output only, Beta] Deprecated; do not use.""")
-
         return pulumi.get(self, "model_training_expected_total_iteration")
 
     @property
@@ -5140,13 +5130,11 @@ class JobStatisticsResponse(dict):
 
     @property
     @pulumi.getter(name="totalBytesProcessed")
+    @_utilities.deprecated("""[Output-only] [Deprecated] Use the bytes processed in the query statistics instead.""")
     def total_bytes_processed(self) -> str:
         """
         [Deprecated] Use the bytes processed in the query statistics instead.
         """
-        warnings.warn("""[Output-only] [Deprecated] Use the bytes processed in the query statistics instead.""", DeprecationWarning)
-        pulumi.log.warn("""total_bytes_processed is deprecated: [Output-only] [Deprecated] Use the bytes processed in the query statistics instead.""")
-
         return pulumi.get(self, "total_bytes_processed")
 
     @property
@@ -5774,11 +5762,11 @@ class QueryParameterValueResponse(dict):
 
     def __init__(__self__, *,
                  array_values: Sequence['outputs.QueryParameterValueResponse'],
-                 struct_values: Mapping[str, str],
+                 struct_values: Mapping[str, 'outputs.QueryParameterValueResponse'],
                  value: str):
         """
         :param Sequence['QueryParameterValueResponse'] array_values: [Optional] The array values, if this is an array type.
-        :param Mapping[str, str] struct_values: [Optional] The struct field values, in order of the struct type's declaration.
+        :param Mapping[str, 'QueryParameterValueResponse'] struct_values: [Optional] The struct field values, in order of the struct type's declaration.
         :param str value: [Optional] The value of this value, if a simple scalar type.
         """
         pulumi.set(__self__, "array_values", array_values)
@@ -5795,7 +5783,7 @@ class QueryParameterValueResponse(dict):
 
     @property
     @pulumi.getter(name="structValues")
-    def struct_values(self) -> Mapping[str, str]:
+    def struct_values(self) -> Mapping[str, 'outputs.QueryParameterValueResponse']:
         """
         [Optional] The struct field values, in order of the struct type's declaration.
         """

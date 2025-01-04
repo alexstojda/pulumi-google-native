@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. Policy mode
@@ -142,10 +141,12 @@ func (o OSPolicyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyModeInput is an input type that accepts OSPolicyModeArgs and OSPolicyModeOutput values.
-// You can construct a concrete instance of `OSPolicyModeInput` via:
+// OSPolicyModeInput is an input type that accepts values of the OSPolicyMode enum
+// A concrete instance of `OSPolicyModeInput` can be one of the following:
 //
-//	OSPolicyModeArgs{...}
+//	OSPolicyModeModeUnspecified
+//	OSPolicyModeValidation
+//	OSPolicyModeEnforcement
 type OSPolicyModeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *ospolicyModePtr) ToOSPolicyModePtrOutput() OSPolicyModePtrOutput {
 
 func (in *ospolicyModePtr) ToOSPolicyModePtrOutputWithContext(ctx context.Context) OSPolicyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyModePtrOutput)
-}
-
-func (in *ospolicyModePtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyMode] {
-	return pulumix.Output[*OSPolicyMode]{
-		OutputState: in.ToOSPolicyModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The script interpreter to use.
@@ -319,10 +314,13 @@ func (o OSPolicyResourceExecResourceExecInterpreterPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyResourceExecResourceExecInterpreterInput is an input type that accepts OSPolicyResourceExecResourceExecInterpreterArgs and OSPolicyResourceExecResourceExecInterpreterOutput values.
-// You can construct a concrete instance of `OSPolicyResourceExecResourceExecInterpreterInput` via:
+// OSPolicyResourceExecResourceExecInterpreterInput is an input type that accepts values of the OSPolicyResourceExecResourceExecInterpreter enum
+// A concrete instance of `OSPolicyResourceExecResourceExecInterpreterInput` can be one of the following:
 //
-//	OSPolicyResourceExecResourceExecInterpreterArgs{...}
+//	OSPolicyResourceExecResourceExecInterpreterInterpreterUnspecified
+//	OSPolicyResourceExecResourceExecInterpreterNone
+//	OSPolicyResourceExecResourceExecInterpreterShell
+//	OSPolicyResourceExecResourceExecInterpreterPowershell
 type OSPolicyResourceExecResourceExecInterpreterInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *ospolicyResourceExecResourceExecInterpreterPtr) ToOSPolicyResourceExec
 
 func (in *ospolicyResourceExecResourceExecInterpreterPtr) ToOSPolicyResourceExecResourceExecInterpreterPtrOutputWithContext(ctx context.Context) OSPolicyResourceExecResourceExecInterpreterPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyResourceExecResourceExecInterpreterPtrOutput)
-}
-
-func (in *ospolicyResourceExecResourceExecInterpreterPtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyResourceExecResourceExecInterpreter] {
-	return pulumix.Output[*OSPolicyResourceExecResourceExecInterpreter]{
-		OutputState: in.ToOSPolicyResourceExecResourceExecInterpreterPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Desired state of the file.
@@ -496,10 +488,13 @@ func (o OSPolicyResourceFileResourceStatePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyResourceFileResourceStateInput is an input type that accepts OSPolicyResourceFileResourceStateArgs and OSPolicyResourceFileResourceStateOutput values.
-// You can construct a concrete instance of `OSPolicyResourceFileResourceStateInput` via:
+// OSPolicyResourceFileResourceStateInput is an input type that accepts values of the OSPolicyResourceFileResourceState enum
+// A concrete instance of `OSPolicyResourceFileResourceStateInput` can be one of the following:
 //
-//	OSPolicyResourceFileResourceStateArgs{...}
+//	OSPolicyResourceFileResourceStateDesiredStateUnspecified
+//	OSPolicyResourceFileResourceStatePresent
+//	OSPolicyResourceFileResourceStateAbsent
+//	OSPolicyResourceFileResourceStateContentsMatch
 type OSPolicyResourceFileResourceStateInput interface {
 	pulumi.Input
 
@@ -532,12 +527,6 @@ func (in *ospolicyResourceFileResourceStatePtr) ToOSPolicyResourceFileResourceSt
 
 func (in *ospolicyResourceFileResourceStatePtr) ToOSPolicyResourceFileResourceStatePtrOutputWithContext(ctx context.Context) OSPolicyResourceFileResourceStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyResourceFileResourceStatePtrOutput)
-}
-
-func (in *ospolicyResourceFileResourceStatePtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyResourceFileResourceState] {
-	return pulumix.Output[*OSPolicyResourceFileResourceState]{
-		OutputState: in.ToOSPolicyResourceFileResourceStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The desired state the agent should maintain for this package.
@@ -671,10 +660,12 @@ func (o OSPolicyResourcePackageResourceDesiredStatePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyResourcePackageResourceDesiredStateInput is an input type that accepts OSPolicyResourcePackageResourceDesiredStateArgs and OSPolicyResourcePackageResourceDesiredStateOutput values.
-// You can construct a concrete instance of `OSPolicyResourcePackageResourceDesiredStateInput` via:
+// OSPolicyResourcePackageResourceDesiredStateInput is an input type that accepts values of the OSPolicyResourcePackageResourceDesiredState enum
+// A concrete instance of `OSPolicyResourcePackageResourceDesiredStateInput` can be one of the following:
 //
-//	OSPolicyResourcePackageResourceDesiredStateArgs{...}
+//	OSPolicyResourcePackageResourceDesiredStateDesiredStateUnspecified
+//	OSPolicyResourcePackageResourceDesiredStateInstalled
+//	OSPolicyResourcePackageResourceDesiredStateRemoved
 type OSPolicyResourcePackageResourceDesiredStateInput interface {
 	pulumi.Input
 
@@ -707,12 +698,6 @@ func (in *ospolicyResourcePackageResourceDesiredStatePtr) ToOSPolicyResourcePack
 
 func (in *ospolicyResourcePackageResourceDesiredStatePtr) ToOSPolicyResourcePackageResourceDesiredStatePtrOutputWithContext(ctx context.Context) OSPolicyResourcePackageResourceDesiredStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyResourcePackageResourceDesiredStatePtrOutput)
-}
-
-func (in *ospolicyResourcePackageResourceDesiredStatePtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyResourcePackageResourceDesiredState] {
-	return pulumix.Output[*OSPolicyResourcePackageResourceDesiredState]{
-		OutputState: in.ToOSPolicyResourcePackageResourceDesiredStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Type of archive files in this repository.
@@ -846,10 +831,12 @@ func (o OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput is an input type that accepts OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeArgs and OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeOutput values.
-// You can construct a concrete instance of `OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput` via:
+// OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput is an input type that accepts values of the OSPolicyResourceRepositoryResourceAptRepositoryArchiveType enum
+// A concrete instance of `OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput` can be one of the following:
 //
-//	OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeArgs{...}
+//	OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeArchiveTypeUnspecified
+//	OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeDeb
+//	OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeDebSrc
 type OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput interface {
 	pulumi.Input
 
@@ -882,12 +869,6 @@ func (in *ospolicyResourceRepositoryResourceAptRepositoryArchiveTypePtr) ToOSPol
 
 func (in *ospolicyResourceRepositoryResourceAptRepositoryArchiveTypePtr) ToOSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutputWithContext(ctx context.Context) OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutput)
-}
-
-func (in *ospolicyResourceRepositoryResourceAptRepositoryArchiveTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyResourceRepositoryResourceAptRepositoryArchiveType] {
-	return pulumix.Output[*OSPolicyResourceRepositoryResourceAptRepositoryArchiveType]{
-		OutputState: in.ToOSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

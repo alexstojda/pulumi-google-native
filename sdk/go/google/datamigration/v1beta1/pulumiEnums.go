@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The activation policy specifies when the instance is activated; it is applicable only when the instance state is 'RUNNABLE'. Valid values: 'ALWAYS': The instance is on, and remains so even in the absence of connection requests. `NEVER`: The instance is off; it is not activated, even if a connection request arrives.
@@ -319,10 +315,12 @@ func (o CloudSqlSettingsActivationPolicyPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// CloudSqlSettingsActivationPolicyInput is an input type that accepts CloudSqlSettingsActivationPolicyArgs and CloudSqlSettingsActivationPolicyOutput values.
-// You can construct a concrete instance of `CloudSqlSettingsActivationPolicyInput` via:
+// CloudSqlSettingsActivationPolicyInput is an input type that accepts values of the CloudSqlSettingsActivationPolicy enum
+// A concrete instance of `CloudSqlSettingsActivationPolicyInput` can be one of the following:
 //
-//	CloudSqlSettingsActivationPolicyArgs{...}
+//	CloudSqlSettingsActivationPolicySqlActivationPolicyUnspecified
+//	CloudSqlSettingsActivationPolicyAlways
+//	CloudSqlSettingsActivationPolicyNever
 type CloudSqlSettingsActivationPolicyInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *cloudSqlSettingsActivationPolicyPtr) ToCloudSqlSettingsActivationPolic
 
 func (in *cloudSqlSettingsActivationPolicyPtr) ToCloudSqlSettingsActivationPolicyPtrOutputWithContext(ctx context.Context) CloudSqlSettingsActivationPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CloudSqlSettingsActivationPolicyPtrOutput)
-}
-
-func (in *cloudSqlSettingsActivationPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*CloudSqlSettingsActivationPolicy] {
-	return pulumix.Output[*CloudSqlSettingsActivationPolicy]{
-		OutputState: in.ToCloudSqlSettingsActivationPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of storage: `PD_SSD` (default) or `PD_HDD`.
@@ -494,10 +486,12 @@ func (o CloudSqlSettingsDataDiskTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// CloudSqlSettingsDataDiskTypeInput is an input type that accepts CloudSqlSettingsDataDiskTypeArgs and CloudSqlSettingsDataDiskTypeOutput values.
-// You can construct a concrete instance of `CloudSqlSettingsDataDiskTypeInput` via:
+// CloudSqlSettingsDataDiskTypeInput is an input type that accepts values of the CloudSqlSettingsDataDiskType enum
+// A concrete instance of `CloudSqlSettingsDataDiskTypeInput` can be one of the following:
 //
-//	CloudSqlSettingsDataDiskTypeArgs{...}
+//	CloudSqlSettingsDataDiskTypeSqlDataDiskTypeUnspecified
+//	CloudSqlSettingsDataDiskTypePdSsd
+//	CloudSqlSettingsDataDiskTypePdHdd
 type CloudSqlSettingsDataDiskTypeInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *cloudSqlSettingsDataDiskTypePtr) ToCloudSqlSettingsDataDiskTypePtrOutp
 
 func (in *cloudSqlSettingsDataDiskTypePtr) ToCloudSqlSettingsDataDiskTypePtrOutputWithContext(ctx context.Context) CloudSqlSettingsDataDiskTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CloudSqlSettingsDataDiskTypePtrOutput)
-}
-
-func (in *cloudSqlSettingsDataDiskTypePtr) ToOutput(ctx context.Context) pulumix.Output[*CloudSqlSettingsDataDiskType] {
-	return pulumix.Output[*CloudSqlSettingsDataDiskType]{
-		OutputState: in.ToCloudSqlSettingsDataDiskTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The database engine type and version.
@@ -671,10 +659,13 @@ func (o CloudSqlSettingsDatabaseVersionPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// CloudSqlSettingsDatabaseVersionInput is an input type that accepts CloudSqlSettingsDatabaseVersionArgs and CloudSqlSettingsDatabaseVersionOutput values.
-// You can construct a concrete instance of `CloudSqlSettingsDatabaseVersionInput` via:
+// CloudSqlSettingsDatabaseVersionInput is an input type that accepts values of the CloudSqlSettingsDatabaseVersion enum
+// A concrete instance of `CloudSqlSettingsDatabaseVersionInput` can be one of the following:
 //
-//	CloudSqlSettingsDatabaseVersionArgs{...}
+//	CloudSqlSettingsDatabaseVersionSqlDatabaseVersionUnspecified
+//	CloudSqlSettingsDatabaseVersionMysql56
+//	CloudSqlSettingsDatabaseVersionMysql57
+//	CloudSqlSettingsDatabaseVersionMysql80
 type CloudSqlSettingsDatabaseVersionInput interface {
 	pulumi.Input
 
@@ -707,12 +698,6 @@ func (in *cloudSqlSettingsDatabaseVersionPtr) ToCloudSqlSettingsDatabaseVersionP
 
 func (in *cloudSqlSettingsDatabaseVersionPtr) ToCloudSqlSettingsDatabaseVersionPtrOutputWithContext(ctx context.Context) CloudSqlSettingsDatabaseVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CloudSqlSettingsDatabaseVersionPtrOutput)
-}
-
-func (in *cloudSqlSettingsDatabaseVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*CloudSqlSettingsDatabaseVersion] {
-	return pulumix.Output[*CloudSqlSettingsDatabaseVersion]{
-		OutputState: in.ToCloudSqlSettingsDatabaseVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The database provider.
@@ -846,10 +831,12 @@ func (o ConnectionProfileProviderPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionProfileProviderInput is an input type that accepts ConnectionProfileProviderArgs and ConnectionProfileProviderOutput values.
-// You can construct a concrete instance of `ConnectionProfileProviderInput` via:
+// ConnectionProfileProviderInput is an input type that accepts values of the ConnectionProfileProvider enum
+// A concrete instance of `ConnectionProfileProviderInput` can be one of the following:
 //
-//	ConnectionProfileProviderArgs{...}
+//	ConnectionProfileProviderDatabaseProviderUnspecified
+//	ConnectionProfileProviderCloudsql
+//	ConnectionProfileProviderRds
 type ConnectionProfileProviderInput interface {
 	pulumi.Input
 
@@ -882,12 +869,6 @@ func (in *connectionProfileProviderPtr) ToConnectionProfileProviderPtrOutput() C
 
 func (in *connectionProfileProviderPtr) ToConnectionProfileProviderPtrOutputWithContext(ctx context.Context) ConnectionProfileProviderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionProfileProviderPtrOutput)
-}
-
-func (in *connectionProfileProviderPtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectionProfileProvider] {
-	return pulumix.Output[*ConnectionProfileProvider]{
-		OutputState: in.ToConnectionProfileProviderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current connection profile state (e.g. DRAFT, READY, or FAILED).
@@ -1031,10 +1012,17 @@ func (o ConnectionProfileStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionProfileStateEnumInput is an input type that accepts ConnectionProfileStateEnumArgs and ConnectionProfileStateEnumOutput values.
-// You can construct a concrete instance of `ConnectionProfileStateEnumInput` via:
+// ConnectionProfileStateEnumInput is an input type that accepts values of the ConnectionProfileStateEnum enum
+// A concrete instance of `ConnectionProfileStateEnumInput` can be one of the following:
 //
-//	ConnectionProfileStateEnumArgs{...}
+//	ConnectionProfileStateEnumStateUnspecified
+//	ConnectionProfileStateEnumDraft
+//	ConnectionProfileStateEnumCreating
+//	ConnectionProfileStateEnumReady
+//	ConnectionProfileStateEnumUpdating
+//	ConnectionProfileStateEnumDeleting
+//	ConnectionProfileStateEnumDeleted
+//	ConnectionProfileStateEnumFailed
 type ConnectionProfileStateEnumInput interface {
 	pulumi.Input
 
@@ -1067,12 +1055,6 @@ func (in *connectionProfileStateEnumPtr) ToConnectionProfileStateEnumPtrOutput()
 
 func (in *connectionProfileStateEnumPtr) ToConnectionProfileStateEnumPtrOutputWithContext(ctx context.Context) ConnectionProfileStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionProfileStateEnumPtrOutput)
-}
-
-func (in *connectionProfileStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectionProfileStateEnum] {
-	return pulumix.Output[*ConnectionProfileStateEnum]{
-		OutputState: in.ToConnectionProfileStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The database engine.
@@ -1204,10 +1186,11 @@ func (o DatabaseTypeEnginePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatabaseTypeEngineInput is an input type that accepts DatabaseTypeEngineArgs and DatabaseTypeEngineOutput values.
-// You can construct a concrete instance of `DatabaseTypeEngineInput` via:
+// DatabaseTypeEngineInput is an input type that accepts values of the DatabaseTypeEngine enum
+// A concrete instance of `DatabaseTypeEngineInput` can be one of the following:
 //
-//	DatabaseTypeEngineArgs{...}
+//	DatabaseTypeEngineDatabaseEngineUnspecified
+//	DatabaseTypeEngineMysql
 type DatabaseTypeEngineInput interface {
 	pulumi.Input
 
@@ -1240,12 +1223,6 @@ func (in *databaseTypeEnginePtr) ToDatabaseTypeEnginePtrOutput() DatabaseTypeEng
 
 func (in *databaseTypeEnginePtr) ToDatabaseTypeEnginePtrOutputWithContext(ctx context.Context) DatabaseTypeEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseTypeEnginePtrOutput)
-}
-
-func (in *databaseTypeEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*DatabaseTypeEngine] {
-	return pulumix.Output[*DatabaseTypeEngine]{
-		OutputState: in.ToDatabaseTypeEnginePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The database provider.
@@ -1379,10 +1356,12 @@ func (o DatabaseTypeProviderPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatabaseTypeProviderInput is an input type that accepts DatabaseTypeProviderArgs and DatabaseTypeProviderOutput values.
-// You can construct a concrete instance of `DatabaseTypeProviderInput` via:
+// DatabaseTypeProviderInput is an input type that accepts values of the DatabaseTypeProvider enum
+// A concrete instance of `DatabaseTypeProviderInput` can be one of the following:
 //
-//	DatabaseTypeProviderArgs{...}
+//	DatabaseTypeProviderDatabaseProviderUnspecified
+//	DatabaseTypeProviderCloudsql
+//	DatabaseTypeProviderRds
 type DatabaseTypeProviderInput interface {
 	pulumi.Input
 
@@ -1415,12 +1394,6 @@ func (in *databaseTypeProviderPtr) ToDatabaseTypeProviderPtrOutput() DatabaseTyp
 
 func (in *databaseTypeProviderPtr) ToDatabaseTypeProviderPtrOutputWithContext(ctx context.Context) DatabaseTypeProviderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseTypeProviderPtrOutput)
-}
-
-func (in *databaseTypeProviderPtr) ToOutput(ctx context.Context) pulumix.Output[*DatabaseTypeProvider] {
-	return pulumix.Output[*DatabaseTypeProvider]{
-		OutputState: in.ToDatabaseTypeProviderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current migration job state.
@@ -1580,10 +1553,25 @@ func (o MigrationJobStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// MigrationJobStateEnumInput is an input type that accepts MigrationJobStateEnumArgs and MigrationJobStateEnumOutput values.
-// You can construct a concrete instance of `MigrationJobStateEnumInput` via:
+// MigrationJobStateEnumInput is an input type that accepts values of the MigrationJobStateEnum enum
+// A concrete instance of `MigrationJobStateEnumInput` can be one of the following:
 //
-//	MigrationJobStateEnumArgs{...}
+//	MigrationJobStateEnumStateUnspecified
+//	MigrationJobStateEnumMaintenance
+//	MigrationJobStateEnumDraft
+//	MigrationJobStateEnumCreating
+//	MigrationJobStateEnumNotStarted
+//	MigrationJobStateEnumRunning
+//	MigrationJobStateEnumFailed
+//	MigrationJobStateEnumCompleted
+//	MigrationJobStateEnumDeleting
+//	MigrationJobStateEnumStopping
+//	MigrationJobStateEnumStopped
+//	MigrationJobStateEnumDeleted
+//	MigrationJobStateEnumUpdating
+//	MigrationJobStateEnumStarting
+//	MigrationJobStateEnumRestarting
+//	MigrationJobStateEnumResuming
 type MigrationJobStateEnumInput interface {
 	pulumi.Input
 
@@ -1616,12 +1604,6 @@ func (in *migrationJobStateEnumPtr) ToMigrationJobStateEnumPtrOutput() Migration
 
 func (in *migrationJobStateEnumPtr) ToMigrationJobStateEnumPtrOutputWithContext(ctx context.Context) MigrationJobStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MigrationJobStateEnumPtrOutput)
-}
-
-func (in *migrationJobStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*MigrationJobStateEnum] {
-	return pulumix.Output[*MigrationJobStateEnum]{
-		OutputState: in.ToMigrationJobStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The migration job type.
@@ -1755,10 +1737,12 @@ func (o MigrationJobTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// MigrationJobTypeInput is an input type that accepts MigrationJobTypeArgs and MigrationJobTypeOutput values.
-// You can construct a concrete instance of `MigrationJobTypeInput` via:
+// MigrationJobTypeInput is an input type that accepts values of the MigrationJobType enum
+// A concrete instance of `MigrationJobTypeInput` can be one of the following:
 //
-//	MigrationJobTypeArgs{...}
+//	MigrationJobTypeTypeUnspecified
+//	MigrationJobTypeOneTime
+//	MigrationJobTypeContinuous
 type MigrationJobTypeInput interface {
 	pulumi.Input
 
@@ -1791,12 +1775,6 @@ func (in *migrationJobTypePtr) ToMigrationJobTypePtrOutput() MigrationJobTypePtr
 
 func (in *migrationJobTypePtr) ToMigrationJobTypePtrOutputWithContext(ctx context.Context) MigrationJobTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MigrationJobTypePtrOutput)
-}
-
-func (in *migrationJobTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MigrationJobType] {
-	return pulumix.Output[*MigrationJobType]{
-		OutputState: in.ToMigrationJobTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

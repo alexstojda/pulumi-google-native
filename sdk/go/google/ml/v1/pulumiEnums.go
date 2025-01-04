@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. The optimization goal of the metric.
@@ -142,10 +141,12 @@ func (o GoogleCloudMlV1_StudyConfig_MetricSpecGoalPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1_StudyConfig_MetricSpecGoalInput is an input type that accepts GoogleCloudMlV1_StudyConfig_MetricSpecGoalArgs and GoogleCloudMlV1_StudyConfig_MetricSpecGoalOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1_StudyConfig_MetricSpecGoalInput` via:
+// GoogleCloudMlV1_StudyConfig_MetricSpecGoalInput is an input type that accepts values of the GoogleCloudMlV1_StudyConfig_MetricSpecGoal enum
+// A concrete instance of `GoogleCloudMlV1_StudyConfig_MetricSpecGoalInput` can be one of the following:
 //
-//	GoogleCloudMlV1_StudyConfig_MetricSpecGoalArgs{...}
+//	GoogleCloudMlV1_StudyConfig_MetricSpecGoalGoalTypeUnspecified
+//	GoogleCloudMlV1_StudyConfig_MetricSpecGoalMaximize
+//	GoogleCloudMlV1_StudyConfig_MetricSpecGoalMinimize
 type GoogleCloudMlV1_StudyConfig_MetricSpecGoalInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *googleCloudMlV1_StudyConfig_MetricSpecGoalPtr) ToGoogleCloudMlV1_Study
 
 func (in *googleCloudMlV1_StudyConfig_MetricSpecGoalPtr) ToGoogleCloudMlV1_StudyConfig_MetricSpecGoalPtrOutputWithContext(ctx context.Context) GoogleCloudMlV1_StudyConfig_MetricSpecGoalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1_StudyConfig_MetricSpecGoalPtrOutput)
-}
-
-func (in *googleCloudMlV1_StudyConfig_MetricSpecGoalPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1_StudyConfig_MetricSpecGoal] {
-	return pulumix.Output[*GoogleCloudMlV1_StudyConfig_MetricSpecGoal]{
-		OutputState: in.ToGoogleCloudMlV1_StudyConfig_MetricSpecGoalPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // How the parameter should be scaled. Leave unset for categorical parameters.
@@ -319,10 +314,13 @@ func (o GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypePtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeInput is an input type that accepts GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeArgs and GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeInput` via:
+// GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeInput is an input type that accepts values of the GoogleCloudMlV1_StudyConfig_ParameterSpecScaleType enum
+// A concrete instance of `GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeInput` can be one of the following:
 //
-//	GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeArgs{...}
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeScaleTypeUnspecified
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeUnitLinearScale
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeUnitLogScale
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeUnitReverseLogScale
 type GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *googleCloudMlV1_StudyConfig_ParameterSpecScaleTypePtr) ToGoogleCloudMl
 
 func (in *googleCloudMlV1_StudyConfig_ParameterSpecScaleTypePtr) ToGoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypePtrOutputWithContext(ctx context.Context) GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypePtrOutput)
-}
-
-func (in *googleCloudMlV1_StudyConfig_ParameterSpecScaleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1_StudyConfig_ParameterSpecScaleType] {
-	return pulumix.Output[*GoogleCloudMlV1_StudyConfig_ParameterSpecScaleType]{
-		OutputState: in.ToGoogleCloudMlV1_StudyConfig_ParameterSpecScaleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of the parameter.
@@ -498,10 +490,14 @@ func (o GoogleCloudMlV1_StudyConfig_ParameterSpecTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1_StudyConfig_ParameterSpecTypeInput is an input type that accepts GoogleCloudMlV1_StudyConfig_ParameterSpecTypeArgs and GoogleCloudMlV1_StudyConfig_ParameterSpecTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1_StudyConfig_ParameterSpecTypeInput` via:
+// GoogleCloudMlV1_StudyConfig_ParameterSpecTypeInput is an input type that accepts values of the GoogleCloudMlV1_StudyConfig_ParameterSpecType enum
+// A concrete instance of `GoogleCloudMlV1_StudyConfig_ParameterSpecTypeInput` can be one of the following:
 //
-//	GoogleCloudMlV1_StudyConfig_ParameterSpecTypeArgs{...}
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecTypeParameterTypeUnspecified
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecTypeDouble
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecTypeInteger
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecTypeCategorical
+//	GoogleCloudMlV1_StudyConfig_ParameterSpecTypeDiscrete
 type GoogleCloudMlV1_StudyConfig_ParameterSpecTypeInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *googleCloudMlV1_StudyConfig_ParameterSpecTypePtr) ToGoogleCloudMlV1_St
 
 func (in *googleCloudMlV1_StudyConfig_ParameterSpecTypePtr) ToGoogleCloudMlV1_StudyConfig_ParameterSpecTypePtrOutputWithContext(ctx context.Context) GoogleCloudMlV1_StudyConfig_ParameterSpecTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1_StudyConfig_ParameterSpecTypePtrOutput)
-}
-
-func (in *googleCloudMlV1_StudyConfig_ParameterSpecTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1_StudyConfig_ParameterSpecType] {
-	return pulumix.Output[*GoogleCloudMlV1_StudyConfig_ParameterSpecType]{
-		OutputState: in.ToGoogleCloudMlV1_StudyConfig_ParameterSpecTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of accelerator to use.
@@ -691,10 +681,21 @@ func (o GoogleCloudMlV1__AcceleratorConfigTypePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__AcceleratorConfigTypeInput is an input type that accepts GoogleCloudMlV1__AcceleratorConfigTypeArgs and GoogleCloudMlV1__AcceleratorConfigTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__AcceleratorConfigTypeInput` via:
+// GoogleCloudMlV1__AcceleratorConfigTypeInput is an input type that accepts values of the GoogleCloudMlV1__AcceleratorConfigType enum
+// A concrete instance of `GoogleCloudMlV1__AcceleratorConfigTypeInput` can be one of the following:
 //
-//	GoogleCloudMlV1__AcceleratorConfigTypeArgs{...}
+//	GoogleCloudMlV1__AcceleratorConfigTypeAcceleratorTypeUnspecified
+//	GoogleCloudMlV1__AcceleratorConfigTypeNvidiaTeslaK80
+//	GoogleCloudMlV1__AcceleratorConfigTypeNvidiaTeslaP100
+//	GoogleCloudMlV1__AcceleratorConfigTypeNvidiaTeslaV100
+//	GoogleCloudMlV1__AcceleratorConfigTypeNvidiaTeslaP4
+//	GoogleCloudMlV1__AcceleratorConfigTypeNvidiaTeslaT4
+//	GoogleCloudMlV1__AcceleratorConfigTypeNvidiaTeslaA100
+//	GoogleCloudMlV1__AcceleratorConfigTypeTpuV2
+//	GoogleCloudMlV1__AcceleratorConfigTypeTpuV3
+//	GoogleCloudMlV1__AcceleratorConfigTypeTpuV2Pod
+//	GoogleCloudMlV1__AcceleratorConfigTypeTpuV3Pod
+//	GoogleCloudMlV1__AcceleratorConfigTypeTpuV4Pod
 type GoogleCloudMlV1__AcceleratorConfigTypeInput interface {
 	pulumi.Input
 
@@ -727,12 +728,6 @@ func (in *googleCloudMlV1__AcceleratorConfigTypePtr) ToGoogleCloudMlV1__Accelera
 
 func (in *googleCloudMlV1__AcceleratorConfigTypePtr) ToGoogleCloudMlV1__AcceleratorConfigTypePtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__AcceleratorConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__AcceleratorConfigTypePtrOutput)
-}
-
-func (in *googleCloudMlV1__AcceleratorConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__AcceleratorConfigType] {
-	return pulumix.Output[*GoogleCloudMlV1__AcceleratorConfigType]{
-		OutputState: in.ToGoogleCloudMlV1__AcceleratorConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The search algorithm specified for the hyperparameter tuning job. Uses the default AI Platform hyperparameter tuning algorithm if unspecified.
@@ -866,10 +861,12 @@ func (o GoogleCloudMlV1__HyperparameterSpecAlgorithmPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__HyperparameterSpecAlgorithmInput is an input type that accepts GoogleCloudMlV1__HyperparameterSpecAlgorithmArgs and GoogleCloudMlV1__HyperparameterSpecAlgorithmOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__HyperparameterSpecAlgorithmInput` via:
+// GoogleCloudMlV1__HyperparameterSpecAlgorithmInput is an input type that accepts values of the GoogleCloudMlV1__HyperparameterSpecAlgorithm enum
+// A concrete instance of `GoogleCloudMlV1__HyperparameterSpecAlgorithmInput` can be one of the following:
 //
-//	GoogleCloudMlV1__HyperparameterSpecAlgorithmArgs{...}
+//	GoogleCloudMlV1__HyperparameterSpecAlgorithmAlgorithmUnspecified
+//	GoogleCloudMlV1__HyperparameterSpecAlgorithmGridSearch
+//	GoogleCloudMlV1__HyperparameterSpecAlgorithmRandomSearch
 type GoogleCloudMlV1__HyperparameterSpecAlgorithmInput interface {
 	pulumi.Input
 
@@ -902,12 +899,6 @@ func (in *googleCloudMlV1__HyperparameterSpecAlgorithmPtr) ToGoogleCloudMlV1__Hy
 
 func (in *googleCloudMlV1__HyperparameterSpecAlgorithmPtr) ToGoogleCloudMlV1__HyperparameterSpecAlgorithmPtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__HyperparameterSpecAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__HyperparameterSpecAlgorithmPtrOutput)
-}
-
-func (in *googleCloudMlV1__HyperparameterSpecAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__HyperparameterSpecAlgorithm] {
-	return pulumix.Output[*GoogleCloudMlV1__HyperparameterSpecAlgorithm]{
-		OutputState: in.ToGoogleCloudMlV1__HyperparameterSpecAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of goal to use for tuning. Available types are `MAXIMIZE` and `MINIMIZE`. Defaults to `MAXIMIZE`.
@@ -1041,10 +1032,12 @@ func (o GoogleCloudMlV1__HyperparameterSpecGoalPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__HyperparameterSpecGoalInput is an input type that accepts GoogleCloudMlV1__HyperparameterSpecGoalArgs and GoogleCloudMlV1__HyperparameterSpecGoalOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__HyperparameterSpecGoalInput` via:
+// GoogleCloudMlV1__HyperparameterSpecGoalInput is an input type that accepts values of the GoogleCloudMlV1__HyperparameterSpecGoal enum
+// A concrete instance of `GoogleCloudMlV1__HyperparameterSpecGoalInput` can be one of the following:
 //
-//	GoogleCloudMlV1__HyperparameterSpecGoalArgs{...}
+//	GoogleCloudMlV1__HyperparameterSpecGoalGoalTypeUnspecified
+//	GoogleCloudMlV1__HyperparameterSpecGoalMaximize
+//	GoogleCloudMlV1__HyperparameterSpecGoalMinimize
 type GoogleCloudMlV1__HyperparameterSpecGoalInput interface {
 	pulumi.Input
 
@@ -1077,12 +1070,6 @@ func (in *googleCloudMlV1__HyperparameterSpecGoalPtr) ToGoogleCloudMlV1__Hyperpa
 
 func (in *googleCloudMlV1__HyperparameterSpecGoalPtr) ToGoogleCloudMlV1__HyperparameterSpecGoalPtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__HyperparameterSpecGoalPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__HyperparameterSpecGoalPtrOutput)
-}
-
-func (in *googleCloudMlV1__HyperparameterSpecGoalPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__HyperparameterSpecGoal] {
-	return pulumix.Output[*GoogleCloudMlV1__HyperparameterSpecGoal]{
-		OutputState: in.ToGoogleCloudMlV1__HyperparameterSpecGoalPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // metric name.
@@ -1216,10 +1203,12 @@ func (o GoogleCloudMlV1__MetricSpecNamePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__MetricSpecNameInput is an input type that accepts GoogleCloudMlV1__MetricSpecNameArgs and GoogleCloudMlV1__MetricSpecNameOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__MetricSpecNameInput` via:
+// GoogleCloudMlV1__MetricSpecNameInput is an input type that accepts values of the GoogleCloudMlV1__MetricSpecName enum
+// A concrete instance of `GoogleCloudMlV1__MetricSpecNameInput` can be one of the following:
 //
-//	GoogleCloudMlV1__MetricSpecNameArgs{...}
+//	GoogleCloudMlV1__MetricSpecNameMetricNameUnspecified
+//	GoogleCloudMlV1__MetricSpecNameCpuUsage
+//	GoogleCloudMlV1__MetricSpecNameGpuDutyCycle
 type GoogleCloudMlV1__MetricSpecNameInput interface {
 	pulumi.Input
 
@@ -1252,12 +1241,6 @@ func (in *googleCloudMlV1__MetricSpecNamePtr) ToGoogleCloudMlV1__MetricSpecNameP
 
 func (in *googleCloudMlV1__MetricSpecNamePtr) ToGoogleCloudMlV1__MetricSpecNamePtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__MetricSpecNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__MetricSpecNamePtrOutput)
-}
-
-func (in *googleCloudMlV1__MetricSpecNamePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__MetricSpecName] {
-	return pulumix.Output[*GoogleCloudMlV1__MetricSpecName]{
-		OutputState: in.ToGoogleCloudMlV1__MetricSpecNamePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. How the parameter should be scaled to the hypercube. Leave unset for categorical parameters. Some kind of scaling is strongly recommended for real or integral parameters (e.g., `UNIT_LINEAR_SCALE`).
@@ -1393,10 +1376,13 @@ func (o GoogleCloudMlV1__ParameterSpecScaleTypePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__ParameterSpecScaleTypeInput is an input type that accepts GoogleCloudMlV1__ParameterSpecScaleTypeArgs and GoogleCloudMlV1__ParameterSpecScaleTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__ParameterSpecScaleTypeInput` via:
+// GoogleCloudMlV1__ParameterSpecScaleTypeInput is an input type that accepts values of the GoogleCloudMlV1__ParameterSpecScaleType enum
+// A concrete instance of `GoogleCloudMlV1__ParameterSpecScaleTypeInput` can be one of the following:
 //
-//	GoogleCloudMlV1__ParameterSpecScaleTypeArgs{...}
+//	GoogleCloudMlV1__ParameterSpecScaleTypeNone
+//	GoogleCloudMlV1__ParameterSpecScaleTypeUnitLinearScale
+//	GoogleCloudMlV1__ParameterSpecScaleTypeUnitLogScale
+//	GoogleCloudMlV1__ParameterSpecScaleTypeUnitReverseLogScale
 type GoogleCloudMlV1__ParameterSpecScaleTypeInput interface {
 	pulumi.Input
 
@@ -1429,12 +1415,6 @@ func (in *googleCloudMlV1__ParameterSpecScaleTypePtr) ToGoogleCloudMlV1__Paramet
 
 func (in *googleCloudMlV1__ParameterSpecScaleTypePtr) ToGoogleCloudMlV1__ParameterSpecScaleTypePtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__ParameterSpecScaleTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__ParameterSpecScaleTypePtrOutput)
-}
-
-func (in *googleCloudMlV1__ParameterSpecScaleTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__ParameterSpecScaleType] {
-	return pulumix.Output[*GoogleCloudMlV1__ParameterSpecScaleType]{
-		OutputState: in.ToGoogleCloudMlV1__ParameterSpecScaleTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of the parameter.
@@ -1572,10 +1552,14 @@ func (o GoogleCloudMlV1__ParameterSpecTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__ParameterSpecTypeInput is an input type that accepts GoogleCloudMlV1__ParameterSpecTypeArgs and GoogleCloudMlV1__ParameterSpecTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__ParameterSpecTypeInput` via:
+// GoogleCloudMlV1__ParameterSpecTypeInput is an input type that accepts values of the GoogleCloudMlV1__ParameterSpecType enum
+// A concrete instance of `GoogleCloudMlV1__ParameterSpecTypeInput` can be one of the following:
 //
-//	GoogleCloudMlV1__ParameterSpecTypeArgs{...}
+//	GoogleCloudMlV1__ParameterSpecTypeParameterTypeUnspecified
+//	GoogleCloudMlV1__ParameterSpecTypeDouble
+//	GoogleCloudMlV1__ParameterSpecTypeInteger
+//	GoogleCloudMlV1__ParameterSpecTypeCategorical
+//	GoogleCloudMlV1__ParameterSpecTypeDiscrete
 type GoogleCloudMlV1__ParameterSpecTypeInput interface {
 	pulumi.Input
 
@@ -1608,12 +1592,6 @@ func (in *googleCloudMlV1__ParameterSpecTypePtr) ToGoogleCloudMlV1__ParameterSpe
 
 func (in *googleCloudMlV1__ParameterSpecTypePtr) ToGoogleCloudMlV1__ParameterSpecTypePtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__ParameterSpecTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__ParameterSpecTypePtrOutput)
-}
-
-func (in *googleCloudMlV1__ParameterSpecTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__ParameterSpecType] {
-	return pulumix.Output[*GoogleCloudMlV1__ParameterSpecType]{
-		OutputState: in.ToGoogleCloudMlV1__ParameterSpecTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The format of the input data files.
@@ -1753,10 +1731,15 @@ func (o GoogleCloudMlV1__PredictionInputDataFormatPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__PredictionInputDataFormatInput is an input type that accepts GoogleCloudMlV1__PredictionInputDataFormatArgs and GoogleCloudMlV1__PredictionInputDataFormatOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__PredictionInputDataFormatInput` via:
+// GoogleCloudMlV1__PredictionInputDataFormatInput is an input type that accepts values of the GoogleCloudMlV1__PredictionInputDataFormat enum
+// A concrete instance of `GoogleCloudMlV1__PredictionInputDataFormatInput` can be one of the following:
 //
-//	GoogleCloudMlV1__PredictionInputDataFormatArgs{...}
+//	GoogleCloudMlV1__PredictionInputDataFormatDataFormatUnspecified
+//	GoogleCloudMlV1__PredictionInputDataFormatJson
+//	GoogleCloudMlV1__PredictionInputDataFormatText
+//	GoogleCloudMlV1__PredictionInputDataFormatTfRecord
+//	GoogleCloudMlV1__PredictionInputDataFormatTfRecordGzip
+//	GoogleCloudMlV1__PredictionInputDataFormatCsv
 type GoogleCloudMlV1__PredictionInputDataFormatInput interface {
 	pulumi.Input
 
@@ -1789,12 +1772,6 @@ func (in *googleCloudMlV1__PredictionInputDataFormatPtr) ToGoogleCloudMlV1__Pred
 
 func (in *googleCloudMlV1__PredictionInputDataFormatPtr) ToGoogleCloudMlV1__PredictionInputDataFormatPtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__PredictionInputDataFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__PredictionInputDataFormatPtrOutput)
-}
-
-func (in *googleCloudMlV1__PredictionInputDataFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__PredictionInputDataFormat] {
-	return pulumix.Output[*GoogleCloudMlV1__PredictionInputDataFormat]{
-		OutputState: in.ToGoogleCloudMlV1__PredictionInputDataFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Format of the output data files, defaults to JSON.
@@ -1934,10 +1911,15 @@ func (o GoogleCloudMlV1__PredictionInputOutputDataFormatPtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__PredictionInputOutputDataFormatInput is an input type that accepts GoogleCloudMlV1__PredictionInputOutputDataFormatArgs and GoogleCloudMlV1__PredictionInputOutputDataFormatOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__PredictionInputOutputDataFormatInput` via:
+// GoogleCloudMlV1__PredictionInputOutputDataFormatInput is an input type that accepts values of the GoogleCloudMlV1__PredictionInputOutputDataFormat enum
+// A concrete instance of `GoogleCloudMlV1__PredictionInputOutputDataFormatInput` can be one of the following:
 //
-//	GoogleCloudMlV1__PredictionInputOutputDataFormatArgs{...}
+//	GoogleCloudMlV1__PredictionInputOutputDataFormatDataFormatUnspecified
+//	GoogleCloudMlV1__PredictionInputOutputDataFormatJson
+//	GoogleCloudMlV1__PredictionInputOutputDataFormatText
+//	GoogleCloudMlV1__PredictionInputOutputDataFormatTfRecord
+//	GoogleCloudMlV1__PredictionInputOutputDataFormatTfRecordGzip
+//	GoogleCloudMlV1__PredictionInputOutputDataFormatCsv
 type GoogleCloudMlV1__PredictionInputOutputDataFormatInput interface {
 	pulumi.Input
 
@@ -1970,12 +1952,6 @@ func (in *googleCloudMlV1__PredictionInputOutputDataFormatPtr) ToGoogleCloudMlV1
 
 func (in *googleCloudMlV1__PredictionInputOutputDataFormatPtr) ToGoogleCloudMlV1__PredictionInputOutputDataFormatPtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__PredictionInputOutputDataFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__PredictionInputOutputDataFormatPtrOutput)
-}
-
-func (in *googleCloudMlV1__PredictionInputOutputDataFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__PredictionInputOutputDataFormat] {
-	return pulumix.Output[*GoogleCloudMlV1__PredictionInputOutputDataFormat]{
-		OutputState: in.ToGoogleCloudMlV1__PredictionInputOutputDataFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The search algorithm specified for the study.
@@ -2111,10 +2087,13 @@ func (o GoogleCloudMlV1__StudyConfigAlgorithmPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__StudyConfigAlgorithmInput is an input type that accepts GoogleCloudMlV1__StudyConfigAlgorithmArgs and GoogleCloudMlV1__StudyConfigAlgorithmOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__StudyConfigAlgorithmInput` via:
+// GoogleCloudMlV1__StudyConfigAlgorithmInput is an input type that accepts values of the GoogleCloudMlV1__StudyConfigAlgorithm enum
+// A concrete instance of `GoogleCloudMlV1__StudyConfigAlgorithmInput` can be one of the following:
 //
-//	GoogleCloudMlV1__StudyConfigAlgorithmArgs{...}
+//	GoogleCloudMlV1__StudyConfigAlgorithmAlgorithmUnspecified
+//	GoogleCloudMlV1__StudyConfigAlgorithmGaussianProcessBandit
+//	GoogleCloudMlV1__StudyConfigAlgorithmGridSearch
+//	GoogleCloudMlV1__StudyConfigAlgorithmRandomSearch
 type GoogleCloudMlV1__StudyConfigAlgorithmInput interface {
 	pulumi.Input
 
@@ -2147,12 +2126,6 @@ func (in *googleCloudMlV1__StudyConfigAlgorithmPtr) ToGoogleCloudMlV1__StudyConf
 
 func (in *googleCloudMlV1__StudyConfigAlgorithmPtr) ToGoogleCloudMlV1__StudyConfigAlgorithmPtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__StudyConfigAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__StudyConfigAlgorithmPtrOutput)
-}
-
-func (in *googleCloudMlV1__StudyConfigAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__StudyConfigAlgorithm] {
-	return pulumix.Output[*GoogleCloudMlV1__StudyConfigAlgorithm]{
-		OutputState: in.ToGoogleCloudMlV1__StudyConfigAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Specifies the machine types, the number of replicas for workers and parameter servers.
@@ -2292,10 +2265,15 @@ func (o GoogleCloudMlV1__TrainingInputScaleTierPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudMlV1__TrainingInputScaleTierInput is an input type that accepts GoogleCloudMlV1__TrainingInputScaleTierArgs and GoogleCloudMlV1__TrainingInputScaleTierOutput values.
-// You can construct a concrete instance of `GoogleCloudMlV1__TrainingInputScaleTierInput` via:
+// GoogleCloudMlV1__TrainingInputScaleTierInput is an input type that accepts values of the GoogleCloudMlV1__TrainingInputScaleTier enum
+// A concrete instance of `GoogleCloudMlV1__TrainingInputScaleTierInput` can be one of the following:
 //
-//	GoogleCloudMlV1__TrainingInputScaleTierArgs{...}
+//	GoogleCloudMlV1__TrainingInputScaleTierBasic
+//	GoogleCloudMlV1__TrainingInputScaleTierStandard1
+//	GoogleCloudMlV1__TrainingInputScaleTierPremium1
+//	GoogleCloudMlV1__TrainingInputScaleTierBasicGpu
+//	GoogleCloudMlV1__TrainingInputScaleTierBasicTpu
+//	GoogleCloudMlV1__TrainingInputScaleTierCustom
 type GoogleCloudMlV1__TrainingInputScaleTierInput interface {
 	pulumi.Input
 
@@ -2328,12 +2306,6 @@ func (in *googleCloudMlV1__TrainingInputScaleTierPtr) ToGoogleCloudMlV1__Trainin
 
 func (in *googleCloudMlV1__TrainingInputScaleTierPtr) ToGoogleCloudMlV1__TrainingInputScaleTierPtrOutputWithContext(ctx context.Context) GoogleCloudMlV1__TrainingInputScaleTierPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudMlV1__TrainingInputScaleTierPtrOutput)
-}
-
-func (in *googleCloudMlV1__TrainingInputScaleTierPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudMlV1__TrainingInputScaleTier] {
-	return pulumix.Output[*GoogleCloudMlV1__TrainingInputScaleTier]{
-		OutputState: in.ToGoogleCloudMlV1__TrainingInputScaleTierPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -2469,10 +2441,13 @@ func (o GoogleIamV1__AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamV1__AuditLogConfigLogTypeInput is an input type that accepts GoogleIamV1__AuditLogConfigLogTypeArgs and GoogleIamV1__AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `GoogleIamV1__AuditLogConfigLogTypeInput` via:
+// GoogleIamV1__AuditLogConfigLogTypeInput is an input type that accepts values of the GoogleIamV1__AuditLogConfigLogType enum
+// A concrete instance of `GoogleIamV1__AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	GoogleIamV1__AuditLogConfigLogTypeArgs{...}
+//	GoogleIamV1__AuditLogConfigLogTypeLogTypeUnspecified
+//	GoogleIamV1__AuditLogConfigLogTypeAdminRead
+//	GoogleIamV1__AuditLogConfigLogTypeDataWrite
+//	GoogleIamV1__AuditLogConfigLogTypeDataRead
 type GoogleIamV1__AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -2505,12 +2480,6 @@ func (in *googleIamV1__AuditLogConfigLogTypePtr) ToGoogleIamV1__AuditLogConfigLo
 
 func (in *googleIamV1__AuditLogConfigLogTypePtr) ToGoogleIamV1__AuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) GoogleIamV1__AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamV1__AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *googleIamV1__AuditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamV1__AuditLogConfigLogType] {
-	return pulumix.Output[*GoogleIamV1__AuditLogConfigLogType]{
-		OutputState: in.ToGoogleIamV1__AuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The detailed state of a trial.
@@ -2648,10 +2617,14 @@ func (o TrialStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// TrialStateEnumInput is an input type that accepts TrialStateEnumArgs and TrialStateEnumOutput values.
-// You can construct a concrete instance of `TrialStateEnumInput` via:
+// TrialStateEnumInput is an input type that accepts values of the TrialStateEnum enum
+// A concrete instance of `TrialStateEnumInput` can be one of the following:
 //
-//	TrialStateEnumArgs{...}
+//	TrialStateEnumStateUnspecified
+//	TrialStateEnumRequested
+//	TrialStateEnumActive
+//	TrialStateEnumCompleted
+//	TrialStateEnumStopping
 type TrialStateEnumInput interface {
 	pulumi.Input
 
@@ -2684,12 +2657,6 @@ func (in *trialStateEnumPtr) ToTrialStateEnumPtrOutput() TrialStateEnumPtrOutput
 
 func (in *trialStateEnumPtr) ToTrialStateEnumPtrOutputWithContext(ctx context.Context) TrialStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TrialStateEnumPtrOutput)
-}
-
-func (in *trialStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*TrialStateEnum] {
-	return pulumix.Output[*TrialStateEnum]{
-		OutputState: in.ToTrialStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The machine learning framework AI Platform uses to train this version of the model. Valid values are `TENSORFLOW`, `SCIKIT_LEARN`, `XGBOOST`. If you do not specify a framework, AI Platform will analyze files in the deployment_uri to determine a framework. If you choose `SCIKIT_LEARN` or `XGBOOST`, you must also set the runtime version of the model to 1.4 or greater. Do **not** specify a framework if you're deploying a [custom prediction routine](/ai-platform/prediction/docs/custom-prediction-routines) or if you're using a [custom container](/ai-platform/prediction/docs/use-custom-container).
@@ -2825,10 +2792,13 @@ func (o VersionFrameworkPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// VersionFrameworkInput is an input type that accepts VersionFrameworkArgs and VersionFrameworkOutput values.
-// You can construct a concrete instance of `VersionFrameworkInput` via:
+// VersionFrameworkInput is an input type that accepts values of the VersionFramework enum
+// A concrete instance of `VersionFrameworkInput` can be one of the following:
 //
-//	VersionFrameworkArgs{...}
+//	VersionFrameworkFrameworkUnspecified
+//	VersionFrameworkTensorflow
+//	VersionFrameworkScikitLearn
+//	VersionFrameworkXgboost
 type VersionFrameworkInput interface {
 	pulumi.Input
 
@@ -2861,12 +2831,6 @@ func (in *versionFrameworkPtr) ToVersionFrameworkPtrOutput() VersionFrameworkPtr
 
 func (in *versionFrameworkPtr) ToVersionFrameworkPtrOutputWithContext(ctx context.Context) VersionFrameworkPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VersionFrameworkPtrOutput)
-}
-
-func (in *versionFrameworkPtr) ToOutput(ctx context.Context) pulumix.Output[*VersionFramework] {
-	return pulumix.Output[*VersionFramework]{
-		OutputState: in.ToVersionFrameworkPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

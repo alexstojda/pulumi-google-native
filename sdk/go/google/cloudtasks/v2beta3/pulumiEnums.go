@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The HTTP method to use for the request. The default is POST. The app's request handler for the task's target URL must be able to handle HTTP requests with this http_method, otherwise the task attempt fails with error code 405 (Method Not Allowed). See [Writing a push task request handler](https://cloud.google.com/appengine/docs/java/taskqueue/push/creating-handlers#writing_a_push_task_request_handler) and the App Engine documentation for your runtime on [How Requests are Handled](https://cloud.google.com/appengine/docs/standard/python3/how-requests-are-handled).
@@ -152,10 +151,17 @@ func (o AppEngineHttpRequestHttpMethodPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppEngineHttpRequestHttpMethodInput is an input type that accepts AppEngineHttpRequestHttpMethodArgs and AppEngineHttpRequestHttpMethodOutput values.
-// You can construct a concrete instance of `AppEngineHttpRequestHttpMethodInput` via:
+// AppEngineHttpRequestHttpMethodInput is an input type that accepts values of the AppEngineHttpRequestHttpMethod enum
+// A concrete instance of `AppEngineHttpRequestHttpMethodInput` can be one of the following:
 //
-//	AppEngineHttpRequestHttpMethodArgs{...}
+//	AppEngineHttpRequestHttpMethodHttpMethodUnspecified
+//	AppEngineHttpRequestHttpMethodPost
+//	AppEngineHttpRequestHttpMethodGet
+//	AppEngineHttpRequestHttpMethodHead
+//	AppEngineHttpRequestHttpMethodPut
+//	AppEngineHttpRequestHttpMethodDelete
+//	AppEngineHttpRequestHttpMethodPatch
+//	AppEngineHttpRequestHttpMethodOptions
 type AppEngineHttpRequestHttpMethodInput interface {
 	pulumi.Input
 
@@ -188,12 +194,6 @@ func (in *appEngineHttpRequestHttpMethodPtr) ToAppEngineHttpRequestHttpMethodPtr
 
 func (in *appEngineHttpRequestHttpMethodPtr) ToAppEngineHttpRequestHttpMethodPtrOutputWithContext(ctx context.Context) AppEngineHttpRequestHttpMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppEngineHttpRequestHttpMethodPtrOutput)
-}
-
-func (in *appEngineHttpRequestHttpMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*AppEngineHttpRequestHttpMethod] {
-	return pulumix.Output[*AppEngineHttpRequestHttpMethod]{
-		OutputState: in.ToAppEngineHttpRequestHttpMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The HTTP method to use for the request. The default is POST.
@@ -337,10 +337,17 @@ func (o HttpRequestHttpMethodPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// HttpRequestHttpMethodInput is an input type that accepts HttpRequestHttpMethodArgs and HttpRequestHttpMethodOutput values.
-// You can construct a concrete instance of `HttpRequestHttpMethodInput` via:
+// HttpRequestHttpMethodInput is an input type that accepts values of the HttpRequestHttpMethod enum
+// A concrete instance of `HttpRequestHttpMethodInput` can be one of the following:
 //
-//	HttpRequestHttpMethodArgs{...}
+//	HttpRequestHttpMethodHttpMethodUnspecified
+//	HttpRequestHttpMethodPost
+//	HttpRequestHttpMethodGet
+//	HttpRequestHttpMethodHead
+//	HttpRequestHttpMethodPut
+//	HttpRequestHttpMethodDelete
+//	HttpRequestHttpMethodPatch
+//	HttpRequestHttpMethodOptions
 type HttpRequestHttpMethodInput interface {
 	pulumi.Input
 
@@ -373,12 +380,6 @@ func (in *httpRequestHttpMethodPtr) ToHttpRequestHttpMethodPtrOutput() HttpReque
 
 func (in *httpRequestHttpMethodPtr) ToHttpRequestHttpMethodPtrOutputWithContext(ctx context.Context) HttpRequestHttpMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HttpRequestHttpMethodPtrOutput)
-}
-
-func (in *httpRequestHttpMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*HttpRequestHttpMethod] {
-	return pulumix.Output[*HttpRequestHttpMethod]{
-		OutputState: in.ToHttpRequestHttpMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The HTTP method to use for the request. When specified, it overrides HttpRequest for the task. Note that if the value is set to HttpMethod the HttpRequest of the task will be ignored at execution time.
@@ -522,10 +523,17 @@ func (o HttpTargetHttpMethodPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// HttpTargetHttpMethodInput is an input type that accepts HttpTargetHttpMethodArgs and HttpTargetHttpMethodOutput values.
-// You can construct a concrete instance of `HttpTargetHttpMethodInput` via:
+// HttpTargetHttpMethodInput is an input type that accepts values of the HttpTargetHttpMethod enum
+// A concrete instance of `HttpTargetHttpMethodInput` can be one of the following:
 //
-//	HttpTargetHttpMethodArgs{...}
+//	HttpTargetHttpMethodHttpMethodUnspecified
+//	HttpTargetHttpMethodPost
+//	HttpTargetHttpMethodGet
+//	HttpTargetHttpMethodHead
+//	HttpTargetHttpMethodPut
+//	HttpTargetHttpMethodDelete
+//	HttpTargetHttpMethodPatch
+//	HttpTargetHttpMethodOptions
 type HttpTargetHttpMethodInput interface {
 	pulumi.Input
 
@@ -558,12 +566,6 @@ func (in *httpTargetHttpMethodPtr) ToHttpTargetHttpMethodPtrOutput() HttpTargetH
 
 func (in *httpTargetHttpMethodPtr) ToHttpTargetHttpMethodPtrOutputWithContext(ctx context.Context) HttpTargetHttpMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HttpTargetHttpMethodPtrOutput)
-}
-
-func (in *httpTargetHttpMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*HttpTargetHttpMethod] {
-	return pulumix.Output[*HttpTargetHttpMethod]{
-		OutputState: in.ToHttpTargetHttpMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The type of a queue (push or pull). `Queue.type` is an immutable property of the queue that is set at the queue creation time. When left unspecified, the default value of `PUSH` is selected.
@@ -697,10 +699,12 @@ func (o QueueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// QueueTypeInput is an input type that accepts QueueTypeArgs and QueueTypeOutput values.
-// You can construct a concrete instance of `QueueTypeInput` via:
+// QueueTypeInput is an input type that accepts values of the QueueType enum
+// A concrete instance of `QueueTypeInput` can be one of the following:
 //
-//	QueueTypeArgs{...}
+//	QueueTypeTypeUnspecified
+//	QueueTypePull
+//	QueueTypePush
 type QueueTypeInput interface {
 	pulumi.Input
 
@@ -733,12 +737,6 @@ func (in *queueTypePtr) ToQueueTypePtrOutput() QueueTypePtrOutput {
 
 func (in *queueTypePtr) ToQueueTypePtrOutputWithContext(ctx context.Context) QueueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(QueueTypePtrOutput)
-}
-
-func (in *queueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*QueueType] {
-	return pulumix.Output[*QueueType]{
-		OutputState: in.ToQueueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The response_view specifies which subset of the Task will be returned. By default response_view is BASIC; not all information is retrieved by default because some data, such as payloads, might be desirable to return only when needed because of its large size or because of the sensitivity of data that it contains. Authorization for FULL requires `cloudtasks.tasks.fullView` [Google IAM](https://cloud.google.com/iam/) permission on the Task resource.
@@ -872,10 +870,12 @@ func (o TaskResponseViewPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaskResponseViewInput is an input type that accepts TaskResponseViewArgs and TaskResponseViewOutput values.
-// You can construct a concrete instance of `TaskResponseViewInput` via:
+// TaskResponseViewInput is an input type that accepts values of the TaskResponseView enum
+// A concrete instance of `TaskResponseViewInput` can be one of the following:
 //
-//	TaskResponseViewArgs{...}
+//	TaskResponseViewViewUnspecified
+//	TaskResponseViewBasic
+//	TaskResponseViewFull
 type TaskResponseViewInput interface {
 	pulumi.Input
 
@@ -908,12 +908,6 @@ func (in *taskResponseViewPtr) ToTaskResponseViewPtrOutput() TaskResponseViewPtr
 
 func (in *taskResponseViewPtr) ToTaskResponseViewPtrOutputWithContext(ctx context.Context) TaskResponseViewPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaskResponseViewPtrOutput)
-}
-
-func (in *taskResponseViewPtr) ToOutput(ctx context.Context) pulumix.Output[*TaskResponseView] {
-	return pulumix.Output[*TaskResponseView]{
-		OutputState: in.ToTaskResponseViewPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Scheme override. When specified, the task URI scheme is replaced by the provided value (HTTP or HTTPS).
@@ -1047,10 +1041,12 @@ func (o UriOverrideSchemePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// UriOverrideSchemeInput is an input type that accepts UriOverrideSchemeArgs and UriOverrideSchemeOutput values.
-// You can construct a concrete instance of `UriOverrideSchemeInput` via:
+// UriOverrideSchemeInput is an input type that accepts values of the UriOverrideScheme enum
+// A concrete instance of `UriOverrideSchemeInput` can be one of the following:
 //
-//	UriOverrideSchemeArgs{...}
+//	UriOverrideSchemeSchemeUnspecified
+//	UriOverrideSchemeHttp
+//	UriOverrideSchemeHttps
 type UriOverrideSchemeInput interface {
 	pulumi.Input
 
@@ -1083,12 +1079,6 @@ func (in *uriOverrideSchemePtr) ToUriOverrideSchemePtrOutput() UriOverrideScheme
 
 func (in *uriOverrideSchemePtr) ToUriOverrideSchemePtrOutputWithContext(ctx context.Context) UriOverrideSchemePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UriOverrideSchemePtrOutput)
-}
-
-func (in *uriOverrideSchemePtr) ToOutput(ctx context.Context) pulumix.Output[*UriOverrideScheme] {
-	return pulumix.Output[*UriOverrideScheme]{
-		OutputState: in.ToUriOverrideSchemePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // URI Override Enforce Mode When specified, determines the Target UriOverride mode. If not specified, it defaults to ALWAYS.
@@ -1222,10 +1212,12 @@ func (o UriOverrideUriOverrideEnforceModePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// UriOverrideUriOverrideEnforceModeInput is an input type that accepts UriOverrideUriOverrideEnforceModeArgs and UriOverrideUriOverrideEnforceModeOutput values.
-// You can construct a concrete instance of `UriOverrideUriOverrideEnforceModeInput` via:
+// UriOverrideUriOverrideEnforceModeInput is an input type that accepts values of the UriOverrideUriOverrideEnforceMode enum
+// A concrete instance of `UriOverrideUriOverrideEnforceModeInput` can be one of the following:
 //
-//	UriOverrideUriOverrideEnforceModeArgs{...}
+//	UriOverrideUriOverrideEnforceModeUriOverrideEnforceModeUnspecified
+//	UriOverrideUriOverrideEnforceModeIfNotExists
+//	UriOverrideUriOverrideEnforceModeAlways
 type UriOverrideUriOverrideEnforceModeInput interface {
 	pulumi.Input
 
@@ -1258,12 +1250,6 @@ func (in *uriOverrideUriOverrideEnforceModePtr) ToUriOverrideUriOverrideEnforceM
 
 func (in *uriOverrideUriOverrideEnforceModePtr) ToUriOverrideUriOverrideEnforceModePtrOutputWithContext(ctx context.Context) UriOverrideUriOverrideEnforceModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UriOverrideUriOverrideEnforceModePtrOutput)
-}
-
-func (in *uriOverrideUriOverrideEnforceModePtr) ToOutput(ctx context.Context) pulumix.Output[*UriOverrideUriOverrideEnforceMode] {
-	return pulumix.Output[*UriOverrideUriOverrideEnforceMode]{
-		OutputState: in.ToUriOverrideUriOverrideEnforceModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

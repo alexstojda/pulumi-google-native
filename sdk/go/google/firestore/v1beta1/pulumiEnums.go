@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The field's mode.
@@ -144,10 +143,13 @@ func (o GoogleFirestoreAdminV1beta1IndexFieldModePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleFirestoreAdminV1beta1IndexFieldModeInput is an input type that accepts GoogleFirestoreAdminV1beta1IndexFieldModeArgs and GoogleFirestoreAdminV1beta1IndexFieldModeOutput values.
-// You can construct a concrete instance of `GoogleFirestoreAdminV1beta1IndexFieldModeInput` via:
+// GoogleFirestoreAdminV1beta1IndexFieldModeInput is an input type that accepts values of the GoogleFirestoreAdminV1beta1IndexFieldMode enum
+// A concrete instance of `GoogleFirestoreAdminV1beta1IndexFieldModeInput` can be one of the following:
 //
-//	GoogleFirestoreAdminV1beta1IndexFieldModeArgs{...}
+//	GoogleFirestoreAdminV1beta1IndexFieldModeModeUnspecified
+//	GoogleFirestoreAdminV1beta1IndexFieldModeAscending
+//	GoogleFirestoreAdminV1beta1IndexFieldModeDescending
+//	GoogleFirestoreAdminV1beta1IndexFieldModeArrayContains
 type GoogleFirestoreAdminV1beta1IndexFieldModeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *googleFirestoreAdminV1beta1IndexFieldModePtr) ToGoogleFirestoreAdminV1
 
 func (in *googleFirestoreAdminV1beta1IndexFieldModePtr) ToGoogleFirestoreAdminV1beta1IndexFieldModePtrOutputWithContext(ctx context.Context) GoogleFirestoreAdminV1beta1IndexFieldModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleFirestoreAdminV1beta1IndexFieldModePtrOutput)
-}
-
-func (in *googleFirestoreAdminV1beta1IndexFieldModePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleFirestoreAdminV1beta1IndexFieldMode] {
-	return pulumix.Output[*GoogleFirestoreAdminV1beta1IndexFieldMode]{
-		OutputState: in.ToGoogleFirestoreAdminV1beta1IndexFieldModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The state of the index. Output only.
@@ -321,10 +317,13 @@ func (o IndexStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexStateEnumInput is an input type that accepts IndexStateEnumArgs and IndexStateEnumOutput values.
-// You can construct a concrete instance of `IndexStateEnumInput` via:
+// IndexStateEnumInput is an input type that accepts values of the IndexStateEnum enum
+// A concrete instance of `IndexStateEnumInput` can be one of the following:
 //
-//	IndexStateEnumArgs{...}
+//	IndexStateEnumStateUnspecified
+//	IndexStateEnumCreating
+//	IndexStateEnumReady
+//	IndexStateEnumError
 type IndexStateEnumInput interface {
 	pulumi.Input
 
@@ -357,12 +356,6 @@ func (in *indexStateEnumPtr) ToIndexStateEnumPtrOutput() IndexStateEnumPtrOutput
 
 func (in *indexStateEnumPtr) ToIndexStateEnumPtrOutputWithContext(ctx context.Context) IndexStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexStateEnumPtrOutput)
-}
-
-func (in *indexStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*IndexStateEnum] {
-	return pulumix.Output[*IndexStateEnum]{
-		OutputState: in.ToIndexStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

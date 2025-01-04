@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The health status of the TPU node.
@@ -148,10 +147,15 @@ func (o NodeHealthPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// NodeHealthInput is an input type that accepts NodeHealthArgs and NodeHealthOutput values.
-// You can construct a concrete instance of `NodeHealthInput` via:
+// NodeHealthInput is an input type that accepts values of the NodeHealth enum
+// A concrete instance of `NodeHealthInput` can be one of the following:
 //
-//	NodeHealthArgs{...}
+//	NodeHealthHealthUnspecified
+//	NodeHealthHealthy
+//	NodeHealthDeprecatedUnhealthy
+//	NodeHealthTimeout
+//	NodeHealthUnhealthyTensorflow
+//	NodeHealthUnhealthyMaintenance
 type NodeHealthInput interface {
 	pulumi.Input
 
@@ -184,12 +188,6 @@ func (in *nodeHealthPtr) ToNodeHealthPtrOutput() NodeHealthPtrOutput {
 
 func (in *nodeHealthPtr) ToNodeHealthPtrOutputWithContext(ctx context.Context) NodeHealthPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NodeHealthPtrOutput)
-}
-
-func (in *nodeHealthPtr) ToOutput(ctx context.Context) pulumix.Output[*NodeHealth] {
-	return pulumix.Output[*NodeHealth]{
-		OutputState: in.ToNodeHealthPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of endpoint policy. This is primarily used to validate the configuration.
@@ -319,10 +315,12 @@ func (o EndpointPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// EndpointPolicyTypeInput is an input type that accepts EndpointPolicyTypeArgs and EndpointPolicyTypeOutput values.
-// You can construct a concrete instance of `EndpointPolicyTypeInput` via:
+// EndpointPolicyTypeInput is an input type that accepts values of the EndpointPolicyType enum
+// A concrete instance of `EndpointPolicyTypeInput` can be one of the following:
 //
-//	EndpointPolicyTypeArgs{...}
+//	EndpointPolicyTypeEndpointPolicyTypeUnspecified
+//	EndpointPolicyTypeSidecarProxy
+//	EndpointPolicyTypeGrpcServer
 type EndpointPolicyTypeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *endpointPolicyTypePtr) ToEndpointPolicyTypePtrOutput() EndpointPolicyT
 
 func (in *endpointPolicyTypePtr) ToEndpointPolicyTypePtrOutputWithContext(ctx context.Context) EndpointPolicyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointPolicyTypePtrOutput)
-}
-
-func (in *endpointPolicyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EndpointPolicyType] {
-	return pulumix.Output[*EndpointPolicyType]{
-		OutputState: in.ToEndpointPolicyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ExtensionChainExtensionSupportedEventsItem string
@@ -497,10 +489,14 @@ func (o ExtensionChainExtensionSupportedEventsItemPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExtensionChainExtensionSupportedEventsItemInput is an input type that accepts ExtensionChainExtensionSupportedEventsItemArgs and ExtensionChainExtensionSupportedEventsItemOutput values.
-// You can construct a concrete instance of `ExtensionChainExtensionSupportedEventsItemInput` via:
+// ExtensionChainExtensionSupportedEventsItemInput is an input type that accepts values of the ExtensionChainExtensionSupportedEventsItem enum
+// A concrete instance of `ExtensionChainExtensionSupportedEventsItemInput` can be one of the following:
 //
-//	ExtensionChainExtensionSupportedEventsItemArgs{...}
+//	ExtensionChainExtensionSupportedEventsItemEventTypeUnspecified
+//	ExtensionChainExtensionSupportedEventsItemRequestHeaders
+//	ExtensionChainExtensionSupportedEventsItemRequestBody
+//	ExtensionChainExtensionSupportedEventsItemResponseHeaders
+//	ExtensionChainExtensionSupportedEventsItemResponseBody
 type ExtensionChainExtensionSupportedEventsItemInput interface {
 	pulumi.Input
 
@@ -533,12 +529,6 @@ func (in *extensionChainExtensionSupportedEventsItemPtr) ToExtensionChainExtensi
 
 func (in *extensionChainExtensionSupportedEventsItemPtr) ToExtensionChainExtensionSupportedEventsItemPtrOutputWithContext(ctx context.Context) ExtensionChainExtensionSupportedEventsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExtensionChainExtensionSupportedEventsItemPtrOutput)
-}
-
-func (in *extensionChainExtensionSupportedEventsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*ExtensionChainExtensionSupportedEventsItem] {
-	return pulumix.Output[*ExtensionChainExtensionSupportedEventsItem]{
-		OutputState: in.ToExtensionChainExtensionSupportedEventsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExtensionChainExtensionSupportedEventsItemArrayInput is an input type that accepts ExtensionChainExtensionSupportedEventsItemArray and ExtensionChainExtensionSupportedEventsItemArrayOutput values.
@@ -717,10 +707,12 @@ func (o GatewayTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// GatewayTypeInput is an input type that accepts GatewayTypeArgs and GatewayTypeOutput values.
-// You can construct a concrete instance of `GatewayTypeInput` via:
+// GatewayTypeInput is an input type that accepts values of the GatewayType enum
+// A concrete instance of `GatewayTypeInput` can be one of the following:
 //
-//	GatewayTypeArgs{...}
+//	GatewayTypeTypeUnspecified
+//	GatewayTypeOpenMesh
+//	GatewayTypeSecureWebGateway
 type GatewayTypeInput interface {
 	pulumi.Input
 
@@ -753,12 +745,6 @@ func (in *gatewayTypePtr) ToGatewayTypePtrOutput() GatewayTypePtrOutput {
 
 func (in *gatewayTypePtr) ToGatewayTypePtrOutputWithContext(ctx context.Context) GatewayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GatewayTypePtrOutput)
-}
-
-func (in *gatewayTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GatewayType] {
-	return pulumix.Output[*GatewayType]{
-		OutputState: in.ToGatewayTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Specifies how to match against the value of the header. If not specified, a default value of EXACT is used.
@@ -892,10 +878,12 @@ func (o GrpcRouteHeaderMatchTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// GrpcRouteHeaderMatchTypeInput is an input type that accepts GrpcRouteHeaderMatchTypeArgs and GrpcRouteHeaderMatchTypeOutput values.
-// You can construct a concrete instance of `GrpcRouteHeaderMatchTypeInput` via:
+// GrpcRouteHeaderMatchTypeInput is an input type that accepts values of the GrpcRouteHeaderMatchType enum
+// A concrete instance of `GrpcRouteHeaderMatchTypeInput` can be one of the following:
 //
-//	GrpcRouteHeaderMatchTypeArgs{...}
+//	GrpcRouteHeaderMatchTypeTypeUnspecified
+//	GrpcRouteHeaderMatchTypeExact
+//	GrpcRouteHeaderMatchTypeRegularExpression
 type GrpcRouteHeaderMatchTypeInput interface {
 	pulumi.Input
 
@@ -928,12 +916,6 @@ func (in *grpcRouteHeaderMatchTypePtr) ToGrpcRouteHeaderMatchTypePtrOutput() Grp
 
 func (in *grpcRouteHeaderMatchTypePtr) ToGrpcRouteHeaderMatchTypePtrOutputWithContext(ctx context.Context) GrpcRouteHeaderMatchTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GrpcRouteHeaderMatchTypePtrOutput)
-}
-
-func (in *grpcRouteHeaderMatchTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GrpcRouteHeaderMatchType] {
-	return pulumix.Output[*GrpcRouteHeaderMatchType]{
-		OutputState: in.ToGrpcRouteHeaderMatchTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Specifies how to match against the name. If not specified, a default value of "EXACT" is used.
@@ -1067,10 +1049,12 @@ func (o GrpcRouteMethodMatchTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// GrpcRouteMethodMatchTypeInput is an input type that accepts GrpcRouteMethodMatchTypeArgs and GrpcRouteMethodMatchTypeOutput values.
-// You can construct a concrete instance of `GrpcRouteMethodMatchTypeInput` via:
+// GrpcRouteMethodMatchTypeInput is an input type that accepts values of the GrpcRouteMethodMatchType enum
+// A concrete instance of `GrpcRouteMethodMatchTypeInput` can be one of the following:
 //
-//	GrpcRouteMethodMatchTypeArgs{...}
+//	GrpcRouteMethodMatchTypeTypeUnspecified
+//	GrpcRouteMethodMatchTypeExact
+//	GrpcRouteMethodMatchTypeRegularExpression
 type GrpcRouteMethodMatchTypeInput interface {
 	pulumi.Input
 
@@ -1103,12 +1087,6 @@ func (in *grpcRouteMethodMatchTypePtr) ToGrpcRouteMethodMatchTypePtrOutput() Grp
 
 func (in *grpcRouteMethodMatchTypePtr) ToGrpcRouteMethodMatchTypePtrOutputWithContext(ctx context.Context) GrpcRouteMethodMatchTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GrpcRouteMethodMatchTypePtrOutput)
-}
-
-func (in *grpcRouteMethodMatchTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GrpcRouteMethodMatchType] {
-	return pulumix.Output[*GrpcRouteMethodMatchType]{
-		OutputState: in.ToGrpcRouteMethodMatchTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The HTTP Status code to use for the redirect.
@@ -1248,10 +1226,15 @@ func (o HttpRouteRedirectResponseCodePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// HttpRouteRedirectResponseCodeInput is an input type that accepts HttpRouteRedirectResponseCodeArgs and HttpRouteRedirectResponseCodeOutput values.
-// You can construct a concrete instance of `HttpRouteRedirectResponseCodeInput` via:
+// HttpRouteRedirectResponseCodeInput is an input type that accepts values of the HttpRouteRedirectResponseCode enum
+// A concrete instance of `HttpRouteRedirectResponseCodeInput` can be one of the following:
 //
-//	HttpRouteRedirectResponseCodeArgs{...}
+//	HttpRouteRedirectResponseCodeResponseCodeUnspecified
+//	HttpRouteRedirectResponseCodeMovedPermanentlyDefault
+//	HttpRouteRedirectResponseCodeFound
+//	HttpRouteRedirectResponseCodeSeeOther
+//	HttpRouteRedirectResponseCodeTemporaryRedirect
+//	HttpRouteRedirectResponseCodePermanentRedirect
 type HttpRouteRedirectResponseCodeInput interface {
 	pulumi.Input
 
@@ -1284,12 +1267,6 @@ func (in *httpRouteRedirectResponseCodePtr) ToHttpRouteRedirectResponseCodePtrOu
 
 func (in *httpRouteRedirectResponseCodePtr) ToHttpRouteRedirectResponseCodePtrOutputWithContext(ctx context.Context) HttpRouteRedirectResponseCodePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HttpRouteRedirectResponseCodePtrOutput)
-}
-
-func (in *httpRouteRedirectResponseCodePtr) ToOutput(ctx context.Context) pulumix.Output[*HttpRouteRedirectResponseCode] {
-	return pulumix.Output[*HttpRouteRedirectResponseCode]{
-		OutputState: in.ToHttpRouteRedirectResponseCodePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. All backend services and forwarding rules referenced by this extension must share the same load balancing scheme. Supported values: `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to [Choosing a load balancer](https://cloud.google.com/load-balancing/docs/backend-service).
@@ -1423,10 +1400,12 @@ func (o LbRouteExtensionLoadBalancingSchemePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// LbRouteExtensionLoadBalancingSchemeInput is an input type that accepts LbRouteExtensionLoadBalancingSchemeArgs and LbRouteExtensionLoadBalancingSchemeOutput values.
-// You can construct a concrete instance of `LbRouteExtensionLoadBalancingSchemeInput` via:
+// LbRouteExtensionLoadBalancingSchemeInput is an input type that accepts values of the LbRouteExtensionLoadBalancingScheme enum
+// A concrete instance of `LbRouteExtensionLoadBalancingSchemeInput` can be one of the following:
 //
-//	LbRouteExtensionLoadBalancingSchemeArgs{...}
+//	LbRouteExtensionLoadBalancingSchemeLoadBalancingSchemeUnspecified
+//	LbRouteExtensionLoadBalancingSchemeInternalManaged
+//	LbRouteExtensionLoadBalancingSchemeExternalManaged
 type LbRouteExtensionLoadBalancingSchemeInput interface {
 	pulumi.Input
 
@@ -1459,12 +1438,6 @@ func (in *lbRouteExtensionLoadBalancingSchemePtr) ToLbRouteExtensionLoadBalancin
 
 func (in *lbRouteExtensionLoadBalancingSchemePtr) ToLbRouteExtensionLoadBalancingSchemePtrOutputWithContext(ctx context.Context) LbRouteExtensionLoadBalancingSchemePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LbRouteExtensionLoadBalancingSchemePtrOutput)
-}
-
-func (in *lbRouteExtensionLoadBalancingSchemePtr) ToOutput(ctx context.Context) pulumix.Output[*LbRouteExtensionLoadBalancingScheme] {
-	return pulumix.Output[*LbRouteExtensionLoadBalancingScheme]{
-		OutputState: in.ToLbRouteExtensionLoadBalancingSchemePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. All backend services and forwarding rules referenced by this extension must share the same load balancing scheme. Supported values: `INTERNAL_MANAGED`, `EXTERNAL_MANAGED`. For more information, refer to [Choosing a load balancer](https://cloud.google.com/load-balancing/docs/backend-service).
@@ -1598,10 +1571,12 @@ func (o LbTrafficExtensionLoadBalancingSchemePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// LbTrafficExtensionLoadBalancingSchemeInput is an input type that accepts LbTrafficExtensionLoadBalancingSchemeArgs and LbTrafficExtensionLoadBalancingSchemeOutput values.
-// You can construct a concrete instance of `LbTrafficExtensionLoadBalancingSchemeInput` via:
+// LbTrafficExtensionLoadBalancingSchemeInput is an input type that accepts values of the LbTrafficExtensionLoadBalancingScheme enum
+// A concrete instance of `LbTrafficExtensionLoadBalancingSchemeInput` can be one of the following:
 //
-//	LbTrafficExtensionLoadBalancingSchemeArgs{...}
+//	LbTrafficExtensionLoadBalancingSchemeLoadBalancingSchemeUnspecified
+//	LbTrafficExtensionLoadBalancingSchemeInternalManaged
+//	LbTrafficExtensionLoadBalancingSchemeExternalManaged
 type LbTrafficExtensionLoadBalancingSchemeInput interface {
 	pulumi.Input
 
@@ -1634,12 +1609,6 @@ func (in *lbTrafficExtensionLoadBalancingSchemePtr) ToLbTrafficExtensionLoadBala
 
 func (in *lbTrafficExtensionLoadBalancingSchemePtr) ToLbTrafficExtensionLoadBalancingSchemePtrOutputWithContext(ctx context.Context) LbTrafficExtensionLoadBalancingSchemePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LbTrafficExtensionLoadBalancingSchemePtrOutput)
-}
-
-func (in *lbTrafficExtensionLoadBalancingSchemePtr) ToOutput(ctx context.Context) pulumix.Output[*LbTrafficExtensionLoadBalancingScheme] {
-	return pulumix.Output[*LbTrafficExtensionLoadBalancingScheme]{
-		OutputState: in.ToLbTrafficExtensionLoadBalancingSchemePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how matching should be done. Supported values are: MATCH_ANY: At least one of the Labels specified in the matcher should match the metadata presented by xDS client. MATCH_ALL: The metadata presented by the xDS client should contain all of the labels specified here. The selection is determined based on the best match. For example, suppose there are three EndpointPolicy resources P1, P2 and P3 and if P1 has a the matcher as MATCH_ANY , P2 has MATCH_ALL , and P3 has MATCH_ALL . If a client with label connects, the config from P1 will be selected. If a client with label connects, the config from P2 will be selected. If a client with label connects, the config from P3 will be selected. If there is more than one best match, (for example, if a config P4 with selector exists and if a client with label connects), an error will be thrown.
@@ -1773,10 +1742,12 @@ func (o MetadataLabelMatcherMetadataLabelMatchCriteriaPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataLabelMatcherMetadataLabelMatchCriteriaInput is an input type that accepts MetadataLabelMatcherMetadataLabelMatchCriteriaArgs and MetadataLabelMatcherMetadataLabelMatchCriteriaOutput values.
-// You can construct a concrete instance of `MetadataLabelMatcherMetadataLabelMatchCriteriaInput` via:
+// MetadataLabelMatcherMetadataLabelMatchCriteriaInput is an input type that accepts values of the MetadataLabelMatcherMetadataLabelMatchCriteria enum
+// A concrete instance of `MetadataLabelMatcherMetadataLabelMatchCriteriaInput` can be one of the following:
 //
-//	MetadataLabelMatcherMetadataLabelMatchCriteriaArgs{...}
+//	MetadataLabelMatcherMetadataLabelMatchCriteriaMetadataLabelMatchCriteriaUnspecified
+//	MetadataLabelMatcherMetadataLabelMatchCriteriaMatchAny
+//	MetadataLabelMatcherMetadataLabelMatchCriteriaMatchAll
 type MetadataLabelMatcherMetadataLabelMatchCriteriaInput interface {
 	pulumi.Input
 
@@ -1809,12 +1780,6 @@ func (in *metadataLabelMatcherMetadataLabelMatchCriteriaPtr) ToMetadataLabelMatc
 
 func (in *metadataLabelMatcherMetadataLabelMatchCriteriaPtr) ToMetadataLabelMatcherMetadataLabelMatchCriteriaPtrOutputWithContext(ctx context.Context) MetadataLabelMatcherMetadataLabelMatchCriteriaPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataLabelMatcherMetadataLabelMatchCriteriaPtrOutput)
-}
-
-func (in *metadataLabelMatcherMetadataLabelMatchCriteriaPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataLabelMatcherMetadataLabelMatchCriteria] {
-	return pulumix.Output[*MetadataLabelMatcherMetadataLabelMatchCriteria]{
-		OutputState: in.ToMetadataLabelMatcherMetadataLabelMatchCriteriaPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The type of load balancing algorithm to be used. The default behavior is WATERFALL_BY_REGION.
@@ -1952,10 +1917,14 @@ func (o ServiceLbPolicyLoadBalancingAlgorithmPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceLbPolicyLoadBalancingAlgorithmInput is an input type that accepts ServiceLbPolicyLoadBalancingAlgorithmArgs and ServiceLbPolicyLoadBalancingAlgorithmOutput values.
-// You can construct a concrete instance of `ServiceLbPolicyLoadBalancingAlgorithmInput` via:
+// ServiceLbPolicyLoadBalancingAlgorithmInput is an input type that accepts values of the ServiceLbPolicyLoadBalancingAlgorithm enum
+// A concrete instance of `ServiceLbPolicyLoadBalancingAlgorithmInput` can be one of the following:
 //
-//	ServiceLbPolicyLoadBalancingAlgorithmArgs{...}
+//	ServiceLbPolicyLoadBalancingAlgorithmLoadBalancingAlgorithmUnspecified
+//	ServiceLbPolicyLoadBalancingAlgorithmSprayToWorld
+//	ServiceLbPolicyLoadBalancingAlgorithmSprayToRegion
+//	ServiceLbPolicyLoadBalancingAlgorithmWaterfallByRegion
+//	ServiceLbPolicyLoadBalancingAlgorithmWaterfallByZone
 type ServiceLbPolicyLoadBalancingAlgorithmInput interface {
 	pulumi.Input
 
@@ -1988,12 +1957,6 @@ func (in *serviceLbPolicyLoadBalancingAlgorithmPtr) ToServiceLbPolicyLoadBalanci
 
 func (in *serviceLbPolicyLoadBalancingAlgorithmPtr) ToServiceLbPolicyLoadBalancingAlgorithmPtrOutputWithContext(ctx context.Context) ServiceLbPolicyLoadBalancingAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceLbPolicyLoadBalancingAlgorithmPtrOutput)
-}
-
-func (in *serviceLbPolicyLoadBalancingAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceLbPolicyLoadBalancingAlgorithm] {
-	return pulumix.Output[*ServiceLbPolicyLoadBalancingAlgorithm]{
-		OutputState: in.ToServiceLbPolicyLoadBalancingAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

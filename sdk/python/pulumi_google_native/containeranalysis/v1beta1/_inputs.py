@@ -47,6 +47,7 @@ __all__ = [
     'EnvironmentArgs',
     'ExprArgs',
     'ExternalRefArgs',
+    'FileHashesArgs',
     'FileNoteArgs',
     'FileOccurrenceArgs',
     'FingerprintArgs',
@@ -314,13 +315,11 @@ class AssessmentArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. Deprecated: Use vulnerability_id instead to denote CVEs.""")
     def cve(self) -> Optional[pulumi.Input[str]]:
         """
         Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. Deprecated: Use vulnerability_id instead to denote CVEs.
         """
-        warnings.warn("""Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. Deprecated: Use vulnerability_id instead to denote CVEs.""", DeprecationWarning)
-        pulumi.log.warn("""cve is deprecated: Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. Deprecated: Use vulnerability_id instead to denote CVEs.""")
-
         return pulumi.get(self, "cve")
 
     @cve.setter
@@ -582,8 +581,8 @@ class BindingArgs:
 class BuildDefinitionArgs:
     def __init__(__self__, *,
                  build_type: Optional[pulumi.Input[str]] = None,
-                 external_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 internal_parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 external_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
+                 internal_parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  resolved_dependencies: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceDescriptorArgs']]]] = None):
         if build_type is not None:
             pulumi.set(__self__, "build_type", build_type)
@@ -605,20 +604,20 @@ class BuildDefinitionArgs:
 
     @property
     @pulumi.getter(name="externalParameters")
-    def external_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def external_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         return pulumi.get(self, "external_parameters")
 
     @external_parameters.setter
-    def external_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def external_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "external_parameters", value)
 
     @property
     @pulumi.getter(name="internalParameters")
-    def internal_parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def internal_parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         return pulumi.get(self, "internal_parameters")
 
     @internal_parameters.setter
-    def internal_parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def internal_parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "internal_parameters", value)
 
     @property
@@ -2042,13 +2041,11 @@ class DiscoveredArgs:
 
     @property
     @pulumi.getter(name="lastAnalysisTime")
+    @_utilities.deprecated("""The last time continuous analysis was done for this resource. Deprecated, do not use.""")
     def last_analysis_time(self) -> Optional[pulumi.Input[str]]:
         """
         The last time continuous analysis was done for this resource. Deprecated, do not use.
         """
-        warnings.warn("""The last time continuous analysis was done for this resource. Deprecated, do not use.""", DeprecationWarning)
-        pulumi.log.warn("""last_analysis_time is deprecated: The last time continuous analysis was done for this resource. Deprecated, do not use.""")
-
         return pulumi.get(self, "last_analysis_time")
 
     @last_analysis_time.setter
@@ -2633,6 +2630,29 @@ class ExternalRefArgs:
     @type.setter
     def type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "type", value)
+
+
+@pulumi.input_type
+class FileHashesArgs:
+    def __init__(__self__, *,
+                 file_hash: pulumi.Input[Sequence[pulumi.Input['HashArgs']]]):
+        """
+        Container message for hashes of byte content of files, used in source messages to verify integrity of source input to the build.
+        :param pulumi.Input[Sequence[pulumi.Input['HashArgs']]] file_hash: Collection of file hashes.
+        """
+        pulumi.set(__self__, "file_hash", file_hash)
+
+    @property
+    @pulumi.getter(name="fileHash")
+    def file_hash(self) -> pulumi.Input[Sequence[pulumi.Input['HashArgs']]]:
+        """
+        Collection of file hashes.
+        """
+        return pulumi.get(self, "file_hash")
+
+    @file_hash.setter
+    def file_hash(self, value: pulumi.Input[Sequence[pulumi.Input['HashArgs']]]):
+        pulumi.set(self, "file_hash", value)
 
 
 @pulumi.input_type
@@ -3917,13 +3937,11 @@ class LocationArgs:
 
     @property
     @pulumi.getter(name="cpeUri")
+    @_utilities.deprecated("""Deprecated. The CPE URI in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package.""")
     def cpe_uri(self) -> Optional[pulumi.Input[str]]:
         """
         Deprecated. The CPE URI in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package.
         """
-        warnings.warn("""Deprecated. The CPE URI in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package.""", DeprecationWarning)
-        pulumi.log.warn("""cpe_uri is deprecated: Deprecated. The CPE URI in [CPE format](https://cpe.mitre.org/specification/) denoting the package manager version distributing a package.""")
-
         return pulumi.get(self, "cpe_uri")
 
     @cpe_uri.setter
@@ -3944,13 +3962,11 @@ class LocationArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Deprecated. The version installed at this location.""")
     def version(self) -> Optional[pulumi.Input['VersionArgs']]:
         """
         Deprecated. The version installed at this location.
         """
-        warnings.warn("""Deprecated. The version installed at this location.""", DeprecationWarning)
-        pulumi.log.warn("""version is deprecated: Deprecated. The version installed at this location.""")
-
         return pulumi.get(self, "version")
 
     @version.setter
@@ -4389,13 +4405,11 @@ class PackageIssueArgs:
 
     @property
     @pulumi.getter(name="severityName")
+    @_utilities.deprecated("""Deprecated, use Details.effective_severity instead The severity (e.g., distro assigned severity) for this vulnerability.""")
     def severity_name(self) -> Optional[pulumi.Input[str]]:
         """
         Deprecated, use Details.effective_severity instead The severity (e.g., distro assigned severity) for this vulnerability.
         """
-        warnings.warn("""Deprecated, use Details.effective_severity instead The severity (e.g., distro assigned severity) for this vulnerability.""", DeprecationWarning)
-        pulumi.log.warn("""severity_name is deprecated: Deprecated, use Details.effective_severity instead The severity (e.g., distro assigned severity) for this vulnerability.""")
-
         return pulumi.get(self, "severity_name")
 
     @severity_name.setter
@@ -5053,7 +5067,7 @@ class RepoIdArgs:
 @pulumi.input_type
 class ResourceDescriptorArgs:
     def __init__(__self__, *,
-                 annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 annotations: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  content: Optional[pulumi.Input[str]] = None,
                  digest: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  download_location: Optional[pulumi.Input[str]] = None,
@@ -5077,11 +5091,11 @@ class ResourceDescriptorArgs:
 
     @property
     @pulumi.getter
-    def annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def annotations(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         return pulumi.get(self, "annotations")
 
     @annotations.setter
-    def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def annotations(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "annotations", value)
 
     @property
@@ -5177,13 +5191,11 @@ class ResourceArgs:
 
     @property
     @pulumi.getter(name="contentHash")
+    @_utilities.deprecated("""Deprecated, do not use. Use uri instead. The hash of the resource content. For example, the Docker digest.""")
     def content_hash(self) -> Optional[pulumi.Input['HashArgs']]:
         """
         Deprecated, do not use. Use uri instead. The hash of the resource content. For example, the Docker digest.
         """
-        warnings.warn("""Deprecated, do not use. Use uri instead. The hash of the resource content. For example, the Docker digest.""", DeprecationWarning)
-        pulumi.log.warn("""content_hash is deprecated: Deprecated, do not use. Use uri instead. The hash of the resource content. For example, the Docker digest.""")
-
         return pulumi.get(self, "content_hash")
 
     @content_hash.setter
@@ -5192,13 +5204,11 @@ class ResourceArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Deprecated, do not use. Use uri instead. The name of the resource. For example, the name of a Docker image - \"Debian\".""")
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         Deprecated, do not use. Use uri instead. The name of the resource. For example, the name of a Docker image - "Debian".
         """
-        warnings.warn("""Deprecated, do not use. Use uri instead. The name of the resource. For example, the name of a Docker image - \"Debian\".""", DeprecationWarning)
-        pulumi.log.warn("""name is deprecated: Deprecated, do not use. Use uri instead. The name of the resource. For example, the name of a Docker image - \"Debian\".""")
-
         return pulumi.get(self, "name")
 
     @name.setter
@@ -5749,13 +5759,13 @@ class SourceArgs:
                  additional_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['SourceContextArgs']]]] = None,
                  artifact_storage_source_uri: Optional[pulumi.Input[str]] = None,
                  context: Optional[pulumi.Input['SourceContextArgs']] = None,
-                 file_hashes: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 file_hashes: Optional[pulumi.Input[Mapping[str, pulumi.Input['FileHashesArgs']]]] = None):
         """
         Source describes the location of the source used for the build.
         :param pulumi.Input[Sequence[pulumi.Input['SourceContextArgs']]] additional_contexts: If provided, some of the source code used for the build may be found in these locations, in the case where the source repository had multiple remotes or submodules. This list will not include the context specified in the context field.
         :param pulumi.Input[str] artifact_storage_source_uri: If provided, the input binary artifacts for the build came from this location.
         :param pulumi.Input['SourceContextArgs'] context: If provided, the source code used for the build came from this location.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] file_hashes: Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. The keys to this map are file paths used as build source and the values contain the hash values for those files. If the build source came in a single package such as a gzipped tarfile (.tar.gz), the FileHash will be for the single path to that file.
+        :param pulumi.Input[Mapping[str, pulumi.Input['FileHashesArgs']]] file_hashes: Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. The keys to this map are file paths used as build source and the values contain the hash values for those files. If the build source came in a single package such as a gzipped tarfile (.tar.gz), the FileHash will be for the single path to that file.
         """
         if additional_contexts is not None:
             pulumi.set(__self__, "additional_contexts", additional_contexts)
@@ -5804,14 +5814,14 @@ class SourceArgs:
 
     @property
     @pulumi.getter(name="fileHashes")
-    def file_hashes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def file_hashes(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['FileHashesArgs']]]]:
         """
         Hash(es) of the build source, which can be used to verify that the original source integrity was maintained in the build. The keys to this map are file paths used as build source and the values contain the hash values for those files. If the build source came in a single package such as a gzipped tarfile (.tar.gz), the FileHash will be for the single path to that file.
         """
         return pulumi.get(self, "file_hashes")
 
     @file_hashes.setter
-    def file_hashes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def file_hashes(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['FileHashesArgs']]]]):
         pulumi.set(self, "file_hashes", value)
 
 
@@ -5819,12 +5829,12 @@ class SourceArgs:
 class StatusArgs:
     def __init__(__self__, *,
                  code: Optional[pulumi.Input[int]] = None,
-                 details: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]] = None,
+                 details: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]] = None,
                  message: Optional[pulumi.Input[str]] = None):
         """
         The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).
         :param pulumi.Input[int] code: The status code, which should be an enum value of google.rpc.Code.
-        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]] details: A list of messages that carry the error details. There is a common set of message types for APIs to use.
+        :param pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]] details: A list of messages that carry the error details. There is a common set of message types for APIs to use.
         :param pulumi.Input[str] message: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.
         """
         if code is not None:
@@ -5848,14 +5858,14 @@ class StatusArgs:
 
     @property
     @pulumi.getter
-    def details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]:
+    def details(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]:
         """
         A list of messages that carry the error details. There is a common set of message types for APIs to use.
         """
         return pulumi.get(self, "details")
 
     @details.setter
-    def details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, pulumi.Input[str]]]]]]):
+    def details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Mapping[str, Any]]]]]):
         pulumi.set(self, "details", value)
 
     @property
@@ -6042,13 +6052,11 @@ class VexAssessmentArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. Deprecated: Use vulnerability_id instead to denote CVEs.""")
     def cve(self) -> Optional[pulumi.Input[str]]:
         """
         Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. Deprecated: Use vulnerability_id instead to denote CVEs.
         """
-        warnings.warn("""Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. Deprecated: Use vulnerability_id instead to denote CVEs.""", DeprecationWarning)
-        pulumi.log.warn("""cve is deprecated: Holds the MITRE standard Common Vulnerabilities and Exposures (CVE) tracking number for the vulnerability. Deprecated: Use vulnerability_id instead to denote CVEs.""")
-
         return pulumi.get(self, "cve")
 
     @cve.setter

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Scope of the quota decides how the quota counter gets applied and evaluate for quota violation. If the Scope is set as PROXY, then all the operations defined for the APIproduct that are associated with the same proxy will share the same quota counter set at the APIproduct level, making it a global counter at a proxy level. If the Scope is set as OPERATION, then each operations get the counter set at the API product dedicated, making it a local counter. Note that, the QuotaCounterScope applies only when an operation does not have dedicated quota set for itself.
@@ -142,10 +141,12 @@ func (o ApiProductQuotaCounterScopePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApiProductQuotaCounterScopeInput is an input type that accepts ApiProductQuotaCounterScopeArgs and ApiProductQuotaCounterScopeOutput values.
-// You can construct a concrete instance of `ApiProductQuotaCounterScopeInput` via:
+// ApiProductQuotaCounterScopeInput is an input type that accepts values of the ApiProductQuotaCounterScope enum
+// A concrete instance of `ApiProductQuotaCounterScopeInput` can be one of the following:
 //
-//	ApiProductQuotaCounterScopeArgs{...}
+//	ApiProductQuotaCounterScopeQuotaCounterScopeUnspecified
+//	ApiProductQuotaCounterScopeProxy
+//	ApiProductQuotaCounterScopeOperation
 type ApiProductQuotaCounterScopeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *apiProductQuotaCounterScopePtr) ToApiProductQuotaCounterScopePtrOutput
 
 func (in *apiProductQuotaCounterScopePtr) ToApiProductQuotaCounterScopePtrOutputWithContext(ctx context.Context) ApiProductQuotaCounterScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApiProductQuotaCounterScopePtrOutput)
-}
-
-func (in *apiProductQuotaCounterScopePtr) ToOutput(ctx context.Context) pulumix.Output[*ApiProductQuotaCounterScope] {
-	return pulumix.Output[*ApiProductQuotaCounterScope]{
-		OutputState: in.ToApiProductQuotaCounterScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The type of data this data collector will collect.
@@ -323,10 +318,15 @@ func (o DataCollectorTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataCollectorTypeInput is an input type that accepts DataCollectorTypeArgs and DataCollectorTypeOutput values.
-// You can construct a concrete instance of `DataCollectorTypeInput` via:
+// DataCollectorTypeInput is an input type that accepts values of the DataCollectorType enum
+// A concrete instance of `DataCollectorTypeInput` can be one of the following:
 //
-//	DataCollectorTypeArgs{...}
+//	DataCollectorTypeTypeUnspecified
+//	DataCollectorTypeInteger
+//	DataCollectorTypeFloat
+//	DataCollectorTypeString
+//	DataCollectorTypeBoolean
+//	DataCollectorTypeDatetime
 type DataCollectorTypeInput interface {
 	pulumi.Input
 
@@ -359,12 +359,6 @@ func (in *dataCollectorTypePtr) ToDataCollectorTypePtrOutput() DataCollectorType
 
 func (in *dataCollectorTypePtr) ToDataCollectorTypePtrOutputWithContext(ctx context.Context) DataCollectorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataCollectorTypePtrOutput)
-}
-
-func (in *dataCollectorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataCollectorType] {
-	return pulumix.Output[*DataCollectorType]{
-		OutputState: in.ToDataCollectorTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. API Proxy type supported by the environment. The type can be set when creating the Environment and cannot be changed.
@@ -498,10 +492,12 @@ func (o EnvironmentApiProxyTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentApiProxyTypeInput is an input type that accepts EnvironmentApiProxyTypeArgs and EnvironmentApiProxyTypeOutput values.
-// You can construct a concrete instance of `EnvironmentApiProxyTypeInput` via:
+// EnvironmentApiProxyTypeInput is an input type that accepts values of the EnvironmentApiProxyType enum
+// A concrete instance of `EnvironmentApiProxyTypeInput` can be one of the following:
 //
-//	EnvironmentApiProxyTypeArgs{...}
+//	EnvironmentApiProxyTypeApiProxyTypeUnspecified
+//	EnvironmentApiProxyTypeProgrammable
+//	EnvironmentApiProxyTypeConfigurable
 type EnvironmentApiProxyTypeInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *environmentApiProxyTypePtr) ToEnvironmentApiProxyTypePtrOutput() Envir
 
 func (in *environmentApiProxyTypePtr) ToEnvironmentApiProxyTypePtrOutputWithContext(ctx context.Context) EnvironmentApiProxyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentApiProxyTypePtrOutput)
-}
-
-func (in *environmentApiProxyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentApiProxyType] {
-	return pulumix.Output[*EnvironmentApiProxyType]{
-		OutputState: in.ToEnvironmentApiProxyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Deployment type supported by the environment. The deployment type can be set when creating the environment and cannot be changed. When you enable archive deployment, you will be **prevented from performing** a [subset of actions](/apigee/docs/api-platform/local-development/overview#prevented-actions) within the environment, including: * Managing the deployment of API proxy or shared flow revisions * Creating, updating, or deleting resource files * Creating, updating, or deleting target servers
@@ -673,10 +663,12 @@ func (o EnvironmentDeploymentTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentDeploymentTypeInput is an input type that accepts EnvironmentDeploymentTypeArgs and EnvironmentDeploymentTypeOutput values.
-// You can construct a concrete instance of `EnvironmentDeploymentTypeInput` via:
+// EnvironmentDeploymentTypeInput is an input type that accepts values of the EnvironmentDeploymentType enum
+// A concrete instance of `EnvironmentDeploymentTypeInput` can be one of the following:
 //
-//	EnvironmentDeploymentTypeArgs{...}
+//	EnvironmentDeploymentTypeDeploymentTypeUnspecified
+//	EnvironmentDeploymentTypeProxy
+//	EnvironmentDeploymentTypeArchive
 type EnvironmentDeploymentTypeInput interface {
 	pulumi.Input
 
@@ -709,12 +701,6 @@ func (in *environmentDeploymentTypePtr) ToEnvironmentDeploymentTypePtrOutput() E
 
 func (in *environmentDeploymentTypePtr) ToEnvironmentDeploymentTypePtrOutputWithContext(ctx context.Context) EnvironmentDeploymentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentDeploymentTypePtrOutput)
-}
-
-func (in *environmentDeploymentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentDeploymentType] {
-	return pulumix.Output[*EnvironmentDeploymentType]{
-		OutputState: in.ToEnvironmentDeploymentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. EnvironmentType selected for the environment.
@@ -850,10 +836,13 @@ func (o EnvironmentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentTypeInput is an input type that accepts EnvironmentTypeArgs and EnvironmentTypeOutput values.
-// You can construct a concrete instance of `EnvironmentTypeInput` via:
+// EnvironmentTypeInput is an input type that accepts values of the EnvironmentType enum
+// A concrete instance of `EnvironmentTypeInput` can be one of the following:
 //
-//	EnvironmentTypeArgs{...}
+//	EnvironmentTypeEnvironmentTypeUnspecified
+//	EnvironmentTypeBase
+//	EnvironmentTypeIntermediate
+//	EnvironmentTypeComprehensive
 type EnvironmentTypeInput interface {
 	pulumi.Input
 
@@ -886,12 +875,6 @@ func (in *environmentTypePtr) ToEnvironmentTypePtrOutput() EnvironmentTypePtrOut
 
 func (in *environmentTypePtr) ToEnvironmentTypePtrOutputWithContext(ctx context.Context) EnvironmentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentTypePtrOutput)
-}
-
-func (in *environmentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentType] {
-	return pulumix.Output[*EnvironmentType]{
-		OutputState: in.ToEnvironmentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Sampler of distributed tracing. OFF is the default value.
@@ -1025,10 +1008,12 @@ func (o GoogleCloudApigeeV1TraceSamplingConfigSamplerPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudApigeeV1TraceSamplingConfigSamplerInput is an input type that accepts GoogleCloudApigeeV1TraceSamplingConfigSamplerArgs and GoogleCloudApigeeV1TraceSamplingConfigSamplerOutput values.
-// You can construct a concrete instance of `GoogleCloudApigeeV1TraceSamplingConfigSamplerInput` via:
+// GoogleCloudApigeeV1TraceSamplingConfigSamplerInput is an input type that accepts values of the GoogleCloudApigeeV1TraceSamplingConfigSampler enum
+// A concrete instance of `GoogleCloudApigeeV1TraceSamplingConfigSamplerInput` can be one of the following:
 //
-//	GoogleCloudApigeeV1TraceSamplingConfigSamplerArgs{...}
+//	GoogleCloudApigeeV1TraceSamplingConfigSamplerSamplerUnspecified
+//	GoogleCloudApigeeV1TraceSamplingConfigSamplerOff
+//	GoogleCloudApigeeV1TraceSamplingConfigSamplerProbability
 type GoogleCloudApigeeV1TraceSamplingConfigSamplerInput interface {
 	pulumi.Input
 
@@ -1061,12 +1046,6 @@ func (in *googleCloudApigeeV1TraceSamplingConfigSamplerPtr) ToGoogleCloudApigeeV
 
 func (in *googleCloudApigeeV1TraceSamplingConfigSamplerPtr) ToGoogleCloudApigeeV1TraceSamplingConfigSamplerPtrOutputWithContext(ctx context.Context) GoogleCloudApigeeV1TraceSamplingConfigSamplerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudApigeeV1TraceSamplingConfigSamplerPtrOutput)
-}
-
-func (in *googleCloudApigeeV1TraceSamplingConfigSamplerPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudApigeeV1TraceSamplingConfigSampler] {
-	return pulumix.Output[*GoogleCloudApigeeV1TraceSamplingConfigSampler]{
-		OutputState: in.ToGoogleCloudApigeeV1TraceSamplingConfigSamplerPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -1202,10 +1181,13 @@ func (o GoogleIamV1AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts GoogleIamV1AuditLogConfigLogTypeArgs and GoogleIamV1AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` via:
+// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts values of the GoogleIamV1AuditLogConfigLogType enum
+// A concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	GoogleIamV1AuditLogConfigLogTypeArgs{...}
+//	GoogleIamV1AuditLogConfigLogTypeLogTypeUnspecified
+//	GoogleIamV1AuditLogConfigLogTypeAdminRead
+//	GoogleIamV1AuditLogConfigLogTypeDataWrite
+//	GoogleIamV1AuditLogConfigLogTypeDataRead
 type GoogleIamV1AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -1238,12 +1220,6 @@ func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTyp
 
 func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) GoogleIamV1AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamV1AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *googleIamV1AuditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamV1AuditLogConfigLogType] {
-	return pulumix.Output[*GoogleIamV1AuditLogConfigLogType]{
-		OutputState: in.ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Size of the CIDR block range that will be reserved by the instance. PAID organizations support `SLASH_16` to `SLASH_20` and defaults to `SLASH_16`. Evaluation organizations support only `SLASH_23`.
@@ -1387,10 +1363,17 @@ func (o InstancePeeringCidrRangePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstancePeeringCidrRangeInput is an input type that accepts InstancePeeringCidrRangeArgs and InstancePeeringCidrRangeOutput values.
-// You can construct a concrete instance of `InstancePeeringCidrRangeInput` via:
+// InstancePeeringCidrRangeInput is an input type that accepts values of the InstancePeeringCidrRange enum
+// A concrete instance of `InstancePeeringCidrRangeInput` can be one of the following:
 //
-//	InstancePeeringCidrRangeArgs{...}
+//	InstancePeeringCidrRangeCidrRangeUnspecified
+//	InstancePeeringCidrRangeSlash16
+//	InstancePeeringCidrRangeSlash17
+//	InstancePeeringCidrRangeSlash18
+//	InstancePeeringCidrRangeSlash19
+//	InstancePeeringCidrRangeSlash20
+//	InstancePeeringCidrRangeSlash22
+//	InstancePeeringCidrRangeSlash23
 type InstancePeeringCidrRangeInput interface {
 	pulumi.Input
 
@@ -1423,12 +1406,6 @@ func (in *instancePeeringCidrRangePtr) ToInstancePeeringCidrRangePtrOutput() Ins
 
 func (in *instancePeeringCidrRangePtr) ToInstancePeeringCidrRangePtrOutputWithContext(ctx context.Context) InstancePeeringCidrRangePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstancePeeringCidrRangePtrOutput)
-}
-
-func (in *instancePeeringCidrRangePtr) ToOutput(ctx context.Context) pulumix.Output[*InstancePeeringCidrRange] {
-	return pulumix.Output[*InstancePeeringCidrRange]{
-		OutputState: in.ToInstancePeeringCidrRangePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Billing type of the Apigee organization. See [Apigee pricing](https://cloud.google.com/apigee/pricing).
@@ -1564,10 +1541,13 @@ func (o OrganizationBillingTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// OrganizationBillingTypeInput is an input type that accepts OrganizationBillingTypeArgs and OrganizationBillingTypeOutput values.
-// You can construct a concrete instance of `OrganizationBillingTypeInput` via:
+// OrganizationBillingTypeInput is an input type that accepts values of the OrganizationBillingType enum
+// A concrete instance of `OrganizationBillingTypeInput` can be one of the following:
 //
-//	OrganizationBillingTypeArgs{...}
+//	OrganizationBillingTypeBillingTypeUnspecified
+//	OrganizationBillingTypeSubscription
+//	OrganizationBillingTypeEvaluation
+//	OrganizationBillingTypePayg
 type OrganizationBillingTypeInput interface {
 	pulumi.Input
 
@@ -1600,12 +1580,6 @@ func (in *organizationBillingTypePtr) ToOrganizationBillingTypePtrOutput() Organ
 
 func (in *organizationBillingTypePtr) ToOrganizationBillingTypePtrOutputWithContext(ctx context.Context) OrganizationBillingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationBillingTypePtrOutput)
-}
-
-func (in *organizationBillingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OrganizationBillingType] {
-	return pulumix.Output[*OrganizationBillingType]{
-		OutputState: in.ToOrganizationBillingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Runtime type of the Apigee organization based on the Apigee subscription purchased.
@@ -1739,10 +1713,12 @@ func (o OrganizationRuntimeTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// OrganizationRuntimeTypeInput is an input type that accepts OrganizationRuntimeTypeArgs and OrganizationRuntimeTypeOutput values.
-// You can construct a concrete instance of `OrganizationRuntimeTypeInput` via:
+// OrganizationRuntimeTypeInput is an input type that accepts values of the OrganizationRuntimeType enum
+// A concrete instance of `OrganizationRuntimeTypeInput` can be one of the following:
 //
-//	OrganizationRuntimeTypeArgs{...}
+//	OrganizationRuntimeTypeRuntimeTypeUnspecified
+//	OrganizationRuntimeTypeCloud
+//	OrganizationRuntimeTypeHybrid
 type OrganizationRuntimeTypeInput interface {
 	pulumi.Input
 
@@ -1775,12 +1751,6 @@ func (in *organizationRuntimeTypePtr) ToOrganizationRuntimeTypePtrOutput() Organ
 
 func (in *organizationRuntimeTypePtr) ToOrganizationRuntimeTypePtrOutputWithContext(ctx context.Context) OrganizationRuntimeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationRuntimeTypePtrOutput)
-}
-
-func (in *organizationRuntimeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRuntimeType] {
-	return pulumix.Output[*OrganizationRuntimeType]{
-		OutputState: in.ToOrganizationRuntimeTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Not used by Apigee.
@@ -1916,10 +1886,13 @@ func (o OrganizationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// OrganizationTypeInput is an input type that accepts OrganizationTypeArgs and OrganizationTypeOutput values.
-// You can construct a concrete instance of `OrganizationTypeInput` via:
+// OrganizationTypeInput is an input type that accepts values of the OrganizationType enum
+// A concrete instance of `OrganizationTypeInput` can be one of the following:
 //
-//	OrganizationTypeArgs{...}
+//	OrganizationTypeTypeUnspecified
+//	OrganizationTypeTypeTrial
+//	OrganizationTypeTypePaid
+//	OrganizationTypeTypeInternal
 type OrganizationTypeInput interface {
 	pulumi.Input
 
@@ -1952,12 +1925,6 @@ func (in *organizationTypePtr) ToOrganizationTypePtrOutput() OrganizationTypePtr
 
 func (in *organizationTypePtr) ToOrganizationTypePtrOutputWithContext(ctx context.Context) OrganizationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationTypePtrOutput)
-}
-
-func (in *organizationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OrganizationType] {
-	return pulumix.Output[*OrganizationType]{
-		OutputState: in.ToOrganizationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Frequency at which the customer will be billed.
@@ -2091,10 +2058,12 @@ func (o RatePlanBillingPeriodPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// RatePlanBillingPeriodInput is an input type that accepts RatePlanBillingPeriodArgs and RatePlanBillingPeriodOutput values.
-// You can construct a concrete instance of `RatePlanBillingPeriodInput` via:
+// RatePlanBillingPeriodInput is an input type that accepts values of the RatePlanBillingPeriod enum
+// A concrete instance of `RatePlanBillingPeriodInput` can be one of the following:
 //
-//	RatePlanBillingPeriodArgs{...}
+//	RatePlanBillingPeriodBillingPeriodUnspecified
+//	RatePlanBillingPeriodWeekly
+//	RatePlanBillingPeriodMonthly
 type RatePlanBillingPeriodInput interface {
 	pulumi.Input
 
@@ -2127,12 +2096,6 @@ func (in *ratePlanBillingPeriodPtr) ToRatePlanBillingPeriodPtrOutput() RatePlanB
 
 func (in *ratePlanBillingPeriodPtr) ToRatePlanBillingPeriodPtrOutputWithContext(ctx context.Context) RatePlanBillingPeriodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RatePlanBillingPeriodPtrOutput)
-}
-
-func (in *ratePlanBillingPeriodPtr) ToOutput(ctx context.Context) pulumix.Output[*RatePlanBillingPeriod] {
-	return pulumix.Output[*RatePlanBillingPeriod]{
-		OutputState: in.ToRatePlanBillingPeriodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Pricing model used for consumption-based charges.
@@ -2270,10 +2233,14 @@ func (o RatePlanConsumptionPricingTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// RatePlanConsumptionPricingTypeInput is an input type that accepts RatePlanConsumptionPricingTypeArgs and RatePlanConsumptionPricingTypeOutput values.
-// You can construct a concrete instance of `RatePlanConsumptionPricingTypeInput` via:
+// RatePlanConsumptionPricingTypeInput is an input type that accepts values of the RatePlanConsumptionPricingType enum
+// A concrete instance of `RatePlanConsumptionPricingTypeInput` can be one of the following:
 //
-//	RatePlanConsumptionPricingTypeArgs{...}
+//	RatePlanConsumptionPricingTypeConsumptionPricingTypeUnspecified
+//	RatePlanConsumptionPricingTypeFixedPerUnit
+//	RatePlanConsumptionPricingTypeBanded
+//	RatePlanConsumptionPricingTypeTiered
+//	RatePlanConsumptionPricingTypeStairstep
 type RatePlanConsumptionPricingTypeInput interface {
 	pulumi.Input
 
@@ -2306,12 +2273,6 @@ func (in *ratePlanConsumptionPricingTypePtr) ToRatePlanConsumptionPricingTypePtr
 
 func (in *ratePlanConsumptionPricingTypePtr) ToRatePlanConsumptionPricingTypePtrOutputWithContext(ctx context.Context) RatePlanConsumptionPricingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RatePlanConsumptionPricingTypePtrOutput)
-}
-
-func (in *ratePlanConsumptionPricingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RatePlanConsumptionPricingType] {
-	return pulumix.Output[*RatePlanConsumptionPricingType]{
-		OutputState: in.ToRatePlanConsumptionPricingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DEPRECATED: This field is no longer supported and will eventually be removed when Apigee Hybrid 1.5/1.6 is no longer supported. Instead, use the `billingType` field inside `DeveloperMonetizationConfig` resource. Flag that specifies the billing account type, prepaid or postpaid.
@@ -2445,10 +2406,12 @@ func (o RatePlanPaymentFundingModelPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// RatePlanPaymentFundingModelInput is an input type that accepts RatePlanPaymentFundingModelArgs and RatePlanPaymentFundingModelOutput values.
-// You can construct a concrete instance of `RatePlanPaymentFundingModelInput` via:
+// RatePlanPaymentFundingModelInput is an input type that accepts values of the RatePlanPaymentFundingModel enum
+// A concrete instance of `RatePlanPaymentFundingModelInput` can be one of the following:
 //
-//	RatePlanPaymentFundingModelArgs{...}
+//	RatePlanPaymentFundingModelPaymentFundingModelUnspecified
+//	RatePlanPaymentFundingModelPrepaid
+//	RatePlanPaymentFundingModelPostpaid
 type RatePlanPaymentFundingModelInput interface {
 	pulumi.Input
 
@@ -2481,12 +2444,6 @@ func (in *ratePlanPaymentFundingModelPtr) ToRatePlanPaymentFundingModelPtrOutput
 
 func (in *ratePlanPaymentFundingModelPtr) ToRatePlanPaymentFundingModelPtrOutputWithContext(ctx context.Context) RatePlanPaymentFundingModelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RatePlanPaymentFundingModelPtrOutput)
-}
-
-func (in *ratePlanPaymentFundingModelPtr) ToOutput(ctx context.Context) pulumix.Output[*RatePlanPaymentFundingModel] {
-	return pulumix.Output[*RatePlanPaymentFundingModel]{
-		OutputState: in.ToRatePlanPaymentFundingModelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Method used to calculate the revenue that is shared with developers.
@@ -2620,10 +2577,12 @@ func (o RatePlanRevenueShareTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RatePlanRevenueShareTypeInput is an input type that accepts RatePlanRevenueShareTypeArgs and RatePlanRevenueShareTypeOutput values.
-// You can construct a concrete instance of `RatePlanRevenueShareTypeInput` via:
+// RatePlanRevenueShareTypeInput is an input type that accepts values of the RatePlanRevenueShareType enum
+// A concrete instance of `RatePlanRevenueShareTypeInput` can be one of the following:
 //
-//	RatePlanRevenueShareTypeArgs{...}
+//	RatePlanRevenueShareTypeRevenueShareTypeUnspecified
+//	RatePlanRevenueShareTypeFixed
+//	RatePlanRevenueShareTypeVolumeBanded
 type RatePlanRevenueShareTypeInput interface {
 	pulumi.Input
 
@@ -2656,12 +2615,6 @@ func (in *ratePlanRevenueShareTypePtr) ToRatePlanRevenueShareTypePtrOutput() Rat
 
 func (in *ratePlanRevenueShareTypePtr) ToRatePlanRevenueShareTypePtrOutputWithContext(ctx context.Context) RatePlanRevenueShareTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RatePlanRevenueShareTypePtrOutput)
-}
-
-func (in *ratePlanRevenueShareTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RatePlanRevenueShareType] {
-	return pulumix.Output[*RatePlanRevenueShareType]{
-		OutputState: in.ToRatePlanRevenueShareTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Current state of the rate plan (draft or published).
@@ -2795,10 +2748,12 @@ func (o RatePlanStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// RatePlanStateEnumInput is an input type that accepts RatePlanStateEnumArgs and RatePlanStateEnumOutput values.
-// You can construct a concrete instance of `RatePlanStateEnumInput` via:
+// RatePlanStateEnumInput is an input type that accepts values of the RatePlanStateEnum enum
+// A concrete instance of `RatePlanStateEnumInput` can be one of the following:
 //
-//	RatePlanStateEnumArgs{...}
+//	RatePlanStateEnumStateUnspecified
+//	RatePlanStateEnumDraft
+//	RatePlanStateEnumPublished
 type RatePlanStateEnumInput interface {
 	pulumi.Input
 
@@ -2831,12 +2786,6 @@ func (in *ratePlanStateEnumPtr) ToRatePlanStateEnumPtrOutput() RatePlanStateEnum
 
 func (in *ratePlanStateEnumPtr) ToRatePlanStateEnumPtrOutputWithContext(ctx context.Context) RatePlanStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RatePlanStateEnumPtrOutput)
-}
-
-func (in *ratePlanStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*RatePlanStateEnum] {
-	return pulumix.Output[*RatePlanStateEnum]{
-		OutputState: in.ToRatePlanStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Only an ENABLED SecurityAction is enforced. An ENABLED SecurityAction past its expiration time will not be enforced.
@@ -2970,10 +2919,12 @@ func (o SecurityActionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecurityActionStateEnumInput is an input type that accepts SecurityActionStateEnumArgs and SecurityActionStateEnumOutput values.
-// You can construct a concrete instance of `SecurityActionStateEnumInput` via:
+// SecurityActionStateEnumInput is an input type that accepts values of the SecurityActionStateEnum enum
+// A concrete instance of `SecurityActionStateEnumInput` can be one of the following:
 //
-//	SecurityActionStateEnumArgs{...}
+//	SecurityActionStateEnumStateUnspecified
+//	SecurityActionStateEnumEnabled
+//	SecurityActionStateEnumDisabled
 type SecurityActionStateEnumInput interface {
 	pulumi.Input
 
@@ -3006,12 +2957,6 @@ func (in *securityActionStateEnumPtr) ToSecurityActionStateEnumPtrOutput() Secur
 
 func (in *securityActionStateEnumPtr) ToSecurityActionStateEnumPtrOutputWithContext(ctx context.Context) SecurityActionStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityActionStateEnumPtrOutput)
-}
-
-func (in *securityActionStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*SecurityActionStateEnum] {
-	return pulumix.Output[*SecurityActionStateEnum]{
-		OutputState: in.ToSecurityActionStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The protocol used by this TargetServer.
@@ -3151,10 +3096,15 @@ func (o TargetServerProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TargetServerProtocolInput is an input type that accepts TargetServerProtocolArgs and TargetServerProtocolOutput values.
-// You can construct a concrete instance of `TargetServerProtocolInput` via:
+// TargetServerProtocolInput is an input type that accepts values of the TargetServerProtocol enum
+// A concrete instance of `TargetServerProtocolInput` can be one of the following:
 //
-//	TargetServerProtocolArgs{...}
+//	TargetServerProtocolProtocolUnspecified
+//	TargetServerProtocolHttp
+//	TargetServerProtocolHttp2
+//	TargetServerProtocolGrpcTarget
+//	TargetServerProtocolGrpc
+//	TargetServerProtocolExternalCallout
 type TargetServerProtocolInput interface {
 	pulumi.Input
 
@@ -3187,12 +3137,6 @@ func (in *targetServerProtocolPtr) ToTargetServerProtocolPtrOutput() TargetServe
 
 func (in *targetServerProtocolPtr) ToTargetServerProtocolPtrOutputWithContext(ctx context.Context) TargetServerProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TargetServerProtocolPtrOutput)
-}
-
-func (in *targetServerProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*TargetServerProtocol] {
-	return pulumix.Output[*TargetServerProtocol]{
-		OutputState: in.ToTargetServerProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

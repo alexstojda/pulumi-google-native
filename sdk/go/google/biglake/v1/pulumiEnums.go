@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The database type.
@@ -140,10 +139,11 @@ func (o DatabaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatabaseTypeInput is an input type that accepts DatabaseTypeArgs and DatabaseTypeOutput values.
-// You can construct a concrete instance of `DatabaseTypeInput` via:
+// DatabaseTypeInput is an input type that accepts values of the DatabaseType enum
+// A concrete instance of `DatabaseTypeInput` can be one of the following:
 //
-//	DatabaseTypeArgs{...}
+//	DatabaseTypeTypeUnspecified
+//	DatabaseTypeHive
 type DatabaseTypeInput interface {
 	pulumi.Input
 
@@ -176,12 +176,6 @@ func (in *databaseTypePtr) ToDatabaseTypePtrOutput() DatabaseTypePtrOutput {
 
 func (in *databaseTypePtr) ToDatabaseTypePtrOutputWithContext(ctx context.Context) DatabaseTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseTypePtrOutput)
-}
-
-func (in *databaseTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DatabaseType] {
-	return pulumix.Output[*DatabaseType]{
-		OutputState: in.ToDatabaseTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The table type.
@@ -313,10 +307,11 @@ func (o TableTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// TableTypeInput is an input type that accepts TableTypeArgs and TableTypeOutput values.
-// You can construct a concrete instance of `TableTypeInput` via:
+// TableTypeInput is an input type that accepts values of the TableType enum
+// A concrete instance of `TableTypeInput` can be one of the following:
 //
-//	TableTypeArgs{...}
+//	TableTypeTypeUnspecified
+//	TableTypeHive
 type TableTypeInput interface {
 	pulumi.Input
 
@@ -349,12 +344,6 @@ func (in *tableTypePtr) ToTableTypePtrOutput() TableTypePtrOutput {
 
 func (in *tableTypePtr) ToTableTypePtrOutputWithContext(ctx context.Context) TableTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TableTypePtrOutput)
-}
-
-func (in *tableTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TableType] {
-	return pulumix.Output[*TableType]{
-		OutputState: in.ToTableTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

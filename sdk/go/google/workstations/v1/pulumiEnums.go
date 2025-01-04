@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Whether the persistent disk should be deleted when the workstation is deleted. Valid values are `DELETE` and `RETAIN`. Defaults to `DELETE`.
@@ -319,10 +315,12 @@ func (o GceRegionalPersistentDiskReclaimPolicyPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// GceRegionalPersistentDiskReclaimPolicyInput is an input type that accepts GceRegionalPersistentDiskReclaimPolicyArgs and GceRegionalPersistentDiskReclaimPolicyOutput values.
-// You can construct a concrete instance of `GceRegionalPersistentDiskReclaimPolicyInput` via:
+// GceRegionalPersistentDiskReclaimPolicyInput is an input type that accepts values of the GceRegionalPersistentDiskReclaimPolicy enum
+// A concrete instance of `GceRegionalPersistentDiskReclaimPolicyInput` can be one of the following:
 //
-//	GceRegionalPersistentDiskReclaimPolicyArgs{...}
+//	GceRegionalPersistentDiskReclaimPolicyReclaimPolicyUnspecified
+//	GceRegionalPersistentDiskReclaimPolicyDelete
+//	GceRegionalPersistentDiskReclaimPolicyRetain
 type GceRegionalPersistentDiskReclaimPolicyInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *gceRegionalPersistentDiskReclaimPolicyPtr) ToGceRegionalPersistentDisk
 
 func (in *gceRegionalPersistentDiskReclaimPolicyPtr) ToGceRegionalPersistentDiskReclaimPolicyPtrOutputWithContext(ctx context.Context) GceRegionalPersistentDiskReclaimPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GceRegionalPersistentDiskReclaimPolicyPtrOutput)
-}
-
-func (in *gceRegionalPersistentDiskReclaimPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*GceRegionalPersistentDiskReclaimPolicy] {
-	return pulumix.Output[*GceRegionalPersistentDiskReclaimPolicy]{
-		OutputState: in.ToGceRegionalPersistentDiskReclaimPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

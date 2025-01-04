@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The call logging level associated to this execution.
@@ -144,10 +143,13 @@ func (o ExecutionCallLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExecutionCallLogLevelInput is an input type that accepts ExecutionCallLogLevelArgs and ExecutionCallLogLevelOutput values.
-// You can construct a concrete instance of `ExecutionCallLogLevelInput` via:
+// ExecutionCallLogLevelInput is an input type that accepts values of the ExecutionCallLogLevel enum
+// A concrete instance of `ExecutionCallLogLevelInput` can be one of the following:
 //
-//	ExecutionCallLogLevelArgs{...}
+//	ExecutionCallLogLevelCallLogLevelUnspecified
+//	ExecutionCallLogLevelLogAllCalls
+//	ExecutionCallLogLevelLogErrorsOnly
+//	ExecutionCallLogLevelLogNone
 type ExecutionCallLogLevelInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *executionCallLogLevelPtr) ToExecutionCallLogLevelPtrOutput() Execution
 
 func (in *executionCallLogLevelPtr) ToExecutionCallLogLevelPtrOutputWithContext(ctx context.Context) ExecutionCallLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExecutionCallLogLevelPtrOutput)
-}
-
-func (in *executionCallLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ExecutionCallLogLevel] {
-	return pulumix.Output[*ExecutionCallLogLevel]{
-		OutputState: in.ToExecutionCallLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The state of the Conversation.
@@ -142,10 +141,12 @@ func (o ConversationStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConversationStateEnumInput is an input type that accepts ConversationStateEnumArgs and ConversationStateEnumOutput values.
-// You can construct a concrete instance of `ConversationStateEnumInput` via:
+// ConversationStateEnumInput is an input type that accepts values of the ConversationStateEnum enum
+// A concrete instance of `ConversationStateEnumInput` can be one of the following:
 //
-//	ConversationStateEnumArgs{...}
+//	ConversationStateEnumStateUnspecified
+//	ConversationStateEnumInProgress
+//	ConversationStateEnumCompleted
 type ConversationStateEnumInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *conversationStateEnumPtr) ToConversationStateEnumPtrOutput() Conversat
 
 func (in *conversationStateEnumPtr) ToConversationStateEnumPtrOutputWithContext(ctx context.Context) ConversationStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConversationStateEnumPtrOutput)
-}
-
-func (in *conversationStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ConversationStateEnum] {
-	return pulumix.Output[*ConversationStateEnum]{
-		OutputState: in.ToConversationStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItem string
@@ -322,10 +317,15 @@ func (o GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReaso
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemInput is an input type that accepts GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemArgs and GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemOutput values.
-// You can construct a concrete instance of `GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemInput` via:
+// GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemInput is an input type that accepts values of the GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItem enum
+// A concrete instance of `GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemInput` can be one of the following:
 //
-//	GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemArgs{...}
+//	GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemSummarySkippedReasonUnspecified
+//	GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemAdversarialQueryIgnored
+//	GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemNonSummarySeekingQueryIgnored
+//	GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemOutOfDomainQueryIgnored
+//	GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemPotentialPolicyViolation
+//	GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemLlmAddonNotEnabled
 type GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemInput interface {
 	pulumi.Input
 
@@ -358,12 +358,6 @@ func (in *googleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedRea
 
 func (in *googleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemPtr) ToGoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemPtrOutputWithContext(ctx context.Context) GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemPtrOutput)
-}
-
-func (in *googleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItem] {
-	return pulumix.Output[*GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItem]{
-		OutputState: in.ToGoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemArrayInput is an input type that accepts GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemArray and GoogleCloudDiscoveryengineV1betaSearchResponseSummarySummarySkippedReasonsItemArrayOutput values.

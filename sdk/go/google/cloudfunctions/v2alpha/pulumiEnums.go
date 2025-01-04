@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Docker Registry to use for this deployment. This configuration is only applicable to 1st Gen functions, 2nd Gen functions can only use Artifact Registry. If `docker_repository` field is specified, this field will be automatically set as `ARTIFACT_REGISTRY`. If unspecified, it currently defaults to `CONTAINER_REGISTRY`. This field may be overridden by the backend for eligible deployments.
@@ -319,10 +315,12 @@ func (o BuildConfigDockerRegistryPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// BuildConfigDockerRegistryInput is an input type that accepts BuildConfigDockerRegistryArgs and BuildConfigDockerRegistryOutput values.
-// You can construct a concrete instance of `BuildConfigDockerRegistryInput` via:
+// BuildConfigDockerRegistryInput is an input type that accepts values of the BuildConfigDockerRegistry enum
+// A concrete instance of `BuildConfigDockerRegistryInput` can be one of the following:
 //
-//	BuildConfigDockerRegistryArgs{...}
+//	BuildConfigDockerRegistryDockerRegistryUnspecified
+//	BuildConfigDockerRegistryContainerRegistry
+//	BuildConfigDockerRegistryArtifactRegistry
 type BuildConfigDockerRegistryInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *buildConfigDockerRegistryPtr) ToBuildConfigDockerRegistryPtrOutput() B
 
 func (in *buildConfigDockerRegistryPtr) ToBuildConfigDockerRegistryPtrOutputWithContext(ctx context.Context) BuildConfigDockerRegistryPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BuildConfigDockerRegistryPtrOutput)
-}
-
-func (in *buildConfigDockerRegistryPtr) ToOutput(ctx context.Context) pulumix.Output[*BuildConfigDockerRegistry] {
-	return pulumix.Output[*BuildConfigDockerRegistry]{
-		OutputState: in.ToBuildConfigDockerRegistryPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. If unset, then defaults to ignoring failures (i.e. not retrying them).
@@ -494,10 +486,12 @@ func (o EventTriggerRetryPolicyPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventTriggerRetryPolicyInput is an input type that accepts EventTriggerRetryPolicyArgs and EventTriggerRetryPolicyOutput values.
-// You can construct a concrete instance of `EventTriggerRetryPolicyInput` via:
+// EventTriggerRetryPolicyInput is an input type that accepts values of the EventTriggerRetryPolicy enum
+// A concrete instance of `EventTriggerRetryPolicyInput` can be one of the following:
 //
-//	EventTriggerRetryPolicyArgs{...}
+//	EventTriggerRetryPolicyRetryPolicyUnspecified
+//	EventTriggerRetryPolicyRetryPolicyDoNotRetry
+//	EventTriggerRetryPolicyRetryPolicyRetry
 type EventTriggerRetryPolicyInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *eventTriggerRetryPolicyPtr) ToEventTriggerRetryPolicyPtrOutput() Event
 
 func (in *eventTriggerRetryPolicyPtr) ToEventTriggerRetryPolicyPtrOutputWithContext(ctx context.Context) EventTriggerRetryPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EventTriggerRetryPolicyPtrOutput)
-}
-
-func (in *eventTriggerRetryPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*EventTriggerRetryPolicy] {
-	return pulumix.Output[*EventTriggerRetryPolicy]{
-		OutputState: in.ToEventTriggerRetryPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Describe whether the function is 1st Gen or 2nd Gen.
@@ -669,10 +657,12 @@ func (o FunctionEnvironmentPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// FunctionEnvironmentInput is an input type that accepts FunctionEnvironmentArgs and FunctionEnvironmentOutput values.
-// You can construct a concrete instance of `FunctionEnvironmentInput` via:
+// FunctionEnvironmentInput is an input type that accepts values of the FunctionEnvironment enum
+// A concrete instance of `FunctionEnvironmentInput` can be one of the following:
 //
-//	FunctionEnvironmentArgs{...}
+//	FunctionEnvironmentEnvironmentUnspecified
+//	FunctionEnvironmentGen1
+//	FunctionEnvironmentGen2
 type FunctionEnvironmentInput interface {
 	pulumi.Input
 
@@ -705,12 +695,6 @@ func (in *functionEnvironmentPtr) ToFunctionEnvironmentPtrOutput() FunctionEnvir
 
 func (in *functionEnvironmentPtr) ToFunctionEnvironmentPtrOutputWithContext(ctx context.Context) FunctionEnvironmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FunctionEnvironmentPtrOutput)
-}
-
-func (in *functionEnvironmentPtr) ToOutput(ctx context.Context) pulumix.Output[*FunctionEnvironment] {
-	return pulumix.Output[*FunctionEnvironment]{
-		OutputState: in.ToFunctionEnvironmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The ingress settings for the function, controlling what traffic can reach it.
@@ -846,10 +830,13 @@ func (o ServiceConfigIngressSettingsPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceConfigIngressSettingsInput is an input type that accepts ServiceConfigIngressSettingsArgs and ServiceConfigIngressSettingsOutput values.
-// You can construct a concrete instance of `ServiceConfigIngressSettingsInput` via:
+// ServiceConfigIngressSettingsInput is an input type that accepts values of the ServiceConfigIngressSettings enum
+// A concrete instance of `ServiceConfigIngressSettingsInput` can be one of the following:
 //
-//	ServiceConfigIngressSettingsArgs{...}
+//	ServiceConfigIngressSettingsIngressSettingsUnspecified
+//	ServiceConfigIngressSettingsAllowAll
+//	ServiceConfigIngressSettingsAllowInternalOnly
+//	ServiceConfigIngressSettingsAllowInternalAndGclb
 type ServiceConfigIngressSettingsInput interface {
 	pulumi.Input
 
@@ -882,12 +869,6 @@ func (in *serviceConfigIngressSettingsPtr) ToServiceConfigIngressSettingsPtrOutp
 
 func (in *serviceConfigIngressSettingsPtr) ToServiceConfigIngressSettingsPtrOutputWithContext(ctx context.Context) ServiceConfigIngressSettingsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceConfigIngressSettingsPtrOutput)
-}
-
-func (in *serviceConfigIngressSettingsPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceConfigIngressSettings] {
-	return pulumix.Output[*ServiceConfigIngressSettings]{
-		OutputState: in.ToServiceConfigIngressSettingsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Security level configure whether the function only accepts https. This configuration is only applicable to 1st Gen functions with Http trigger. By default https is optional for 1st Gen functions; 2nd Gen functions are https ONLY.
@@ -1021,10 +1002,12 @@ func (o ServiceConfigSecurityLevelPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceConfigSecurityLevelInput is an input type that accepts ServiceConfigSecurityLevelArgs and ServiceConfigSecurityLevelOutput values.
-// You can construct a concrete instance of `ServiceConfigSecurityLevelInput` via:
+// ServiceConfigSecurityLevelInput is an input type that accepts values of the ServiceConfigSecurityLevel enum
+// A concrete instance of `ServiceConfigSecurityLevelInput` can be one of the following:
 //
-//	ServiceConfigSecurityLevelArgs{...}
+//	ServiceConfigSecurityLevelSecurityLevelUnspecified
+//	ServiceConfigSecurityLevelSecureAlways
+//	ServiceConfigSecurityLevelSecureOptional
 type ServiceConfigSecurityLevelInput interface {
 	pulumi.Input
 
@@ -1057,12 +1040,6 @@ func (in *serviceConfigSecurityLevelPtr) ToServiceConfigSecurityLevelPtrOutput()
 
 func (in *serviceConfigSecurityLevelPtr) ToServiceConfigSecurityLevelPtrOutputWithContext(ctx context.Context) ServiceConfigSecurityLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceConfigSecurityLevelPtrOutput)
-}
-
-func (in *serviceConfigSecurityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceConfigSecurityLevel] {
-	return pulumix.Output[*ServiceConfigSecurityLevel]{
-		OutputState: in.ToServiceConfigSecurityLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The egress settings for the connector, controlling what traffic is diverted through it.
@@ -1196,10 +1173,12 @@ func (o ServiceConfigVpcConnectorEgressSettingsPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceConfigVpcConnectorEgressSettingsInput is an input type that accepts ServiceConfigVpcConnectorEgressSettingsArgs and ServiceConfigVpcConnectorEgressSettingsOutput values.
-// You can construct a concrete instance of `ServiceConfigVpcConnectorEgressSettingsInput` via:
+// ServiceConfigVpcConnectorEgressSettingsInput is an input type that accepts values of the ServiceConfigVpcConnectorEgressSettings enum
+// A concrete instance of `ServiceConfigVpcConnectorEgressSettingsInput` can be one of the following:
 //
-//	ServiceConfigVpcConnectorEgressSettingsArgs{...}
+//	ServiceConfigVpcConnectorEgressSettingsVpcConnectorEgressSettingsUnspecified
+//	ServiceConfigVpcConnectorEgressSettingsPrivateRangesOnly
+//	ServiceConfigVpcConnectorEgressSettingsAllTraffic
 type ServiceConfigVpcConnectorEgressSettingsInput interface {
 	pulumi.Input
 
@@ -1232,12 +1211,6 @@ func (in *serviceConfigVpcConnectorEgressSettingsPtr) ToServiceConfigVpcConnecto
 
 func (in *serviceConfigVpcConnectorEgressSettingsPtr) ToServiceConfigVpcConnectorEgressSettingsPtrOutputWithContext(ctx context.Context) ServiceConfigVpcConnectorEgressSettingsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceConfigVpcConnectorEgressSettingsPtrOutput)
-}
-
-func (in *serviceConfigVpcConnectorEgressSettingsPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceConfigVpcConnectorEgressSettings] {
-	return pulumix.Output[*ServiceConfigVpcConnectorEgressSettings]{
-		OutputState: in.ToServiceConfigVpcConnectorEgressSettingsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

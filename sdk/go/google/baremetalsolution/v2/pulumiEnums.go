@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Mount permissions.
@@ -142,10 +141,12 @@ func (o AllowedClientMountPermissionsPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AllowedClientMountPermissionsInput is an input type that accepts AllowedClientMountPermissionsArgs and AllowedClientMountPermissionsOutput values.
-// You can construct a concrete instance of `AllowedClientMountPermissionsInput` via:
+// AllowedClientMountPermissionsInput is an input type that accepts values of the AllowedClientMountPermissions enum
+// A concrete instance of `AllowedClientMountPermissionsInput` can be one of the following:
 //
-//	AllowedClientMountPermissionsArgs{...}
+//	AllowedClientMountPermissionsMountPermissionsUnspecified
+//	AllowedClientMountPermissionsRead
+//	AllowedClientMountPermissionsReadWrite
 type AllowedClientMountPermissionsInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *allowedClientMountPermissionsPtr) ToAllowedClientMountPermissionsPtrOu
 
 func (in *allowedClientMountPermissionsPtr) ToAllowedClientMountPermissionsPtrOutputWithContext(ctx context.Context) AllowedClientMountPermissionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AllowedClientMountPermissionsPtrOutput)
-}
-
-func (in *allowedClientMountPermissionsPtr) ToOutput(ctx context.Context) pulumix.Output[*AllowedClientMountPermissions] {
-	return pulumix.Output[*AllowedClientMountPermissions]{
-		OutputState: in.ToAllowedClientMountPermissionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of network configuration on the instance.
@@ -317,10 +312,12 @@ func (o InstanceConfigNetworkConfigPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceConfigNetworkConfigInput is an input type that accepts InstanceConfigNetworkConfigArgs and InstanceConfigNetworkConfigOutput values.
-// You can construct a concrete instance of `InstanceConfigNetworkConfigInput` via:
+// InstanceConfigNetworkConfigInput is an input type that accepts values of the InstanceConfigNetworkConfig enum
+// A concrete instance of `InstanceConfigNetworkConfigInput` can be one of the following:
 //
-//	InstanceConfigNetworkConfigArgs{...}
+//	InstanceConfigNetworkConfigNetworkconfigUnspecified
+//	InstanceConfigNetworkConfigSingleVlan
+//	InstanceConfigNetworkConfigMultiVlan
 type InstanceConfigNetworkConfigInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *instanceConfigNetworkConfigPtr) ToInstanceConfigNetworkConfigPtrOutput
 
 func (in *instanceConfigNetworkConfigPtr) ToInstanceConfigNetworkConfigPtrOutputWithContext(ctx context.Context) InstanceConfigNetworkConfigPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceConfigNetworkConfigPtrOutput)
-}
-
-func (in *instanceConfigNetworkConfigPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceConfigNetworkConfig] {
-	return pulumix.Output[*InstanceConfigNetworkConfig]{
-		OutputState: in.ToInstanceConfigNetworkConfigPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of network.
@@ -492,10 +483,12 @@ func (o LogicalNetworkInterfaceNetworkTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// LogicalNetworkInterfaceNetworkTypeInput is an input type that accepts LogicalNetworkInterfaceNetworkTypeArgs and LogicalNetworkInterfaceNetworkTypeOutput values.
-// You can construct a concrete instance of `LogicalNetworkInterfaceNetworkTypeInput` via:
+// LogicalNetworkInterfaceNetworkTypeInput is an input type that accepts values of the LogicalNetworkInterfaceNetworkType enum
+// A concrete instance of `LogicalNetworkInterfaceNetworkTypeInput` can be one of the following:
 //
-//	LogicalNetworkInterfaceNetworkTypeArgs{...}
+//	LogicalNetworkInterfaceNetworkTypeTypeUnspecified
+//	LogicalNetworkInterfaceNetworkTypeClient
+//	LogicalNetworkInterfaceNetworkTypePrivate
 type LogicalNetworkInterfaceNetworkTypeInput interface {
 	pulumi.Input
 
@@ -528,12 +521,6 @@ func (in *logicalNetworkInterfaceNetworkTypePtr) ToLogicalNetworkInterfaceNetwor
 
 func (in *logicalNetworkInterfaceNetworkTypePtr) ToLogicalNetworkInterfaceNetworkTypePtrOutputWithContext(ctx context.Context) LogicalNetworkInterfaceNetworkTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LogicalNetworkInterfaceNetworkTypePtrOutput)
-}
-
-func (in *logicalNetworkInterfaceNetworkTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LogicalNetworkInterfaceNetworkType] {
-	return pulumix.Output[*LogicalNetworkInterfaceNetworkType]{
-		OutputState: in.ToLogicalNetworkInterfaceNetworkTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Interconnect bandwidth. Set only when type is CLIENT.
@@ -671,10 +658,14 @@ func (o NetworkConfigBandwidthPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkConfigBandwidthInput is an input type that accepts NetworkConfigBandwidthArgs and NetworkConfigBandwidthOutput values.
-// You can construct a concrete instance of `NetworkConfigBandwidthInput` via:
+// NetworkConfigBandwidthInput is an input type that accepts values of the NetworkConfigBandwidth enum
+// A concrete instance of `NetworkConfigBandwidthInput` can be one of the following:
 //
-//	NetworkConfigBandwidthArgs{...}
+//	NetworkConfigBandwidthBandwidthUnspecified
+//	NetworkConfigBandwidthBw1Gbps
+//	NetworkConfigBandwidthBw2Gbps
+//	NetworkConfigBandwidthBw5Gbps
+//	NetworkConfigBandwidthBw10Gbps
 type NetworkConfigBandwidthInput interface {
 	pulumi.Input
 
@@ -707,12 +698,6 @@ func (in *networkConfigBandwidthPtr) ToNetworkConfigBandwidthPtrOutput() Network
 
 func (in *networkConfigBandwidthPtr) ToNetworkConfigBandwidthPtrOutputWithContext(ctx context.Context) NetworkConfigBandwidthPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkConfigBandwidthPtrOutput)
-}
-
-func (in *networkConfigBandwidthPtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkConfigBandwidth] {
-	return pulumix.Output[*NetworkConfigBandwidth]{
-		OutputState: in.ToNetworkConfigBandwidthPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Service CIDR, if any.
@@ -850,10 +835,14 @@ func (o NetworkConfigServiceCidrPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkConfigServiceCidrInput is an input type that accepts NetworkConfigServiceCidrArgs and NetworkConfigServiceCidrOutput values.
-// You can construct a concrete instance of `NetworkConfigServiceCidrInput` via:
+// NetworkConfigServiceCidrInput is an input type that accepts values of the NetworkConfigServiceCidr enum
+// A concrete instance of `NetworkConfigServiceCidrInput` can be one of the following:
 //
-//	NetworkConfigServiceCidrArgs{...}
+//	NetworkConfigServiceCidrServiceCidrUnspecified
+//	NetworkConfigServiceCidrDisabled
+//	NetworkConfigServiceCidrHigh26
+//	NetworkConfigServiceCidrHigh27
+//	NetworkConfigServiceCidrHigh28
 type NetworkConfigServiceCidrInput interface {
 	pulumi.Input
 
@@ -886,12 +875,6 @@ func (in *networkConfigServiceCidrPtr) ToNetworkConfigServiceCidrPtrOutput() Net
 
 func (in *networkConfigServiceCidrPtr) ToNetworkConfigServiceCidrPtrOutputWithContext(ctx context.Context) NetworkConfigServiceCidrPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkConfigServiceCidrPtrOutput)
-}
-
-func (in *networkConfigServiceCidrPtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkConfigServiceCidr] {
-	return pulumix.Output[*NetworkConfigServiceCidr]{
-		OutputState: in.ToNetworkConfigServiceCidrPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of this network, either Client or Private.
@@ -1025,10 +1008,12 @@ func (o NetworkConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkConfigTypeInput is an input type that accepts NetworkConfigTypeArgs and NetworkConfigTypeOutput values.
-// You can construct a concrete instance of `NetworkConfigTypeInput` via:
+// NetworkConfigTypeInput is an input type that accepts values of the NetworkConfigType enum
+// A concrete instance of `NetworkConfigTypeInput` can be one of the following:
 //
-//	NetworkConfigTypeArgs{...}
+//	NetworkConfigTypeTypeUnspecified
+//	NetworkConfigTypeClient
+//	NetworkConfigTypePrivate
 type NetworkConfigTypeInput interface {
 	pulumi.Input
 
@@ -1061,12 +1046,6 @@ func (in *networkConfigTypePtr) ToNetworkConfigTypePtrOutput() NetworkConfigType
 
 func (in *networkConfigTypePtr) ToNetworkConfigTypePtrOutputWithContext(ctx context.Context) NetworkConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkConfigTypePtrOutput)
-}
-
-func (in *networkConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkConfigType] {
-	return pulumix.Output[*NetworkConfigType]{
-		OutputState: in.ToNetworkConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Export permissions.
@@ -1200,10 +1179,12 @@ func (o NfsExportPermissionsPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// NfsExportPermissionsInput is an input type that accepts NfsExportPermissionsArgs and NfsExportPermissionsOutput values.
-// You can construct a concrete instance of `NfsExportPermissionsInput` via:
+// NfsExportPermissionsInput is an input type that accepts values of the NfsExportPermissions enum
+// A concrete instance of `NfsExportPermissionsInput` can be one of the following:
 //
-//	NfsExportPermissionsArgs{...}
+//	NfsExportPermissionsPermissionsUnspecified
+//	NfsExportPermissionsReadOnly
+//	NfsExportPermissionsReadWrite
 type NfsExportPermissionsInput interface {
 	pulumi.Input
 
@@ -1236,12 +1217,6 @@ func (in *nfsExportPermissionsPtr) ToNfsExportPermissionsPtrOutput() NfsExportPe
 
 func (in *nfsExportPermissionsPtr) ToNfsExportPermissionsPtrOutputWithContext(ctx context.Context) NfsExportPermissionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NfsExportPermissionsPtrOutput)
-}
-
-func (in *nfsExportPermissionsPtr) ToOutput(ctx context.Context) pulumix.Output[*NfsExportPermissions] {
-	return pulumix.Output[*NfsExportPermissions]{
-		OutputState: in.ToNfsExportPermissionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The storage type of the underlying volume.
@@ -1375,10 +1350,12 @@ func (o NfsShareStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// NfsShareStorageTypeInput is an input type that accepts NfsShareStorageTypeArgs and NfsShareStorageTypeOutput values.
-// You can construct a concrete instance of `NfsShareStorageTypeInput` via:
+// NfsShareStorageTypeInput is an input type that accepts values of the NfsShareStorageType enum
+// A concrete instance of `NfsShareStorageTypeInput` can be one of the following:
 //
-//	NfsShareStorageTypeArgs{...}
+//	NfsShareStorageTypeStorageTypeUnspecified
+//	NfsShareStorageTypeSsd
+//	NfsShareStorageTypeHdd
 type NfsShareStorageTypeInput interface {
 	pulumi.Input
 
@@ -1411,12 +1388,6 @@ func (in *nfsShareStorageTypePtr) ToNfsShareStorageTypePtrOutput() NfsShareStora
 
 func (in *nfsShareStorageTypePtr) ToNfsShareStorageTypePtrOutputWithContext(ctx context.Context) NfsShareStorageTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NfsShareStorageTypePtrOutput)
-}
-
-func (in *nfsShareStorageTypePtr) ToOutput(ctx context.Context) pulumix.Output[*NfsShareStorageType] {
-	return pulumix.Output[*NfsShareStorageType]{
-		OutputState: in.ToNfsShareStorageTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Performance tier of the Volume. Default is SHARED.
@@ -1552,10 +1523,13 @@ func (o VolumeConfigPerformanceTierPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// VolumeConfigPerformanceTierInput is an input type that accepts VolumeConfigPerformanceTierArgs and VolumeConfigPerformanceTierOutput values.
-// You can construct a concrete instance of `VolumeConfigPerformanceTierInput` via:
+// VolumeConfigPerformanceTierInput is an input type that accepts values of the VolumeConfigPerformanceTier enum
+// A concrete instance of `VolumeConfigPerformanceTierInput` can be one of the following:
 //
-//	VolumeConfigPerformanceTierArgs{...}
+//	VolumeConfigPerformanceTierVolumePerformanceTierUnspecified
+//	VolumeConfigPerformanceTierVolumePerformanceTierShared
+//	VolumeConfigPerformanceTierVolumePerformanceTierAssigned
+//	VolumeConfigPerformanceTierVolumePerformanceTierHt
 type VolumeConfigPerformanceTierInput interface {
 	pulumi.Input
 
@@ -1588,12 +1562,6 @@ func (in *volumeConfigPerformanceTierPtr) ToVolumeConfigPerformanceTierPtrOutput
 
 func (in *volumeConfigPerformanceTierPtr) ToVolumeConfigPerformanceTierPtrOutputWithContext(ctx context.Context) VolumeConfigPerformanceTierPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VolumeConfigPerformanceTierPtrOutput)
-}
-
-func (in *volumeConfigPerformanceTierPtr) ToOutput(ctx context.Context) pulumix.Output[*VolumeConfigPerformanceTier] {
-	return pulumix.Output[*VolumeConfigPerformanceTier]{
-		OutputState: in.ToVolumeConfigPerformanceTierPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Volume protocol.
@@ -1727,10 +1695,12 @@ func (o VolumeConfigProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// VolumeConfigProtocolInput is an input type that accepts VolumeConfigProtocolArgs and VolumeConfigProtocolOutput values.
-// You can construct a concrete instance of `VolumeConfigProtocolInput` via:
+// VolumeConfigProtocolInput is an input type that accepts values of the VolumeConfigProtocol enum
+// A concrete instance of `VolumeConfigProtocolInput` can be one of the following:
 //
-//	VolumeConfigProtocolArgs{...}
+//	VolumeConfigProtocolProtocolUnspecified
+//	VolumeConfigProtocolProtocolFc
+//	VolumeConfigProtocolProtocolNfs
 type VolumeConfigProtocolInput interface {
 	pulumi.Input
 
@@ -1763,12 +1733,6 @@ func (in *volumeConfigProtocolPtr) ToVolumeConfigProtocolPtrOutput() VolumeConfi
 
 func (in *volumeConfigProtocolPtr) ToVolumeConfigProtocolPtrOutputWithContext(ctx context.Context) VolumeConfigProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VolumeConfigProtocolPtrOutput)
-}
-
-func (in *volumeConfigProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*VolumeConfigProtocol] {
-	return pulumix.Output[*VolumeConfigProtocol]{
-		OutputState: in.ToVolumeConfigProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of this Volume.
@@ -1902,10 +1866,12 @@ func (o VolumeConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// VolumeConfigTypeInput is an input type that accepts VolumeConfigTypeArgs and VolumeConfigTypeOutput values.
-// You can construct a concrete instance of `VolumeConfigTypeInput` via:
+// VolumeConfigTypeInput is an input type that accepts values of the VolumeConfigType enum
+// A concrete instance of `VolumeConfigTypeInput` can be one of the following:
 //
-//	VolumeConfigTypeArgs{...}
+//	VolumeConfigTypeTypeUnspecified
+//	VolumeConfigTypeFlash
+//	VolumeConfigTypeDisk
 type VolumeConfigTypeInput interface {
 	pulumi.Input
 
@@ -1938,12 +1904,6 @@ func (in *volumeConfigTypePtr) ToVolumeConfigTypePtrOutput() VolumeConfigTypePtr
 
 func (in *volumeConfigTypePtr) ToVolumeConfigTypePtrOutputWithContext(ctx context.Context) VolumeConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VolumeConfigTypePtrOutput)
-}
-
-func (in *volumeConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VolumeConfigType] {
-	return pulumix.Output[*VolumeConfigType]{
-		OutputState: in.ToVolumeConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

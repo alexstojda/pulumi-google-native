@@ -201,13 +201,11 @@ class EnterpriseCrmEventbusProtoAttributesResponse(dict):
 
     @property
     @pulumi.getter(name="isSearchable")
+    @_utilities.deprecated("""Used to indicate if a ParameterEntry should be converted to ParamIndexes for ST-Spanner full-text search. DEPRECATED: use searchable.""")
     def is_searchable(self) -> bool:
         """
         Used to indicate if a ParameterEntry should be converted to ParamIndexes for ST-Spanner full-text search. DEPRECATED: use searchable.
         """
-        warnings.warn("""Used to indicate if a ParameterEntry should be converted to ParamIndexes for ST-Spanner full-text search. DEPRECATED: use searchable.""", DeprecationWarning)
-        pulumi.log.warn("""is_searchable is deprecated: Used to indicate if a ParameterEntry should be converted to ParamIndexes for ST-Spanner full-text search. DEPRECATED: use searchable.""")
-
         return pulumi.get(self, "is_searchable")
 
     @property
@@ -847,13 +845,11 @@ class EnterpriseCrmEventbusProtoNextTaskResponse(dict):
 
     @property
     @pulumi.getter(name="combinedConditions")
+    @_utilities.deprecated("""Combined condition for this task to become an eligible next task. Each of these combined_conditions are joined with logical OR. DEPRECATED: use `condition`""")
     def combined_conditions(self) -> Sequence['outputs.EnterpriseCrmEventbusProtoCombinedConditionResponse']:
         """
         Combined condition for this task to become an eligible next task. Each of these combined_conditions are joined with logical OR. DEPRECATED: use `condition`
         """
-        warnings.warn("""Combined condition for this task to become an eligible next task. Each of these combined_conditions are joined with logical OR. DEPRECATED: use `condition`""", DeprecationWarning)
-        pulumi.log.warn("""combined_conditions is deprecated: Combined condition for this task to become an eligible next task. Each of these combined_conditions are joined with logical OR. DEPRECATED: use `condition`""")
-
         return pulumi.get(self, "combined_conditions")
 
     @property
@@ -1375,7 +1371,7 @@ class EnterpriseCrmEventbusProtoParameterValueTypeResponse(dict):
                  int_array: 'outputs.EnterpriseCrmEventbusProtoIntParameterArrayResponse',
                  int_value: str,
                  proto_array: 'outputs.EnterpriseCrmEventbusProtoProtoParameterArrayResponse',
-                 proto_value: Mapping[str, str],
+                 proto_value: Mapping[str, Any],
                  serialized_object_value: 'outputs.EnterpriseCrmEventbusProtoSerializedObjectParameterResponse',
                  string_array: 'outputs.EnterpriseCrmEventbusProtoStringParameterArrayResponse',
                  string_value: str):
@@ -1431,7 +1427,7 @@ class EnterpriseCrmEventbusProtoParameterValueTypeResponse(dict):
 
     @property
     @pulumi.getter(name="protoValue")
-    def proto_value(self) -> Mapping[str, str]:
+    def proto_value(self) -> Mapping[str, Any]:
         return pulumi.get(self, "proto_value")
 
     @property
@@ -1503,12 +1499,12 @@ class EnterpriseCrmEventbusProtoProtoParameterArrayResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 proto_values: Sequence[Mapping[str, str]]):
+                 proto_values: Sequence[Mapping[str, Any]]):
         pulumi.set(__self__, "proto_values", proto_values)
 
     @property
     @pulumi.getter(name="protoValues")
-    def proto_values(self) -> Sequence[Mapping[str, str]]:
+    def proto_values(self) -> Sequence[Mapping[str, Any]]:
         return pulumi.get(self, "proto_values")
 
 
@@ -2062,13 +2058,11 @@ class EnterpriseCrmEventbusProtoTaskMetadataResponse(dict):
 
     @property
     @pulumi.getter(name="externalDocMarkdown")
+    @_utilities.deprecated("""DEPRECATED: Use external_doc_html.""")
     def external_doc_markdown(self) -> str:
         """
         DEPRECATED: Use external_doc_html.
         """
-        warnings.warn("""DEPRECATED: Use external_doc_html.""", DeprecationWarning)
-        pulumi.log.warn("""external_doc_markdown is deprecated: DEPRECATED: Use external_doc_html.""")
-
         return pulumi.get(self, "external_doc_markdown")
 
     @property
@@ -2431,7 +2425,7 @@ class EnterpriseCrmEventbusProtoValueTypeResponse(dict):
                  double_value: float,
                  int_array: 'outputs.EnterpriseCrmEventbusProtoIntArrayResponse',
                  int_value: str,
-                 proto_value: Mapping[str, str],
+                 proto_value: Mapping[str, Any],
                  string_array: 'outputs.EnterpriseCrmEventbusProtoStringArrayResponse',
                  string_value: str):
         """
@@ -2473,7 +2467,7 @@ class EnterpriseCrmEventbusProtoValueTypeResponse(dict):
 
     @property
     @pulumi.getter(name="protoValue")
-    def proto_value(self) -> Mapping[str, str]:
+    def proto_value(self) -> Mapping[str, Any]:
         return pulumi.get(self, "proto_value")
 
     @property
@@ -3284,7 +3278,7 @@ class EnterpriseCrmFrontendsEventbusProtoParameterValueTypeResponse(dict):
                  int_value: str,
                  json_value: str,
                  proto_array: 'outputs.EnterpriseCrmFrontendsEventbusProtoProtoParameterArrayResponse',
-                 proto_value: Mapping[str, str],
+                 proto_value: Mapping[str, Any],
                  serialized_object_value: 'outputs.EnterpriseCrmFrontendsEventbusProtoSerializedObjectParameterResponse',
                  string_array: 'outputs.EnterpriseCrmFrontendsEventbusProtoStringParameterArrayResponse',
                  string_value: str):
@@ -3346,7 +3340,7 @@ class EnterpriseCrmFrontendsEventbusProtoParameterValueTypeResponse(dict):
 
     @property
     @pulumi.getter(name="protoValue")
-    def proto_value(self) -> Mapping[str, str]:
+    def proto_value(self) -> Mapping[str, Any]:
         return pulumi.get(self, "proto_value")
 
     @property
@@ -3385,12 +3379,12 @@ class EnterpriseCrmFrontendsEventbusProtoProtoParameterArrayResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 proto_values: Sequence[Mapping[str, str]]):
+                 proto_values: Sequence[Mapping[str, Any]]):
         pulumi.set(__self__, "proto_values", proto_values)
 
     @property
     @pulumi.getter(name="protoValues")
-    def proto_values(self) -> Sequence[Mapping[str, str]]:
+    def proto_values(self) -> Sequence[Mapping[str, Any]]:
         return pulumi.get(self, "proto_values")
 
 
@@ -3596,7 +3590,7 @@ class EnterpriseCrmFrontendsEventbusProtoTaskConfigResponse(dict):
                  last_modified_time: str,
                  next_tasks: Sequence['outputs.EnterpriseCrmEventbusProtoNextTaskResponse'],
                  next_tasks_execution_policy: str,
-                 parameters: Mapping[str, str],
+                 parameters: Mapping[str, 'outputs.EnterpriseCrmFrontendsEventbusProtoParameterEntryResponse'],
                  position: 'outputs.EnterpriseCrmEventbusProtoCoordinateResponse',
                  precondition: str,
                  precondition_label: str,
@@ -3625,7 +3619,7 @@ class EnterpriseCrmFrontendsEventbusProtoTaskConfigResponse(dict):
         :param str last_modified_time: Auto-generated.
         :param Sequence['EnterpriseCrmEventbusProtoNextTaskResponse'] next_tasks: The set of tasks that are next in line to be executed as per the execution graph defined for the parent event, specified by `event_config_id`. Each of these next tasks are executed only if the condition associated with them evaluates to true.
         :param str next_tasks_execution_policy: The policy dictating the execution of the next set of tasks for the current task.
-        :param Mapping[str, str] parameters: The customized parameters the user can pass to this task.
+        :param Mapping[str, 'EnterpriseCrmFrontendsEventbusProtoParameterEntryResponse'] parameters: The customized parameters the user can pass to this task.
         :param 'EnterpriseCrmEventbusProtoCoordinateResponse' position: Optional. Informs the front-end application where to draw this task config on the UI.
         :param str precondition: Optional. Standard filter expression evaluated before execution. Independent of other conditions and tasks. Can be used to enable rollout. e.g. "rollout(5)" will only allow 5% of incoming traffic to task.
         :param str precondition_label: Optional. User-provided label that is attached to precondition in the UI.
@@ -3780,7 +3774,7 @@ class EnterpriseCrmFrontendsEventbusProtoTaskConfigResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> Mapping[str, 'outputs.EnterpriseCrmFrontendsEventbusProtoParameterEntryResponse']:
         """
         The customized parameters the user can pass to this task.
         """
@@ -3968,13 +3962,11 @@ class EnterpriseCrmFrontendsEventbusProtoTaskEntityResponse(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Deprecated - statistics from the Monarch query.""")
     def stats(self) -> 'outputs.EnterpriseCrmEventbusStatsResponse':
         """
         Deprecated - statistics from the Monarch query.
         """
-        warnings.warn("""Deprecated - statistics from the Monarch query.""", DeprecationWarning)
-        pulumi.log.warn("""stats is deprecated: Deprecated - statistics from the Monarch query.""")
-
         return pulumi.get(self, "stats")
 
     @property
@@ -6808,7 +6800,7 @@ class GoogleCloudIntegrationsV1alphaTaskConfigResponse(dict):
                  json_validation_option: str,
                  next_tasks: Sequence['outputs.GoogleCloudIntegrationsV1alphaNextTaskResponse'],
                  next_tasks_execution_policy: str,
-                 parameters: Mapping[str, str],
+                 parameters: Mapping[str, 'outputs.GoogleCloudIntegrationsV1alphaEventParameterResponse'],
                  position: 'outputs.GoogleCloudIntegrationsV1alphaCoordinateResponse',
                  success_policy: 'outputs.GoogleCloudIntegrationsV1alphaSuccessPolicyResponse',
                  synchronous_call_failure_policy: 'outputs.GoogleCloudIntegrationsV1alphaFailurePolicyResponse',
@@ -6826,7 +6818,7 @@ class GoogleCloudIntegrationsV1alphaTaskConfigResponse(dict):
         :param str json_validation_option: Optional. If set, overrides the option configured in the Task implementation class.
         :param Sequence['GoogleCloudIntegrationsV1alphaNextTaskResponse'] next_tasks: Optional. The set of tasks that are next in line to be executed as per the execution graph defined for the parent event, specified by `event_config_id`. Each of these next tasks are executed only if the condition associated with them evaluates to true.
         :param str next_tasks_execution_policy: Optional. The policy dictating the execution of the next set of tasks for the current task.
-        :param Mapping[str, str] parameters: Optional. The customized parameters the user can pass to this task.
+        :param Mapping[str, 'GoogleCloudIntegrationsV1alphaEventParameterResponse'] parameters: Optional. The customized parameters the user can pass to this task.
         :param 'GoogleCloudIntegrationsV1alphaCoordinateResponse' position: Optional. Informs the front-end application where to draw this error catcher config on the UI.
         :param 'GoogleCloudIntegrationsV1alphaSuccessPolicyResponse' success_policy: Optional. Determines what action to take upon successful task completion.
         :param 'GoogleCloudIntegrationsV1alphaFailurePolicyResponse' synchronous_call_failure_policy: Optional. Determines the number of times the task will be retried on failure and with what retry strategy. This is applicable for synchronous calls to Eventbus alone (Post).
@@ -6918,7 +6910,7 @@ class GoogleCloudIntegrationsV1alphaTaskConfigResponse(dict):
 
     @property
     @pulumi.getter
-    def parameters(self) -> Mapping[str, str]:
+    def parameters(self) -> Mapping[str, 'outputs.GoogleCloudIntegrationsV1alphaEventParameterResponse']:
         """
         Optional. The customized parameters the user can pass to this task.
         """

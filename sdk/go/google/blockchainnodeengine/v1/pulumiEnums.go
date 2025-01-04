@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Immutable. The blockchain type of the node.
@@ -140,10 +139,11 @@ func (o BlockchainNodeBlockchainTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// BlockchainNodeBlockchainTypeInput is an input type that accepts BlockchainNodeBlockchainTypeArgs and BlockchainNodeBlockchainTypeOutput values.
-// You can construct a concrete instance of `BlockchainNodeBlockchainTypeInput` via:
+// BlockchainNodeBlockchainTypeInput is an input type that accepts values of the BlockchainNodeBlockchainType enum
+// A concrete instance of `BlockchainNodeBlockchainTypeInput` can be one of the following:
 //
-//	BlockchainNodeBlockchainTypeArgs{...}
+//	BlockchainNodeBlockchainTypeBlockchainTypeUnspecified
+//	BlockchainNodeBlockchainTypeEthereum
 type BlockchainNodeBlockchainTypeInput interface {
 	pulumi.Input
 
@@ -176,12 +176,6 @@ func (in *blockchainNodeBlockchainTypePtr) ToBlockchainNodeBlockchainTypePtrOutp
 
 func (in *blockchainNodeBlockchainTypePtr) ToBlockchainNodeBlockchainTypePtrOutputWithContext(ctx context.Context) BlockchainNodeBlockchainTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BlockchainNodeBlockchainTypePtrOutput)
-}
-
-func (in *blockchainNodeBlockchainTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BlockchainNodeBlockchainType] {
-	return pulumix.Output[*BlockchainNodeBlockchainType]{
-		OutputState: in.ToBlockchainNodeBlockchainTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The consensus client.
@@ -315,10 +309,12 @@ func (o EthereumDetailsConsensusClientPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// EthereumDetailsConsensusClientInput is an input type that accepts EthereumDetailsConsensusClientArgs and EthereumDetailsConsensusClientOutput values.
-// You can construct a concrete instance of `EthereumDetailsConsensusClientInput` via:
+// EthereumDetailsConsensusClientInput is an input type that accepts values of the EthereumDetailsConsensusClient enum
+// A concrete instance of `EthereumDetailsConsensusClientInput` can be one of the following:
 //
-//	EthereumDetailsConsensusClientArgs{...}
+//	EthereumDetailsConsensusClientConsensusClientUnspecified
+//	EthereumDetailsConsensusClientLighthouse
+//	EthereumDetailsConsensusClientErigonEmbeddedConsensusLayer
 type EthereumDetailsConsensusClientInput interface {
 	pulumi.Input
 
@@ -351,12 +347,6 @@ func (in *ethereumDetailsConsensusClientPtr) ToEthereumDetailsConsensusClientPtr
 
 func (in *ethereumDetailsConsensusClientPtr) ToEthereumDetailsConsensusClientPtrOutputWithContext(ctx context.Context) EthereumDetailsConsensusClientPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EthereumDetailsConsensusClientPtrOutput)
-}
-
-func (in *ethereumDetailsConsensusClientPtr) ToOutput(ctx context.Context) pulumix.Output[*EthereumDetailsConsensusClient] {
-	return pulumix.Output[*EthereumDetailsConsensusClient]{
-		OutputState: in.ToEthereumDetailsConsensusClientPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The execution client
@@ -490,10 +480,12 @@ func (o EthereumDetailsExecutionClientPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// EthereumDetailsExecutionClientInput is an input type that accepts EthereumDetailsExecutionClientArgs and EthereumDetailsExecutionClientOutput values.
-// You can construct a concrete instance of `EthereumDetailsExecutionClientInput` via:
+// EthereumDetailsExecutionClientInput is an input type that accepts values of the EthereumDetailsExecutionClient enum
+// A concrete instance of `EthereumDetailsExecutionClientInput` can be one of the following:
 //
-//	EthereumDetailsExecutionClientArgs{...}
+//	EthereumDetailsExecutionClientExecutionClientUnspecified
+//	EthereumDetailsExecutionClientGeth
+//	EthereumDetailsExecutionClientErigon
 type EthereumDetailsExecutionClientInput interface {
 	pulumi.Input
 
@@ -526,12 +518,6 @@ func (in *ethereumDetailsExecutionClientPtr) ToEthereumDetailsExecutionClientPtr
 
 func (in *ethereumDetailsExecutionClientPtr) ToEthereumDetailsExecutionClientPtrOutputWithContext(ctx context.Context) EthereumDetailsExecutionClientPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EthereumDetailsExecutionClientPtrOutput)
-}
-
-func (in *ethereumDetailsExecutionClientPtr) ToOutput(ctx context.Context) pulumix.Output[*EthereumDetailsExecutionClient] {
-	return pulumix.Output[*EthereumDetailsExecutionClient]{
-		OutputState: in.ToEthereumDetailsExecutionClientPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The Ethereum environment being accessed.
@@ -669,10 +655,14 @@ func (o EthereumDetailsNetworkPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EthereumDetailsNetworkInput is an input type that accepts EthereumDetailsNetworkArgs and EthereumDetailsNetworkOutput values.
-// You can construct a concrete instance of `EthereumDetailsNetworkInput` via:
+// EthereumDetailsNetworkInput is an input type that accepts values of the EthereumDetailsNetwork enum
+// A concrete instance of `EthereumDetailsNetworkInput` can be one of the following:
 //
-//	EthereumDetailsNetworkArgs{...}
+//	EthereumDetailsNetworkNetworkUnspecified
+//	EthereumDetailsNetworkMainnet
+//	EthereumDetailsNetworkTestnetGoerliPrater
+//	EthereumDetailsNetworkTestnetSepolia
+//	EthereumDetailsNetworkTestnetHolesky
 type EthereumDetailsNetworkInput interface {
 	pulumi.Input
 
@@ -705,12 +695,6 @@ func (in *ethereumDetailsNetworkPtr) ToEthereumDetailsNetworkPtrOutput() Ethereu
 
 func (in *ethereumDetailsNetworkPtr) ToEthereumDetailsNetworkPtrOutputWithContext(ctx context.Context) EthereumDetailsNetworkPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EthereumDetailsNetworkPtrOutput)
-}
-
-func (in *ethereumDetailsNetworkPtr) ToOutput(ctx context.Context) pulumix.Output[*EthereumDetailsNetwork] {
-	return pulumix.Output[*EthereumDetailsNetwork]{
-		OutputState: in.ToEthereumDetailsNetworkPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The type of Ethereum node.
@@ -846,10 +830,13 @@ func (o EthereumDetailsNodeTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// EthereumDetailsNodeTypeInput is an input type that accepts EthereumDetailsNodeTypeArgs and EthereumDetailsNodeTypeOutput values.
-// You can construct a concrete instance of `EthereumDetailsNodeTypeInput` via:
+// EthereumDetailsNodeTypeInput is an input type that accepts values of the EthereumDetailsNodeType enum
+// A concrete instance of `EthereumDetailsNodeTypeInput` can be one of the following:
 //
-//	EthereumDetailsNodeTypeArgs{...}
+//	EthereumDetailsNodeTypeNodeTypeUnspecified
+//	EthereumDetailsNodeTypeLight
+//	EthereumDetailsNodeTypeFull
+//	EthereumDetailsNodeTypeArchive
 type EthereumDetailsNodeTypeInput interface {
 	pulumi.Input
 
@@ -882,12 +869,6 @@ func (in *ethereumDetailsNodeTypePtr) ToEthereumDetailsNodeTypePtrOutput() Ether
 
 func (in *ethereumDetailsNodeTypePtr) ToEthereumDetailsNodeTypePtrOutputWithContext(ctx context.Context) EthereumDetailsNodeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EthereumDetailsNodeTypePtrOutput)
-}
-
-func (in *ethereumDetailsNodeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EthereumDetailsNodeType] {
-	return pulumix.Output[*EthereumDetailsNodeType]{
-		OutputState: in.ToEthereumDetailsNodeTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. Blockchain garbage collection mode.
@@ -1021,10 +1002,12 @@ func (o GethDetailsGarbageCollectionModePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GethDetailsGarbageCollectionModeInput is an input type that accepts GethDetailsGarbageCollectionModeArgs and GethDetailsGarbageCollectionModeOutput values.
-// You can construct a concrete instance of `GethDetailsGarbageCollectionModeInput` via:
+// GethDetailsGarbageCollectionModeInput is an input type that accepts values of the GethDetailsGarbageCollectionMode enum
+// A concrete instance of `GethDetailsGarbageCollectionModeInput` can be one of the following:
 //
-//	GethDetailsGarbageCollectionModeArgs{...}
+//	GethDetailsGarbageCollectionModeGarbageCollectionModeUnspecified
+//	GethDetailsGarbageCollectionModeFull
+//	GethDetailsGarbageCollectionModeArchive
 type GethDetailsGarbageCollectionModeInput interface {
 	pulumi.Input
 
@@ -1057,12 +1040,6 @@ func (in *gethDetailsGarbageCollectionModePtr) ToGethDetailsGarbageCollectionMod
 
 func (in *gethDetailsGarbageCollectionModePtr) ToGethDetailsGarbageCollectionModePtrOutputWithContext(ctx context.Context) GethDetailsGarbageCollectionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GethDetailsGarbageCollectionModePtrOutput)
-}
-
-func (in *gethDetailsGarbageCollectionModePtr) ToOutput(ctx context.Context) pulumix.Output[*GethDetailsGarbageCollectionMode] {
-	return pulumix.Output[*GethDetailsGarbageCollectionMode]{
-		OutputState: in.ToGethDetailsGarbageCollectionModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The backup type, which suggests the trigger for the backup.
@@ -144,10 +143,13 @@ func (o BackupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// BackupTypeInput is an input type that accepts BackupTypeArgs and BackupTypeOutput values.
-// You can construct a concrete instance of `BackupTypeInput` via:
+// BackupTypeInput is an input type that accepts values of the BackupType enum
+// A concrete instance of `BackupTypeInput` can be one of the following:
 //
-//	BackupTypeArgs{...}
+//	BackupTypeTypeUnspecified
+//	BackupTypeOnDemand
+//	BackupTypeAutomated
+//	BackupTypeContinuous
 type BackupTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *backupTypePtr) ToBackupTypePtrOutput() BackupTypePtrOutput {
 
 func (in *backupTypePtr) ToBackupTypePtrOutputWithContext(ctx context.Context) BackupTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BackupTypePtrOutput)
-}
-
-func (in *backupTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BackupType] {
-	return pulumix.Output[*BackupType]{
-		OutputState: in.ToBackupTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The database engine major version. This is an optional field and it is populated at the Cluster creation time. If a database version is not supplied at cluster creation time, then a default database version will be used.
@@ -321,10 +317,13 @@ func (o ClusterDatabaseVersionPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterDatabaseVersionInput is an input type that accepts ClusterDatabaseVersionArgs and ClusterDatabaseVersionOutput values.
-// You can construct a concrete instance of `ClusterDatabaseVersionInput` via:
+// ClusterDatabaseVersionInput is an input type that accepts values of the ClusterDatabaseVersion enum
+// A concrete instance of `ClusterDatabaseVersionInput` can be one of the following:
 //
-//	ClusterDatabaseVersionArgs{...}
+//	ClusterDatabaseVersionDatabaseVersionUnspecified
+//	ClusterDatabaseVersionPostgres13
+//	ClusterDatabaseVersionPostgres14
+//	ClusterDatabaseVersionPostgres15
 type ClusterDatabaseVersionInput interface {
 	pulumi.Input
 
@@ -357,12 +356,6 @@ func (in *clusterDatabaseVersionPtr) ToClusterDatabaseVersionPtrOutput() Cluster
 
 func (in *clusterDatabaseVersionPtr) ToClusterDatabaseVersionPtrOutputWithContext(ctx context.Context) ClusterDatabaseVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterDatabaseVersionPtrOutput)
-}
-
-func (in *clusterDatabaseVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterDatabaseVersion] {
-	return pulumix.Output[*ClusterDatabaseVersion]{
-		OutputState: in.ToClusterDatabaseVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Availability type of an Instance. If empty, defaults to REGIONAL for primary instances. For read pools, availability_type is always UNSPECIFIED. Instances in the read pools are evenly distributed across available zones within the region (i.e. read pools with more than one node will have a node in at least two zones).
@@ -496,10 +489,12 @@ func (o InstanceAvailabilityTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceAvailabilityTypeInput is an input type that accepts InstanceAvailabilityTypeArgs and InstanceAvailabilityTypeOutput values.
-// You can construct a concrete instance of `InstanceAvailabilityTypeInput` via:
+// InstanceAvailabilityTypeInput is an input type that accepts values of the InstanceAvailabilityType enum
+// A concrete instance of `InstanceAvailabilityTypeInput` can be one of the following:
 //
-//	InstanceAvailabilityTypeArgs{...}
+//	InstanceAvailabilityTypeAvailabilityTypeUnspecified
+//	InstanceAvailabilityTypeZonal
+//	InstanceAvailabilityTypeRegional
 type InstanceAvailabilityTypeInput interface {
 	pulumi.Input
 
@@ -532,12 +527,6 @@ func (in *instanceAvailabilityTypePtr) ToInstanceAvailabilityTypePtrOutput() Ins
 
 func (in *instanceAvailabilityTypePtr) ToInstanceAvailabilityTypePtrOutputWithContext(ctx context.Context) InstanceAvailabilityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceAvailabilityTypePtrOutput)
-}
-
-func (in *instanceAvailabilityTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceAvailabilityType] {
-	return pulumix.Output[*InstanceAvailabilityType]{
-		OutputState: in.ToInstanceAvailabilityTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of the instance. Specified at creation time.
@@ -673,10 +662,13 @@ func (o InstanceInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceInstanceTypeInput is an input type that accepts InstanceInstanceTypeArgs and InstanceInstanceTypeOutput values.
-// You can construct a concrete instance of `InstanceInstanceTypeInput` via:
+// InstanceInstanceTypeInput is an input type that accepts values of the InstanceInstanceType enum
+// A concrete instance of `InstanceInstanceTypeInput` can be one of the following:
 //
-//	InstanceInstanceTypeArgs{...}
+//	InstanceInstanceTypeInstanceTypeUnspecified
+//	InstanceInstanceTypePrimary
+//	InstanceInstanceTypeReadPool
+//	InstanceInstanceTypeSecondary
 type InstanceInstanceTypeInput interface {
 	pulumi.Input
 
@@ -709,12 +701,6 @@ func (in *instanceInstanceTypePtr) ToInstanceInstanceTypePtrOutput() InstanceIns
 
 func (in *instanceInstanceTypePtr) ToInstanceInstanceTypePtrOutputWithContext(ctx context.Context) InstanceInstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceInstanceTypePtrOutput)
-}
-
-func (in *instanceInstanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceInstanceType] {
-	return pulumix.Output[*InstanceInstanceType]{
-		OutputState: in.ToInstanceInstanceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Certificate Authority (CA) source. Only CA_SOURCE_MANAGED is supported currently, and is the default value.
@@ -846,10 +832,11 @@ func (o SslConfigCaSourcePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// SslConfigCaSourceInput is an input type that accepts SslConfigCaSourceArgs and SslConfigCaSourceOutput values.
-// You can construct a concrete instance of `SslConfigCaSourceInput` via:
+// SslConfigCaSourceInput is an input type that accepts values of the SslConfigCaSource enum
+// A concrete instance of `SslConfigCaSourceInput` can be one of the following:
 //
-//	SslConfigCaSourceArgs{...}
+//	SslConfigCaSourceCaSourceUnspecified
+//	SslConfigCaSourceCaSourceManaged
 type SslConfigCaSourceInput interface {
 	pulumi.Input
 
@@ -882,12 +869,6 @@ func (in *sslConfigCaSourcePtr) ToSslConfigCaSourcePtrOutput() SslConfigCaSource
 
 func (in *sslConfigCaSourcePtr) ToSslConfigCaSourcePtrOutputWithContext(ctx context.Context) SslConfigCaSourcePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SslConfigCaSourcePtrOutput)
-}
-
-func (in *sslConfigCaSourcePtr) ToOutput(ctx context.Context) pulumix.Output[*SslConfigCaSource] {
-	return pulumix.Output[*SslConfigCaSource]{
-		OutputState: in.ToSslConfigCaSourcePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. SSL mode. Specifies client-server SSL/TLS connection behavior.
@@ -1027,10 +1008,15 @@ func (o SslConfigSslModePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SslConfigSslModeInput is an input type that accepts SslConfigSslModeArgs and SslConfigSslModeOutput values.
-// You can construct a concrete instance of `SslConfigSslModeInput` via:
+// SslConfigSslModeInput is an input type that accepts values of the SslConfigSslMode enum
+// A concrete instance of `SslConfigSslModeInput` can be one of the following:
 //
-//	SslConfigSslModeArgs{...}
+//	SslConfigSslModeSslModeUnspecified
+//	SslConfigSslModeSslModeAllow
+//	SslConfigSslModeSslModeRequire
+//	SslConfigSslModeSslModeVerifyCa
+//	SslConfigSslModeAllowUnencryptedAndEncrypted
+//	SslConfigSslModeEncryptedOnly
 type SslConfigSslModeInput interface {
 	pulumi.Input
 
@@ -1063,12 +1049,6 @@ func (in *sslConfigSslModePtr) ToSslConfigSslModePtrOutput() SslConfigSslModePtr
 
 func (in *sslConfigSslModePtr) ToSslConfigSslModePtrOutputWithContext(ctx context.Context) SslConfigSslModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SslConfigSslModePtrOutput)
-}
-
-func (in *sslConfigSslModePtr) ToOutput(ctx context.Context) pulumix.Output[*SslConfigSslMode] {
-	return pulumix.Output[*SslConfigSslMode]{
-		OutputState: in.ToSslConfigSslModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Type of this user.
@@ -1202,10 +1182,12 @@ func (o UserUserTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// UserUserTypeInput is an input type that accepts UserUserTypeArgs and UserUserTypeOutput values.
-// You can construct a concrete instance of `UserUserTypeInput` via:
+// UserUserTypeInput is an input type that accepts values of the UserUserType enum
+// A concrete instance of `UserUserTypeInput` can be one of the following:
 //
-//	UserUserTypeArgs{...}
+//	UserUserTypeUserTypeUnspecified
+//	UserUserTypeAlloydbBuiltIn
+//	UserUserTypeAlloydbIamUser
 type UserUserTypeInput interface {
 	pulumi.Input
 
@@ -1238,12 +1220,6 @@ func (in *userUserTypePtr) ToUserUserTypePtrOutput() UserUserTypePtrOutput {
 
 func (in *userUserTypePtr) ToUserUserTypePtrOutputWithContext(ctx context.Context) UserUserTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserUserTypePtrOutput)
-}
-
-func (in *userUserTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UserUserType] {
-	return pulumix.Output[*UserUserType]{
-		OutputState: in.ToUserUserTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WeeklyScheduleDaysOfWeekItem string
@@ -1386,10 +1362,17 @@ func (o WeeklyScheduleDaysOfWeekItemPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// WeeklyScheduleDaysOfWeekItemInput is an input type that accepts WeeklyScheduleDaysOfWeekItemArgs and WeeklyScheduleDaysOfWeekItemOutput values.
-// You can construct a concrete instance of `WeeklyScheduleDaysOfWeekItemInput` via:
+// WeeklyScheduleDaysOfWeekItemInput is an input type that accepts values of the WeeklyScheduleDaysOfWeekItem enum
+// A concrete instance of `WeeklyScheduleDaysOfWeekItemInput` can be one of the following:
 //
-//	WeeklyScheduleDaysOfWeekItemArgs{...}
+//	WeeklyScheduleDaysOfWeekItemDayOfWeekUnspecified
+//	WeeklyScheduleDaysOfWeekItemMonday
+//	WeeklyScheduleDaysOfWeekItemTuesday
+//	WeeklyScheduleDaysOfWeekItemWednesday
+//	WeeklyScheduleDaysOfWeekItemThursday
+//	WeeklyScheduleDaysOfWeekItemFriday
+//	WeeklyScheduleDaysOfWeekItemSaturday
+//	WeeklyScheduleDaysOfWeekItemSunday
 type WeeklyScheduleDaysOfWeekItemInput interface {
 	pulumi.Input
 
@@ -1422,12 +1405,6 @@ func (in *weeklyScheduleDaysOfWeekItemPtr) ToWeeklyScheduleDaysOfWeekItemPtrOutp
 
 func (in *weeklyScheduleDaysOfWeekItemPtr) ToWeeklyScheduleDaysOfWeekItemPtrOutputWithContext(ctx context.Context) WeeklyScheduleDaysOfWeekItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WeeklyScheduleDaysOfWeekItemPtrOutput)
-}
-
-func (in *weeklyScheduleDaysOfWeekItemPtr) ToOutput(ctx context.Context) pulumix.Output[*WeeklyScheduleDaysOfWeekItem] {
-	return pulumix.Output[*WeeklyScheduleDaysOfWeekItem]{
-		OutputState: in.ToWeeklyScheduleDaysOfWeekItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WeeklyScheduleDaysOfWeekItemArrayInput is an input type that accepts WeeklyScheduleDaysOfWeekItemArray and WeeklyScheduleDaysOfWeekItemArrayOutput values.

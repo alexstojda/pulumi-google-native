@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Optional. Describes the level of platform logging to apply to calls and call responses during executions of this workflow. If both the workflow and the execution specify a logging level, the execution level takes precedence.
@@ -144,10 +143,13 @@ func (o WorkflowCallLogLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkflowCallLogLevelInput is an input type that accepts WorkflowCallLogLevelArgs and WorkflowCallLogLevelOutput values.
-// You can construct a concrete instance of `WorkflowCallLogLevelInput` via:
+// WorkflowCallLogLevelInput is an input type that accepts values of the WorkflowCallLogLevel enum
+// A concrete instance of `WorkflowCallLogLevelInput` can be one of the following:
 //
-//	WorkflowCallLogLevelArgs{...}
+//	WorkflowCallLogLevelCallLogLevelUnspecified
+//	WorkflowCallLogLevelLogAllCalls
+//	WorkflowCallLogLevelLogErrorsOnly
+//	WorkflowCallLogLevelLogNone
 type WorkflowCallLogLevelInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *workflowCallLogLevelPtr) ToWorkflowCallLogLevelPtrOutput() WorkflowCal
 
 func (in *workflowCallLogLevelPtr) ToWorkflowCallLogLevelPtrOutputWithContext(ctx context.Context) WorkflowCallLogLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkflowCallLogLevelPtrOutput)
-}
-
-func (in *workflowCallLogLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkflowCallLogLevel] {
-	return pulumix.Output[*WorkflowCallLogLevel]{
-		OutputState: in.ToWorkflowCallLogLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

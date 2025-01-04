@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of the ManagementServer resource.
@@ -317,10 +313,11 @@ func (o ManagementServerTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagementServerTypeInput is an input type that accepts ManagementServerTypeArgs and ManagementServerTypeOutput values.
-// You can construct a concrete instance of `ManagementServerTypeInput` via:
+// ManagementServerTypeInput is an input type that accepts values of the ManagementServerType enum
+// A concrete instance of `ManagementServerTypeInput` can be one of the following:
 //
-//	ManagementServerTypeArgs{...}
+//	ManagementServerTypeInstanceTypeUnspecified
+//	ManagementServerTypeBackupRestore
 type ManagementServerTypeInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *managementServerTypePtr) ToManagementServerTypePtrOutput() ManagementS
 
 func (in *managementServerTypePtr) ToManagementServerTypePtrOutputWithContext(ctx context.Context) ManagementServerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManagementServerTypePtrOutput)
-}
-
-func (in *managementServerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ManagementServerType] {
-	return pulumix.Output[*ManagementServerType]{
-		OutputState: in.ToManagementServerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The network connect mode of the ManagementServer instance. For this version, only PRIVATE_SERVICE_ACCESS is supported.
@@ -490,10 +481,11 @@ func (o NetworkConfigPeeringModePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkConfigPeeringModeInput is an input type that accepts NetworkConfigPeeringModeArgs and NetworkConfigPeeringModeOutput values.
-// You can construct a concrete instance of `NetworkConfigPeeringModeInput` via:
+// NetworkConfigPeeringModeInput is an input type that accepts values of the NetworkConfigPeeringMode enum
+// A concrete instance of `NetworkConfigPeeringModeInput` can be one of the following:
 //
-//	NetworkConfigPeeringModeArgs{...}
+//	NetworkConfigPeeringModePeeringModeUnspecified
+//	NetworkConfigPeeringModePrivateServiceAccess
 type NetworkConfigPeeringModeInput interface {
 	pulumi.Input
 
@@ -526,12 +518,6 @@ func (in *networkConfigPeeringModePtr) ToNetworkConfigPeeringModePtrOutput() Net
 
 func (in *networkConfigPeeringModePtr) ToNetworkConfigPeeringModePtrOutputWithContext(ctx context.Context) NetworkConfigPeeringModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkConfigPeeringModePtrOutput)
-}
-
-func (in *networkConfigPeeringModePtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkConfigPeeringMode] {
-	return pulumix.Output[*NetworkConfigPeeringMode]{
-		OutputState: in.ToNetworkConfigPeeringModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

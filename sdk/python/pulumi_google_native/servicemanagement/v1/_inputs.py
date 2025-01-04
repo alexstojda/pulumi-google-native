@@ -547,7 +547,6 @@ class BackendRuleArgs:
                  jwt_audience: Optional[pulumi.Input[str]] = None,
                  min_deadline: Optional[pulumi.Input[float]] = None,
                  operation_deadline: Optional[pulumi.Input[float]] = None,
-                 overrides_by_request_protocol: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  path_translation: Optional[pulumi.Input['BackendRulePathTranslation']] = None,
                  protocol: Optional[pulumi.Input[str]] = None,
                  selector: Optional[pulumi.Input[str]] = None):
@@ -559,7 +558,6 @@ class BackendRuleArgs:
         :param pulumi.Input[str] jwt_audience: The JWT audience is used when generating a JWT ID token for the backend. This ID token will be added in the HTTP "authorization" header, and sent to the backend.
         :param pulumi.Input[float] min_deadline: Deprecated, do not use.
         :param pulumi.Input[float] operation_deadline: The number of seconds to wait for the completion of a long running operation. The default is no deadline.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] overrides_by_request_protocol: The map between request protocol and the backend address.
         :param pulumi.Input[str] protocol: The protocol used for sending a request to the backend. The supported values are "http/1.1" and "h2". The default value is inferred from the scheme in the address field: SCHEME PROTOCOL http:// http/1.1 https:// http/1.1 grpc:// h2 grpcs:// h2 For secure HTTP backends (https://) that support HTTP/2, set this field to "h2" for improved performance. Configuring this field to non-default values is only supported for secure HTTP backends. This field will be ignored for all other backends. See https://www.iana.org/assignments/tls-extensiontype-values/tls-extensiontype-values.xhtml#alpn-protocol-ids for more details on the supported values.
         :param pulumi.Input[str] selector: Selects the methods to which this rule applies. Refer to selector for syntax details.
         """
@@ -578,8 +576,6 @@ class BackendRuleArgs:
             pulumi.set(__self__, "min_deadline", min_deadline)
         if operation_deadline is not None:
             pulumi.set(__self__, "operation_deadline", operation_deadline)
-        if overrides_by_request_protocol is not None:
-            pulumi.set(__self__, "overrides_by_request_protocol", overrides_by_request_protocol)
         if path_translation is not None:
             pulumi.set(__self__, "path_translation", path_translation)
         if protocol is not None:
@@ -637,13 +633,11 @@ class BackendRuleArgs:
 
     @property
     @pulumi.getter(name="minDeadline")
+    @_utilities.deprecated("""Deprecated, do not use.""")
     def min_deadline(self) -> Optional[pulumi.Input[float]]:
         """
         Deprecated, do not use.
         """
-        warnings.warn("""Deprecated, do not use.""", DeprecationWarning)
-        pulumi.log.warn("""min_deadline is deprecated: Deprecated, do not use.""")
-
         return pulumi.get(self, "min_deadline")
 
     @min_deadline.setter
@@ -661,18 +655,6 @@ class BackendRuleArgs:
     @operation_deadline.setter
     def operation_deadline(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "operation_deadline", value)
-
-    @property
-    @pulumi.getter(name="overridesByRequestProtocol")
-    def overrides_by_request_protocol(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
-        """
-        The map between request protocol and the backend address.
-        """
-        return pulumi.get(self, "overrides_by_request_protocol")
-
-    @overrides_by_request_protocol.setter
-    def overrides_by_request_protocol(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
-        pulumi.set(self, "overrides_by_request_protocol", value)
 
     @property
     @pulumi.getter(name="pathTranslation")
@@ -1705,13 +1687,11 @@ class EndpointArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Unimplemented. Dot not use. DEPRECATED: This field is no longer supported. Instead of using aliases, please specify multiple google.api.Endpoint for each of the intended aliases. Additional names that this endpoint will be hosted on.""")
     def aliases(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Unimplemented. Dot not use. DEPRECATED: This field is no longer supported. Instead of using aliases, please specify multiple google.api.Endpoint for each of the intended aliases. Additional names that this endpoint will be hosted on.
         """
-        warnings.warn("""Unimplemented. Dot not use. DEPRECATED: This field is no longer supported. Instead of using aliases, please specify multiple google.api.Endpoint for each of the intended aliases. Additional names that this endpoint will be hosted on.""", DeprecationWarning)
-        pulumi.log.warn("""aliases is deprecated: Unimplemented. Dot not use. DEPRECATED: This field is no longer supported. Instead of using aliases, please specify multiple google.api.Endpoint for each of the intended aliases. Additional names that this endpoint will be hosted on.""")
-
         return pulumi.get(self, "aliases")
 
     @aliases.setter
@@ -2894,17 +2874,33 @@ class MethodPolicyArgs:
 @pulumi.input_type
 class MethodSettingsArgs:
     def __init__(__self__, *,
+                 auto_populated_fields: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  long_running: Optional[pulumi.Input['LongRunningArgs']] = None,
                  selector: Optional[pulumi.Input[str]] = None):
         """
         Describes the generator configuration for a method.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_populated_fields: List of top-level fields of the request message, that should be automatically populated by the client libraries based on their (google.api.field_info).format. Currently supported format: UUID4. Example of a YAML configuration: publishing: method_settings: - selector: google.example.v1.ExampleService.CreateExample auto_populated_fields: - request_id
         :param pulumi.Input['LongRunningArgs'] long_running: Describes settings to use for long-running operations when generating API methods for RPCs. Complements RPCs that use the annotations in google/longrunning/operations.proto. Example of a YAML configuration:: publishing: method_settings: - selector: google.cloud.speech.v2.Speech.BatchRecognize long_running: initial_poll_delay: seconds: 60 # 1 minute poll_delay_multiplier: 1.5 max_poll_delay: seconds: 360 # 6 minutes total_poll_timeout: seconds: 54000 # 90 minutes
         :param pulumi.Input[str] selector: The fully qualified name of the method, for which the options below apply. This is used to find the method to apply the options.
         """
+        if auto_populated_fields is not None:
+            pulumi.set(__self__, "auto_populated_fields", auto_populated_fields)
         if long_running is not None:
             pulumi.set(__self__, "long_running", long_running)
         if selector is not None:
             pulumi.set(__self__, "selector", selector)
+
+    @property
+    @pulumi.getter(name="autoPopulatedFields")
+    def auto_populated_fields(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of top-level fields of the request message, that should be automatically populated by the client libraries based on their (google.api.field_info).format. Currently supported format: UUID4. Example of a YAML configuration: publishing: method_settings: - selector: google.example.v1.ExampleService.CreateExample auto_populated_fields: - request_id
+        """
+        return pulumi.get(self, "auto_populated_fields")
+
+    @auto_populated_fields.setter
+    def auto_populated_fields(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "auto_populated_fields", value)
 
     @property
     @pulumi.getter(name="longRunning")
@@ -3087,13 +3083,11 @@ class MetricDescriptorMetadataArgs:
 
     @property
     @pulumi.getter(name="launchStage")
+    @_utilities.deprecated("""Deprecated. Must use the MetricDescriptor.launch_stage instead.""")
     def launch_stage(self) -> Optional[pulumi.Input['MetricDescriptorMetadataLaunchStage']]:
         """
         Deprecated. Must use the MetricDescriptor.launch_stage instead.
         """
-        warnings.warn("""Deprecated. Must use the MetricDescriptor.launch_stage instead.""", DeprecationWarning)
-        pulumi.log.warn("""launch_stage is deprecated: Deprecated. Must use the MetricDescriptor.launch_stage instead.""")
-
         return pulumi.get(self, "launch_stage")
 
     @launch_stage.setter
@@ -3611,11 +3605,11 @@ class OAuthRequirementsArgs:
 class OptionArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 value: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         A protocol buffer option, which can be attached to a message, field, enumeration, etc.
         :param pulumi.Input[str] name: The option's name. For protobuf built-in options (options defined in descriptor.proto), this is the short name. For example, `"map_entry"`. For custom options, it should be the fully-qualified name. For example, `"google.api.http"`.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] value: The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto should be used. If the value is an enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
+        :param pulumi.Input[Mapping[str, Any]] value: The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto should be used. If the value is an enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -3636,14 +3630,14 @@ class OptionArgs:
 
     @property
     @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         The option's value packed in an Any message. If the value is a primitive, the corresponding wrapper type defined in google/protobuf/wrappers.proto should be used. If the value is an enum, it should be stored as an int32 value using the google.protobuf.Int32Value type.
         """
         return pulumi.get(self, "value")
 
     @value.setter
-    def value(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "value", value)
 
 
@@ -4298,24 +4292,24 @@ class SystemParameterArgs:
 @pulumi.input_type
 class TrafficPercentStrategyArgs:
     def __init__(__self__, *,
-                 percentages: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 percentages: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]] = None):
         """
         Strategy that specifies how clients of Google Service Controller want to send traffic to use different config versions. This is generally used by API proxy to split traffic based on your configured percentage for each config version. One example of how to gradually rollout a new service configuration using this strategy: Day 1 Rollout { id: "example.googleapis.com/rollout_20160206" traffic_percent_strategy { percentages: { "example.googleapis.com/20160201": 70.00 "example.googleapis.com/20160206": 30.00 } } } Day 2 Rollout { id: "example.googleapis.com/rollout_20160207" traffic_percent_strategy: { percentages: { "example.googleapis.com/20160206": 100.00 } } }
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] percentages: Maps service configuration IDs to their corresponding traffic percentage. Key is the service configuration ID, Value is the traffic percentage which must be greater than 0.0 and the sum must equal to 100.0.
+        :param pulumi.Input[Mapping[str, pulumi.Input[float]]] percentages: Maps service configuration IDs to their corresponding traffic percentage. Key is the service configuration ID, Value is the traffic percentage which must be greater than 0.0 and the sum must equal to 100.0.
         """
         if percentages is not None:
             pulumi.set(__self__, "percentages", percentages)
 
     @property
     @pulumi.getter
-    def percentages(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def percentages(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]:
         """
         Maps service configuration IDs to their corresponding traffic percentage. Key is the service configuration ID, Value is the traffic percentage which must be greater than 0.0 and the sum must equal to 100.0.
         """
         return pulumi.get(self, "percentages")
 
     @percentages.setter
-    def percentages(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def percentages(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[float]]]]):
         pulumi.set(self, "percentages", value)
 
 

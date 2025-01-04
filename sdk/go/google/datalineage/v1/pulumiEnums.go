@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Type of the source. Use of a source_type other than `CUSTOM` for process creation or updating is highly discouraged, and may be restricted in the future without notice.
@@ -150,10 +149,16 @@ func (o GoogleCloudDatacatalogLineageV1OriginSourceTypePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogLineageV1OriginSourceTypeInput is an input type that accepts GoogleCloudDatacatalogLineageV1OriginSourceTypeArgs and GoogleCloudDatacatalogLineageV1OriginSourceTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogLineageV1OriginSourceTypeInput` via:
+// GoogleCloudDatacatalogLineageV1OriginSourceTypeInput is an input type that accepts values of the GoogleCloudDatacatalogLineageV1OriginSourceType enum
+// A concrete instance of `GoogleCloudDatacatalogLineageV1OriginSourceTypeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogLineageV1OriginSourceTypeArgs{...}
+//	GoogleCloudDatacatalogLineageV1OriginSourceTypeSourceTypeUnspecified
+//	GoogleCloudDatacatalogLineageV1OriginSourceTypeCustom
+//	GoogleCloudDatacatalogLineageV1OriginSourceTypeBigquery
+//	GoogleCloudDatacatalogLineageV1OriginSourceTypeDataFusion
+//	GoogleCloudDatacatalogLineageV1OriginSourceTypeComposer
+//	GoogleCloudDatacatalogLineageV1OriginSourceTypeLookerStudio
+//	GoogleCloudDatacatalogLineageV1OriginSourceTypeDataproc
 type GoogleCloudDatacatalogLineageV1OriginSourceTypeInput interface {
 	pulumi.Input
 
@@ -186,12 +191,6 @@ func (in *googleCloudDatacatalogLineageV1OriginSourceTypePtr) ToGoogleCloudDatac
 
 func (in *googleCloudDatacatalogLineageV1OriginSourceTypePtr) ToGoogleCloudDatacatalogLineageV1OriginSourceTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogLineageV1OriginSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogLineageV1OriginSourceTypePtrOutput)
-}
-
-func (in *googleCloudDatacatalogLineageV1OriginSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogLineageV1OriginSourceType] {
-	return pulumix.Output[*GoogleCloudDatacatalogLineageV1OriginSourceType]{
-		OutputState: in.ToGoogleCloudDatacatalogLineageV1OriginSourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The state of the run.
@@ -329,10 +328,14 @@ func (o RunStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// RunStateEnumInput is an input type that accepts RunStateEnumArgs and RunStateEnumOutput values.
-// You can construct a concrete instance of `RunStateEnumInput` via:
+// RunStateEnumInput is an input type that accepts values of the RunStateEnum enum
+// A concrete instance of `RunStateEnumInput` can be one of the following:
 //
-//	RunStateEnumArgs{...}
+//	RunStateEnumUnknown
+//	RunStateEnumStarted
+//	RunStateEnumCompleted
+//	RunStateEnumFailed
+//	RunStateEnumAborted
 type RunStateEnumInput interface {
 	pulumi.Input
 
@@ -365,12 +368,6 @@ func (in *runStateEnumPtr) ToRunStateEnumPtrOutput() RunStateEnumPtrOutput {
 
 func (in *runStateEnumPtr) ToRunStateEnumPtrOutputWithContext(ctx context.Context) RunStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RunStateEnumPtrOutput)
-}
-
-func (in *runStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*RunStateEnum] {
-	return pulumix.Output[*RunStateEnum]{
-		OutputState: in.ToRunStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type InternalRangeOverlapsItem string
@@ -318,10 +314,12 @@ func (o InternalRangeOverlapsItemPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// InternalRangeOverlapsItemInput is an input type that accepts InternalRangeOverlapsItemArgs and InternalRangeOverlapsItemOutput values.
-// You can construct a concrete instance of `InternalRangeOverlapsItemInput` via:
+// InternalRangeOverlapsItemInput is an input type that accepts values of the InternalRangeOverlapsItem enum
+// A concrete instance of `InternalRangeOverlapsItemInput` can be one of the following:
 //
-//	InternalRangeOverlapsItemArgs{...}
+//	InternalRangeOverlapsItemOverlapUnspecified
+//	InternalRangeOverlapsItemOverlapRouteRange
+//	InternalRangeOverlapsItemOverlapExistingSubnetRange
 type InternalRangeOverlapsItemInput interface {
 	pulumi.Input
 
@@ -354,12 +352,6 @@ func (in *internalRangeOverlapsItemPtr) ToInternalRangeOverlapsItemPtrOutput() I
 
 func (in *internalRangeOverlapsItemPtr) ToInternalRangeOverlapsItemPtrOutputWithContext(ctx context.Context) InternalRangeOverlapsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InternalRangeOverlapsItemPtrOutput)
-}
-
-func (in *internalRangeOverlapsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*InternalRangeOverlapsItem] {
-	return pulumix.Output[*InternalRangeOverlapsItem]{
-		OutputState: in.ToInternalRangeOverlapsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InternalRangeOverlapsItemArrayInput is an input type that accepts InternalRangeOverlapsItemArray and InternalRangeOverlapsItemArrayOutput values.
@@ -540,10 +532,13 @@ func (o InternalRangePeeringPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// InternalRangePeeringInput is an input type that accepts InternalRangePeeringArgs and InternalRangePeeringOutput values.
-// You can construct a concrete instance of `InternalRangePeeringInput` via:
+// InternalRangePeeringInput is an input type that accepts values of the InternalRangePeering enum
+// A concrete instance of `InternalRangePeeringInput` can be one of the following:
 //
-//	InternalRangePeeringArgs{...}
+//	InternalRangePeeringPeeringUnspecified
+//	InternalRangePeeringForSelf
+//	InternalRangePeeringForPeer
+//	InternalRangePeeringNotShared
 type InternalRangePeeringInput interface {
 	pulumi.Input
 
@@ -576,12 +571,6 @@ func (in *internalRangePeeringPtr) ToInternalRangePeeringPtrOutput() InternalRan
 
 func (in *internalRangePeeringPtr) ToInternalRangePeeringPtrOutputWithContext(ctx context.Context) InternalRangePeeringPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InternalRangePeeringPtrOutput)
-}
-
-func (in *internalRangePeeringPtr) ToOutput(ctx context.Context) pulumix.Output[*InternalRangePeering] {
-	return pulumix.Output[*InternalRangePeering]{
-		OutputState: in.ToInternalRangePeeringPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of usage set for this internal range.
@@ -715,10 +704,12 @@ func (o InternalRangeUsagePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// InternalRangeUsageInput is an input type that accepts InternalRangeUsageArgs and InternalRangeUsageOutput values.
-// You can construct a concrete instance of `InternalRangeUsageInput` via:
+// InternalRangeUsageInput is an input type that accepts values of the InternalRangeUsage enum
+// A concrete instance of `InternalRangeUsageInput` can be one of the following:
 //
-//	InternalRangeUsageArgs{...}
+//	InternalRangeUsageUsageUnspecified
+//	InternalRangeUsageForVpc
+//	InternalRangeUsageExternalToVpc
 type InternalRangeUsageInput interface {
 	pulumi.Input
 
@@ -751,12 +742,6 @@ func (in *internalRangeUsagePtr) ToInternalRangeUsagePtrOutput() InternalRangeUs
 
 func (in *internalRangeUsagePtr) ToInternalRangeUsagePtrOutputWithContext(ctx context.Context) InternalRangeUsagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InternalRangeUsagePtrOutput)
-}
-
-func (in *internalRangeUsagePtr) ToOutput(ctx context.Context) pulumix.Output[*InternalRangeUsage] {
-	return pulumix.Output[*InternalRangeUsage]{
-		OutputState: in.ToInternalRangeUsagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

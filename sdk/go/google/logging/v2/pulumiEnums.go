@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Deprecated. This field is unused.
@@ -142,10 +141,12 @@ func (o BillingAccountSinkOutputVersionFormatPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// BillingAccountSinkOutputVersionFormatInput is an input type that accepts BillingAccountSinkOutputVersionFormatArgs and BillingAccountSinkOutputVersionFormatOutput values.
-// You can construct a concrete instance of `BillingAccountSinkOutputVersionFormatInput` via:
+// BillingAccountSinkOutputVersionFormatInput is an input type that accepts values of the BillingAccountSinkOutputVersionFormat enum
+// A concrete instance of `BillingAccountSinkOutputVersionFormatInput` can be one of the following:
 //
-//	BillingAccountSinkOutputVersionFormatArgs{...}
+//	BillingAccountSinkOutputVersionFormatVersionFormatUnspecified
+//	BillingAccountSinkOutputVersionFormatV2
+//	BillingAccountSinkOutputVersionFormatV1
 type BillingAccountSinkOutputVersionFormatInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *billingAccountSinkOutputVersionFormatPtr) ToBillingAccountSinkOutputVe
 
 func (in *billingAccountSinkOutputVersionFormatPtr) ToBillingAccountSinkOutputVersionFormatPtrOutputWithContext(ctx context.Context) BillingAccountSinkOutputVersionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BillingAccountSinkOutputVersionFormatPtrOutput)
-}
-
-func (in *billingAccountSinkOutputVersionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*BillingAccountSinkOutputVersionFormat] {
-	return pulumix.Output[*BillingAccountSinkOutputVersionFormat]{
-		OutputState: in.ToBillingAccountSinkOutputVersionFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deprecated. This field is unused.
@@ -317,10 +312,12 @@ func (o FolderSinkOutputVersionFormatPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// FolderSinkOutputVersionFormatInput is an input type that accepts FolderSinkOutputVersionFormatArgs and FolderSinkOutputVersionFormatOutput values.
-// You can construct a concrete instance of `FolderSinkOutputVersionFormatInput` via:
+// FolderSinkOutputVersionFormatInput is an input type that accepts values of the FolderSinkOutputVersionFormat enum
+// A concrete instance of `FolderSinkOutputVersionFormatInput` can be one of the following:
 //
-//	FolderSinkOutputVersionFormatArgs{...}
+//	FolderSinkOutputVersionFormatVersionFormatUnspecified
+//	FolderSinkOutputVersionFormatV2
+//	FolderSinkOutputVersionFormatV1
 type FolderSinkOutputVersionFormatInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *folderSinkOutputVersionFormatPtr) ToFolderSinkOutputVersionFormatPtrOu
 
 func (in *folderSinkOutputVersionFormatPtr) ToFolderSinkOutputVersionFormatPtrOutputWithContext(ctx context.Context) FolderSinkOutputVersionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FolderSinkOutputVersionFormatPtrOutput)
-}
-
-func (in *folderSinkOutputVersionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*FolderSinkOutputVersionFormat] {
-	return pulumix.Output[*FolderSinkOutputVersionFormat]{
-		OutputState: in.ToFolderSinkOutputVersionFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of data in this index.
@@ -492,10 +483,12 @@ func (o IndexConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexConfigTypeInput is an input type that accepts IndexConfigTypeArgs and IndexConfigTypeOutput values.
-// You can construct a concrete instance of `IndexConfigTypeInput` via:
+// IndexConfigTypeInput is an input type that accepts values of the IndexConfigType enum
+// A concrete instance of `IndexConfigTypeInput` can be one of the following:
 //
-//	IndexConfigTypeArgs{...}
+//	IndexConfigTypeIndexTypeUnspecified
+//	IndexConfigTypeIndexTypeString
+//	IndexConfigTypeIndexTypeInteger
 type IndexConfigTypeInput interface {
 	pulumi.Input
 
@@ -528,12 +521,6 @@ func (in *indexConfigTypePtr) ToIndexConfigTypePtrOutput() IndexConfigTypePtrOut
 
 func (in *indexConfigTypePtr) ToIndexConfigTypePtrOutputWithContext(ctx context.Context) IndexConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexConfigTypePtrOutput)
-}
-
-func (in *indexConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IndexConfigType] {
-	return pulumix.Output[*IndexConfigType]{
-		OutputState: in.ToIndexConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of data that can be assigned to the label.
@@ -667,10 +654,12 @@ func (o LabelDescriptorValueTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// LabelDescriptorValueTypeInput is an input type that accepts LabelDescriptorValueTypeArgs and LabelDescriptorValueTypeOutput values.
-// You can construct a concrete instance of `LabelDescriptorValueTypeInput` via:
+// LabelDescriptorValueTypeInput is an input type that accepts values of the LabelDescriptorValueType enum
+// A concrete instance of `LabelDescriptorValueTypeInput` can be one of the following:
 //
-//	LabelDescriptorValueTypeArgs{...}
+//	LabelDescriptorValueTypeString
+//	LabelDescriptorValueTypeBool
+//	LabelDescriptorValueTypeInt64
 type LabelDescriptorValueTypeInput interface {
 	pulumi.Input
 
@@ -703,12 +692,6 @@ func (in *labelDescriptorValueTypePtr) ToLabelDescriptorValueTypePtrOutput() Lab
 
 func (in *labelDescriptorValueTypePtr) ToLabelDescriptorValueTypePtrOutputWithContext(ctx context.Context) LabelDescriptorValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LabelDescriptorValueTypePtrOutput)
-}
-
-func (in *labelDescriptorValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LabelDescriptorValueType] {
-	return pulumix.Output[*LabelDescriptorValueType]{
-		OutputState: in.ToLabelDescriptorValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The launch stage of the metric definition.
@@ -852,10 +835,17 @@ func (o MetricDescriptorLaunchStagePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorLaunchStageInput is an input type that accepts MetricDescriptorLaunchStageArgs and MetricDescriptorLaunchStageOutput values.
-// You can construct a concrete instance of `MetricDescriptorLaunchStageInput` via:
+// MetricDescriptorLaunchStageInput is an input type that accepts values of the MetricDescriptorLaunchStage enum
+// A concrete instance of `MetricDescriptorLaunchStageInput` can be one of the following:
 //
-//	MetricDescriptorLaunchStageArgs{...}
+//	MetricDescriptorLaunchStageLaunchStageUnspecified
+//	MetricDescriptorLaunchStageUnimplemented
+//	MetricDescriptorLaunchStagePrelaunch
+//	MetricDescriptorLaunchStageEarlyAccess
+//	MetricDescriptorLaunchStageAlpha
+//	MetricDescriptorLaunchStageBeta
+//	MetricDescriptorLaunchStageGa
+//	MetricDescriptorLaunchStageDeprecated
 type MetricDescriptorLaunchStageInput interface {
 	pulumi.Input
 
@@ -888,12 +878,6 @@ func (in *metricDescriptorLaunchStagePtr) ToMetricDescriptorLaunchStagePtrOutput
 
 func (in *metricDescriptorLaunchStagePtr) ToMetricDescriptorLaunchStagePtrOutputWithContext(ctx context.Context) MetricDescriptorLaunchStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorLaunchStagePtrOutput)
-}
-
-func (in *metricDescriptorLaunchStagePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorLaunchStage] {
-	return pulumix.Output[*MetricDescriptorLaunchStage]{
-		OutputState: in.ToMetricDescriptorLaunchStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deprecated. Must use the MetricDescriptor.launch_stage instead.
@@ -1037,10 +1021,17 @@ func (o MetricDescriptorMetadataLaunchStagePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorMetadataLaunchStageInput is an input type that accepts MetricDescriptorMetadataLaunchStageArgs and MetricDescriptorMetadataLaunchStageOutput values.
-// You can construct a concrete instance of `MetricDescriptorMetadataLaunchStageInput` via:
+// MetricDescriptorMetadataLaunchStageInput is an input type that accepts values of the MetricDescriptorMetadataLaunchStage enum
+// A concrete instance of `MetricDescriptorMetadataLaunchStageInput` can be one of the following:
 //
-//	MetricDescriptorMetadataLaunchStageArgs{...}
+//	MetricDescriptorMetadataLaunchStageLaunchStageUnspecified
+//	MetricDescriptorMetadataLaunchStageUnimplemented
+//	MetricDescriptorMetadataLaunchStagePrelaunch
+//	MetricDescriptorMetadataLaunchStageEarlyAccess
+//	MetricDescriptorMetadataLaunchStageAlpha
+//	MetricDescriptorMetadataLaunchStageBeta
+//	MetricDescriptorMetadataLaunchStageGa
+//	MetricDescriptorMetadataLaunchStageDeprecated
 type MetricDescriptorMetadataLaunchStageInput interface {
 	pulumi.Input
 
@@ -1073,12 +1064,6 @@ func (in *metricDescriptorMetadataLaunchStagePtr) ToMetricDescriptorMetadataLaun
 
 func (in *metricDescriptorMetadataLaunchStagePtr) ToMetricDescriptorMetadataLaunchStagePtrOutputWithContext(ctx context.Context) MetricDescriptorMetadataLaunchStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorMetadataLaunchStagePtrOutput)
-}
-
-func (in *metricDescriptorMetadataLaunchStagePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorMetadataLaunchStage] {
-	return pulumix.Output[*MetricDescriptorMetadataLaunchStage]{
-		OutputState: in.ToMetricDescriptorMetadataLaunchStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metric_kind and value_type might not be supported.
@@ -1214,10 +1199,13 @@ func (o MetricDescriptorMetricKindPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorMetricKindInput is an input type that accepts MetricDescriptorMetricKindArgs and MetricDescriptorMetricKindOutput values.
-// You can construct a concrete instance of `MetricDescriptorMetricKindInput` via:
+// MetricDescriptorMetricKindInput is an input type that accepts values of the MetricDescriptorMetricKind enum
+// A concrete instance of `MetricDescriptorMetricKindInput` can be one of the following:
 //
-//	MetricDescriptorMetricKindArgs{...}
+//	MetricDescriptorMetricKindMetricKindUnspecified
+//	MetricDescriptorMetricKindGauge
+//	MetricDescriptorMetricKindDelta
+//	MetricDescriptorMetricKindCumulative
 type MetricDescriptorMetricKindInput interface {
 	pulumi.Input
 
@@ -1250,12 +1238,6 @@ func (in *metricDescriptorMetricKindPtr) ToMetricDescriptorMetricKindPtrOutput()
 
 func (in *metricDescriptorMetricKindPtr) ToMetricDescriptorMetricKindPtrOutputWithContext(ctx context.Context) MetricDescriptorMetricKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorMetricKindPtrOutput)
-}
-
-func (in *metricDescriptorMetricKindPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorMetricKind] {
-	return pulumix.Output[*MetricDescriptorMetricKind]{
-		OutputState: in.ToMetricDescriptorMetricKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the measurement is an integer, a floating-point number, etc. Some combinations of metric_kind and value_type might not be supported.
@@ -1397,10 +1379,16 @@ func (o MetricDescriptorValueTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorValueTypeInput is an input type that accepts MetricDescriptorValueTypeArgs and MetricDescriptorValueTypeOutput values.
-// You can construct a concrete instance of `MetricDescriptorValueTypeInput` via:
+// MetricDescriptorValueTypeInput is an input type that accepts values of the MetricDescriptorValueType enum
+// A concrete instance of `MetricDescriptorValueTypeInput` can be one of the following:
 //
-//	MetricDescriptorValueTypeArgs{...}
+//	MetricDescriptorValueTypeValueTypeUnspecified
+//	MetricDescriptorValueTypeBool
+//	MetricDescriptorValueTypeInt64
+//	MetricDescriptorValueTypeDouble
+//	MetricDescriptorValueTypeString
+//	MetricDescriptorValueTypeDistribution
+//	MetricDescriptorValueTypeMoney
 type MetricDescriptorValueTypeInput interface {
 	pulumi.Input
 
@@ -1433,12 +1421,6 @@ func (in *metricDescriptorValueTypePtr) ToMetricDescriptorValueTypePtrOutput() M
 
 func (in *metricDescriptorValueTypePtr) ToMetricDescriptorValueTypePtrOutputWithContext(ctx context.Context) MetricDescriptorValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorValueTypePtrOutput)
-}
-
-func (in *metricDescriptorValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorValueType] {
-	return pulumix.Output[*MetricDescriptorValueType]{
-		OutputState: in.ToMetricDescriptorValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deprecated. The API version that created or updated this metric. The v2 format is used by default and cannot be changed.
@@ -1570,10 +1552,11 @@ func (o MetricVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricVersionInput is an input type that accepts MetricVersionArgs and MetricVersionOutput values.
-// You can construct a concrete instance of `MetricVersionInput` via:
+// MetricVersionInput is an input type that accepts values of the MetricVersion enum
+// A concrete instance of `MetricVersionInput` can be one of the following:
 //
-//	MetricVersionArgs{...}
+//	MetricVersionV2
+//	MetricVersionV1
 type MetricVersionInput interface {
 	pulumi.Input
 
@@ -1606,12 +1589,6 @@ func (in *metricVersionPtr) ToMetricVersionPtrOutput() MetricVersionPtrOutput {
 
 func (in *metricVersionPtr) ToMetricVersionPtrOutputWithContext(ctx context.Context) MetricVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricVersionPtrOutput)
-}
-
-func (in *metricVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricVersion] {
-	return pulumix.Output[*MetricVersion]{
-		OutputState: in.ToMetricVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deprecated. This field is unused.
@@ -1745,10 +1722,12 @@ func (o OrganizationSinkOutputVersionFormatPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// OrganizationSinkOutputVersionFormatInput is an input type that accepts OrganizationSinkOutputVersionFormatArgs and OrganizationSinkOutputVersionFormatOutput values.
-// You can construct a concrete instance of `OrganizationSinkOutputVersionFormatInput` via:
+// OrganizationSinkOutputVersionFormatInput is an input type that accepts values of the OrganizationSinkOutputVersionFormat enum
+// A concrete instance of `OrganizationSinkOutputVersionFormatInput` can be one of the following:
 //
-//	OrganizationSinkOutputVersionFormatArgs{...}
+//	OrganizationSinkOutputVersionFormatVersionFormatUnspecified
+//	OrganizationSinkOutputVersionFormatV2
+//	OrganizationSinkOutputVersionFormatV1
 type OrganizationSinkOutputVersionFormatInput interface {
 	pulumi.Input
 
@@ -1781,12 +1760,6 @@ func (in *organizationSinkOutputVersionFormatPtr) ToOrganizationSinkOutputVersio
 
 func (in *organizationSinkOutputVersionFormatPtr) ToOrganizationSinkOutputVersionFormatPtrOutputWithContext(ctx context.Context) OrganizationSinkOutputVersionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationSinkOutputVersionFormatPtrOutput)
-}
-
-func (in *organizationSinkOutputVersionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*OrganizationSinkOutputVersionFormat] {
-	return pulumix.Output[*OrganizationSinkOutputVersionFormat]{
-		OutputState: in.ToOrganizationSinkOutputVersionFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deprecated. This field is unused.
@@ -1920,10 +1893,12 @@ func (o SinkOutputVersionFormatPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SinkOutputVersionFormatInput is an input type that accepts SinkOutputVersionFormatArgs and SinkOutputVersionFormatOutput values.
-// You can construct a concrete instance of `SinkOutputVersionFormatInput` via:
+// SinkOutputVersionFormatInput is an input type that accepts values of the SinkOutputVersionFormat enum
+// A concrete instance of `SinkOutputVersionFormatInput` can be one of the following:
 //
-//	SinkOutputVersionFormatArgs{...}
+//	SinkOutputVersionFormatVersionFormatUnspecified
+//	SinkOutputVersionFormatV2
+//	SinkOutputVersionFormatV1
 type SinkOutputVersionFormatInput interface {
 	pulumi.Input
 
@@ -1956,12 +1931,6 @@ func (in *sinkOutputVersionFormatPtr) ToSinkOutputVersionFormatPtrOutput() SinkO
 
 func (in *sinkOutputVersionFormatPtr) ToSinkOutputVersionFormatPtrOutputWithContext(ctx context.Context) SinkOutputVersionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SinkOutputVersionFormatPtrOutput)
-}
-
-func (in *sinkOutputVersionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*SinkOutputVersionFormat] {
-	return pulumix.Output[*SinkOutputVersionFormat]{
-		OutputState: in.ToSinkOutputVersionFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

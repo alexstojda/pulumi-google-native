@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The option of whether running each test within its own invocation of instrumentation with Android Test Orchestrator or not. ** Orchestrator is only compatible with AndroidJUnitRunner version 1.1 or higher! ** Orchestrator offers the following benefits: - No shared state - Crashes are isolated - Logs are scoped per test See for more information about Android Test Orchestrator. If not set, the test will be run without the orchestrator.
@@ -142,10 +141,12 @@ func (o AndroidInstrumentationTestOrchestratorOptionPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// AndroidInstrumentationTestOrchestratorOptionInput is an input type that accepts AndroidInstrumentationTestOrchestratorOptionArgs and AndroidInstrumentationTestOrchestratorOptionOutput values.
-// You can construct a concrete instance of `AndroidInstrumentationTestOrchestratorOptionInput` via:
+// AndroidInstrumentationTestOrchestratorOptionInput is an input type that accepts values of the AndroidInstrumentationTestOrchestratorOption enum
+// A concrete instance of `AndroidInstrumentationTestOrchestratorOptionInput` can be one of the following:
 //
-//	AndroidInstrumentationTestOrchestratorOptionArgs{...}
+//	AndroidInstrumentationTestOrchestratorOptionOrchestratorOptionUnspecified
+//	AndroidInstrumentationTestOrchestratorOptionUseOrchestrator
+//	AndroidInstrumentationTestOrchestratorOptionDoNotUseOrchestrator
 type AndroidInstrumentationTestOrchestratorOptionInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *androidInstrumentationTestOrchestratorOptionPtr) ToAndroidInstrumentat
 
 func (in *androidInstrumentationTestOrchestratorOptionPtr) ToAndroidInstrumentationTestOrchestratorOptionPtrOutputWithContext(ctx context.Context) AndroidInstrumentationTestOrchestratorOptionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AndroidInstrumentationTestOrchestratorOptionPtrOutput)
-}
-
-func (in *androidInstrumentationTestOrchestratorOptionPtr) ToOutput(ctx context.Context) pulumix.Output[*AndroidInstrumentationTestOrchestratorOption] {
-	return pulumix.Output[*AndroidInstrumentationTestOrchestratorOption]{
-		OutputState: in.ToAndroidInstrumentationTestOrchestratorOptionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The mode in which Robo should run. Most clients should allow the server to populate this field automatically.
@@ -317,10 +312,12 @@ func (o AndroidRoboTestRoboModePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AndroidRoboTestRoboModeInput is an input type that accepts AndroidRoboTestRoboModeArgs and AndroidRoboTestRoboModeOutput values.
-// You can construct a concrete instance of `AndroidRoboTestRoboModeInput` via:
+// AndroidRoboTestRoboModeInput is an input type that accepts values of the AndroidRoboTestRoboMode enum
+// A concrete instance of `AndroidRoboTestRoboModeInput` can be one of the following:
 //
-//	AndroidRoboTestRoboModeArgs{...}
+//	AndroidRoboTestRoboModeRoboModeUnspecified
+//	AndroidRoboTestRoboModeRoboVersion1
+//	AndroidRoboTestRoboModeRoboVersion2
 type AndroidRoboTestRoboModeInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *androidRoboTestRoboModePtr) ToAndroidRoboTestRoboModePtrOutput() Andro
 
 func (in *androidRoboTestRoboModePtr) ToAndroidRoboTestRoboModePtrOutputWithContext(ctx context.Context) AndroidRoboTestRoboModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AndroidRoboTestRoboModePtrOutput)
-}
-
-func (in *androidRoboTestRoboModePtr) ToOutput(ctx context.Context) pulumix.Output[*AndroidRoboTestRoboMode] {
-	return pulumix.Output[*AndroidRoboTestRoboMode]{
-		OutputState: in.ToAndroidRoboTestRoboModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of action that Robo should perform on the specified element.
@@ -494,10 +485,13 @@ func (o RoboDirectiveActionTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// RoboDirectiveActionTypeInput is an input type that accepts RoboDirectiveActionTypeArgs and RoboDirectiveActionTypeOutput values.
-// You can construct a concrete instance of `RoboDirectiveActionTypeInput` via:
+// RoboDirectiveActionTypeInput is an input type that accepts values of the RoboDirectiveActionType enum
+// A concrete instance of `RoboDirectiveActionTypeInput` can be one of the following:
 //
-//	RoboDirectiveActionTypeArgs{...}
+//	RoboDirectiveActionTypeActionTypeUnspecified
+//	RoboDirectiveActionTypeSingleClick
+//	RoboDirectiveActionTypeEnterText
+//	RoboDirectiveActionTypeIgnore
 type RoboDirectiveActionTypeInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *roboDirectiveActionTypePtr) ToRoboDirectiveActionTypePtrOutput() RoboD
 
 func (in *roboDirectiveActionTypePtr) ToRoboDirectiveActionTypePtrOutputWithContext(ctx context.Context) RoboDirectiveActionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RoboDirectiveActionTypePtrOutput)
-}
-
-func (in *roboDirectiveActionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RoboDirectiveActionType] {
-	return pulumix.Output[*RoboDirectiveActionType]{
-		OutputState: in.ToRoboDirectiveActionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

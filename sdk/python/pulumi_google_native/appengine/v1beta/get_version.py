@@ -282,7 +282,7 @@ class GetVersionResult:
 
     @property
     @pulumi.getter(name="generatedCustomerMetadata")
-    def generated_customer_metadata(self) -> Mapping[str, str]:
+    def generated_customer_metadata(self) -> Mapping[str, Any]:
         """
         Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetVersionRequest
         """
@@ -466,13 +466,11 @@ class GetVersionResult:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""")
     def zones(self) -> Sequence[str]:
         """
         The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.
         """
-        warnings.warn("""The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""", DeprecationWarning)
-        pulumi.log.warn("""zones is deprecated: The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""")
-
         return pulumi.get(self, "zones")
 
 

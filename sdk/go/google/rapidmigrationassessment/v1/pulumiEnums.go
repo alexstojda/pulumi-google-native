@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Type of an annotation.
@@ -142,10 +141,12 @@ func (o AnnotationTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnnotationTypeInput is an input type that accepts AnnotationTypeArgs and AnnotationTypeOutput values.
-// You can construct a concrete instance of `AnnotationTypeInput` via:
+// AnnotationTypeInput is an input type that accepts values of the AnnotationType enum
+// A concrete instance of `AnnotationTypeInput` can be one of the following:
 //
-//	AnnotationTypeArgs{...}
+//	AnnotationTypeTypeUnspecified
+//	AnnotationTypeTypeLegacyExportConsent
+//	AnnotationTypeTypeQwiklab
 type AnnotationTypeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *annotationTypePtr) ToAnnotationTypePtrOutput() AnnotationTypePtrOutput
 
 func (in *annotationTypePtr) ToAnnotationTypePtrOutputWithContext(ctx context.Context) AnnotationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnnotationTypePtrOutput)
-}
-
-func (in *annotationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnnotationType] {
-	return pulumix.Output[*AnnotationType]{
-		OutputState: in.ToAnnotationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -20,6 +20,7 @@ class InstanceArgs:
                  instance_id: pulumi.Input[str],
                  type: pulumi.Input['InstanceType'],
                  crypto_key_config: Optional[pulumi.Input['CryptoKeyConfigArgs']] = None,
+                 dataplex_data_lineage_integration_enabled: Optional[pulumi.Input[bool]] = None,
                  dataproc_service_account: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -42,6 +43,7 @@ class InstanceArgs:
         :param pulumi.Input[str] instance_id: Required. The name of the instance to create.
         :param pulumi.Input['InstanceType'] type: Instance type.
         :param pulumi.Input['CryptoKeyConfigArgs'] crypto_key_config: The crypto key configuration. This field is used by the Customer-Managed Encryption Keys (CMEK) feature.
+        :param pulumi.Input[bool] dataplex_data_lineage_integration_enabled: Optional. Reserved for future use.
         :param pulumi.Input[str] dataproc_service_account: User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run data processing pipelines. This allows users to have fine-grained access control on Dataproc's accesses to cloud resources.
         :param pulumi.Input[str] description: A description of this instance.
         :param pulumi.Input[str] display_name: Display name for an instance.
@@ -62,6 +64,8 @@ class InstanceArgs:
         pulumi.set(__self__, "type", type)
         if crypto_key_config is not None:
             pulumi.set(__self__, "crypto_key_config", crypto_key_config)
+        if dataplex_data_lineage_integration_enabled is not None:
+            pulumi.set(__self__, "dataplex_data_lineage_integration_enabled", dataplex_data_lineage_integration_enabled)
         if dataproc_service_account is not None:
             pulumi.set(__self__, "dataproc_service_account", dataproc_service_account)
         if description is not None:
@@ -132,6 +136,18 @@ class InstanceArgs:
     @crypto_key_config.setter
     def crypto_key_config(self, value: Optional[pulumi.Input['CryptoKeyConfigArgs']]):
         pulumi.set(self, "crypto_key_config", value)
+
+    @property
+    @pulumi.getter(name="dataplexDataLineageIntegrationEnabled")
+    def dataplex_data_lineage_integration_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Optional. Reserved for future use.
+        """
+        return pulumi.get(self, "dataplex_data_lineage_integration_enabled")
+
+    @dataplex_data_lineage_integration_enabled.setter
+    def dataplex_data_lineage_integration_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "dataplex_data_lineage_integration_enabled", value)
 
     @property
     @pulumi.getter(name="dataprocServiceAccount")
@@ -338,6 +354,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  crypto_key_config: Optional[pulumi.Input[pulumi.InputType['CryptoKeyConfigArgs']]] = None,
+                 dataplex_data_lineage_integration_enabled: Optional[pulumi.Input[bool]] = None,
                  dataproc_service_account: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -365,6 +382,7 @@ class Instance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['CryptoKeyConfigArgs']] crypto_key_config: The crypto key configuration. This field is used by the Customer-Managed Encryption Keys (CMEK) feature.
+        :param pulumi.Input[bool] dataplex_data_lineage_integration_enabled: Optional. Reserved for future use.
         :param pulumi.Input[str] dataproc_service_account: User-managed service account to set on Dataproc when Cloud Data Fusion creates Dataproc to run data processing pipelines. This allows users to have fine-grained access control on Dataproc's accesses to cloud resources.
         :param pulumi.Input[str] description: A description of this instance.
         :param pulumi.Input[str] display_name: Display name for an instance.
@@ -409,6 +427,7 @@ class Instance(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  crypto_key_config: Optional[pulumi.Input[pulumi.InputType['CryptoKeyConfigArgs']]] = None,
+                 dataplex_data_lineage_integration_enabled: Optional[pulumi.Input[bool]] = None,
                  dataproc_service_account: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
@@ -438,6 +457,7 @@ class Instance(pulumi.CustomResource):
             __props__ = InstanceArgs.__new__(InstanceArgs)
 
             __props__.__dict__["crypto_key_config"] = crypto_key_config
+            __props__.__dict__["dataplex_data_lineage_integration_enabled"] = dataplex_data_lineage_integration_enabled
             __props__.__dict__["dataproc_service_account"] = dataproc_service_account
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
@@ -477,7 +497,7 @@ class Instance(pulumi.CustomResource):
             __props__.__dict__["tenant_project_id"] = None
             __props__.__dict__["update_time"] = None
             __props__.__dict__["workforce_identity_service_endpoint"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instance_id", "location", "project"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["instanceId", "location", "project"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Instance, __self__).__init__(
             'google-native:datafusion/v1:Instance',
@@ -506,6 +526,7 @@ class Instance(pulumi.CustomResource):
         __props__.__dict__["available_version"] = None
         __props__.__dict__["create_time"] = None
         __props__.__dict__["crypto_key_config"] = None
+        __props__.__dict__["dataplex_data_lineage_integration_enabled"] = None
         __props__.__dict__["dataproc_service_account"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["disabled_reason"] = None
@@ -578,6 +599,14 @@ class Instance(pulumi.CustomResource):
         The crypto key configuration. This field is used by the Customer-Managed Encryption Keys (CMEK) feature.
         """
         return pulumi.get(self, "crypto_key_config")
+
+    @property
+    @pulumi.getter(name="dataplexDataLineageIntegrationEnabled")
+    def dataplex_data_lineage_integration_enabled(self) -> pulumi.Output[bool]:
+        """
+        Optional. Reserved for future use.
+        """
+        return pulumi.get(self, "dataplex_data_lineage_integration_enabled")
 
     @property
     @pulumi.getter(name="dataprocServiceAccount")
@@ -743,13 +772,11 @@ class Instance(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceAccount")
+    @_utilities.deprecated("""Output only. Deprecated. Use tenant_project_id instead to extract the tenant project ID.""")
     def service_account(self) -> pulumi.Output[str]:
         """
         Deprecated. Use tenant_project_id instead to extract the tenant project ID.
         """
-        warnings.warn("""Output only. Deprecated. Use tenant_project_id instead to extract the tenant project ID.""", DeprecationWarning)
-        pulumi.log.warn("""service_account is deprecated: Output only. Deprecated. Use tenant_project_id instead to extract the tenant project ID.""")
-
         return pulumi.get(self, "service_account")
 
     @property

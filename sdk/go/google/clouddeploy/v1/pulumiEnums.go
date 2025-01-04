@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ExecutionConfigUsagesItem string
@@ -324,10 +320,15 @@ func (o ExecutionConfigUsagesItemPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExecutionConfigUsagesItemInput is an input type that accepts ExecutionConfigUsagesItemArgs and ExecutionConfigUsagesItemOutput values.
-// You can construct a concrete instance of `ExecutionConfigUsagesItemInput` via:
+// ExecutionConfigUsagesItemInput is an input type that accepts values of the ExecutionConfigUsagesItem enum
+// A concrete instance of `ExecutionConfigUsagesItemInput` can be one of the following:
 //
-//	ExecutionConfigUsagesItemArgs{...}
+//	ExecutionConfigUsagesItemExecutionEnvironmentUsageUnspecified
+//	ExecutionConfigUsagesItemRender
+//	ExecutionConfigUsagesItemDeploy
+//	ExecutionConfigUsagesItemVerify
+//	ExecutionConfigUsagesItemPredeploy
+//	ExecutionConfigUsagesItemPostdeploy
 type ExecutionConfigUsagesItemInput interface {
 	pulumi.Input
 
@@ -360,12 +361,6 @@ func (in *executionConfigUsagesItemPtr) ToExecutionConfigUsagesItemPtrOutput() E
 
 func (in *executionConfigUsagesItemPtr) ToExecutionConfigUsagesItemPtrOutputWithContext(ctx context.Context) ExecutionConfigUsagesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExecutionConfigUsagesItemPtrOutput)
-}
-
-func (in *executionConfigUsagesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*ExecutionConfigUsagesItem] {
-	return pulumix.Output[*ExecutionConfigUsagesItem]{
-		OutputState: in.ToExecutionConfigUsagesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ExecutionConfigUsagesItemArrayInput is an input type that accepts ExecutionConfigUsagesItemArray and ExecutionConfigUsagesItemArrayOutput values.
@@ -544,10 +539,12 @@ func (o RetryBackoffModePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RetryBackoffModeInput is an input type that accepts RetryBackoffModeArgs and RetryBackoffModeOutput values.
-// You can construct a concrete instance of `RetryBackoffModeInput` via:
+// RetryBackoffModeInput is an input type that accepts values of the RetryBackoffMode enum
+// A concrete instance of `RetryBackoffModeInput` can be one of the following:
 //
-//	RetryBackoffModeArgs{...}
+//	RetryBackoffModeBackoffModeUnspecified
+//	RetryBackoffModeBackoffModeLinear
+//	RetryBackoffModeBackoffModeExponential
 type RetryBackoffModeInput interface {
 	pulumi.Input
 
@@ -580,12 +577,6 @@ func (in *retryBackoffModePtr) ToRetryBackoffModePtrOutput() RetryBackoffModePtr
 
 func (in *retryBackoffModePtr) ToRetryBackoffModePtrOutputWithContext(ctx context.Context) RetryBackoffModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RetryBackoffModePtrOutput)
-}
-
-func (in *retryBackoffModePtr) ToOutput(ctx context.Context) pulumix.Output[*RetryBackoffMode] {
-	return pulumix.Output[*RetryBackoffMode]{
-		OutputState: in.ToRetryBackoffModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

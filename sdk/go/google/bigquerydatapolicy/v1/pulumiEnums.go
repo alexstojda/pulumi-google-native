@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A predefined masking expression.
@@ -329,10 +325,17 @@ func (o DataMaskingPolicyPredefinedExpressionPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataMaskingPolicyPredefinedExpressionInput is an input type that accepts DataMaskingPolicyPredefinedExpressionArgs and DataMaskingPolicyPredefinedExpressionOutput values.
-// You can construct a concrete instance of `DataMaskingPolicyPredefinedExpressionInput` via:
+// DataMaskingPolicyPredefinedExpressionInput is an input type that accepts values of the DataMaskingPolicyPredefinedExpression enum
+// A concrete instance of `DataMaskingPolicyPredefinedExpressionInput` can be one of the following:
 //
-//	DataMaskingPolicyPredefinedExpressionArgs{...}
+//	DataMaskingPolicyPredefinedExpressionPredefinedExpressionUnspecified
+//	DataMaskingPolicyPredefinedExpressionSha256
+//	DataMaskingPolicyPredefinedExpressionAlwaysNull
+//	DataMaskingPolicyPredefinedExpressionDefaultMaskingValue
+//	DataMaskingPolicyPredefinedExpressionLastFourCharacters
+//	DataMaskingPolicyPredefinedExpressionFirstFourCharacters
+//	DataMaskingPolicyPredefinedExpressionEmailMask
+//	DataMaskingPolicyPredefinedExpressionDateYearMask
 type DataMaskingPolicyPredefinedExpressionInput interface {
 	pulumi.Input
 
@@ -365,12 +368,6 @@ func (in *dataMaskingPolicyPredefinedExpressionPtr) ToDataMaskingPolicyPredefine
 
 func (in *dataMaskingPolicyPredefinedExpressionPtr) ToDataMaskingPolicyPredefinedExpressionPtrOutputWithContext(ctx context.Context) DataMaskingPolicyPredefinedExpressionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataMaskingPolicyPredefinedExpressionPtrOutput)
-}
-
-func (in *dataMaskingPolicyPredefinedExpressionPtr) ToOutput(ctx context.Context) pulumix.Output[*DataMaskingPolicyPredefinedExpression] {
-	return pulumix.Output[*DataMaskingPolicyPredefinedExpression]{
-		OutputState: in.ToDataMaskingPolicyPredefinedExpressionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of data policy.
@@ -504,10 +501,12 @@ func (o DataPolicyDataPolicyTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataPolicyDataPolicyTypeInput is an input type that accepts DataPolicyDataPolicyTypeArgs and DataPolicyDataPolicyTypeOutput values.
-// You can construct a concrete instance of `DataPolicyDataPolicyTypeInput` via:
+// DataPolicyDataPolicyTypeInput is an input type that accepts values of the DataPolicyDataPolicyType enum
+// A concrete instance of `DataPolicyDataPolicyTypeInput` can be one of the following:
 //
-//	DataPolicyDataPolicyTypeArgs{...}
+//	DataPolicyDataPolicyTypeDataPolicyTypeUnspecified
+//	DataPolicyDataPolicyTypeColumnLevelSecurityPolicy
+//	DataPolicyDataPolicyTypeDataMaskingPolicy
 type DataPolicyDataPolicyTypeInput interface {
 	pulumi.Input
 
@@ -540,12 +539,6 @@ func (in *dataPolicyDataPolicyTypePtr) ToDataPolicyDataPolicyTypePtrOutput() Dat
 
 func (in *dataPolicyDataPolicyTypePtr) ToDataPolicyDataPolicyTypePtrOutputWithContext(ctx context.Context) DataPolicyDataPolicyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataPolicyDataPolicyTypePtrOutput)
-}
-
-func (in *dataPolicyDataPolicyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DataPolicyDataPolicyType] {
-	return pulumix.Output[*DataPolicyDataPolicyType]{
-		OutputState: in.ToDataPolicyDataPolicyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

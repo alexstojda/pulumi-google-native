@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BasicPerfSampleSeriesPerfMetricType string
@@ -140,10 +139,14 @@ func (o BasicPerfSampleSeriesPerfMetricTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// BasicPerfSampleSeriesPerfMetricTypeInput is an input type that accepts BasicPerfSampleSeriesPerfMetricTypeArgs and BasicPerfSampleSeriesPerfMetricTypeOutput values.
-// You can construct a concrete instance of `BasicPerfSampleSeriesPerfMetricTypeInput` via:
+// BasicPerfSampleSeriesPerfMetricTypeInput is an input type that accepts values of the BasicPerfSampleSeriesPerfMetricType enum
+// A concrete instance of `BasicPerfSampleSeriesPerfMetricTypeInput` can be one of the following:
 //
-//	BasicPerfSampleSeriesPerfMetricTypeArgs{...}
+//	BasicPerfSampleSeriesPerfMetricTypePerfMetricTypeUnspecified
+//	BasicPerfSampleSeriesPerfMetricTypeMemory
+//	BasicPerfSampleSeriesPerfMetricTypeCpu
+//	BasicPerfSampleSeriesPerfMetricTypeNetwork
+//	BasicPerfSampleSeriesPerfMetricTypeGraphics
 type BasicPerfSampleSeriesPerfMetricTypeInput interface {
 	pulumi.Input
 
@@ -176,12 +179,6 @@ func (in *basicPerfSampleSeriesPerfMetricTypePtr) ToBasicPerfSampleSeriesPerfMet
 
 func (in *basicPerfSampleSeriesPerfMetricTypePtr) ToBasicPerfSampleSeriesPerfMetricTypePtrOutputWithContext(ctx context.Context) BasicPerfSampleSeriesPerfMetricTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BasicPerfSampleSeriesPerfMetricTypePtrOutput)
-}
-
-func (in *basicPerfSampleSeriesPerfMetricTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BasicPerfSampleSeriesPerfMetricType] {
-	return pulumix.Output[*BasicPerfSampleSeriesPerfMetricType]{
-		OutputState: in.ToBasicPerfSampleSeriesPerfMetricTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BasicPerfSampleSeriesPerfUnit string
@@ -314,10 +311,15 @@ func (o BasicPerfSampleSeriesPerfUnitPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// BasicPerfSampleSeriesPerfUnitInput is an input type that accepts BasicPerfSampleSeriesPerfUnitArgs and BasicPerfSampleSeriesPerfUnitOutput values.
-// You can construct a concrete instance of `BasicPerfSampleSeriesPerfUnitInput` via:
+// BasicPerfSampleSeriesPerfUnitInput is an input type that accepts values of the BasicPerfSampleSeriesPerfUnit enum
+// A concrete instance of `BasicPerfSampleSeriesPerfUnitInput` can be one of the following:
 //
-//	BasicPerfSampleSeriesPerfUnitArgs{...}
+//	BasicPerfSampleSeriesPerfUnitPerfUnitUnspecified
+//	BasicPerfSampleSeriesPerfUnitKibibyte
+//	BasicPerfSampleSeriesPerfUnitPercent
+//	BasicPerfSampleSeriesPerfUnitBytesPerSecond
+//	BasicPerfSampleSeriesPerfUnitFramesPerSecond
+//	BasicPerfSampleSeriesPerfUnitByte
 type BasicPerfSampleSeriesPerfUnitInput interface {
 	pulumi.Input
 
@@ -350,12 +352,6 @@ func (in *basicPerfSampleSeriesPerfUnitPtr) ToBasicPerfSampleSeriesPerfUnitPtrOu
 
 func (in *basicPerfSampleSeriesPerfUnitPtr) ToBasicPerfSampleSeriesPerfUnitPtrOutputWithContext(ctx context.Context) BasicPerfSampleSeriesPerfUnitPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BasicPerfSampleSeriesPerfUnitPtrOutput)
-}
-
-func (in *basicPerfSampleSeriesPerfUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*BasicPerfSampleSeriesPerfUnit] {
-	return pulumix.Output[*BasicPerfSampleSeriesPerfUnit]{
-		OutputState: in.ToBasicPerfSampleSeriesPerfUnitPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BasicPerfSampleSeriesSampleSeriesLabel string
@@ -499,10 +495,22 @@ func (o BasicPerfSampleSeriesSampleSeriesLabelPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// BasicPerfSampleSeriesSampleSeriesLabelInput is an input type that accepts BasicPerfSampleSeriesSampleSeriesLabelArgs and BasicPerfSampleSeriesSampleSeriesLabelOutput values.
-// You can construct a concrete instance of `BasicPerfSampleSeriesSampleSeriesLabelInput` via:
+// BasicPerfSampleSeriesSampleSeriesLabelInput is an input type that accepts values of the BasicPerfSampleSeriesSampleSeriesLabel enum
+// A concrete instance of `BasicPerfSampleSeriesSampleSeriesLabelInput` can be one of the following:
 //
-//	BasicPerfSampleSeriesSampleSeriesLabelArgs{...}
+//	BasicPerfSampleSeriesSampleSeriesLabelSampleSeriesTypeUnspecified
+//	BasicPerfSampleSeriesSampleSeriesLabelMemoryRssPrivate
+//	BasicPerfSampleSeriesSampleSeriesLabelMemoryRssShared
+//	BasicPerfSampleSeriesSampleSeriesLabelMemoryRssTotal
+//	BasicPerfSampleSeriesSampleSeriesLabelMemoryTotal
+//	BasicPerfSampleSeriesSampleSeriesLabelCpuUser
+//	BasicPerfSampleSeriesSampleSeriesLabelCpuKernel
+//	BasicPerfSampleSeriesSampleSeriesLabelCpuTotal
+//	BasicPerfSampleSeriesSampleSeriesLabelNtBytesTransferred
+//	BasicPerfSampleSeriesSampleSeriesLabelNtBytesReceived
+//	BasicPerfSampleSeriesSampleSeriesLabelNetworkSent
+//	BasicPerfSampleSeriesSampleSeriesLabelNetworkReceived
+//	BasicPerfSampleSeriesSampleSeriesLabelGraphicsFrameRate
 type BasicPerfSampleSeriesSampleSeriesLabelInput interface {
 	pulumi.Input
 
@@ -535,12 +543,6 @@ func (in *basicPerfSampleSeriesSampleSeriesLabelPtr) ToBasicPerfSampleSeriesSamp
 
 func (in *basicPerfSampleSeriesSampleSeriesLabelPtr) ToBasicPerfSampleSeriesSampleSeriesLabelPtrOutputWithContext(ctx context.Context) BasicPerfSampleSeriesSampleSeriesLabelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BasicPerfSampleSeriesSampleSeriesLabelPtrOutput)
-}
-
-func (in *basicPerfSampleSeriesSampleSeriesLabelPtr) ToOutput(ctx context.Context) pulumix.Output[*BasicPerfSampleSeriesSampleSeriesLabel] {
-	return pulumix.Output[*BasicPerfSampleSeriesSampleSeriesLabel]{
-		OutputState: in.ToBasicPerfSampleSeriesSampleSeriesLabelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The initial state is IN_PROGRESS. The only legal state transitions is from IN_PROGRESS to COMPLETE. A PRECONDITION_FAILED will be returned if an invalid transition is requested. The state can only be set to COMPLETE once. A FAILED_PRECONDITION will be returned if the state is set to COMPLETE multiple times. If the state is set to COMPLETE, all the in-progress steps within the execution will be set as COMPLETE. If the outcome of the step is not set, the outcome will be set to INCONCLUSIVE. - In response always set - In create/update request: optional
@@ -676,10 +678,13 @@ func (o ExecutionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExecutionStateEnumInput is an input type that accepts ExecutionStateEnumArgs and ExecutionStateEnumOutput values.
-// You can construct a concrete instance of `ExecutionStateEnumInput` via:
+// ExecutionStateEnumInput is an input type that accepts values of the ExecutionStateEnum enum
+// A concrete instance of `ExecutionStateEnumInput` can be one of the following:
 //
-//	ExecutionStateEnumArgs{...}
+//	ExecutionStateEnumUnknownState
+//	ExecutionStateEnumPending
+//	ExecutionStateEnumInProgress
+//	ExecutionStateEnumComplete
 type ExecutionStateEnumInput interface {
 	pulumi.Input
 
@@ -712,12 +717,6 @@ func (in *executionStateEnumPtr) ToExecutionStateEnumPtrOutput() ExecutionStateE
 
 func (in *executionStateEnumPtr) ToExecutionStateEnumPtrOutputWithContext(ctx context.Context) ExecutionStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExecutionStateEnumPtrOutput)
-}
-
-func (in *executionStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ExecutionStateEnum] {
-	return pulumix.Output[*ExecutionStateEnum]{
-		OutputState: in.ToExecutionStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The platform of the test history. - In response: always set. Returns the platform of the last execution if unknown.
@@ -848,10 +847,12 @@ func (o HistoryTestPlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// HistoryTestPlatformInput is an input type that accepts HistoryTestPlatformArgs and HistoryTestPlatformOutput values.
-// You can construct a concrete instance of `HistoryTestPlatformInput` via:
+// HistoryTestPlatformInput is an input type that accepts values of the HistoryTestPlatform enum
+// A concrete instance of `HistoryTestPlatformInput` can be one of the following:
 //
-//	HistoryTestPlatformArgs{...}
+//	HistoryTestPlatformUnknownPlatform
+//	HistoryTestPlatformAndroid
+//	HistoryTestPlatformIos
 type HistoryTestPlatformInput interface {
 	pulumi.Input
 
@@ -884,12 +885,6 @@ func (in *historyTestPlatformPtr) ToHistoryTestPlatformPtrOutput() HistoryTestPl
 
 func (in *historyTestPlatformPtr) ToHistoryTestPlatformPtrOutputWithContext(ctx context.Context) HistoryTestPlatformPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HistoryTestPlatformPtrOutput)
-}
-
-func (in *historyTestPlatformPtr) ToOutput(ctx context.Context) pulumix.Output[*HistoryTestPlatform] {
-	return pulumix.Output[*HistoryTestPlatform]{
-		OutputState: in.ToHistoryTestPlatformPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type IndividualOutcomeOutcomeSummary string
@@ -1028,10 +1023,15 @@ func (o IndividualOutcomeOutcomeSummaryPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndividualOutcomeOutcomeSummaryInput is an input type that accepts IndividualOutcomeOutcomeSummaryArgs and IndividualOutcomeOutcomeSummaryOutput values.
-// You can construct a concrete instance of `IndividualOutcomeOutcomeSummaryInput` via:
+// IndividualOutcomeOutcomeSummaryInput is an input type that accepts values of the IndividualOutcomeOutcomeSummary enum
+// A concrete instance of `IndividualOutcomeOutcomeSummaryInput` can be one of the following:
 //
-//	IndividualOutcomeOutcomeSummaryArgs{...}
+//	IndividualOutcomeOutcomeSummaryUnset
+//	IndividualOutcomeOutcomeSummarySuccess
+//	IndividualOutcomeOutcomeSummaryFailure
+//	IndividualOutcomeOutcomeSummaryInconclusive
+//	IndividualOutcomeOutcomeSummarySkipped
+//	IndividualOutcomeOutcomeSummaryFlaky
 type IndividualOutcomeOutcomeSummaryInput interface {
 	pulumi.Input
 
@@ -1064,12 +1064,6 @@ func (in *individualOutcomeOutcomeSummaryPtr) ToIndividualOutcomeOutcomeSummaryP
 
 func (in *individualOutcomeOutcomeSummaryPtr) ToIndividualOutcomeOutcomeSummaryPtrOutputWithContext(ctx context.Context) IndividualOutcomeOutcomeSummaryPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndividualOutcomeOutcomeSummaryPtrOutput)
-}
-
-func (in *individualOutcomeOutcomeSummaryPtr) ToOutput(ctx context.Context) pulumix.Output[*IndividualOutcomeOutcomeSummary] {
-	return pulumix.Output[*IndividualOutcomeOutcomeSummary]{
-		OutputState: in.ToIndividualOutcomeOutcomeSummaryPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The simplest way to interpret a result. Required
@@ -1209,10 +1203,15 @@ func (o OutcomeSummaryPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// OutcomeSummaryInput is an input type that accepts OutcomeSummaryArgs and OutcomeSummaryOutput values.
-// You can construct a concrete instance of `OutcomeSummaryInput` via:
+// OutcomeSummaryInput is an input type that accepts values of the OutcomeSummary enum
+// A concrete instance of `OutcomeSummaryInput` can be one of the following:
 //
-//	OutcomeSummaryArgs{...}
+//	OutcomeSummaryUnset
+//	OutcomeSummarySuccess
+//	OutcomeSummaryFailure
+//	OutcomeSummaryInconclusive
+//	OutcomeSummarySkipped
+//	OutcomeSummaryFlaky
 type OutcomeSummaryInput interface {
 	pulumi.Input
 
@@ -1245,12 +1244,6 @@ func (in *outcomeSummaryPtr) ToOutcomeSummaryPtrOutput() OutcomeSummaryPtrOutput
 
 func (in *outcomeSummaryPtr) ToOutcomeSummaryPtrOutputWithContext(ctx context.Context) OutcomeSummaryPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OutcomeSummaryPtrOutput)
-}
-
-func (in *outcomeSummaryPtr) ToOutput(ctx context.Context) pulumix.Output[*OutcomeSummary] {
-	return pulumix.Output[*OutcomeSummary]{
-		OutputState: in.ToOutcomeSummaryPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Rollup test status of multiple steps that were run with the same configuration as a group.
@@ -1390,10 +1383,15 @@ func (o PrimaryStepRollUpPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PrimaryStepRollUpInput is an input type that accepts PrimaryStepRollUpArgs and PrimaryStepRollUpOutput values.
-// You can construct a concrete instance of `PrimaryStepRollUpInput` via:
+// PrimaryStepRollUpInput is an input type that accepts values of the PrimaryStepRollUp enum
+// A concrete instance of `PrimaryStepRollUpInput` can be one of the following:
 //
-//	PrimaryStepRollUpArgs{...}
+//	PrimaryStepRollUpUnset
+//	PrimaryStepRollUpSuccess
+//	PrimaryStepRollUpFailure
+//	PrimaryStepRollUpInconclusive
+//	PrimaryStepRollUpSkipped
+//	PrimaryStepRollUpFlaky
 type PrimaryStepRollUpInput interface {
 	pulumi.Input
 
@@ -1426,12 +1424,6 @@ func (in *primaryStepRollUpPtr) ToPrimaryStepRollUpPtrOutput() PrimaryStepRollUp
 
 func (in *primaryStepRollUpPtr) ToPrimaryStepRollUpPtrOutputWithContext(ctx context.Context) PrimaryStepRollUpPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PrimaryStepRollUpPtrOutput)
-}
-
-func (in *primaryStepRollUpPtr) ToOutput(ctx context.Context) pulumix.Output[*PrimaryStepRollUp] {
-	return pulumix.Output[*PrimaryStepRollUp]{
-		OutputState: in.ToPrimaryStepRollUpPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The initial state is IN_PROGRESS. The only legal state transitions are * IN_PROGRESS -> COMPLETE A PRECONDITION_FAILED will be returned if an invalid transition is requested. It is valid to create Step with a state set to COMPLETE. The state can only be set to COMPLETE once. A PRECONDITION_FAILED will be returned if the state is set to COMPLETE multiple times. - In response: always set - In create/update request: optional
@@ -1567,10 +1559,13 @@ func (o StepStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// StepStateEnumInput is an input type that accepts StepStateEnumArgs and StepStateEnumOutput values.
-// You can construct a concrete instance of `StepStateEnumInput` via:
+// StepStateEnumInput is an input type that accepts values of the StepStateEnum enum
+// A concrete instance of `StepStateEnumInput` can be one of the following:
 //
-//	StepStateEnumArgs{...}
+//	StepStateEnumUnknownState
+//	StepStateEnumPending
+//	StepStateEnumInProgress
+//	StepStateEnumComplete
 type StepStateEnumInput interface {
 	pulumi.Input
 
@@ -1603,12 +1598,6 @@ func (in *stepStateEnumPtr) ToStepStateEnumPtrOutput() StepStateEnumPtrOutput {
 
 func (in *stepStateEnumPtr) ToStepStateEnumPtrOutputWithContext(ctx context.Context) StepStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StepStateEnumPtrOutput)
-}
-
-func (in *stepStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*StepStateEnum] {
-	return pulumix.Output[*StepStateEnum]{
-		OutputState: in.ToStepStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Category of issue. Required.
@@ -1742,10 +1731,12 @@ func (o TestIssueCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TestIssueCategoryInput is an input type that accepts TestIssueCategoryArgs and TestIssueCategoryOutput values.
-// You can construct a concrete instance of `TestIssueCategoryInput` via:
+// TestIssueCategoryInput is an input type that accepts values of the TestIssueCategory enum
+// A concrete instance of `TestIssueCategoryInput` can be one of the following:
 //
-//	TestIssueCategoryArgs{...}
+//	TestIssueCategoryUnspecifiedCategory
+//	TestIssueCategoryCommon
+//	TestIssueCategoryRobo
 type TestIssueCategoryInput interface {
 	pulumi.Input
 
@@ -1778,12 +1769,6 @@ func (in *testIssueCategoryPtr) ToTestIssueCategoryPtrOutput() TestIssueCategory
 
 func (in *testIssueCategoryPtr) ToTestIssueCategoryPtrOutputWithContext(ctx context.Context) TestIssueCategoryPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TestIssueCategoryPtrOutput)
-}
-
-func (in *testIssueCategoryPtr) ToOutput(ctx context.Context) pulumix.Output[*TestIssueCategory] {
-	return pulumix.Output[*TestIssueCategory]{
-		OutputState: in.ToTestIssueCategoryPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Severity of issue. Required.
@@ -1921,10 +1906,14 @@ func (o TestIssueSeverityPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TestIssueSeverityInput is an input type that accepts TestIssueSeverityArgs and TestIssueSeverityOutput values.
-// You can construct a concrete instance of `TestIssueSeverityInput` via:
+// TestIssueSeverityInput is an input type that accepts values of the TestIssueSeverity enum
+// A concrete instance of `TestIssueSeverityInput` can be one of the following:
 //
-//	TestIssueSeverityArgs{...}
+//	TestIssueSeverityUnspecifiedSeverity
+//	TestIssueSeverityInfo
+//	TestIssueSeveritySuggestion
+//	TestIssueSeverityWarning
+//	TestIssueSeveritySevere
 type TestIssueSeverityInput interface {
 	pulumi.Input
 
@@ -1957,12 +1946,6 @@ func (in *testIssueSeverityPtr) ToTestIssueSeverityPtrOutput() TestIssueSeverity
 
 func (in *testIssueSeverityPtr) ToTestIssueSeverityPtrOutputWithContext(ctx context.Context) TestIssueSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TestIssueSeverityPtrOutput)
-}
-
-func (in *testIssueSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*TestIssueSeverity] {
-	return pulumix.Output[*TestIssueSeverity]{
-		OutputState: in.ToTestIssueSeverityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of issue. Required.
@@ -2156,10 +2139,42 @@ func (o TestIssueTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TestIssueTypeInput is an input type that accepts TestIssueTypeArgs and TestIssueTypeOutput values.
-// You can construct a concrete instance of `TestIssueTypeInput` via:
+// TestIssueTypeInput is an input type that accepts values of the TestIssueType enum
+// A concrete instance of `TestIssueTypeInput` can be one of the following:
 //
-//	TestIssueTypeArgs{...}
+//	TestIssueTypeUnspecifiedType
+//	TestIssueTypeFatalException
+//	TestIssueTypeNativeCrash
+//	TestIssueTypeAnr
+//	TestIssueTypeUnusedRoboDirective
+//	TestIssueTypeCompatibleWithOrchestrator
+//	TestIssueTypeLauncherActivityNotFound
+//	TestIssueTypeStartActivityNotFound
+//	TestIssueTypeIncompleteRoboScriptExecution
+//	TestIssueTypeCompleteRoboScriptExecution
+//	TestIssueTypeFailedToInstall
+//	TestIssueTypeAvailableDeepLinks
+//	TestIssueTypeNonSdkApiUsageViolation
+//	TestIssueTypeNonSdkApiUsageReport
+//	TestIssueTypeEncounteredNonAndroidUiWidgetScreen
+//	TestIssueTypeEncounteredLoginScreen
+//	TestIssueTypePerformedGoogleLogin
+//	TestIssueTypeIosException
+//	TestIssueTypeIosCrash
+//	TestIssueTypePerformedMonkeyActions
+//	TestIssueTypeUsedRoboDirective
+//	TestIssueTypeUsedRoboIgnoreDirective
+//	TestIssueTypeInsufficientCoverage
+//	TestIssueTypeInAppPurchases
+//	TestIssueTypeCrashDialogError
+//	TestIssueTypeUiElementsTooDeep
+//	TestIssueTypeBlankScreen
+//	TestIssueTypeOverlappingUiElements
+//	TestIssueTypeUnityException
+//	TestIssueTypeDeviceOutOfMemory
+//	TestIssueTypeLogcatCollectionError
+//	TestIssueTypeDetectedAppSplashScreen
+//	TestIssueTypeAssetIssue
 type TestIssueTypeInput interface {
 	pulumi.Input
 
@@ -2192,12 +2207,6 @@ func (in *testIssueTypePtr) ToTestIssueTypePtrOutput() TestIssueTypePtrOutput {
 
 func (in *testIssueTypePtr) ToTestIssueTypePtrOutputWithContext(ctx context.Context) TestIssueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TestIssueTypePtrOutput)
-}
-
-func (in *testIssueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TestIssueType] {
-	return pulumix.Output[*TestIssueType]{
-		OutputState: in.ToTestIssueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

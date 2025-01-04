@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The reduction operation to be used to combine time series into a single time series, where the value of each data point in the resulting series is a function of all the already aligned values in the input time series.Not all reducer operations can be applied to all time series. The valid choices depend on the metric_kind and the value_type of the original time series. Reduction can yield a time series with a different metric_kind or value_type than the input time series.Time series data must first be aligned (see per_series_aligner) in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified, and must not be ALIGN_NONE. An alignment_period must also be specified; otherwise, an error is returned.
@@ -164,10 +163,23 @@ func (o AggregationCrossSeriesReducerPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// AggregationCrossSeriesReducerInput is an input type that accepts AggregationCrossSeriesReducerArgs and AggregationCrossSeriesReducerOutput values.
-// You can construct a concrete instance of `AggregationCrossSeriesReducerInput` via:
+// AggregationCrossSeriesReducerInput is an input type that accepts values of the AggregationCrossSeriesReducer enum
+// A concrete instance of `AggregationCrossSeriesReducerInput` can be one of the following:
 //
-//	AggregationCrossSeriesReducerArgs{...}
+//	AggregationCrossSeriesReducerReduceNone
+//	AggregationCrossSeriesReducerReduceMean
+//	AggregationCrossSeriesReducerReduceMin
+//	AggregationCrossSeriesReducerReduceMax
+//	AggregationCrossSeriesReducerReduceSum
+//	AggregationCrossSeriesReducerReduceStddev
+//	AggregationCrossSeriesReducerReduceCount
+//	AggregationCrossSeriesReducerReduceCountTrue
+//	AggregationCrossSeriesReducerReduceCountFalse
+//	AggregationCrossSeriesReducerReduceFractionTrue
+//	AggregationCrossSeriesReducerReducePercentile99
+//	AggregationCrossSeriesReducerReducePercentile95
+//	AggregationCrossSeriesReducerReducePercentile50
+//	AggregationCrossSeriesReducerReducePercentile05
 type AggregationCrossSeriesReducerInput interface {
 	pulumi.Input
 
@@ -200,12 +212,6 @@ func (in *aggregationCrossSeriesReducerPtr) ToAggregationCrossSeriesReducerPtrOu
 
 func (in *aggregationCrossSeriesReducerPtr) ToAggregationCrossSeriesReducerPtrOutputWithContext(ctx context.Context) AggregationCrossSeriesReducerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AggregationCrossSeriesReducerPtrOutput)
-}
-
-func (in *aggregationCrossSeriesReducerPtr) ToOutput(ctx context.Context) pulumix.Output[*AggregationCrossSeriesReducer] {
-	return pulumix.Output[*AggregationCrossSeriesReducer]{
-		OutputState: in.ToAggregationCrossSeriesReducerPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // An Aligner describes how to bring the data points in a single time series into temporal alignment. Except for ALIGN_NONE, all alignments cause all the data points in an alignment_period to be mathematically grouped together, resulting in a single data point for each alignment_period with end timestamp at the end of the period.Not all alignment operations may be applied to all time series. The valid choices depend on the metric_kind and value_type of the original time series. Alignment can change the metric_kind or the value_type of the time series.Time series data must be aligned in order to perform cross-time series reduction. If cross_series_reducer is specified, then per_series_aligner must be specified and not equal to ALIGN_NONE and alignment_period must be specified; otherwise, an error is returned.
@@ -371,10 +377,28 @@ func (o AggregationPerSeriesAlignerPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AggregationPerSeriesAlignerInput is an input type that accepts AggregationPerSeriesAlignerArgs and AggregationPerSeriesAlignerOutput values.
-// You can construct a concrete instance of `AggregationPerSeriesAlignerInput` via:
+// AggregationPerSeriesAlignerInput is an input type that accepts values of the AggregationPerSeriesAligner enum
+// A concrete instance of `AggregationPerSeriesAlignerInput` can be one of the following:
 //
-//	AggregationPerSeriesAlignerArgs{...}
+//	AggregationPerSeriesAlignerAlignNone
+//	AggregationPerSeriesAlignerAlignDelta
+//	AggregationPerSeriesAlignerAlignRate
+//	AggregationPerSeriesAlignerAlignInterpolate
+//	AggregationPerSeriesAlignerAlignNextOlder
+//	AggregationPerSeriesAlignerAlignMin
+//	AggregationPerSeriesAlignerAlignMax
+//	AggregationPerSeriesAlignerAlignMean
+//	AggregationPerSeriesAlignerAlignCount
+//	AggregationPerSeriesAlignerAlignSum
+//	AggregationPerSeriesAlignerAlignStddev
+//	AggregationPerSeriesAlignerAlignCountTrue
+//	AggregationPerSeriesAlignerAlignCountFalse
+//	AggregationPerSeriesAlignerAlignFractionTrue
+//	AggregationPerSeriesAlignerAlignPercentile99
+//	AggregationPerSeriesAlignerAlignPercentile95
+//	AggregationPerSeriesAlignerAlignPercentile50
+//	AggregationPerSeriesAlignerAlignPercentile05
+//	AggregationPerSeriesAlignerAlignPercentChange
 type AggregationPerSeriesAlignerInput interface {
 	pulumi.Input
 
@@ -407,12 +431,6 @@ func (in *aggregationPerSeriesAlignerPtr) ToAggregationPerSeriesAlignerPtrOutput
 
 func (in *aggregationPerSeriesAlignerPtr) ToAggregationPerSeriesAlignerPtrOutputWithContext(ctx context.Context) AggregationPerSeriesAlignerPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AggregationPerSeriesAlignerPtrOutput)
-}
-
-func (in *aggregationPerSeriesAlignerPtr) ToOutput(ctx context.Context) pulumix.Output[*AggregationPerSeriesAligner] {
-	return pulumix.Output[*AggregationPerSeriesAligner]{
-		OutputState: in.ToAggregationPerSeriesAlignerPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // How to combine the results of multiple conditions to determine if an incident should be opened. If condition_time_series_query_language is present, this must be COMBINE_UNSPECIFIED.
@@ -548,10 +566,13 @@ func (o AlertPolicyCombinerPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// AlertPolicyCombinerInput is an input type that accepts AlertPolicyCombinerArgs and AlertPolicyCombinerOutput values.
-// You can construct a concrete instance of `AlertPolicyCombinerInput` via:
+// AlertPolicyCombinerInput is an input type that accepts values of the AlertPolicyCombiner enum
+// A concrete instance of `AlertPolicyCombinerInput` can be one of the following:
 //
-//	AlertPolicyCombinerArgs{...}
+//	AlertPolicyCombinerCombineUnspecified
+//	AlertPolicyCombinerAnd
+//	AlertPolicyCombinerOr
+//	AlertPolicyCombinerAndWithMatchingResource
 type AlertPolicyCombinerInput interface {
 	pulumi.Input
 
@@ -586,13 +607,7 @@ func (in *alertPolicyCombinerPtr) ToAlertPolicyCombinerPtrOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, in).(AlertPolicyCombinerPtrOutput)
 }
 
-func (in *alertPolicyCombinerPtr) ToOutput(ctx context.Context) pulumix.Output[*AlertPolicyCombiner] {
-	return pulumix.Output[*AlertPolicyCombiner]{
-		OutputState: in.ToAlertPolicyCombinerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-// Optional. The severity of an alert policy indicates how important alerts generated by that policy are. The severity level, if specified, will be displayed on the Incident detail page and in notifications.
+// Optional. The severity of an alert policy indicates how important incidents generated by that policy are. The severity level will be displayed on the Incident detail page and in notifications.
 type AlertPolicySeverity string
 
 const (
@@ -725,10 +740,13 @@ func (o AlertPolicySeverityPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// AlertPolicySeverityInput is an input type that accepts AlertPolicySeverityArgs and AlertPolicySeverityOutput values.
-// You can construct a concrete instance of `AlertPolicySeverityInput` via:
+// AlertPolicySeverityInput is an input type that accepts values of the AlertPolicySeverity enum
+// A concrete instance of `AlertPolicySeverityInput` can be one of the following:
 //
-//	AlertPolicySeverityArgs{...}
+//	AlertPolicySeveritySeverityUnspecified
+//	AlertPolicySeverityCritical
+//	AlertPolicySeverityError
+//	AlertPolicySeverityWarning
 type AlertPolicySeverityInput interface {
 	pulumi.Input
 
@@ -761,12 +779,6 @@ func (in *alertPolicySeverityPtr) ToAlertPolicySeverityPtrOutput() AlertPolicySe
 
 func (in *alertPolicySeverityPtr) ToAlertPolicySeverityPtrOutputWithContext(ctx context.Context) AlertPolicySeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AlertPolicySeverityPtrOutput)
-}
-
-func (in *alertPolicySeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*AlertPolicySeverity] {
-	return pulumix.Output[*AlertPolicySeverity]{
-		OutputState: in.ToAlertPolicySeverityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of content matcher that will be applied to the server output, compared to the content string when the check is run.
@@ -908,10 +920,16 @@ func (o ContentMatcherMatcherPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContentMatcherMatcherInput is an input type that accepts ContentMatcherMatcherArgs and ContentMatcherMatcherOutput values.
-// You can construct a concrete instance of `ContentMatcherMatcherInput` via:
+// ContentMatcherMatcherInput is an input type that accepts values of the ContentMatcherMatcher enum
+// A concrete instance of `ContentMatcherMatcherInput` can be one of the following:
 //
-//	ContentMatcherMatcherArgs{...}
+//	ContentMatcherMatcherContentMatcherOptionUnspecified
+//	ContentMatcherMatcherContainsString
+//	ContentMatcherMatcherNotContainsString
+//	ContentMatcherMatcherMatchesRegex
+//	ContentMatcherMatcherNotMatchesRegex
+//	ContentMatcherMatcherMatchesJsonPath
+//	ContentMatcherMatcherNotMatchesJsonPath
 type ContentMatcherMatcherInput interface {
 	pulumi.Input
 
@@ -944,12 +962,6 @@ func (in *contentMatcherMatcherPtr) ToContentMatcherMatcherPtrOutput() ContentMa
 
 func (in *contentMatcherMatcherPtr) ToContentMatcherMatcherPtrOutputWithContext(ctx context.Context) ContentMatcherMatcherPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContentMatcherMatcherPtrOutput)
-}
-
-func (in *contentMatcherMatcherPtr) ToOutput(ctx context.Context) pulumix.Output[*ContentMatcherMatcher] {
-	return pulumix.Output[*ContentMatcherMatcher]{
-		OutputState: in.ToContentMatcherMatcherPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The content type header to use for the check. The following configurations result in errors: 1. Content type is specified in both the headers field and the content_type field. 2. Request method is GET and content_type is not TYPE_UNSPECIFIED 3. Request method is POST and content_type is TYPE_UNSPECIFIED. 4. Request method is POST and a "Content-Type" header is provided via headers field. The content_type field should be used instead.
@@ -1083,10 +1095,12 @@ func (o HttpCheckContentTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// HttpCheckContentTypeInput is an input type that accepts HttpCheckContentTypeArgs and HttpCheckContentTypeOutput values.
-// You can construct a concrete instance of `HttpCheckContentTypeInput` via:
+// HttpCheckContentTypeInput is an input type that accepts values of the HttpCheckContentType enum
+// A concrete instance of `HttpCheckContentTypeInput` can be one of the following:
 //
-//	HttpCheckContentTypeArgs{...}
+//	HttpCheckContentTypeTypeUnspecified
+//	HttpCheckContentTypeUrlEncoded
+//	HttpCheckContentTypeUserProvided
 type HttpCheckContentTypeInput interface {
 	pulumi.Input
 
@@ -1119,12 +1133,6 @@ func (in *httpCheckContentTypePtr) ToHttpCheckContentTypePtrOutput() HttpCheckCo
 
 func (in *httpCheckContentTypePtr) ToHttpCheckContentTypePtrOutputWithContext(ctx context.Context) HttpCheckContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HttpCheckContentTypePtrOutput)
-}
-
-func (in *httpCheckContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*HttpCheckContentType] {
-	return pulumix.Output[*HttpCheckContentType]{
-		OutputState: in.ToHttpCheckContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The HTTP request method to use for the check. If set to METHOD_UNSPECIFIED then request_method defaults to GET.
@@ -1258,10 +1266,12 @@ func (o HttpCheckRequestMethodPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// HttpCheckRequestMethodInput is an input type that accepts HttpCheckRequestMethodArgs and HttpCheckRequestMethodOutput values.
-// You can construct a concrete instance of `HttpCheckRequestMethodInput` via:
+// HttpCheckRequestMethodInput is an input type that accepts values of the HttpCheckRequestMethod enum
+// A concrete instance of `HttpCheckRequestMethodInput` can be one of the following:
 //
-//	HttpCheckRequestMethodArgs{...}
+//	HttpCheckRequestMethodMethodUnspecified
+//	HttpCheckRequestMethodGet
+//	HttpCheckRequestMethodPost
 type HttpCheckRequestMethodInput interface {
 	pulumi.Input
 
@@ -1294,12 +1304,6 @@ func (in *httpCheckRequestMethodPtr) ToHttpCheckRequestMethodPtrOutput() HttpChe
 
 func (in *httpCheckRequestMethodPtr) ToHttpCheckRequestMethodPtrOutputWithContext(ctx context.Context) HttpCheckRequestMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HttpCheckRequestMethodPtrOutput)
-}
-
-func (in *httpCheckRequestMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*HttpCheckRequestMethod] {
-	return pulumix.Output[*HttpCheckRequestMethod]{
-		OutputState: in.ToHttpCheckRequestMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current operational state of the internal checker.
@@ -1433,10 +1437,12 @@ func (o InternalCheckerStatePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// InternalCheckerStateInput is an input type that accepts InternalCheckerStateArgs and InternalCheckerStateOutput values.
-// You can construct a concrete instance of `InternalCheckerStateInput` via:
+// InternalCheckerStateInput is an input type that accepts values of the InternalCheckerState enum
+// A concrete instance of `InternalCheckerStateInput` can be one of the following:
 //
-//	InternalCheckerStateArgs{...}
+//	InternalCheckerStateUnspecified
+//	InternalCheckerStateCreating
+//	InternalCheckerStateRunning
 type InternalCheckerStateInput interface {
 	pulumi.Input
 
@@ -1469,12 +1475,6 @@ func (in *internalCheckerStatePtr) ToInternalCheckerStatePtrOutput() InternalChe
 
 func (in *internalCheckerStatePtr) ToInternalCheckerStatePtrOutputWithContext(ctx context.Context) InternalCheckerStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InternalCheckerStatePtrOutput)
-}
-
-func (in *internalCheckerStatePtr) ToOutput(ctx context.Context) pulumix.Output[*InternalCheckerState] {
-	return pulumix.Output[*InternalCheckerState]{
-		OutputState: in.ToInternalCheckerStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of JSONPath match that will be applied to the JSON output (ContentMatcher.content)
@@ -1608,10 +1608,12 @@ func (o JsonPathMatcherJsonMatcherPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// JsonPathMatcherJsonMatcherInput is an input type that accepts JsonPathMatcherJsonMatcherArgs and JsonPathMatcherJsonMatcherOutput values.
-// You can construct a concrete instance of `JsonPathMatcherJsonMatcherInput` via:
+// JsonPathMatcherJsonMatcherInput is an input type that accepts values of the JsonPathMatcherJsonMatcher enum
+// A concrete instance of `JsonPathMatcherJsonMatcherInput` can be one of the following:
 //
-//	JsonPathMatcherJsonMatcherArgs{...}
+//	JsonPathMatcherJsonMatcherJsonPathMatcherOptionUnspecified
+//	JsonPathMatcherJsonMatcherExactMatch
+//	JsonPathMatcherJsonMatcherRegexMatch
 type JsonPathMatcherJsonMatcherInput interface {
 	pulumi.Input
 
@@ -1644,12 +1646,6 @@ func (in *jsonPathMatcherJsonMatcherPtr) ToJsonPathMatcherJsonMatcherPtrOutput()
 
 func (in *jsonPathMatcherJsonMatcherPtr) ToJsonPathMatcherJsonMatcherPtrOutputWithContext(ctx context.Context) JsonPathMatcherJsonMatcherPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JsonPathMatcherJsonMatcherPtrOutput)
-}
-
-func (in *jsonPathMatcherJsonMatcherPtr) ToOutput(ctx context.Context) pulumix.Output[*JsonPathMatcherJsonMatcher] {
-	return pulumix.Output[*JsonPathMatcherJsonMatcher]{
-		OutputState: in.ToJsonPathMatcherJsonMatcherPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of data that can be assigned to the label.
@@ -1783,10 +1779,12 @@ func (o LabelDescriptorValueTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// LabelDescriptorValueTypeInput is an input type that accepts LabelDescriptorValueTypeArgs and LabelDescriptorValueTypeOutput values.
-// You can construct a concrete instance of `LabelDescriptorValueTypeInput` via:
+// LabelDescriptorValueTypeInput is an input type that accepts values of the LabelDescriptorValueType enum
+// A concrete instance of `LabelDescriptorValueTypeInput` can be one of the following:
 //
-//	LabelDescriptorValueTypeArgs{...}
+//	LabelDescriptorValueTypeString
+//	LabelDescriptorValueTypeBool
+//	LabelDescriptorValueTypeInt64
 type LabelDescriptorValueTypeInput interface {
 	pulumi.Input
 
@@ -1819,12 +1817,6 @@ func (in *labelDescriptorValueTypePtr) ToLabelDescriptorValueTypePtrOutput() Lab
 
 func (in *labelDescriptorValueTypePtr) ToLabelDescriptorValueTypePtrOutputWithContext(ctx context.Context) LabelDescriptorValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LabelDescriptorValueTypePtrOutput)
-}
-
-func (in *labelDescriptorValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LabelDescriptorValueType] {
-	return pulumix.Output[*LabelDescriptorValueType]{
-		OutputState: in.ToLabelDescriptorValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The launch stage of the metric definition.
@@ -1968,10 +1960,17 @@ func (o MetricDescriptorLaunchStagePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorLaunchStageInput is an input type that accepts MetricDescriptorLaunchStageArgs and MetricDescriptorLaunchStageOutput values.
-// You can construct a concrete instance of `MetricDescriptorLaunchStageInput` via:
+// MetricDescriptorLaunchStageInput is an input type that accepts values of the MetricDescriptorLaunchStage enum
+// A concrete instance of `MetricDescriptorLaunchStageInput` can be one of the following:
 //
-//	MetricDescriptorLaunchStageArgs{...}
+//	MetricDescriptorLaunchStageLaunchStageUnspecified
+//	MetricDescriptorLaunchStageUnimplemented
+//	MetricDescriptorLaunchStagePrelaunch
+//	MetricDescriptorLaunchStageEarlyAccess
+//	MetricDescriptorLaunchStageAlpha
+//	MetricDescriptorLaunchStageBeta
+//	MetricDescriptorLaunchStageGa
+//	MetricDescriptorLaunchStageDeprecated
 type MetricDescriptorLaunchStageInput interface {
 	pulumi.Input
 
@@ -2004,12 +2003,6 @@ func (in *metricDescriptorLaunchStagePtr) ToMetricDescriptorLaunchStagePtrOutput
 
 func (in *metricDescriptorLaunchStagePtr) ToMetricDescriptorLaunchStagePtrOutputWithContext(ctx context.Context) MetricDescriptorLaunchStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorLaunchStagePtrOutput)
-}
-
-func (in *metricDescriptorLaunchStagePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorLaunchStage] {
-	return pulumix.Output[*MetricDescriptorLaunchStage]{
-		OutputState: in.ToMetricDescriptorLaunchStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deprecated. Must use the MetricDescriptor.launch_stage instead.
@@ -2153,10 +2146,17 @@ func (o MetricDescriptorMetadataLaunchStagePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorMetadataLaunchStageInput is an input type that accepts MetricDescriptorMetadataLaunchStageArgs and MetricDescriptorMetadataLaunchStageOutput values.
-// You can construct a concrete instance of `MetricDescriptorMetadataLaunchStageInput` via:
+// MetricDescriptorMetadataLaunchStageInput is an input type that accepts values of the MetricDescriptorMetadataLaunchStage enum
+// A concrete instance of `MetricDescriptorMetadataLaunchStageInput` can be one of the following:
 //
-//	MetricDescriptorMetadataLaunchStageArgs{...}
+//	MetricDescriptorMetadataLaunchStageLaunchStageUnspecified
+//	MetricDescriptorMetadataLaunchStageUnimplemented
+//	MetricDescriptorMetadataLaunchStagePrelaunch
+//	MetricDescriptorMetadataLaunchStageEarlyAccess
+//	MetricDescriptorMetadataLaunchStageAlpha
+//	MetricDescriptorMetadataLaunchStageBeta
+//	MetricDescriptorMetadataLaunchStageGa
+//	MetricDescriptorMetadataLaunchStageDeprecated
 type MetricDescriptorMetadataLaunchStageInput interface {
 	pulumi.Input
 
@@ -2189,12 +2189,6 @@ func (in *metricDescriptorMetadataLaunchStagePtr) ToMetricDescriptorMetadataLaun
 
 func (in *metricDescriptorMetadataLaunchStagePtr) ToMetricDescriptorMetadataLaunchStagePtrOutputWithContext(ctx context.Context) MetricDescriptorMetadataLaunchStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorMetadataLaunchStagePtrOutput)
-}
-
-func (in *metricDescriptorMetadataLaunchStagePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorMetadataLaunchStage] {
-	return pulumix.Output[*MetricDescriptorMetadataLaunchStage]{
-		OutputState: in.ToMetricDescriptorMetadataLaunchStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the metric records instantaneous values, changes to a value, etc. Some combinations of metric_kind and value_type might not be supported.
@@ -2330,10 +2324,13 @@ func (o MetricDescriptorMetricKindPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorMetricKindInput is an input type that accepts MetricDescriptorMetricKindArgs and MetricDescriptorMetricKindOutput values.
-// You can construct a concrete instance of `MetricDescriptorMetricKindInput` via:
+// MetricDescriptorMetricKindInput is an input type that accepts values of the MetricDescriptorMetricKind enum
+// A concrete instance of `MetricDescriptorMetricKindInput` can be one of the following:
 //
-//	MetricDescriptorMetricKindArgs{...}
+//	MetricDescriptorMetricKindMetricKindUnspecified
+//	MetricDescriptorMetricKindGauge
+//	MetricDescriptorMetricKindDelta
+//	MetricDescriptorMetricKindCumulative
 type MetricDescriptorMetricKindInput interface {
 	pulumi.Input
 
@@ -2366,12 +2363,6 @@ func (in *metricDescriptorMetricKindPtr) ToMetricDescriptorMetricKindPtrOutput()
 
 func (in *metricDescriptorMetricKindPtr) ToMetricDescriptorMetricKindPtrOutputWithContext(ctx context.Context) MetricDescriptorMetricKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorMetricKindPtrOutput)
-}
-
-func (in *metricDescriptorMetricKindPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorMetricKind] {
-	return pulumix.Output[*MetricDescriptorMetricKind]{
-		OutputState: in.ToMetricDescriptorMetricKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the measurement is an integer, a floating-point number, etc. Some combinations of metric_kind and value_type might not be supported.
@@ -2513,10 +2504,16 @@ func (o MetricDescriptorValueTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorValueTypeInput is an input type that accepts MetricDescriptorValueTypeArgs and MetricDescriptorValueTypeOutput values.
-// You can construct a concrete instance of `MetricDescriptorValueTypeInput` via:
+// MetricDescriptorValueTypeInput is an input type that accepts values of the MetricDescriptorValueType enum
+// A concrete instance of `MetricDescriptorValueTypeInput` can be one of the following:
 //
-//	MetricDescriptorValueTypeArgs{...}
+//	MetricDescriptorValueTypeValueTypeUnspecified
+//	MetricDescriptorValueTypeBool
+//	MetricDescriptorValueTypeInt64
+//	MetricDescriptorValueTypeDouble
+//	MetricDescriptorValueTypeString
+//	MetricDescriptorValueTypeDistribution
+//	MetricDescriptorValueTypeMoney
 type MetricDescriptorValueTypeInput interface {
 	pulumi.Input
 
@@ -2549,12 +2546,6 @@ func (in *metricDescriptorValueTypePtr) ToMetricDescriptorValueTypePtrOutput() M
 
 func (in *metricDescriptorValueTypePtr) ToMetricDescriptorValueTypePtrOutputWithContext(ctx context.Context) MetricDescriptorValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorValueTypePtrOutput)
-}
-
-func (in *metricDescriptorValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorValueType] {
-	return pulumix.Output[*MetricDescriptorValueType]{
-		OutputState: in.ToMetricDescriptorValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The comparison to apply between the time series (indicated by filter and aggregation) and the threshold (indicated by threshold_value). The comparison is applied on each time series, with the time series on the left-hand side and the threshold on the right-hand side.Only COMPARISON_LT and COMPARISON_GT are supported currently.
@@ -2696,10 +2687,16 @@ func (o MetricThresholdComparisonPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricThresholdComparisonInput is an input type that accepts MetricThresholdComparisonArgs and MetricThresholdComparisonOutput values.
-// You can construct a concrete instance of `MetricThresholdComparisonInput` via:
+// MetricThresholdComparisonInput is an input type that accepts values of the MetricThresholdComparison enum
+// A concrete instance of `MetricThresholdComparisonInput` can be one of the following:
 //
-//	MetricThresholdComparisonArgs{...}
+//	MetricThresholdComparisonComparisonUnspecified
+//	MetricThresholdComparisonComparisonGt
+//	MetricThresholdComparisonComparisonGe
+//	MetricThresholdComparisonComparisonLt
+//	MetricThresholdComparisonComparisonLe
+//	MetricThresholdComparisonComparisonEq
+//	MetricThresholdComparisonComparisonNe
 type MetricThresholdComparisonInput interface {
 	pulumi.Input
 
@@ -2732,12 +2729,6 @@ func (in *metricThresholdComparisonPtr) ToMetricThresholdComparisonPtrOutput() M
 
 func (in *metricThresholdComparisonPtr) ToMetricThresholdComparisonPtrOutputWithContext(ctx context.Context) MetricThresholdComparisonPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricThresholdComparisonPtrOutput)
-}
-
-func (in *metricThresholdComparisonPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricThresholdComparison] {
-	return pulumix.Output[*MetricThresholdComparison]{
-		OutputState: in.ToMetricThresholdComparisonPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A condition control that determines how metric-threshold conditions are evaluated when data stops arriving.
@@ -2873,10 +2864,13 @@ func (o MetricThresholdEvaluationMissingDataPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricThresholdEvaluationMissingDataInput is an input type that accepts MetricThresholdEvaluationMissingDataArgs and MetricThresholdEvaluationMissingDataOutput values.
-// You can construct a concrete instance of `MetricThresholdEvaluationMissingDataInput` via:
+// MetricThresholdEvaluationMissingDataInput is an input type that accepts values of the MetricThresholdEvaluationMissingData enum
+// A concrete instance of `MetricThresholdEvaluationMissingDataInput` can be one of the following:
 //
-//	MetricThresholdEvaluationMissingDataArgs{...}
+//	MetricThresholdEvaluationMissingDataEvaluationMissingDataUnspecified
+//	MetricThresholdEvaluationMissingDataEvaluationMissingDataInactive
+//	MetricThresholdEvaluationMissingDataEvaluationMissingDataActive
+//	MetricThresholdEvaluationMissingDataEvaluationMissingDataNoOp
 type MetricThresholdEvaluationMissingDataInput interface {
 	pulumi.Input
 
@@ -2909,12 +2903,6 @@ func (in *metricThresholdEvaluationMissingDataPtr) ToMetricThresholdEvaluationMi
 
 func (in *metricThresholdEvaluationMissingDataPtr) ToMetricThresholdEvaluationMissingDataPtrOutputWithContext(ctx context.Context) MetricThresholdEvaluationMissingDataPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricThresholdEvaluationMissingDataPtrOutput)
-}
-
-func (in *metricThresholdEvaluationMissingDataPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricThresholdEvaluationMissingData] {
-	return pulumix.Output[*MetricThresholdEvaluationMissingData]{
-		OutputState: in.ToMetricThresholdEvaluationMissingDataPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A condition control that determines how metric-threshold conditions are evaluated when data stops arriving.
@@ -3050,10 +3038,13 @@ func (o MonitoringQueryLanguageConditionEvaluationMissingDataPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// MonitoringQueryLanguageConditionEvaluationMissingDataInput is an input type that accepts MonitoringQueryLanguageConditionEvaluationMissingDataArgs and MonitoringQueryLanguageConditionEvaluationMissingDataOutput values.
-// You can construct a concrete instance of `MonitoringQueryLanguageConditionEvaluationMissingDataInput` via:
+// MonitoringQueryLanguageConditionEvaluationMissingDataInput is an input type that accepts values of the MonitoringQueryLanguageConditionEvaluationMissingData enum
+// A concrete instance of `MonitoringQueryLanguageConditionEvaluationMissingDataInput` can be one of the following:
 //
-//	MonitoringQueryLanguageConditionEvaluationMissingDataArgs{...}
+//	MonitoringQueryLanguageConditionEvaluationMissingDataEvaluationMissingDataUnspecified
+//	MonitoringQueryLanguageConditionEvaluationMissingDataEvaluationMissingDataInactive
+//	MonitoringQueryLanguageConditionEvaluationMissingDataEvaluationMissingDataActive
+//	MonitoringQueryLanguageConditionEvaluationMissingDataEvaluationMissingDataNoOp
 type MonitoringQueryLanguageConditionEvaluationMissingDataInput interface {
 	pulumi.Input
 
@@ -3086,12 +3077,6 @@ func (in *monitoringQueryLanguageConditionEvaluationMissingDataPtr) ToMonitoring
 
 func (in *monitoringQueryLanguageConditionEvaluationMissingDataPtr) ToMonitoringQueryLanguageConditionEvaluationMissingDataPtrOutputWithContext(ctx context.Context) MonitoringQueryLanguageConditionEvaluationMissingDataPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoringQueryLanguageConditionEvaluationMissingDataPtrOutput)
-}
-
-func (in *monitoringQueryLanguageConditionEvaluationMissingDataPtr) ToOutput(ctx context.Context) pulumix.Output[*MonitoringQueryLanguageConditionEvaluationMissingData] {
-	return pulumix.Output[*MonitoringQueryLanguageConditionEvaluationMissingData]{
-		OutputState: in.ToMonitoringQueryLanguageConditionEvaluationMissingDataPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates whether this channel has been verified or not. On a ListNotificationChannels or GetNotificationChannel operation, this field is expected to be populated.If the value is UNVERIFIED, then it indicates that the channel is non-functioning (it both requires verification and lacks verification); otherwise, it is assumed that the channel works.If the channel is neither VERIFIED nor UNVERIFIED, it implies that the channel is of a type that does not require verification or that this specific channel has been exempted from verification because it was created prior to verification being required for channels of this type.This field cannot be modified using a standard UpdateNotificationChannel operation. To change the value of this field, you must call VerifyNotificationChannel.
@@ -3225,10 +3210,12 @@ func (o NotificationChannelVerificationStatusPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationChannelVerificationStatusInput is an input type that accepts NotificationChannelVerificationStatusArgs and NotificationChannelVerificationStatusOutput values.
-// You can construct a concrete instance of `NotificationChannelVerificationStatusInput` via:
+// NotificationChannelVerificationStatusInput is an input type that accepts values of the NotificationChannelVerificationStatus enum
+// A concrete instance of `NotificationChannelVerificationStatusInput` can be one of the following:
 //
-//	NotificationChannelVerificationStatusArgs{...}
+//	NotificationChannelVerificationStatusVerificationStatusUnspecified
+//	NotificationChannelVerificationStatusUnverified
+//	NotificationChannelVerificationStatusVerified
 type NotificationChannelVerificationStatusInput interface {
 	pulumi.Input
 
@@ -3261,12 +3248,6 @@ func (in *notificationChannelVerificationStatusPtr) ToNotificationChannelVerific
 
 func (in *notificationChannelVerificationStatusPtr) ToNotificationChannelVerificationStatusPtrOutputWithContext(ctx context.Context) NotificationChannelVerificationStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationChannelVerificationStatusPtrOutput)
-}
-
-func (in *notificationChannelVerificationStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*NotificationChannelVerificationStatus] {
-	return pulumix.Output[*NotificationChannelVerificationStatus]{
-		OutputState: in.ToNotificationChannelVerificationStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The resource type of the group members.
@@ -3400,10 +3381,12 @@ func (o ResourceGroupResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResourceGroupResourceTypeInput is an input type that accepts ResourceGroupResourceTypeArgs and ResourceGroupResourceTypeOutput values.
-// You can construct a concrete instance of `ResourceGroupResourceTypeInput` via:
+// ResourceGroupResourceTypeInput is an input type that accepts values of the ResourceGroupResourceType enum
+// A concrete instance of `ResourceGroupResourceTypeInput` can be one of the following:
 //
-//	ResourceGroupResourceTypeArgs{...}
+//	ResourceGroupResourceTypeResourceTypeUnspecified
+//	ResourceGroupResourceTypeInstance
+//	ResourceGroupResourceTypeAwsElbLoadBalancer
 type ResourceGroupResourceTypeInput interface {
 	pulumi.Input
 
@@ -3436,12 +3419,6 @@ func (in *resourceGroupResourceTypePtr) ToResourceGroupResourceTypePtrOutput() R
 
 func (in *resourceGroupResourceTypePtr) ToResourceGroupResourceTypePtrOutputWithContext(ctx context.Context) ResourceGroupResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResourceGroupResourceTypePtrOutput)
-}
-
-func (in *resourceGroupResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ResourceGroupResourceType] {
-	return pulumix.Output[*ResourceGroupResourceType]{
-		OutputState: in.ToResourceGroupResourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A class of status codes to accept.
@@ -3583,10 +3560,16 @@ func (o ResponseStatusCodeStatusClassPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// ResponseStatusCodeStatusClassInput is an input type that accepts ResponseStatusCodeStatusClassArgs and ResponseStatusCodeStatusClassOutput values.
-// You can construct a concrete instance of `ResponseStatusCodeStatusClassInput` via:
+// ResponseStatusCodeStatusClassInput is an input type that accepts values of the ResponseStatusCodeStatusClass enum
+// A concrete instance of `ResponseStatusCodeStatusClassInput` can be one of the following:
 //
-//	ResponseStatusCodeStatusClassArgs{...}
+//	ResponseStatusCodeStatusClassStatusClassUnspecified
+//	ResponseStatusCodeStatusClassStatusClass1xx
+//	ResponseStatusCodeStatusClassStatusClass2xx
+//	ResponseStatusCodeStatusClassStatusClass3xx
+//	ResponseStatusCodeStatusClassStatusClass4xx
+//	ResponseStatusCodeStatusClassStatusClass5xx
+//	ResponseStatusCodeStatusClassStatusClassAny
 type ResponseStatusCodeStatusClassInput interface {
 	pulumi.Input
 
@@ -3619,12 +3602,6 @@ func (in *responseStatusCodeStatusClassPtr) ToResponseStatusCodeStatusClassPtrOu
 
 func (in *responseStatusCodeStatusClassPtr) ToResponseStatusCodeStatusClassPtrOutputWithContext(ctx context.Context) ResponseStatusCodeStatusClassPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ResponseStatusCodeStatusClassPtrOutput)
-}
-
-func (in *responseStatusCodeStatusClassPtr) ToOutput(ctx context.Context) pulumix.Output[*ResponseStatusCodeStatusClass] {
-	return pulumix.Output[*ResponseStatusCodeStatusClass]{
-		OutputState: in.ToResponseStatusCodeStatusClassPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A calendar period, semantically "since the start of the current ". At this time, only DAY, WEEK, FORTNIGHT, and MONTH are supported.
@@ -3768,10 +3745,17 @@ func (o ServiceLevelObjectiveCalendarPeriodPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceLevelObjectiveCalendarPeriodInput is an input type that accepts ServiceLevelObjectiveCalendarPeriodArgs and ServiceLevelObjectiveCalendarPeriodOutput values.
-// You can construct a concrete instance of `ServiceLevelObjectiveCalendarPeriodInput` via:
+// ServiceLevelObjectiveCalendarPeriodInput is an input type that accepts values of the ServiceLevelObjectiveCalendarPeriod enum
+// A concrete instance of `ServiceLevelObjectiveCalendarPeriodInput` can be one of the following:
 //
-//	ServiceLevelObjectiveCalendarPeriodArgs{...}
+//	ServiceLevelObjectiveCalendarPeriodCalendarPeriodUnspecified
+//	ServiceLevelObjectiveCalendarPeriodDay
+//	ServiceLevelObjectiveCalendarPeriodWeek
+//	ServiceLevelObjectiveCalendarPeriodFortnight
+//	ServiceLevelObjectiveCalendarPeriodMonth
+//	ServiceLevelObjectiveCalendarPeriodQuarter
+//	ServiceLevelObjectiveCalendarPeriodHalf
+//	ServiceLevelObjectiveCalendarPeriodYear
 type ServiceLevelObjectiveCalendarPeriodInput interface {
 	pulumi.Input
 
@@ -3804,12 +3788,6 @@ func (in *serviceLevelObjectiveCalendarPeriodPtr) ToServiceLevelObjectiveCalenda
 
 func (in *serviceLevelObjectiveCalendarPeriodPtr) ToServiceLevelObjectiveCalendarPeriodPtrOutputWithContext(ctx context.Context) ServiceLevelObjectiveCalendarPeriodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceLevelObjectiveCalendarPeriodPtrOutput)
-}
-
-func (in *serviceLevelObjectiveCalendarPeriodPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceLevelObjectiveCalendarPeriod] {
-	return pulumix.Output[*ServiceLevelObjectiveCalendarPeriod]{
-		OutputState: in.ToServiceLevelObjectiveCalendarPeriodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of checkers to use to execute the Uptime check.
@@ -3943,10 +3921,12 @@ func (o UptimeCheckConfigCheckerTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// UptimeCheckConfigCheckerTypeInput is an input type that accepts UptimeCheckConfigCheckerTypeArgs and UptimeCheckConfigCheckerTypeOutput values.
-// You can construct a concrete instance of `UptimeCheckConfigCheckerTypeInput` via:
+// UptimeCheckConfigCheckerTypeInput is an input type that accepts values of the UptimeCheckConfigCheckerType enum
+// A concrete instance of `UptimeCheckConfigCheckerTypeInput` can be one of the following:
 //
-//	UptimeCheckConfigCheckerTypeArgs{...}
+//	UptimeCheckConfigCheckerTypeCheckerTypeUnspecified
+//	UptimeCheckConfigCheckerTypeStaticIpCheckers
+//	UptimeCheckConfigCheckerTypeVpcCheckers
 type UptimeCheckConfigCheckerTypeInput interface {
 	pulumi.Input
 
@@ -3979,12 +3959,6 @@ func (in *uptimeCheckConfigCheckerTypePtr) ToUptimeCheckConfigCheckerTypePtrOutp
 
 func (in *uptimeCheckConfigCheckerTypePtr) ToUptimeCheckConfigCheckerTypePtrOutputWithContext(ctx context.Context) UptimeCheckConfigCheckerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UptimeCheckConfigCheckerTypePtrOutput)
-}
-
-func (in *uptimeCheckConfigCheckerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UptimeCheckConfigCheckerType] {
-	return pulumix.Output[*UptimeCheckConfigCheckerType]{
-		OutputState: in.ToUptimeCheckConfigCheckerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type UptimeCheckConfigSelectedRegionsItem string
@@ -4127,10 +4101,17 @@ func (o UptimeCheckConfigSelectedRegionsItemPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// UptimeCheckConfigSelectedRegionsItemInput is an input type that accepts UptimeCheckConfigSelectedRegionsItemArgs and UptimeCheckConfigSelectedRegionsItemOutput values.
-// You can construct a concrete instance of `UptimeCheckConfigSelectedRegionsItemInput` via:
+// UptimeCheckConfigSelectedRegionsItemInput is an input type that accepts values of the UptimeCheckConfigSelectedRegionsItem enum
+// A concrete instance of `UptimeCheckConfigSelectedRegionsItemInput` can be one of the following:
 //
-//	UptimeCheckConfigSelectedRegionsItemArgs{...}
+//	UptimeCheckConfigSelectedRegionsItemRegionUnspecified
+//	UptimeCheckConfigSelectedRegionsItemUsa
+//	UptimeCheckConfigSelectedRegionsItemEurope
+//	UptimeCheckConfigSelectedRegionsItemSouthAmerica
+//	UptimeCheckConfigSelectedRegionsItemAsiaPacific
+//	UptimeCheckConfigSelectedRegionsItemUsaOregon
+//	UptimeCheckConfigSelectedRegionsItemUsaIowa
+//	UptimeCheckConfigSelectedRegionsItemUsaVirginia
 type UptimeCheckConfigSelectedRegionsItemInput interface {
 	pulumi.Input
 
@@ -4163,12 +4144,6 @@ func (in *uptimeCheckConfigSelectedRegionsItemPtr) ToUptimeCheckConfigSelectedRe
 
 func (in *uptimeCheckConfigSelectedRegionsItemPtr) ToUptimeCheckConfigSelectedRegionsItemPtrOutputWithContext(ctx context.Context) UptimeCheckConfigSelectedRegionsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UptimeCheckConfigSelectedRegionsItemPtrOutput)
-}
-
-func (in *uptimeCheckConfigSelectedRegionsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*UptimeCheckConfigSelectedRegionsItem] {
-	return pulumix.Output[*UptimeCheckConfigSelectedRegionsItem]{
-		OutputState: in.ToUptimeCheckConfigSelectedRegionsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // UptimeCheckConfigSelectedRegionsItemArrayInput is an input type that accepts UptimeCheckConfigSelectedRegionsItemArray and UptimeCheckConfigSelectedRegionsItemArrayOutput values.

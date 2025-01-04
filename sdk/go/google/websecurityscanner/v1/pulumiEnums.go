@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Controls export of scan configurations and results to Security Command Center.
@@ -142,10 +141,12 @@ func (o ScanConfigExportToSecurityCommandCenterPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScanConfigExportToSecurityCommandCenterInput is an input type that accepts ScanConfigExportToSecurityCommandCenterArgs and ScanConfigExportToSecurityCommandCenterOutput values.
-// You can construct a concrete instance of `ScanConfigExportToSecurityCommandCenterInput` via:
+// ScanConfigExportToSecurityCommandCenterInput is an input type that accepts values of the ScanConfigExportToSecurityCommandCenter enum
+// A concrete instance of `ScanConfigExportToSecurityCommandCenterInput` can be one of the following:
 //
-//	ScanConfigExportToSecurityCommandCenterArgs{...}
+//	ScanConfigExportToSecurityCommandCenterExportToSecurityCommandCenterUnspecified
+//	ScanConfigExportToSecurityCommandCenterEnabled
+//	ScanConfigExportToSecurityCommandCenterDisabled
 type ScanConfigExportToSecurityCommandCenterInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *scanConfigExportToSecurityCommandCenterPtr) ToScanConfigExportToSecuri
 
 func (in *scanConfigExportToSecurityCommandCenterPtr) ToScanConfigExportToSecurityCommandCenterPtrOutputWithContext(ctx context.Context) ScanConfigExportToSecurityCommandCenterPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScanConfigExportToSecurityCommandCenterPtrOutput)
-}
-
-func (in *scanConfigExportToSecurityCommandCenterPtr) ToOutput(ctx context.Context) pulumix.Output[*ScanConfigExportToSecurityCommandCenter] {
-	return pulumix.Output[*ScanConfigExportToSecurityCommandCenter]{
-		OutputState: in.ToScanConfigExportToSecurityCommandCenterPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The risk level selected for the scan
@@ -317,10 +312,12 @@ func (o ScanConfigRiskLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScanConfigRiskLevelInput is an input type that accepts ScanConfigRiskLevelArgs and ScanConfigRiskLevelOutput values.
-// You can construct a concrete instance of `ScanConfigRiskLevelInput` via:
+// ScanConfigRiskLevelInput is an input type that accepts values of the ScanConfigRiskLevel enum
+// A concrete instance of `ScanConfigRiskLevelInput` can be one of the following:
 //
-//	ScanConfigRiskLevelArgs{...}
+//	ScanConfigRiskLevelRiskLevelUnspecified
+//	ScanConfigRiskLevelNormal
+//	ScanConfigRiskLevelLow
 type ScanConfigRiskLevelInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *scanConfigRiskLevelPtr) ToScanConfigRiskLevelPtrOutput() ScanConfigRis
 
 func (in *scanConfigRiskLevelPtr) ToScanConfigRiskLevelPtrOutputWithContext(ctx context.Context) ScanConfigRiskLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScanConfigRiskLevelPtrOutput)
-}
-
-func (in *scanConfigRiskLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ScanConfigRiskLevel] {
-	return pulumix.Output[*ScanConfigRiskLevel]{
-		OutputState: in.ToScanConfigRiskLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The user agent used during scanning.
@@ -494,10 +485,13 @@ func (o ScanConfigUserAgentPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScanConfigUserAgentInput is an input type that accepts ScanConfigUserAgentArgs and ScanConfigUserAgentOutput values.
-// You can construct a concrete instance of `ScanConfigUserAgentInput` via:
+// ScanConfigUserAgentInput is an input type that accepts values of the ScanConfigUserAgent enum
+// A concrete instance of `ScanConfigUserAgentInput` can be one of the following:
 //
-//	ScanConfigUserAgentArgs{...}
+//	ScanConfigUserAgentUserAgentUnspecified
+//	ScanConfigUserAgentChromeLinux
+//	ScanConfigUserAgentChromeAndroid
+//	ScanConfigUserAgentSafariIphone
 type ScanConfigUserAgentInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *scanConfigUserAgentPtr) ToScanConfigUserAgentPtrOutput() ScanConfigUse
 
 func (in *scanConfigUserAgentPtr) ToScanConfigUserAgentPtrOutputWithContext(ctx context.Context) ScanConfigUserAgentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScanConfigUserAgentPtrOutput)
-}
-
-func (in *scanConfigUserAgentPtr) ToOutput(ctx context.Context) pulumix.Output[*ScanConfigUserAgent] {
-	return pulumix.Output[*ScanConfigUserAgent]{
-		OutputState: in.ToScanConfigUserAgentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

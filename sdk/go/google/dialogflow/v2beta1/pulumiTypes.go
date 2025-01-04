@@ -212,7 +212,7 @@ type GoogleCloudDialogflowV2beta1Context struct {
 	// The unique identifier of the context. Supported formats: - `projects//agent/sessions//contexts/`, - `projects//locations//agent/sessions//contexts/`, - `projects//agent/environments//users//sessions//contexts/`, - `projects//locations//agent/environments//users//sessions//contexts/`, The `Context ID` is always converted to lowercase, may only contain characters in `a-zA-Z0-9_-%` and may be at most 250 bytes long. If `Environment ID` is not specified, we assume default 'draft' environment. If `User ID` is not specified, we assume default '-' user. The following context names are reserved for internal use by Dialogflow. You should not use these contexts or create contexts with these names: * `__system_counters__` * `*_id_dialog_context` * `*_dialog_params_size`
 	Name string `pulumi:"name"`
 	// Optional. The collection of parameters associated with this context. Depending on your protocol or client library language, this is a map, associative array, symbol table, dictionary, or JSON object composed of a collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter name * MapValue type: If parameter's entity type is a composite entity then use map, otherwise, depending on the parameter value type, it could be one of string, number, boolean, null, list or map. * MapValue value: If parameter's entity type is a composite entity then use map from composite entity property names to property values, otherwise, use parameter value.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 }
 
 // GoogleCloudDialogflowV2beta1ContextInput is an input type that accepts GoogleCloudDialogflowV2beta1ContextArgs and GoogleCloudDialogflowV2beta1ContextOutput values.
@@ -233,7 +233,7 @@ type GoogleCloudDialogflowV2beta1ContextArgs struct {
 	// The unique identifier of the context. Supported formats: - `projects//agent/sessions//contexts/`, - `projects//locations//agent/sessions//contexts/`, - `projects//agent/environments//users//sessions//contexts/`, - `projects//locations//agent/environments//users//sessions//contexts/`, The `Context ID` is always converted to lowercase, may only contain characters in `a-zA-Z0-9_-%` and may be at most 250 bytes long. If `Environment ID` is not specified, we assume default 'draft' environment. If `User ID` is not specified, we assume default '-' user. The following context names are reserved for internal use by Dialogflow. You should not use these contexts or create contexts with these names: * `__system_counters__` * `*_id_dialog_context` * `*_dialog_params_size`
 	Name pulumi.StringInput `pulumi:"name"`
 	// Optional. The collection of parameters associated with this context. Depending on your protocol or client library language, this is a map, associative array, symbol table, dictionary, or JSON object composed of a collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter name * MapValue type: If parameter's entity type is a composite entity then use map, otherwise, depending on the parameter value type, it could be one of string, number, boolean, null, list or map. * MapValue value: If parameter's entity type is a composite entity then use map from composite entity property names to property values, otherwise, use parameter value.
-	Parameters pulumi.StringMapInput `pulumi:"parameters"`
+	Parameters pulumi.MapInput `pulumi:"parameters"`
 }
 
 func (GoogleCloudDialogflowV2beta1ContextArgs) ElementType() reflect.Type {
@@ -299,8 +299,8 @@ func (o GoogleCloudDialogflowV2beta1ContextOutput) Name() pulumi.StringOutput {
 }
 
 // Optional. The collection of parameters associated with this context. Depending on your protocol or client library language, this is a map, associative array, symbol table, dictionary, or JSON object composed of a collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter name * MapValue type: If parameter's entity type is a composite entity then use map, otherwise, depending on the parameter value type, it could be one of string, number, boolean, null, list or map. * MapValue value: If parameter's entity type is a composite entity then use map from composite entity property names to property values, otherwise, use parameter value.
-func (o GoogleCloudDialogflowV2beta1ContextOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1Context) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o GoogleCloudDialogflowV2beta1ContextOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1Context) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 type GoogleCloudDialogflowV2beta1ContextArrayOutput struct{ *pulumi.OutputState }
@@ -330,7 +330,7 @@ type GoogleCloudDialogflowV2beta1ContextResponse struct {
 	// The unique identifier of the context. Supported formats: - `projects//agent/sessions//contexts/`, - `projects//locations//agent/sessions//contexts/`, - `projects//agent/environments//users//sessions//contexts/`, - `projects//locations//agent/environments//users//sessions//contexts/`, The `Context ID` is always converted to lowercase, may only contain characters in `a-zA-Z0-9_-%` and may be at most 250 bytes long. If `Environment ID` is not specified, we assume default 'draft' environment. If `User ID` is not specified, we assume default '-' user. The following context names are reserved for internal use by Dialogflow. You should not use these contexts or create contexts with these names: * `__system_counters__` * `*_id_dialog_context` * `*_dialog_params_size`
 	Name string `pulumi:"name"`
 	// Optional. The collection of parameters associated with this context. Depending on your protocol or client library language, this is a map, associative array, symbol table, dictionary, or JSON object composed of a collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter name * MapValue type: If parameter's entity type is a composite entity then use map, otherwise, depending on the parameter value type, it could be one of string, number, boolean, null, list or map. * MapValue value: If parameter's entity type is a composite entity then use map from composite entity property names to property values, otherwise, use parameter value.
-	Parameters map[string]string `pulumi:"parameters"`
+	Parameters map[string]interface{} `pulumi:"parameters"`
 }
 
 // Dialogflow contexts are similar to natural language context. If a person says to you "they are orange", you need context in order to understand what "they" is referring to. Similarly, for Dialogflow to handle an end-user expression like that, it needs to be provided with context in order to correctly match an intent. Using contexts, you can control the flow of a conversation. You can configure contexts for an intent by setting input and output contexts, which are identified by string names. When an intent is matched, any configured output contexts for that intent become active. While any contexts are active, Dialogflow is more likely to match intents that are configured with input contexts that correspond to the currently active contexts. For more information about context, see the [Contexts guide](https://cloud.google.com/dialogflow/docs/contexts-overview).
@@ -359,8 +359,8 @@ func (o GoogleCloudDialogflowV2beta1ContextResponseOutput) Name() pulumi.StringO
 }
 
 // Optional. The collection of parameters associated with this context. Depending on your protocol or client library language, this is a map, associative array, symbol table, dictionary, or JSON object composed of a collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter name * MapValue type: If parameter's entity type is a composite entity then use map, otherwise, depending on the parameter value type, it could be one of string, number, boolean, null, list or map. * MapValue value: If parameter's entity type is a composite entity then use map from composite entity property names to property values, otherwise, use parameter value.
-func (o GoogleCloudDialogflowV2beta1ContextResponseOutput) Parameters() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1ContextResponse) map[string]string { return v.Parameters }).(pulumi.StringMapOutput)
+func (o GoogleCloudDialogflowV2beta1ContextResponseOutput) Parameters() pulumi.MapOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1ContextResponse) map[string]interface{} { return v.Parameters }).(pulumi.MapOutput)
 }
 
 type GoogleCloudDialogflowV2beta1ContextResponseArrayOutput struct{ *pulumi.OutputState }
@@ -2622,6 +2622,8 @@ type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfig 
 	KnowledgeBaseQuerySource *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySource `pulumi:"knowledgeBaseQuerySource"`
 	// Maximum number of results to return. Currently, if unset, defaults to 10. And the max number is 20.
 	MaxResults *int `pulumi:"maxResults"`
+	// Optional. The customized sections chosen to return when requesting a summary of a conversation.
+	Sections *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections `pulumi:"sections"`
 }
 
 // GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigInput is an input type that accepts GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigArgs and GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigOutput values.
@@ -2649,6 +2651,8 @@ type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigA
 	KnowledgeBaseQuerySource GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourcePtrInput `pulumi:"knowledgeBaseQuerySource"`
 	// Maximum number of results to return. Currently, if unset, defaults to 10. And the max number is 20.
 	MaxResults pulumi.IntPtrInput `pulumi:"maxResults"`
+	// Optional. The customized sections chosen to return when requesting a summary of a conversation.
+	Sections GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrInput `pulumi:"sections"`
 }
 
 func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigArgs) ElementType() reflect.Type {
@@ -2771,6 +2775,13 @@ func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConf
 	}).(pulumi.IntPtrOutput)
 }
 
+// Optional. The customized sections chosen to return when requesting a summary of a conversation.
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigOutput) Sections() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfig) *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections {
+		return v.Sections
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput)
+}
+
 type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigPtrOutput struct{ *pulumi.OutputState }
 
 func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigPtrOutput) ElementType() reflect.Type {
@@ -2853,6 +2864,16 @@ func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConf
 		}
 		return v.MaxResults
 	}).(pulumi.IntPtrOutput)
+}
+
+// Optional. The customized sections chosen to return when requesting a summary of a conversation.
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigPtrOutput) Sections() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return o.ApplyT(func(v *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfig) *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections {
+		if v == nil {
+			return nil
+		}
+		return v.Sections
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput)
 }
 
 // Settings that determine how to filter recent conversation context when generating suggestions.
@@ -3809,6 +3830,8 @@ type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigR
 	KnowledgeBaseQuerySource GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourceResponse `pulumi:"knowledgeBaseQuerySource"`
 	// Maximum number of results to return. Currently, if unset, defaults to 10. And the max number is 20.
 	MaxResults int `pulumi:"maxResults"`
+	// Optional. The customized sections chosen to return when requesting a summary of a conversation.
+	Sections GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponse `pulumi:"sections"`
 }
 
 // Config for suggestion query.
@@ -3866,6 +3889,183 @@ func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConf
 	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigResponse) int {
 		return v.MaxResults
 	}).(pulumi.IntOutput)
+}
+
+// Optional. The customized sections chosen to return when requesting a summary of a conversation.
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigResponseOutput) Sections() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigResponse) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponse {
+		return v.Sections
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput)
+}
+
+// Custom sections to return when requesting a summary of a conversation. This is only supported when `baseline_model_version` == '2.0'. Supported features: CONVERSATION_SUMMARIZATION, CONVERSATION_SUMMARIZATION_VOICE.
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections struct {
+	// The selected sections chosen to return when requesting a summary of a conversation. A duplicate selected section will be treated as a single selected section. If section types are not provided, the default will be {SITUATION, ACTION, RESULT}.
+	SectionTypes []GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem `pulumi:"sectionTypes"`
+}
+
+// GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsInput is an input type that accepts GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs and GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput values.
+// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsInput` via:
+//
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs{...}
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutputWithContext(context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput
+}
+
+// Custom sections to return when requesting a summary of a conversation. This is only supported when `baseline_model_version` == '2.0'. Supported features: CONVERSATION_SUMMARIZATION, CONVERSATION_SUMMARIZATION_VOICE.
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs struct {
+	// The selected sections chosen to return when requesting a summary of a conversation. A duplicate selected section will be treated as a single selected section. If section types are not provided, the default will be {SITUATION, ACTION, RESULT}.
+	SectionTypes GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayInput `pulumi:"sectionTypes"`
+}
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections)(nil)).Elem()
+}
+
+func (i GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput {
+	return i.ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutputWithContext(context.Background())
+}
+
+func (i GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput)
+}
+
+func (i GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return i.ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(context.Background())
+}
+
+func (i GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput).ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(ctx)
+}
+
+// GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrInput is an input type that accepts GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs, GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtr and GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput values.
+// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrInput` via:
+//
+//	        GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput
+}
+
+type googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrType GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs
+
+func GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtr(v *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrInput {
+	return (*googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrType)(v)
+}
+
+func (*googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections)(nil)).Elem()
+}
+
+func (i *googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrType) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return i.ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(context.Background())
+}
+
+func (i *googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrType) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput)
+}
+
+// Custom sections to return when requesting a summary of a conversation. This is only supported when `baseline_model_version` == '2.0'. Supported features: CONVERSATION_SUMMARIZATION, CONVERSATION_SUMMARIZATION_VOICE.
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return o.ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections) *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections {
+		return &v
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput)
+}
+
+// The selected sections chosen to return when requesting a summary of a conversation. A duplicate selected section will be treated as a single selected section. If section types are not provided, the default will be {SITUATION, ACTION, RESULT}.
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput) SectionTypes() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections) []GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem {
+		return v.SectionTypes
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput)
+}
+
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput) Elem() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput {
+	return o.ApplyT(func(v *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections {
+		if v != nil {
+			return *v
+		}
+		var ret GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections
+		return ret
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput)
+}
+
+// The selected sections chosen to return when requesting a summary of a conversation. A duplicate selected section will be treated as a single selected section. If section types are not provided, the default will be {SITUATION, ACTION, RESULT}.
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput) SectionTypes() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput {
+	return o.ApplyT(func(v *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSections) []GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem {
+		if v == nil {
+			return nil
+		}
+		return v.SectionTypes
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput)
+}
+
+// Custom sections to return when requesting a summary of a conversation. This is only supported when `baseline_model_version` == '2.0'. Supported features: CONVERSATION_SUMMARIZATION, CONVERSATION_SUMMARIZATION_VOICE.
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponse struct {
+	// The selected sections chosen to return when requesting a summary of a conversation. A duplicate selected section will be treated as a single selected section. If section types are not provided, the default will be {SITUATION, ACTION, RESULT}.
+	SectionTypes []string `pulumi:"sectionTypes"`
+}
+
+// Custom sections to return when requesting a summary of a conversation. This is only supported when `baseline_model_version` == '2.0'. Supported features: CONVERSATION_SUMMARIZATION, CONVERSATION_SUMMARIZATION_VOICE.
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponse)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput {
+	return o
+}
+
+// The selected sections chosen to return when requesting a summary of a conversation. A duplicate selected section will be treated as a single selected section. If section types are not provided, the default will be {SITUATION, ACTION, RESULT}.
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput) SectionTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponse) []string {
+		return v.SectionTypes
+	}).(pulumi.StringArrayOutput)
 }
 
 // Settings of suggestion trigger.
@@ -4774,7 +4974,7 @@ type GoogleCloudDialogflowV2beta1IntentMessage struct {
 	// The media content card for Actions on Google.
 	MediaContent *GoogleCloudDialogflowV2beta1IntentMessageMediaContent `pulumi:"mediaContent"`
 	// A custom platform-specific response.
-	Payload map[string]string `pulumi:"payload"`
+	Payload map[string]interface{} `pulumi:"payload"`
 	// Optional. The platform that this message is intended for.
 	Platform *GoogleCloudDialogflowV2beta1IntentMessagePlatform `pulumi:"platform"`
 	// Displays quick replies.
@@ -4831,7 +5031,7 @@ type GoogleCloudDialogflowV2beta1IntentMessageArgs struct {
 	// The media content card for Actions on Google.
 	MediaContent GoogleCloudDialogflowV2beta1IntentMessageMediaContentPtrInput `pulumi:"mediaContent"`
 	// A custom platform-specific response.
-	Payload pulumi.StringMapInput `pulumi:"payload"`
+	Payload pulumi.MapInput `pulumi:"payload"`
 	// Optional. The platform that this message is intended for.
 	Platform GoogleCloudDialogflowV2beta1IntentMessagePlatformPtrInput `pulumi:"platform"`
 	// Displays quick replies.
@@ -4967,8 +5167,8 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageOutput) MediaContent() GoogleCl
 }
 
 // A custom platform-specific response.
-func (o GoogleCloudDialogflowV2beta1IntentMessageOutput) Payload() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1IntentMessage) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+func (o GoogleCloudDialogflowV2beta1IntentMessageOutput) Payload() pulumi.MapOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1IntentMessage) map[string]interface{} { return v.Payload }).(pulumi.MapOutput)
 }
 
 // Optional. The platform that this message is intended for.
@@ -10829,7 +11029,7 @@ type GoogleCloudDialogflowV2beta1IntentMessageResponse struct {
 	// The media content card for Actions on Google.
 	MediaContent GoogleCloudDialogflowV2beta1IntentMessageMediaContentResponse `pulumi:"mediaContent"`
 	// A custom platform-specific response.
-	Payload map[string]string `pulumi:"payload"`
+	Payload map[string]interface{} `pulumi:"payload"`
 	// Optional. The platform that this message is intended for.
 	Platform string `pulumi:"platform"`
 	// Displays quick replies.
@@ -10928,8 +11128,8 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageResponseOutput) MediaContent() 
 }
 
 // A custom platform-specific response.
-func (o GoogleCloudDialogflowV2beta1IntentMessageResponseOutput) Payload() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1IntentMessageResponse) map[string]string { return v.Payload }).(pulumi.StringMapOutput)
+func (o GoogleCloudDialogflowV2beta1IntentMessageResponseOutput) Payload() pulumi.MapOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1IntentMessageResponse) map[string]interface{} { return v.Payload }).(pulumi.MapOutput)
 }
 
 // Optional. The platform that this message is intended for.
@@ -14600,6 +14800,31 @@ func (i *googleCloudDialogflowV2beta1SynthesizeSpeechConfigPtrType) ToGoogleClou
 	return pulumi.ToOutputWithContext(ctx, i).(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigPtrOutput)
 }
 
+// GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapInput is an input type that accepts GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMap and GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput values.
+// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapInput` via:
+//
+//	GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMap{ "key": GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigArgs{...} }
+type GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput() GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput
+	ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutputWithContext(context.Context) GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput
+}
+
+type GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMap map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigInput
+
+func (GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMap) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig)(nil)).Elem()
+}
+
+func (i GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMap) ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput() GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput {
+	return i.ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutputWithContext(context.Background())
+}
+
+func (i GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMap) ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput)
+}
+
 // Configuration of how speech should be synthesized.
 type GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigOutput struct{ *pulumi.OutputState }
 
@@ -14726,6 +14951,26 @@ func (o GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigPtrOutput) VolumeGainD
 	}).(pulumi.Float64PtrOutput)
 }
 
+type GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput) ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput() GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput) ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput) MapIndex(k pulumi.StringInput) GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig {
+		return vs[0].(map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig)[vs[1].(string)]
+	}).(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigOutput)
+}
+
 // Configuration of how speech should be synthesized.
 type GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponse struct {
 	// Optional. An identifier which selects 'audio effects' profiles that are applied on (post synthesized) text to speech. Effects are applied on top of each other in the order they are given.
@@ -14782,6 +15027,26 @@ func (o GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseOutput) Volume
 	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponse) float64 { return v.VolumeGainDb }).(pulumi.Float64Output)
 }
 
+type GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponse)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput) ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput() GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput) ToGoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput) MapIndex(k pulumi.StringInput) GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponse {
+		return vs[0].(map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponse)[vs[1].(string)]
+	}).(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseOutput)
+}
+
 // Instructs the speech synthesizer on how to generate the output audio content.
 type GoogleCloudDialogflowV2beta1TextToSpeechSettings struct {
 	// Optional. Indicates whether text to speech is enabled. Even when this field is false, other settings in this proto are still retained.
@@ -14791,7 +15056,7 @@ type GoogleCloudDialogflowV2beta1TextToSpeechSettings struct {
 	// Optional. The synthesis sample rate (in hertz) for this audio. If not provided, then the synthesizer will use the default sample rate based on the audio encoding. If this is different from the voice's natural sample rate, then the synthesizer will honor this request by converting to the desired sample rate (which might result in worse audio quality).
 	SampleRateHertz *int `pulumi:"sampleRateHertz"`
 	// Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
-	SynthesizeSpeechConfigs map[string]string `pulumi:"synthesizeSpeechConfigs"`
+	SynthesizeSpeechConfigs map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig `pulumi:"synthesizeSpeechConfigs"`
 }
 
 // GoogleCloudDialogflowV2beta1TextToSpeechSettingsInput is an input type that accepts GoogleCloudDialogflowV2beta1TextToSpeechSettingsArgs and GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutput values.
@@ -14814,7 +15079,7 @@ type GoogleCloudDialogflowV2beta1TextToSpeechSettingsArgs struct {
 	// Optional. The synthesis sample rate (in hertz) for this audio. If not provided, then the synthesizer will use the default sample rate based on the audio encoding. If this is different from the voice's natural sample rate, then the synthesizer will honor this request by converting to the desired sample rate (which might result in worse audio quality).
 	SampleRateHertz pulumi.IntPtrInput `pulumi:"sampleRateHertz"`
 	// Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
-	SynthesizeSpeechConfigs pulumi.StringMapInput `pulumi:"synthesizeSpeechConfigs"`
+	SynthesizeSpeechConfigs GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapInput `pulumi:"synthesizeSpeechConfigs"`
 }
 
 func (GoogleCloudDialogflowV2beta1TextToSpeechSettingsArgs) ElementType() reflect.Type {
@@ -14913,10 +15178,10 @@ func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutput) SampleRateHertz(
 }
 
 // Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
-func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutput) SynthesizeSpeechConfigs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1TextToSpeechSettings) map[string]string {
+func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutput) SynthesizeSpeechConfigs() GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1TextToSpeechSettings) map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig {
 		return v.SynthesizeSpeechConfigs
-	}).(pulumi.StringMapOutput)
+	}).(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput)
 }
 
 type GoogleCloudDialogflowV2beta1TextToSpeechSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -14974,13 +15239,13 @@ func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsPtrOutput) SampleRateHer
 }
 
 // Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
-func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsPtrOutput) SynthesizeSpeechConfigs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v *GoogleCloudDialogflowV2beta1TextToSpeechSettings) map[string]string {
+func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsPtrOutput) SynthesizeSpeechConfigs() GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput {
+	return o.ApplyT(func(v *GoogleCloudDialogflowV2beta1TextToSpeechSettings) map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfig {
 		if v == nil {
 			return nil
 		}
 		return v.SynthesizeSpeechConfigs
-	}).(pulumi.StringMapOutput)
+	}).(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput)
 }
 
 // Instructs the speech synthesizer on how to generate the output audio content.
@@ -14992,7 +15257,7 @@ type GoogleCloudDialogflowV2beta1TextToSpeechSettingsResponse struct {
 	// Optional. The synthesis sample rate (in hertz) for this audio. If not provided, then the synthesizer will use the default sample rate based on the audio encoding. If this is different from the voice's natural sample rate, then the synthesizer will honor this request by converting to the desired sample rate (which might result in worse audio quality).
 	SampleRateHertz int `pulumi:"sampleRateHertz"`
 	// Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
-	SynthesizeSpeechConfigs map[string]string `pulumi:"synthesizeSpeechConfigs"`
+	SynthesizeSpeechConfigs map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponse `pulumi:"synthesizeSpeechConfigs"`
 }
 
 // Instructs the speech synthesizer on how to generate the output audio content.
@@ -15026,10 +15291,10 @@ func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsResponseOutput) SampleRa
 }
 
 // Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
-func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsResponseOutput) SynthesizeSpeechConfigs() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1TextToSpeechSettingsResponse) map[string]string {
+func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsResponseOutput) SynthesizeSpeechConfigs() GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput {
+	return o.ApplyT(func(v GoogleCloudDialogflowV2beta1TextToSpeechSettingsResponse) map[string]GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponse {
 		return v.SynthesizeSpeechConfigs
-	}).(pulumi.StringMapOutput)
+	}).(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput)
 }
 
 // Description of which voice to use for speech synthesis.
@@ -15231,7 +15496,7 @@ type GoogleRpcStatusResponse struct {
 	// The status code, which should be an enum value of google.rpc.Code.
 	Code int `pulumi:"code"`
 	// A list of messages that carry the error details. There is a common set of message types for APIs to use.
-	Details []map[string]string `pulumi:"details"`
+	Details []map[string]interface{} `pulumi:"details"`
 	// A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.
 	Message string `pulumi:"message"`
 }
@@ -15257,8 +15522,8 @@ func (o GoogleRpcStatusResponseOutput) Code() pulumi.IntOutput {
 }
 
 // A list of messages that carry the error details. There is a common set of message types for APIs to use.
-func (o GoogleRpcStatusResponseOutput) Details() pulumi.StringMapArrayOutput {
-	return o.ApplyT(func(v GoogleRpcStatusResponse) []map[string]string { return v.Details }).(pulumi.StringMapArrayOutput)
+func (o GoogleRpcStatusResponseOutput) Details() pulumi.MapArrayOutput {
+	return o.ApplyT(func(v GoogleRpcStatusResponse) []map[string]interface{} { return v.Details }).(pulumi.MapArrayOutput)
 }
 
 // A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the google.rpc.Status.details field, or localized by the client.
@@ -15303,6 +15568,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySourcePtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourceInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourcePtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionTriggerSettingsInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionTriggerSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionTriggerSettingsPtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionTriggerSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentHandoffConfigInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentHandoffConfigArgs{})
@@ -15409,6 +15676,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1SuggestionFeaturePtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1SuggestionFeatureArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigPtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMap{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1TextToSpeechSettingsInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1TextToSpeechSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1TextToSpeechSettingsPtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1TextToSpeechSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1VoiceSelectionParamsInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1VoiceSelectionParamsArgs{})
@@ -15473,6 +15741,9 @@ func init() {
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourcePtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourceResponseOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigResponseOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsPtrOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsResponseOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionTriggerSettingsOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionTriggerSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionTriggerSettingsResponseOutput{})
@@ -15651,7 +15922,9 @@ func init() {
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1SuggestionFeatureResponseOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigPtrOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigMapOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1SynthesizeSpeechConfigResponseMapOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1TextToSpeechSettingsPtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1TextToSpeechSettingsResponseOutput{})

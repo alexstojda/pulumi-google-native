@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. The type of the disk to create.
@@ -144,10 +143,13 @@ func (o DiskTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// DiskTypeInput is an input type that accepts DiskTypeArgs and DiskTypeOutput values.
-// You can construct a concrete instance of `DiskTypeInput` via:
+// DiskTypeInput is an input type that accepts values of the DiskType enum
+// A concrete instance of `DiskTypeInput` can be one of the following:
 //
-//	DiskTypeArgs{...}
+//	DiskTypeTypeUnspecified
+//	DiskTypePersistentHdd
+//	DiskTypePersistentSsd
+//	DiskTypeLocalSsd
 type DiskTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *diskTypePtr) ToDiskTypePtrOutput() DiskTypePtrOutput {
 
 func (in *diskTypePtr) ToDiskTypePtrOutputWithContext(ctx context.Context) DiskTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DiskTypePtrOutput)
-}
-
-func (in *diskTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DiskType] {
-	return pulumix.Output[*DiskType]{
-		OutputState: in.ToDiskTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

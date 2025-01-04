@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Provides the state of this Vulnerability assessment.
@@ -146,10 +145,14 @@ func (o AssessmentStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AssessmentStateInput is an input type that accepts AssessmentStateArgs and AssessmentStateOutput values.
-// You can construct a concrete instance of `AssessmentStateInput` via:
+// AssessmentStateInput is an input type that accepts values of the AssessmentState enum
+// A concrete instance of `AssessmentStateInput` can be one of the following:
 //
-//	AssessmentStateArgs{...}
+//	AssessmentStateStateUnspecified
+//	AssessmentStateAffected
+//	AssessmentStateNotAffected
+//	AssessmentStateFixed
+//	AssessmentStateUnderInvestigation
 type AssessmentStateInput interface {
 	pulumi.Input
 
@@ -182,12 +185,6 @@ func (in *assessmentStatePtr) ToAssessmentStatePtrOutput() AssessmentStatePtrOut
 
 func (in *assessmentStatePtr) ToAssessmentStatePtrOutputWithContext(ctx context.Context) AssessmentStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AssessmentStatePtrOutput)
-}
-
-func (in *assessmentStatePtr) ToOutput(ctx context.Context) pulumix.Output[*AssessmentState] {
-	return pulumix.Output[*AssessmentState]{
-		OutputState: in.ToAssessmentStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the key, either stored in `public_key` or referenced in `key_id`
@@ -321,10 +318,12 @@ func (o BuildSignatureKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// BuildSignatureKeyTypeInput is an input type that accepts BuildSignatureKeyTypeArgs and BuildSignatureKeyTypeOutput values.
-// You can construct a concrete instance of `BuildSignatureKeyTypeInput` via:
+// BuildSignatureKeyTypeInput is an input type that accepts values of the BuildSignatureKeyType enum
+// A concrete instance of `BuildSignatureKeyTypeInput` can be one of the following:
 //
-//	BuildSignatureKeyTypeArgs{...}
+//	BuildSignatureKeyTypeKeyTypeUnspecified
+//	BuildSignatureKeyTypePgpAsciiArmored
+//	BuildSignatureKeyTypePkixPem
 type BuildSignatureKeyTypeInput interface {
 	pulumi.Input
 
@@ -357,12 +356,6 @@ func (in *buildSignatureKeyTypePtr) ToBuildSignatureKeyTypePtrOutput() BuildSign
 
 func (in *buildSignatureKeyTypePtr) ToBuildSignatureKeyTypePtrOutputWithContext(ctx context.Context) BuildSignatureKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BuildSignatureKeyTypePtrOutput)
-}
-
-func (in *buildSignatureKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BuildSignatureKeyType] {
-	return pulumix.Output[*BuildSignatureKeyType]{
-		OutputState: in.ToBuildSignatureKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defined in CVSS v3, CVSS v2
@@ -498,10 +491,13 @@ func (o CVSSAttackComplexityPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSAttackComplexityInput is an input type that accepts CVSSAttackComplexityArgs and CVSSAttackComplexityOutput values.
-// You can construct a concrete instance of `CVSSAttackComplexityInput` via:
+// CVSSAttackComplexityInput is an input type that accepts values of the CVSSAttackComplexity enum
+// A concrete instance of `CVSSAttackComplexityInput` can be one of the following:
 //
-//	CVSSAttackComplexityArgs{...}
+//	CVSSAttackComplexityAttackComplexityUnspecified
+//	CVSSAttackComplexityAttackComplexityLow
+//	CVSSAttackComplexityAttackComplexityHigh
+//	CVSSAttackComplexityAttackComplexityMedium
 type CVSSAttackComplexityInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *cvssattackComplexityPtr) ToCVSSAttackComplexityPtrOutput() CVSSAttackC
 
 func (in *cvssattackComplexityPtr) ToCVSSAttackComplexityPtrOutputWithContext(ctx context.Context) CVSSAttackComplexityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSAttackComplexityPtrOutput)
-}
-
-func (in *cvssattackComplexityPtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSAttackComplexity] {
-	return pulumix.Output[*CVSSAttackComplexity]{
-		OutputState: in.ToCVSSAttackComplexityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Base Metrics Represents the intrinsic characteristics of a vulnerability that are constant over time and across user environments. Defined in CVSS v3, CVSS v2
@@ -677,10 +667,14 @@ func (o CVSSAttackVectorPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSAttackVectorInput is an input type that accepts CVSSAttackVectorArgs and CVSSAttackVectorOutput values.
-// You can construct a concrete instance of `CVSSAttackVectorInput` via:
+// CVSSAttackVectorInput is an input type that accepts values of the CVSSAttackVector enum
+// A concrete instance of `CVSSAttackVectorInput` can be one of the following:
 //
-//	CVSSAttackVectorArgs{...}
+//	CVSSAttackVectorAttackVectorUnspecified
+//	CVSSAttackVectorAttackVectorNetwork
+//	CVSSAttackVectorAttackVectorAdjacent
+//	CVSSAttackVectorAttackVectorLocal
+//	CVSSAttackVectorAttackVectorPhysical
 type CVSSAttackVectorInput interface {
 	pulumi.Input
 
@@ -713,12 +707,6 @@ func (in *cvssattackVectorPtr) ToCVSSAttackVectorPtrOutput() CVSSAttackVectorPtr
 
 func (in *cvssattackVectorPtr) ToCVSSAttackVectorPtrOutputWithContext(ctx context.Context) CVSSAttackVectorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSAttackVectorPtrOutput)
-}
-
-func (in *cvssattackVectorPtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSAttackVector] {
-	return pulumix.Output[*CVSSAttackVector]{
-		OutputState: in.ToCVSSAttackVectorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defined in CVSS v2
@@ -854,10 +842,13 @@ func (o CVSSAuthenticationPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSAuthenticationInput is an input type that accepts CVSSAuthenticationArgs and CVSSAuthenticationOutput values.
-// You can construct a concrete instance of `CVSSAuthenticationInput` via:
+// CVSSAuthenticationInput is an input type that accepts values of the CVSSAuthentication enum
+// A concrete instance of `CVSSAuthenticationInput` can be one of the following:
 //
-//	CVSSAuthenticationArgs{...}
+//	CVSSAuthenticationAuthenticationUnspecified
+//	CVSSAuthenticationAuthenticationMultiple
+//	CVSSAuthenticationAuthenticationSingle
+//	CVSSAuthenticationAuthenticationNone
 type CVSSAuthenticationInput interface {
 	pulumi.Input
 
@@ -890,12 +881,6 @@ func (in *cvssauthenticationPtr) ToCVSSAuthenticationPtrOutput() CVSSAuthenticat
 
 func (in *cvssauthenticationPtr) ToCVSSAuthenticationPtrOutputWithContext(ctx context.Context) CVSSAuthenticationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSAuthenticationPtrOutput)
-}
-
-func (in *cvssauthenticationPtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSAuthentication] {
-	return pulumix.Output[*CVSSAuthentication]{
-		OutputState: in.ToCVSSAuthenticationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defined in CVSS v3, CVSS v2
@@ -1035,10 +1020,15 @@ func (o CVSSAvailabilityImpactPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSAvailabilityImpactInput is an input type that accepts CVSSAvailabilityImpactArgs and CVSSAvailabilityImpactOutput values.
-// You can construct a concrete instance of `CVSSAvailabilityImpactInput` via:
+// CVSSAvailabilityImpactInput is an input type that accepts values of the CVSSAvailabilityImpact enum
+// A concrete instance of `CVSSAvailabilityImpactInput` can be one of the following:
 //
-//	CVSSAvailabilityImpactArgs{...}
+//	CVSSAvailabilityImpactImpactUnspecified
+//	CVSSAvailabilityImpactImpactHigh
+//	CVSSAvailabilityImpactImpactLow
+//	CVSSAvailabilityImpactImpactNone
+//	CVSSAvailabilityImpactImpactPartial
+//	CVSSAvailabilityImpactImpactComplete
 type CVSSAvailabilityImpactInput interface {
 	pulumi.Input
 
@@ -1071,12 +1061,6 @@ func (in *cvssavailabilityImpactPtr) ToCVSSAvailabilityImpactPtrOutput() CVSSAva
 
 func (in *cvssavailabilityImpactPtr) ToCVSSAvailabilityImpactPtrOutputWithContext(ctx context.Context) CVSSAvailabilityImpactPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSAvailabilityImpactPtrOutput)
-}
-
-func (in *cvssavailabilityImpactPtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSAvailabilityImpact] {
-	return pulumix.Output[*CVSSAvailabilityImpact]{
-		OutputState: in.ToCVSSAvailabilityImpactPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defined in CVSS v3, CVSS v2
@@ -1216,10 +1200,15 @@ func (o CVSSConfidentialityImpactPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSConfidentialityImpactInput is an input type that accepts CVSSConfidentialityImpactArgs and CVSSConfidentialityImpactOutput values.
-// You can construct a concrete instance of `CVSSConfidentialityImpactInput` via:
+// CVSSConfidentialityImpactInput is an input type that accepts values of the CVSSConfidentialityImpact enum
+// A concrete instance of `CVSSConfidentialityImpactInput` can be one of the following:
 //
-//	CVSSConfidentialityImpactArgs{...}
+//	CVSSConfidentialityImpactImpactUnspecified
+//	CVSSConfidentialityImpactImpactHigh
+//	CVSSConfidentialityImpactImpactLow
+//	CVSSConfidentialityImpactImpactNone
+//	CVSSConfidentialityImpactImpactPartial
+//	CVSSConfidentialityImpactImpactComplete
 type CVSSConfidentialityImpactInput interface {
 	pulumi.Input
 
@@ -1252,12 +1241,6 @@ func (in *cvssconfidentialityImpactPtr) ToCVSSConfidentialityImpactPtrOutput() C
 
 func (in *cvssconfidentialityImpactPtr) ToCVSSConfidentialityImpactPtrOutputWithContext(ctx context.Context) CVSSConfidentialityImpactPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSConfidentialityImpactPtrOutput)
-}
-
-func (in *cvssconfidentialityImpactPtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSConfidentialityImpact] {
-	return pulumix.Output[*CVSSConfidentialityImpact]{
-		OutputState: in.ToCVSSConfidentialityImpactPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defined in CVSS v3, CVSS v2
@@ -1397,10 +1380,15 @@ func (o CVSSIntegrityImpactPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSIntegrityImpactInput is an input type that accepts CVSSIntegrityImpactArgs and CVSSIntegrityImpactOutput values.
-// You can construct a concrete instance of `CVSSIntegrityImpactInput` via:
+// CVSSIntegrityImpactInput is an input type that accepts values of the CVSSIntegrityImpact enum
+// A concrete instance of `CVSSIntegrityImpactInput` can be one of the following:
 //
-//	CVSSIntegrityImpactArgs{...}
+//	CVSSIntegrityImpactImpactUnspecified
+//	CVSSIntegrityImpactImpactHigh
+//	CVSSIntegrityImpactImpactLow
+//	CVSSIntegrityImpactImpactNone
+//	CVSSIntegrityImpactImpactPartial
+//	CVSSIntegrityImpactImpactComplete
 type CVSSIntegrityImpactInput interface {
 	pulumi.Input
 
@@ -1433,12 +1421,6 @@ func (in *cvssintegrityImpactPtr) ToCVSSIntegrityImpactPtrOutput() CVSSIntegrity
 
 func (in *cvssintegrityImpactPtr) ToCVSSIntegrityImpactPtrOutputWithContext(ctx context.Context) CVSSIntegrityImpactPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSIntegrityImpactPtrOutput)
-}
-
-func (in *cvssintegrityImpactPtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSIntegrityImpact] {
-	return pulumix.Output[*CVSSIntegrityImpact]{
-		OutputState: in.ToCVSSIntegrityImpactPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defined in CVSS v3
@@ -1574,10 +1556,13 @@ func (o CVSSPrivilegesRequiredPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSPrivilegesRequiredInput is an input type that accepts CVSSPrivilegesRequiredArgs and CVSSPrivilegesRequiredOutput values.
-// You can construct a concrete instance of `CVSSPrivilegesRequiredInput` via:
+// CVSSPrivilegesRequiredInput is an input type that accepts values of the CVSSPrivilegesRequired enum
+// A concrete instance of `CVSSPrivilegesRequiredInput` can be one of the following:
 //
-//	CVSSPrivilegesRequiredArgs{...}
+//	CVSSPrivilegesRequiredPrivilegesRequiredUnspecified
+//	CVSSPrivilegesRequiredPrivilegesRequiredNone
+//	CVSSPrivilegesRequiredPrivilegesRequiredLow
+//	CVSSPrivilegesRequiredPrivilegesRequiredHigh
 type CVSSPrivilegesRequiredInput interface {
 	pulumi.Input
 
@@ -1610,12 +1595,6 @@ func (in *cvssprivilegesRequiredPtr) ToCVSSPrivilegesRequiredPtrOutput() CVSSPri
 
 func (in *cvssprivilegesRequiredPtr) ToCVSSPrivilegesRequiredPtrOutputWithContext(ctx context.Context) CVSSPrivilegesRequiredPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSPrivilegesRequiredPtrOutput)
-}
-
-func (in *cvssprivilegesRequiredPtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSPrivilegesRequired] {
-	return pulumix.Output[*CVSSPrivilegesRequired]{
-		OutputState: in.ToCVSSPrivilegesRequiredPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defined in CVSS v3
@@ -1749,10 +1728,12 @@ func (o CVSSScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSScopeInput is an input type that accepts CVSSScopeArgs and CVSSScopeOutput values.
-// You can construct a concrete instance of `CVSSScopeInput` via:
+// CVSSScopeInput is an input type that accepts values of the CVSSScope enum
+// A concrete instance of `CVSSScopeInput` can be one of the following:
 //
-//	CVSSScopeArgs{...}
+//	CVSSScopeScopeUnspecified
+//	CVSSScopeScopeUnchanged
+//	CVSSScopeScopeChanged
 type CVSSScopeInput interface {
 	pulumi.Input
 
@@ -1785,12 +1766,6 @@ func (in *cvssscopePtr) ToCVSSScopePtrOutput() CVSSScopePtrOutput {
 
 func (in *cvssscopePtr) ToCVSSScopePtrOutputWithContext(ctx context.Context) CVSSScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSScopePtrOutput)
-}
-
-func (in *cvssscopePtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSScope] {
-	return pulumix.Output[*CVSSScope]{
-		OutputState: in.ToCVSSScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Defined in CVSS v3
@@ -1924,10 +1899,12 @@ func (o CVSSUserInteractionPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// CVSSUserInteractionInput is an input type that accepts CVSSUserInteractionArgs and CVSSUserInteractionOutput values.
-// You can construct a concrete instance of `CVSSUserInteractionInput` via:
+// CVSSUserInteractionInput is an input type that accepts values of the CVSSUserInteraction enum
+// A concrete instance of `CVSSUserInteractionInput` can be one of the following:
 //
-//	CVSSUserInteractionArgs{...}
+//	CVSSUserInteractionUserInteractionUnspecified
+//	CVSSUserInteractionUserInteractionNone
+//	CVSSUserInteractionUserInteractionRequired
 type CVSSUserInteractionInput interface {
 	pulumi.Input
 
@@ -1960,12 +1937,6 @@ func (in *cvssuserInteractionPtr) ToCVSSUserInteractionPtrOutput() CVSSUserInter
 
 func (in *cvssuserInteractionPtr) ToCVSSUserInteractionPtrOutputWithContext(ctx context.Context) CVSSUserInteractionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CVSSUserInteractionPtrOutput)
-}
-
-func (in *cvssuserInteractionPtr) ToOutput(ctx context.Context) pulumix.Output[*CVSSUserInteraction] {
-	return pulumix.Output[*CVSSUserInteraction]{
-		OutputState: in.ToCVSSUserInteractionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The severity level of this CIS benchmark check.
@@ -2105,10 +2076,15 @@ func (o CisBenchmarkSeverityPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// CisBenchmarkSeverityInput is an input type that accepts CisBenchmarkSeverityArgs and CisBenchmarkSeverityOutput values.
-// You can construct a concrete instance of `CisBenchmarkSeverityInput` via:
+// CisBenchmarkSeverityInput is an input type that accepts values of the CisBenchmarkSeverity enum
+// A concrete instance of `CisBenchmarkSeverityInput` can be one of the following:
 //
-//	CisBenchmarkSeverityArgs{...}
+//	CisBenchmarkSeveritySeverityUnspecified
+//	CisBenchmarkSeverityMinimal
+//	CisBenchmarkSeverityLow
+//	CisBenchmarkSeverityMedium
+//	CisBenchmarkSeverityHigh
+//	CisBenchmarkSeverityCritical
 type CisBenchmarkSeverityInput interface {
 	pulumi.Input
 
@@ -2141,12 +2117,6 @@ func (in *cisBenchmarkSeverityPtr) ToCisBenchmarkSeverityPtrOutput() CisBenchmar
 
 func (in *cisBenchmarkSeverityPtr) ToCisBenchmarkSeverityPtrOutputWithContext(ctx context.Context) CisBenchmarkSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CisBenchmarkSeverityPtrOutput)
-}
-
-func (in *cisBenchmarkSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*CisBenchmarkSeverity] {
-	return pulumix.Output[*CisBenchmarkSeverity]{
-		OutputState: in.ToCisBenchmarkSeverityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Platform hosting this deployment.
@@ -2282,10 +2252,13 @@ func (o DeploymentPlatformPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeploymentPlatformInput is an input type that accepts DeploymentPlatformArgs and DeploymentPlatformOutput values.
-// You can construct a concrete instance of `DeploymentPlatformInput` via:
+// DeploymentPlatformInput is an input type that accepts values of the DeploymentPlatform enum
+// A concrete instance of `DeploymentPlatformInput` can be one of the following:
 //
-//	DeploymentPlatformArgs{...}
+//	DeploymentPlatformPlatformUnspecified
+//	DeploymentPlatformGke
+//	DeploymentPlatformFlex
+//	DeploymentPlatformCustom
 type DeploymentPlatformInput interface {
 	pulumi.Input
 
@@ -2318,12 +2291,6 @@ func (in *deploymentPlatformPtr) ToDeploymentPlatformPtrOutput() DeploymentPlatf
 
 func (in *deploymentPlatformPtr) ToDeploymentPlatformPtrOutputWithContext(ctx context.Context) DeploymentPlatformPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeploymentPlatformPtrOutput)
-}
-
-func (in *deploymentPlatformPtr) ToOutput(ctx context.Context) pulumix.Output[*DeploymentPlatform] {
-	return pulumix.Output[*DeploymentPlatform]{
-		OutputState: in.ToDeploymentPlatformPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The status of discovery for the resource.
@@ -2465,10 +2432,16 @@ func (o DiscoveredAnalysisStatusPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DiscoveredAnalysisStatusInput is an input type that accepts DiscoveredAnalysisStatusArgs and DiscoveredAnalysisStatusOutput values.
-// You can construct a concrete instance of `DiscoveredAnalysisStatusInput` via:
+// DiscoveredAnalysisStatusInput is an input type that accepts values of the DiscoveredAnalysisStatus enum
+// A concrete instance of `DiscoveredAnalysisStatusInput` can be one of the following:
 //
-//	DiscoveredAnalysisStatusArgs{...}
+//	DiscoveredAnalysisStatusAnalysisStatusUnspecified
+//	DiscoveredAnalysisStatusPending
+//	DiscoveredAnalysisStatusScanning
+//	DiscoveredAnalysisStatusComplete
+//	DiscoveredAnalysisStatusFinishedSuccess
+//	DiscoveredAnalysisStatusFinishedFailed
+//	DiscoveredAnalysisStatusFinishedUnsupported
 type DiscoveredAnalysisStatusInput interface {
 	pulumi.Input
 
@@ -2501,12 +2474,6 @@ func (in *discoveredAnalysisStatusPtr) ToDiscoveredAnalysisStatusPtrOutput() Dis
 
 func (in *discoveredAnalysisStatusPtr) ToDiscoveredAnalysisStatusPtrOutputWithContext(ctx context.Context) DiscoveredAnalysisStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DiscoveredAnalysisStatusPtrOutput)
-}
-
-func (in *discoveredAnalysisStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DiscoveredAnalysisStatus] {
-	return pulumix.Output[*DiscoveredAnalysisStatus]{
-		OutputState: in.ToDiscoveredAnalysisStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the resource is continuously analyzed.
@@ -2640,10 +2607,12 @@ func (o DiscoveredContinuousAnalysisPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// DiscoveredContinuousAnalysisInput is an input type that accepts DiscoveredContinuousAnalysisArgs and DiscoveredContinuousAnalysisOutput values.
-// You can construct a concrete instance of `DiscoveredContinuousAnalysisInput` via:
+// DiscoveredContinuousAnalysisInput is an input type that accepts values of the DiscoveredContinuousAnalysis enum
+// A concrete instance of `DiscoveredContinuousAnalysisInput` can be one of the following:
 //
-//	DiscoveredContinuousAnalysisArgs{...}
+//	DiscoveredContinuousAnalysisContinuousAnalysisUnspecified
+//	DiscoveredContinuousAnalysisActive
+//	DiscoveredContinuousAnalysisInactive
 type DiscoveredContinuousAnalysisInput interface {
 	pulumi.Input
 
@@ -2676,12 +2645,6 @@ func (in *discoveredContinuousAnalysisPtr) ToDiscoveredContinuousAnalysisPtrOutp
 
 func (in *discoveredContinuousAnalysisPtr) ToDiscoveredContinuousAnalysisPtrOutputWithContext(ctx context.Context) DiscoveredContinuousAnalysisPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DiscoveredContinuousAnalysisPtrOutput)
-}
-
-func (in *discoveredContinuousAnalysisPtr) ToOutput(ctx context.Context) pulumix.Output[*DiscoveredContinuousAnalysis] {
-	return pulumix.Output[*DiscoveredContinuousAnalysis]{
-		OutputState: in.ToDiscoveredContinuousAnalysisPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The kind of analysis that is handled by this discovery.
@@ -2843,10 +2806,26 @@ func (o DiscoveryAnalysisKindPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DiscoveryAnalysisKindInput is an input type that accepts DiscoveryAnalysisKindArgs and DiscoveryAnalysisKindOutput values.
-// You can construct a concrete instance of `DiscoveryAnalysisKindInput` via:
+// DiscoveryAnalysisKindInput is an input type that accepts values of the DiscoveryAnalysisKind enum
+// A concrete instance of `DiscoveryAnalysisKindInput` can be one of the following:
 //
-//	DiscoveryAnalysisKindArgs{...}
+//	DiscoveryAnalysisKindKindUnspecified
+//	DiscoveryAnalysisKindPackageVulnerability
+//	DiscoveryAnalysisKindBuildDetails
+//	DiscoveryAnalysisKindImageBasis
+//	DiscoveryAnalysisKindPackageManager
+//	DiscoveryAnalysisKindDeployable
+//	DiscoveryAnalysisKindDiscovery
+//	DiscoveryAnalysisKindAttestationAuthority
+//	DiscoveryAnalysisKindUpgrade
+//	DiscoveryAnalysisKindCompliance
+//	DiscoveryAnalysisKindSbom
+//	DiscoveryAnalysisKindSpdxPackage
+//	DiscoveryAnalysisKindSpdxFile
+//	DiscoveryAnalysisKindSpdxRelationship
+//	DiscoveryAnalysisKindDsseAttestation
+//	DiscoveryAnalysisKindVulnerabilityAssessment
+//	DiscoveryAnalysisKindSbomReference
 type DiscoveryAnalysisKindInput interface {
 	pulumi.Input
 
@@ -2879,12 +2858,6 @@ func (in *discoveryAnalysisKindPtr) ToDiscoveryAnalysisKindPtrOutput() Discovery
 
 func (in *discoveryAnalysisKindPtr) ToDiscoveryAnalysisKindPtrOutputWithContext(ctx context.Context) DiscoveryAnalysisKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DiscoveryAnalysisKindPtrOutput)
-}
-
-func (in *discoveryAnalysisKindPtr) ToOutput(ctx context.Context) pulumix.Output[*DiscoveryAnalysisKind] {
-	return pulumix.Output[*DiscoveryAnalysisKind]{
-		OutputState: in.ToDiscoveryAnalysisKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The CPU architecture for which packages in this distribution channel were built
@@ -3018,10 +2991,12 @@ func (o DistributionArchitecturePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DistributionArchitectureInput is an input type that accepts DistributionArchitectureArgs and DistributionArchitectureOutput values.
-// You can construct a concrete instance of `DistributionArchitectureInput` via:
+// DistributionArchitectureInput is an input type that accepts values of the DistributionArchitecture enum
+// A concrete instance of `DistributionArchitectureInput` can be one of the following:
 //
-//	DistributionArchitectureArgs{...}
+//	DistributionArchitectureArchitectureUnspecified
+//	DistributionArchitectureX86
+//	DistributionArchitectureX64
 type DistributionArchitectureInput interface {
 	pulumi.Input
 
@@ -3054,12 +3029,6 @@ func (in *distributionArchitecturePtr) ToDistributionArchitecturePtrOutput() Dis
 
 func (in *distributionArchitecturePtr) ToDistributionArchitecturePtrOutputWithContext(ctx context.Context) DistributionArchitecturePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DistributionArchitecturePtrOutput)
-}
-
-func (in *distributionArchitecturePtr) ToOutput(ctx context.Context) pulumix.Output[*DistributionArchitecture] {
-	return pulumix.Output[*DistributionArchitecture]{
-		OutputState: in.ToDistributionArchitecturePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // An External Reference allows a Package to reference an external source of additional information, metadata, enumerations, asset identifiers, or downloadable content believed to be relevant to the Package
@@ -3197,10 +3166,14 @@ func (o ExternalRefCategoryPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExternalRefCategoryInput is an input type that accepts ExternalRefCategoryArgs and ExternalRefCategoryOutput values.
-// You can construct a concrete instance of `ExternalRefCategoryInput` via:
+// ExternalRefCategoryInput is an input type that accepts values of the ExternalRefCategory enum
+// A concrete instance of `ExternalRefCategoryInput` can be one of the following:
 //
-//	ExternalRefCategoryArgs{...}
+//	ExternalRefCategoryCategoryUnspecified
+//	ExternalRefCategorySecurity
+//	ExternalRefCategoryPackageManager
+//	ExternalRefCategoryPersistentId
+//	ExternalRefCategoryOther
 type ExternalRefCategoryInput interface {
 	pulumi.Input
 
@@ -3233,12 +3206,6 @@ func (in *externalRefCategoryPtr) ToExternalRefCategoryPtrOutput() ExternalRefCa
 
 func (in *externalRefCategoryPtr) ToExternalRefCategoryPtrOutputWithContext(ctx context.Context) ExternalRefCategoryPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExternalRefCategoryPtrOutput)
-}
-
-func (in *externalRefCategoryPtr) ToOutput(ctx context.Context) pulumix.Output[*ExternalRefCategory] {
-	return pulumix.Output[*ExternalRefCategory]{
-		OutputState: in.ToExternalRefCategoryPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // This field provides information about the type of file identified
@@ -3390,10 +3357,21 @@ func (o FileNoteFileTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FileNoteFileTypeInput is an input type that accepts FileNoteFileTypeArgs and FileNoteFileTypeOutput values.
-// You can construct a concrete instance of `FileNoteFileTypeInput` via:
+// FileNoteFileTypeInput is an input type that accepts values of the FileNoteFileType enum
+// A concrete instance of `FileNoteFileTypeInput` can be one of the following:
 //
-//	FileNoteFileTypeArgs{...}
+//	FileNoteFileTypeFileTypeUnspecified
+//	FileNoteFileTypeSource
+//	FileNoteFileTypeBinary
+//	FileNoteFileTypeArchive
+//	FileNoteFileTypeApplication
+//	FileNoteFileTypeAudio
+//	FileNoteFileTypeImage
+//	FileNoteFileTypeText
+//	FileNoteFileTypeVideo
+//	FileNoteFileTypeDocumentation
+//	FileNoteFileTypeSpdx
+//	FileNoteFileTypeOther
 type FileNoteFileTypeInput interface {
 	pulumi.Input
 
@@ -3426,12 +3404,6 @@ func (in *fileNoteFileTypePtr) ToFileNoteFileTypePtrOutput() FileNoteFileTypePtr
 
 func (in *fileNoteFileTypePtr) ToFileNoteFileTypePtrOutputWithContext(ctx context.Context) FileNoteFileTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FileNoteFileTypePtrOutput)
-}
-
-func (in *fileNoteFileTypePtr) ToOutput(ctx context.Context) pulumix.Output[*FileNoteFileType] {
-	return pulumix.Output[*FileNoteFileType]{
-		OutputState: in.ToFileNoteFileTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The alias kind.
@@ -3567,10 +3539,13 @@ func (o GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindInput is an input type that accepts GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindArgs and GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindOutput values.
-// You can construct a concrete instance of `GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindInput` via:
+// GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindInput is an input type that accepts values of the GoogleDevtoolsContaineranalysisV1alpha1AliasContextKind enum
+// A concrete instance of `GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindInput` can be one of the following:
 //
-//	GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindArgs{...}
+//	GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindKindUnspecified
+//	GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindFixed
+//	GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindMovable
+//	GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindOther
 type GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindInput interface {
 	pulumi.Input
 
@@ -3603,12 +3578,6 @@ func (in *googleDevtoolsContaineranalysisV1alpha1AliasContextKindPtr) ToGoogleDe
 
 func (in *googleDevtoolsContaineranalysisV1alpha1AliasContextKindPtr) ToGoogleDevtoolsContaineranalysisV1alpha1AliasContextKindPtrOutputWithContext(ctx context.Context) GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleDevtoolsContaineranalysisV1alpha1AliasContextKindPtrOutput)
-}
-
-func (in *googleDevtoolsContaineranalysisV1alpha1AliasContextKindPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleDevtoolsContaineranalysisV1alpha1AliasContextKind] {
-	return pulumix.Output[*GoogleDevtoolsContaineranalysisV1alpha1AliasContextKind]{
-		OutputState: in.ToGoogleDevtoolsContaineranalysisV1alpha1AliasContextKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of hash that was performed.
@@ -3740,10 +3709,11 @@ func (o HashTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// HashTypeInput is an input type that accepts HashTypeArgs and HashTypeOutput values.
-// You can construct a concrete instance of `HashTypeInput` via:
+// HashTypeInput is an input type that accepts values of the HashType enum
+// A concrete instance of `HashTypeInput` can be one of the following:
 //
-//	HashTypeArgs{...}
+//	HashTypeNone
+//	HashTypeSha256
 type HashTypeInput interface {
 	pulumi.Input
 
@@ -3776,12 +3746,6 @@ func (in *hashTypePtr) ToHashTypePtrOutput() HashTypePtrOutput {
 
 func (in *hashTypePtr) ToHashTypePtrOutputWithContext(ctx context.Context) HashTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HashTypePtrOutput)
-}
-
-func (in *hashTypePtr) ToOutput(ctx context.Context) pulumix.Output[*HashType] {
-	return pulumix.Output[*HashType]{
-		OutputState: in.ToHashTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The field that is set in the API proto.
@@ -3913,10 +3877,11 @@ func (o IdentifierHelperFieldPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// IdentifierHelperFieldInput is an input type that accepts IdentifierHelperFieldArgs and IdentifierHelperFieldOutput values.
-// You can construct a concrete instance of `IdentifierHelperFieldInput` via:
+// IdentifierHelperFieldInput is an input type that accepts values of the IdentifierHelperField enum
+// A concrete instance of `IdentifierHelperFieldInput` can be one of the following:
 //
-//	IdentifierHelperFieldArgs{...}
+//	IdentifierHelperFieldIdentifierHelperFieldUnspecified
+//	IdentifierHelperFieldGenericUri
 type IdentifierHelperFieldInput interface {
 	pulumi.Input
 
@@ -3949,12 +3914,6 @@ func (in *identifierHelperFieldPtr) ToIdentifierHelperFieldPtrOutput() Identifie
 
 func (in *identifierHelperFieldPtr) ToIdentifierHelperFieldPtrOutputWithContext(ctx context.Context) IdentifierHelperFieldPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IdentifierHelperFieldPtrOutput)
-}
-
-func (in *identifierHelperFieldPtr) ToOutput(ctx context.Context) pulumix.Output[*IdentifierHelperField] {
-	return pulumix.Output[*IdentifierHelperField]{
-		OutputState: in.ToIdentifierHelperFieldPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The justification type for this vulnerability.
@@ -4094,10 +4053,15 @@ func (o JustificationJustificationTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// JustificationJustificationTypeInput is an input type that accepts JustificationJustificationTypeArgs and JustificationJustificationTypeOutput values.
-// You can construct a concrete instance of `JustificationJustificationTypeInput` via:
+// JustificationJustificationTypeInput is an input type that accepts values of the JustificationJustificationType enum
+// A concrete instance of `JustificationJustificationTypeInput` can be one of the following:
 //
-//	JustificationJustificationTypeArgs{...}
+//	JustificationJustificationTypeJustificationTypeUnspecified
+//	JustificationJustificationTypeComponentNotPresent
+//	JustificationJustificationTypeVulnerableCodeNotPresent
+//	JustificationJustificationTypeVulnerableCodeNotInExecutePath
+//	JustificationJustificationTypeVulnerableCodeCannotBeControlledByAdversary
+//	JustificationJustificationTypeInlineMitigationsAlreadyExist
 type JustificationJustificationTypeInput interface {
 	pulumi.Input
 
@@ -4130,12 +4094,6 @@ func (in *justificationJustificationTypePtr) ToJustificationJustificationTypePtr
 
 func (in *justificationJustificationTypePtr) ToJustificationJustificationTypePtrOutputWithContext(ctx context.Context) JustificationJustificationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JustificationJustificationTypePtrOutput)
-}
-
-func (in *justificationJustificationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*JustificationJustificationType] {
-	return pulumix.Output[*JustificationJustificationType]{
-		OutputState: in.ToJustificationJustificationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The recovered Dockerfile directive used to construct this layer.
@@ -4299,10 +4257,27 @@ func (o LayerDirectivePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// LayerDirectiveInput is an input type that accepts LayerDirectiveArgs and LayerDirectiveOutput values.
-// You can construct a concrete instance of `LayerDirectiveInput` via:
+// LayerDirectiveInput is an input type that accepts values of the LayerDirective enum
+// A concrete instance of `LayerDirectiveInput` can be one of the following:
 //
-//	LayerDirectiveArgs{...}
+//	LayerDirectiveDirectiveUnspecified
+//	LayerDirectiveMaintainer
+//	LayerDirectiveRun
+//	LayerDirectiveCmd
+//	LayerDirectiveLabel
+//	LayerDirectiveExpose
+//	LayerDirectiveEnv
+//	LayerDirectiveAdd
+//	LayerDirectiveCopy
+//	LayerDirectiveEntrypoint
+//	LayerDirectiveVolume
+//	LayerDirectiveUser
+//	LayerDirectiveWorkdir
+//	LayerDirectiveArg
+//	LayerDirectiveOnbuild
+//	LayerDirectiveStopsignal
+//	LayerDirectiveHealthcheck
+//	LayerDirectiveShell
 type LayerDirectiveInput interface {
 	pulumi.Input
 
@@ -4335,12 +4310,6 @@ func (in *layerDirectivePtr) ToLayerDirectivePtrOutput() LayerDirectivePtrOutput
 
 func (in *layerDirectivePtr) ToLayerDirectivePtrOutputWithContext(ctx context.Context) LayerDirectivePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LayerDirectivePtrOutput)
-}
-
-func (in *layerDirectivePtr) ToOutput(ctx context.Context) pulumix.Output[*LayerDirective] {
-	return pulumix.Output[*LayerDirective]{
-		OutputState: in.ToLayerDirectivePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The CPU architecture for which packages in this distribution channel were built. Architecture will be blank for language packages.
@@ -4474,10 +4443,12 @@ func (o PackageArchitecturePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// PackageArchitectureInput is an input type that accepts PackageArchitectureArgs and PackageArchitectureOutput values.
-// You can construct a concrete instance of `PackageArchitectureInput` via:
+// PackageArchitectureInput is an input type that accepts values of the PackageArchitecture enum
+// A concrete instance of `PackageArchitectureInput` can be one of the following:
 //
-//	PackageArchitectureArgs{...}
+//	PackageArchitectureArchitectureUnspecified
+//	PackageArchitectureX86
+//	PackageArchitectureX64
 type PackageArchitectureInput interface {
 	pulumi.Input
 
@@ -4510,12 +4481,6 @@ func (in *packageArchitecturePtr) ToPackageArchitecturePtrOutput() PackageArchit
 
 func (in *packageArchitecturePtr) ToPackageArchitecturePtrOutputWithContext(ctx context.Context) PackageArchitecturePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PackageArchitecturePtrOutput)
-}
-
-func (in *packageArchitecturePtr) ToOutput(ctx context.Context) pulumix.Output[*PackageArchitecture] {
-	return pulumix.Output[*PackageArchitecture]{
-		OutputState: in.ToPackageArchitecturePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type (for example schema) of the attestation payload that was signed. The verifier must ensure that the provided type is one that the verifier supports, and that the attestation payload is a valid instantiation of that type (for example by validating a JSON schema).
@@ -4647,10 +4612,11 @@ func (o PgpSignedAttestationContentTypePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// PgpSignedAttestationContentTypeInput is an input type that accepts PgpSignedAttestationContentTypeArgs and PgpSignedAttestationContentTypeOutput values.
-// You can construct a concrete instance of `PgpSignedAttestationContentTypeInput` via:
+// PgpSignedAttestationContentTypeInput is an input type that accepts values of the PgpSignedAttestationContentType enum
+// A concrete instance of `PgpSignedAttestationContentTypeInput` can be one of the following:
 //
-//	PgpSignedAttestationContentTypeArgs{...}
+//	PgpSignedAttestationContentTypeContentTypeUnspecified
+//	PgpSignedAttestationContentTypeSimpleSigningJson
 type PgpSignedAttestationContentTypeInput interface {
 	pulumi.Input
 
@@ -4683,12 +4649,6 @@ func (in *pgpSignedAttestationContentTypePtr) ToPgpSignedAttestationContentTypeP
 
 func (in *pgpSignedAttestationContentTypePtr) ToPgpSignedAttestationContentTypePtrOutputWithContext(ctx context.Context) PgpSignedAttestationContentTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PgpSignedAttestationContentTypePtrOutput)
-}
-
-func (in *pgpSignedAttestationContentTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PgpSignedAttestationContentType] {
-	return pulumix.Output[*PgpSignedAttestationContentType]{
-		OutputState: in.ToPgpSignedAttestationContentTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of relationship between the source and target SPDX elements
@@ -4904,10 +4864,53 @@ func (o RelationshipNoteTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// RelationshipNoteTypeInput is an input type that accepts RelationshipNoteTypeArgs and RelationshipNoteTypeOutput values.
-// You can construct a concrete instance of `RelationshipNoteTypeInput` via:
+// RelationshipNoteTypeInput is an input type that accepts values of the RelationshipNoteType enum
+// A concrete instance of `RelationshipNoteTypeInput` can be one of the following:
 //
-//	RelationshipNoteTypeArgs{...}
+//	RelationshipNoteTypeRelationshipTypeUnspecified
+//	RelationshipNoteTypeDescribes
+//	RelationshipNoteTypeDescribedBy
+//	RelationshipNoteTypeContains
+//	RelationshipNoteTypeContainedBy
+//	RelationshipNoteTypeDependsOn
+//	RelationshipNoteTypeDependencyOf
+//	RelationshipNoteTypeDependencyManifestOf
+//	RelationshipNoteTypeBuildDependencyOf
+//	RelationshipNoteTypeDevDependencyOf
+//	RelationshipNoteTypeOptionalDependencyOf
+//	RelationshipNoteTypeProvidedDependencyOf
+//	RelationshipNoteTypeTestDependencyOf
+//	RelationshipNoteTypeRuntimeDependencyOf
+//	RelationshipNoteTypeExampleOf
+//	RelationshipNoteTypeGenerates
+//	RelationshipNoteTypeGeneratedFrom
+//	RelationshipNoteTypeAncestorOf
+//	RelationshipNoteTypeDescendantOf
+//	RelationshipNoteTypeVariantOf
+//	RelationshipNoteTypeDistributionArtifact
+//	RelationshipNoteTypePatchFor
+//	RelationshipNoteTypePatchApplied
+//	RelationshipNoteTypeCopyOf
+//	RelationshipNoteTypeFileAdded
+//	RelationshipNoteTypeFileDeleted
+//	RelationshipNoteTypeFileModified
+//	RelationshipNoteTypeExpandedFromArchive
+//	RelationshipNoteTypeDynamicLink
+//	RelationshipNoteTypeStaticLink
+//	RelationshipNoteTypeDataFileOf
+//	RelationshipNoteTypeTestCaseOf
+//	RelationshipNoteTypeBuildToolOf
+//	RelationshipNoteTypeDevToolOf
+//	RelationshipNoteTypeTestOf
+//	RelationshipNoteTypeTestToolOf
+//	RelationshipNoteTypeDocumentationOf
+//	RelationshipNoteTypeOptionalComponentOf
+//	RelationshipNoteTypeMetafileOf
+//	RelationshipNoteTypePackageOf
+//	RelationshipNoteTypeAmends
+//	RelationshipNoteTypePrerequisiteFor
+//	RelationshipNoteTypeHasPrerequisite
+//	RelationshipNoteTypeOther
 type RelationshipNoteTypeInput interface {
 	pulumi.Input
 
@@ -4940,12 +4943,6 @@ func (in *relationshipNoteTypePtr) ToRelationshipNoteTypePtrOutput() Relationshi
 
 func (in *relationshipNoteTypePtr) ToRelationshipNoteTypePtrOutputWithContext(ctx context.Context) RelationshipNoteTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RelationshipNoteTypePtrOutput)
-}
-
-func (in *relationshipNoteTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RelationshipNoteType] {
-	return pulumix.Output[*RelationshipNoteType]{
-		OutputState: in.ToRelationshipNoteTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of remediation that can be applied.
@@ -5085,10 +5082,15 @@ func (o RemediationRemediationTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// RemediationRemediationTypeInput is an input type that accepts RemediationRemediationTypeArgs and RemediationRemediationTypeOutput values.
-// You can construct a concrete instance of `RemediationRemediationTypeInput` via:
+// RemediationRemediationTypeInput is an input type that accepts values of the RemediationRemediationType enum
+// A concrete instance of `RemediationRemediationTypeInput` can be one of the following:
 //
-//	RemediationRemediationTypeArgs{...}
+//	RemediationRemediationTypeRemediationTypeUnspecified
+//	RemediationRemediationTypeMitigation
+//	RemediationRemediationTypeNoFixPlanned
+//	RemediationRemediationTypeNoneAvailable
+//	RemediationRemediationTypeVendorFix
+//	RemediationRemediationTypeWorkaround
 type RemediationRemediationTypeInput interface {
 	pulumi.Input
 
@@ -5121,12 +5123,6 @@ func (in *remediationRemediationTypePtr) ToRemediationRemediationTypePtrOutput()
 
 func (in *remediationRemediationTypePtr) ToRemediationRemediationTypePtrOutputWithContext(ctx context.Context) RemediationRemediationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RemediationRemediationTypePtrOutput)
-}
-
-func (in *remediationRemediationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RemediationRemediationType] {
-	return pulumix.Output[*RemediationRemediationType]{
-		OutputState: in.ToRemediationRemediationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Distinguish between sentinel MIN/MAX versions and normal versions. If kind is not NORMAL, then the other fields are ignored.
@@ -5260,10 +5256,12 @@ func (o VersionKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// VersionKindInput is an input type that accepts VersionKindArgs and VersionKindOutput values.
-// You can construct a concrete instance of `VersionKindInput` via:
+// VersionKindInput is an input type that accepts values of the VersionKind enum
+// A concrete instance of `VersionKindInput` can be one of the following:
 //
-//	VersionKindArgs{...}
+//	VersionKindNormal
+//	VersionKindMinimum
+//	VersionKindMaximum
 type VersionKindInput interface {
 	pulumi.Input
 
@@ -5296,12 +5294,6 @@ func (in *versionKindPtr) ToVersionKindPtrOutput() VersionKindPtrOutput {
 
 func (in *versionKindPtr) ToVersionKindPtrOutputWithContext(ctx context.Context) VersionKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VersionKindPtrOutput)
-}
-
-func (in *versionKindPtr) ToOutput(ctx context.Context) pulumix.Output[*VersionKind] {
-	return pulumix.Output[*VersionKind]{
-		OutputState: in.ToVersionKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Provides the state of this Vulnerability assessment.
@@ -5439,10 +5431,14 @@ func (o VexAssessmentStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// VexAssessmentStateInput is an input type that accepts VexAssessmentStateArgs and VexAssessmentStateOutput values.
-// You can construct a concrete instance of `VexAssessmentStateInput` via:
+// VexAssessmentStateInput is an input type that accepts values of the VexAssessmentState enum
+// A concrete instance of `VexAssessmentStateInput` can be one of the following:
 //
-//	VexAssessmentStateArgs{...}
+//	VexAssessmentStateStateUnspecified
+//	VexAssessmentStateAffected
+//	VexAssessmentStateNotAffected
+//	VexAssessmentStateFixed
+//	VexAssessmentStateUnderInvestigation
 type VexAssessmentStateInput interface {
 	pulumi.Input
 
@@ -5475,12 +5471,6 @@ func (in *vexAssessmentStatePtr) ToVexAssessmentStatePtrOutput() VexAssessmentSt
 
 func (in *vexAssessmentStatePtr) ToVexAssessmentStatePtrOutputWithContext(ctx context.Context) VexAssessmentStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VexAssessmentStatePtrOutput)
-}
-
-func (in *vexAssessmentStatePtr) ToOutput(ctx context.Context) pulumix.Output[*VexAssessmentState] {
-	return pulumix.Output[*VexAssessmentState]{
-		OutputState: in.ToVexAssessmentStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The distro assigned severity for this vulnerability when that is available and note provider assigned severity when distro has not yet assigned a severity for this vulnerability. When there are multiple package issues for this vulnerability, they can have different effective severities because some might come from the distro and some might come from installed language packs (e.g. Maven JARs or Go binaries). For this reason, it is advised to use the effective severity on the PackageIssue level, as this field may eventually be deprecated. In the case where multiple PackageIssues have different effective severities, the one set here will be the highest severity of any of the PackageIssues.
@@ -5620,10 +5610,15 @@ func (o VulnerabilityDetailsEffectiveSeverityPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// VulnerabilityDetailsEffectiveSeverityInput is an input type that accepts VulnerabilityDetailsEffectiveSeverityArgs and VulnerabilityDetailsEffectiveSeverityOutput values.
-// You can construct a concrete instance of `VulnerabilityDetailsEffectiveSeverityInput` via:
+// VulnerabilityDetailsEffectiveSeverityInput is an input type that accepts values of the VulnerabilityDetailsEffectiveSeverity enum
+// A concrete instance of `VulnerabilityDetailsEffectiveSeverityInput` can be one of the following:
 //
-//	VulnerabilityDetailsEffectiveSeverityArgs{...}
+//	VulnerabilityDetailsEffectiveSeveritySeverityUnspecified
+//	VulnerabilityDetailsEffectiveSeverityMinimal
+//	VulnerabilityDetailsEffectiveSeverityLow
+//	VulnerabilityDetailsEffectiveSeverityMedium
+//	VulnerabilityDetailsEffectiveSeverityHigh
+//	VulnerabilityDetailsEffectiveSeverityCritical
 type VulnerabilityDetailsEffectiveSeverityInput interface {
 	pulumi.Input
 
@@ -5656,12 +5651,6 @@ func (in *vulnerabilityDetailsEffectiveSeverityPtr) ToVulnerabilityDetailsEffect
 
 func (in *vulnerabilityDetailsEffectiveSeverityPtr) ToVulnerabilityDetailsEffectiveSeverityPtrOutputWithContext(ctx context.Context) VulnerabilityDetailsEffectiveSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VulnerabilityDetailsEffectiveSeverityPtrOutput)
-}
-
-func (in *vulnerabilityDetailsEffectiveSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*VulnerabilityDetailsEffectiveSeverity] {
-	return pulumix.Output[*VulnerabilityDetailsEffectiveSeverity]{
-		OutputState: in.ToVulnerabilityDetailsEffectiveSeverityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CVSS version used to populate cvss_score and severity.
@@ -5795,10 +5784,12 @@ func (o VulnerabilityTypeCvssVersionPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// VulnerabilityTypeCvssVersionInput is an input type that accepts VulnerabilityTypeCvssVersionArgs and VulnerabilityTypeCvssVersionOutput values.
-// You can construct a concrete instance of `VulnerabilityTypeCvssVersionInput` via:
+// VulnerabilityTypeCvssVersionInput is an input type that accepts values of the VulnerabilityTypeCvssVersion enum
+// A concrete instance of `VulnerabilityTypeCvssVersionInput` can be one of the following:
 //
-//	VulnerabilityTypeCvssVersionArgs{...}
+//	VulnerabilityTypeCvssVersionCvssVersionUnspecified
+//	VulnerabilityTypeCvssVersionCvssVersion2
+//	VulnerabilityTypeCvssVersionCvssVersion3
 type VulnerabilityTypeCvssVersionInput interface {
 	pulumi.Input
 
@@ -5831,12 +5822,6 @@ func (in *vulnerabilityTypeCvssVersionPtr) ToVulnerabilityTypeCvssVersionPtrOutp
 
 func (in *vulnerabilityTypeCvssVersionPtr) ToVulnerabilityTypeCvssVersionPtrOutputWithContext(ctx context.Context) VulnerabilityTypeCvssVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VulnerabilityTypeCvssVersionPtrOutput)
-}
-
-func (in *vulnerabilityTypeCvssVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*VulnerabilityTypeCvssVersion] {
-	return pulumix.Output[*VulnerabilityTypeCvssVersion]{
-		OutputState: in.ToVulnerabilityTypeCvssVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Note provider assigned impact of the vulnerability
@@ -5976,10 +5961,15 @@ func (o VulnerabilityTypeSeverityPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// VulnerabilityTypeSeverityInput is an input type that accepts VulnerabilityTypeSeverityArgs and VulnerabilityTypeSeverityOutput values.
-// You can construct a concrete instance of `VulnerabilityTypeSeverityInput` via:
+// VulnerabilityTypeSeverityInput is an input type that accepts values of the VulnerabilityTypeSeverity enum
+// A concrete instance of `VulnerabilityTypeSeverityInput` can be one of the following:
 //
-//	VulnerabilityTypeSeverityArgs{...}
+//	VulnerabilityTypeSeveritySeverityUnspecified
+//	VulnerabilityTypeSeverityMinimal
+//	VulnerabilityTypeSeverityLow
+//	VulnerabilityTypeSeverityMedium
+//	VulnerabilityTypeSeverityHigh
+//	VulnerabilityTypeSeverityCritical
 type VulnerabilityTypeSeverityInput interface {
 	pulumi.Input
 
@@ -6012,12 +6002,6 @@ func (in *vulnerabilityTypeSeverityPtr) ToVulnerabilityTypeSeverityPtrOutput() V
 
 func (in *vulnerabilityTypeSeverityPtr) ToVulnerabilityTypeSeverityPtrOutputWithContext(ctx context.Context) VulnerabilityTypeSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VulnerabilityTypeSeverityPtrOutput)
-}
-
-func (in *vulnerabilityTypeSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*VulnerabilityTypeSeverity] {
-	return pulumix.Output[*VulnerabilityTypeSeverity]{
-		OutputState: in.ToVulnerabilityTypeSeverityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

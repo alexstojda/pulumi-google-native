@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the permission that was checked.
@@ -323,10 +319,14 @@ func (o AuthorizationLoggingOptionsPermissionTypePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuthorizationLoggingOptionsPermissionTypeInput is an input type that accepts AuthorizationLoggingOptionsPermissionTypeArgs and AuthorizationLoggingOptionsPermissionTypeOutput values.
-// You can construct a concrete instance of `AuthorizationLoggingOptionsPermissionTypeInput` via:
+// AuthorizationLoggingOptionsPermissionTypeInput is an input type that accepts values of the AuthorizationLoggingOptionsPermissionType enum
+// A concrete instance of `AuthorizationLoggingOptionsPermissionTypeInput` can be one of the following:
 //
-//	AuthorizationLoggingOptionsPermissionTypeArgs{...}
+//	AuthorizationLoggingOptionsPermissionTypePermissionTypeUnspecified
+//	AuthorizationLoggingOptionsPermissionTypeAdminRead
+//	AuthorizationLoggingOptionsPermissionTypeAdminWrite
+//	AuthorizationLoggingOptionsPermissionTypeDataRead
+//	AuthorizationLoggingOptionsPermissionTypeDataWrite
 type AuthorizationLoggingOptionsPermissionTypeInput interface {
 	pulumi.Input
 
@@ -359,12 +359,6 @@ func (in *authorizationLoggingOptionsPermissionTypePtr) ToAuthorizationLoggingOp
 
 func (in *authorizationLoggingOptionsPermissionTypePtr) ToAuthorizationLoggingOptionsPermissionTypePtrOutputWithContext(ctx context.Context) AuthorizationLoggingOptionsPermissionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizationLoggingOptionsPermissionTypePtrOutput)
-}
-
-func (in *authorizationLoggingOptionsPermissionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuthorizationLoggingOptionsPermissionType] {
-	return pulumix.Output[*AuthorizationLoggingOptionsPermissionType]{
-		OutputState: in.ToAuthorizationLoggingOptionsPermissionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log_name to populate in the Cloud Audit Record.
@@ -498,10 +492,12 @@ func (o CloudAuditOptionsLogNamePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// CloudAuditOptionsLogNameInput is an input type that accepts CloudAuditOptionsLogNameArgs and CloudAuditOptionsLogNameOutput values.
-// You can construct a concrete instance of `CloudAuditOptionsLogNameInput` via:
+// CloudAuditOptionsLogNameInput is an input type that accepts values of the CloudAuditOptionsLogName enum
+// A concrete instance of `CloudAuditOptionsLogNameInput` can be one of the following:
 //
-//	CloudAuditOptionsLogNameArgs{...}
+//	CloudAuditOptionsLogNameUnspecifiedLogName
+//	CloudAuditOptionsLogNameAdminActivity
+//	CloudAuditOptionsLogNameDataAccess
 type CloudAuditOptionsLogNameInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *cloudAuditOptionsLogNamePtr) ToCloudAuditOptionsLogNamePtrOutput() Clo
 
 func (in *cloudAuditOptionsLogNamePtr) ToCloudAuditOptionsLogNamePtrOutputWithContext(ctx context.Context) CloudAuditOptionsLogNamePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CloudAuditOptionsLogNamePtrOutput)
-}
-
-func (in *cloudAuditOptionsLogNamePtr) ToOutput(ctx context.Context) pulumix.Output[*CloudAuditOptionsLogName] {
-	return pulumix.Output[*CloudAuditOptionsLogName]{
-		OutputState: in.ToCloudAuditOptionsLogNamePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Trusted attributes supplied by the IAM system.
@@ -683,10 +673,17 @@ func (o ConditionIamPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConditionIamInput is an input type that accepts ConditionIamArgs and ConditionIamOutput values.
-// You can construct a concrete instance of `ConditionIamInput` via:
+// ConditionIamInput is an input type that accepts values of the ConditionIam enum
+// A concrete instance of `ConditionIamInput` can be one of the following:
 //
-//	ConditionIamArgs{...}
+//	ConditionIamNoAttr
+//	ConditionIamAuthority
+//	ConditionIamAttribution
+//	ConditionIamSecurityRealm
+//	ConditionIamApprover
+//	ConditionIamJustificationType
+//	ConditionIamCredentialsType
+//	ConditionIamCredsAssertion
 type ConditionIamInput interface {
 	pulumi.Input
 
@@ -719,12 +716,6 @@ func (in *conditionIamPtr) ToConditionIamPtrOutput() ConditionIamPtrOutput {
 
 func (in *conditionIamPtr) ToConditionIamPtrOutputWithContext(ctx context.Context) ConditionIamPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConditionIamPtrOutput)
-}
-
-func (in *conditionIamPtr) ToOutput(ctx context.Context) pulumix.Output[*ConditionIam] {
-	return pulumix.Output[*ConditionIam]{
-		OutputState: in.ToConditionIamPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // An operator to apply the subject with.
@@ -864,10 +855,15 @@ func (o ConditionOpPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConditionOpInput is an input type that accepts ConditionOpArgs and ConditionOpOutput values.
-// You can construct a concrete instance of `ConditionOpInput` via:
+// ConditionOpInput is an input type that accepts values of the ConditionOp enum
+// A concrete instance of `ConditionOpInput` can be one of the following:
 //
-//	ConditionOpArgs{...}
+//	ConditionOpNoOp
+//	ConditionOpEquals
+//	ConditionOpNotEquals
+//	ConditionOpIn
+//	ConditionOpNotIn
+//	ConditionOpDischarged
 type ConditionOpInput interface {
 	pulumi.Input
 
@@ -900,12 +896,6 @@ func (in *conditionOpPtr) ToConditionOpPtrOutput() ConditionOpPtrOutput {
 
 func (in *conditionOpPtr) ToConditionOpPtrOutputWithContext(ctx context.Context) ConditionOpPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConditionOpPtrOutput)
-}
-
-func (in *conditionOpPtr) ToOutput(ctx context.Context) pulumix.Output[*ConditionOp] {
-	return pulumix.Output[*ConditionOp]{
-		OutputState: in.ToConditionOpPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Trusted attributes supplied by any service that owns resources and uses the IAM system for access control.
@@ -1043,10 +1033,14 @@ func (o ConditionSysPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConditionSysInput is an input type that accepts ConditionSysArgs and ConditionSysOutput values.
-// You can construct a concrete instance of `ConditionSysInput` via:
+// ConditionSysInput is an input type that accepts values of the ConditionSys enum
+// A concrete instance of `ConditionSysInput` can be one of the following:
 //
-//	ConditionSysArgs{...}
+//	ConditionSysNoAttr
+//	ConditionSysRegion
+//	ConditionSysService
+//	ConditionSysName
+//	ConditionSysIp
 type ConditionSysInput interface {
 	pulumi.Input
 
@@ -1079,12 +1073,6 @@ func (in *conditionSysPtr) ToConditionSysPtrOutput() ConditionSysPtrOutput {
 
 func (in *conditionSysPtr) ToConditionSysPtrOutputWithContext(ctx context.Context) ConditionSysPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConditionSysPtrOutput)
-}
-
-func (in *conditionSysPtr) ToOutput(ctx context.Context) pulumix.Output[*ConditionSys] {
-	return pulumix.Output[*ConditionSys]{
-		OutputState: in.ToConditionSysPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DataAccessOptionsLogMode string
@@ -1215,10 +1203,11 @@ func (o DataAccessOptionsLogModePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DataAccessOptionsLogModeInput is an input type that accepts DataAccessOptionsLogModeArgs and DataAccessOptionsLogModeOutput values.
-// You can construct a concrete instance of `DataAccessOptionsLogModeInput` via:
+// DataAccessOptionsLogModeInput is an input type that accepts values of the DataAccessOptionsLogMode enum
+// A concrete instance of `DataAccessOptionsLogModeInput` can be one of the following:
 //
-//	DataAccessOptionsLogModeArgs{...}
+//	DataAccessOptionsLogModeLogModeUnspecified
+//	DataAccessOptionsLogModeLogFailClosed
 type DataAccessOptionsLogModeInput interface {
 	pulumi.Input
 
@@ -1251,12 +1240,6 @@ func (in *dataAccessOptionsLogModePtr) ToDataAccessOptionsLogModePtrOutput() Dat
 
 func (in *dataAccessOptionsLogModePtr) ToDataAccessOptionsLogModePtrOutputWithContext(ctx context.Context) DataAccessOptionsLogModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DataAccessOptionsLogModePtrOutput)
-}
-
-func (in *dataAccessOptionsLogModePtr) ToOutput(ctx context.Context) pulumix.Output[*DataAccessOptionsLogMode] {
-	return pulumix.Output[*DataAccessOptionsLogMode]{
-		OutputState: in.ToDataAccessOptionsLogModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required
@@ -1396,10 +1379,15 @@ func (o RuleActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleActionInput is an input type that accepts RuleActionArgs and RuleActionOutput values.
-// You can construct a concrete instance of `RuleActionInput` via:
+// RuleActionInput is an input type that accepts values of the RuleAction enum
+// A concrete instance of `RuleActionInput` can be one of the following:
 //
-//	RuleActionArgs{...}
+//	RuleActionNoAction
+//	RuleActionAllow
+//	RuleActionAllowWithLog
+//	RuleActionDeny
+//	RuleActionDenyWithLog
+//	RuleActionLog
 type RuleActionInput interface {
 	pulumi.Input
 
@@ -1432,12 +1420,6 @@ func (in *ruleActionPtr) ToRuleActionPtrOutput() RuleActionPtrOutput {
 
 func (in *ruleActionPtr) ToRuleActionPtrOutputWithContext(ctx context.Context) RuleActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleActionPtrOutput)
-}
-
-func (in *ruleActionPtr) ToOutput(ctx context.Context) pulumix.Output[*RuleAction] {
-	return pulumix.Output[*RuleAction]{
-		OutputState: in.ToRuleActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

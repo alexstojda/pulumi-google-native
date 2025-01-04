@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The stage of a conversation. It indicates whether the virtual agent or a human agent is handling the conversation. If the conversation is created with the conversation profile that has Dialogflow config set, defaults to ConversationStage.VIRTUAL_AGENT_STAGE; Otherwise, defaults to ConversationStage.HUMAN_ASSIST_STAGE. If the conversation is created with the conversation profile that has Dialogflow config set but explicitly sets conversation_stage to ConversationStage.HUMAN_ASSIST_STAGE, it skips ConversationStage.VIRTUAL_AGENT_STAGE stage and directly goes to ConversationStage.HUMAN_ASSIST_STAGE.
@@ -142,10 +141,12 @@ func (o ConversationConversationStagePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConversationConversationStageInput is an input type that accepts ConversationConversationStageArgs and ConversationConversationStageOutput values.
-// You can construct a concrete instance of `ConversationConversationStageInput` via:
+// ConversationConversationStageInput is an input type that accepts values of the ConversationConversationStage enum
+// A concrete instance of `ConversationConversationStageInput` can be one of the following:
 //
-//	ConversationConversationStageArgs{...}
+//	ConversationConversationStageConversationStageUnspecified
+//	ConversationConversationStageVirtualAgentStage
+//	ConversationConversationStageHumanAssistStage
 type ConversationConversationStageInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *conversationConversationStagePtr) ToConversationConversationStagePtrOu
 
 func (in *conversationConversationStagePtr) ToConversationConversationStagePtrOutputWithContext(ctx context.Context) ConversationConversationStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConversationConversationStagePtrOutput)
-}
-
-func (in *conversationConversationStagePtr) ToOutput(ctx context.Context) pulumix.Output[*ConversationConversationStage] {
-	return pulumix.Output[*ConversationConversationStage]{
-		OutputState: in.ToConversationConversationStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DocumentKnowledgeTypesItem string
@@ -322,10 +317,15 @@ func (o DocumentKnowledgeTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DocumentKnowledgeTypesItemInput is an input type that accepts DocumentKnowledgeTypesItemArgs and DocumentKnowledgeTypesItemOutput values.
-// You can construct a concrete instance of `DocumentKnowledgeTypesItemInput` via:
+// DocumentKnowledgeTypesItemInput is an input type that accepts values of the DocumentKnowledgeTypesItem enum
+// A concrete instance of `DocumentKnowledgeTypesItemInput` can be one of the following:
 //
-//	DocumentKnowledgeTypesItemArgs{...}
+//	DocumentKnowledgeTypesItemKnowledgeTypeUnspecified
+//	DocumentKnowledgeTypesItemFaq
+//	DocumentKnowledgeTypesItemExtractiveQa
+//	DocumentKnowledgeTypesItemArticleSuggestion
+//	DocumentKnowledgeTypesItemAgentFacingSmartReply
+//	DocumentKnowledgeTypesItemSmartReply
 type DocumentKnowledgeTypesItemInput interface {
 	pulumi.Input
 
@@ -358,12 +358,6 @@ func (in *documentKnowledgeTypesItemPtr) ToDocumentKnowledgeTypesItemPtrOutput()
 
 func (in *documentKnowledgeTypesItemPtr) ToDocumentKnowledgeTypesItemPtrOutputWithContext(ctx context.Context) DocumentKnowledgeTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DocumentKnowledgeTypesItemPtrOutput)
-}
-
-func (in *documentKnowledgeTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*DocumentKnowledgeTypesItem] {
-	return pulumix.Output[*DocumentKnowledgeTypesItem]{
-		OutputState: in.ToDocumentKnowledgeTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DocumentKnowledgeTypesItemArrayInput is an input type that accepts DocumentKnowledgeTypesItemArray and DocumentKnowledgeTypesItemArrayOutput values.
@@ -540,10 +534,11 @@ func (o EntityTypeAutoExpansionModePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// EntityTypeAutoExpansionModeInput is an input type that accepts EntityTypeAutoExpansionModeArgs and EntityTypeAutoExpansionModeOutput values.
-// You can construct a concrete instance of `EntityTypeAutoExpansionModeInput` via:
+// EntityTypeAutoExpansionModeInput is an input type that accepts values of the EntityTypeAutoExpansionMode enum
+// A concrete instance of `EntityTypeAutoExpansionModeInput` can be one of the following:
 //
-//	EntityTypeAutoExpansionModeArgs{...}
+//	EntityTypeAutoExpansionModeAutoExpansionModeUnspecified
+//	EntityTypeAutoExpansionModeAutoExpansionModeDefault
 type EntityTypeAutoExpansionModeInput interface {
 	pulumi.Input
 
@@ -576,12 +571,6 @@ func (in *entityTypeAutoExpansionModePtr) ToEntityTypeAutoExpansionModePtrOutput
 
 func (in *entityTypeAutoExpansionModePtr) ToEntityTypeAutoExpansionModePtrOutputWithContext(ctx context.Context) EntityTypeAutoExpansionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTypeAutoExpansionModePtrOutput)
-}
-
-func (in *entityTypeAutoExpansionModePtr) ToOutput(ctx context.Context) pulumix.Output[*EntityTypeAutoExpansionMode] {
-	return pulumix.Output[*EntityTypeAutoExpansionMode]{
-		OutputState: in.ToEntityTypeAutoExpansionModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Indicates the kind of entity type.
@@ -717,10 +706,13 @@ func (o EntityTypeKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EntityTypeKindInput is an input type that accepts EntityTypeKindArgs and EntityTypeKindOutput values.
-// You can construct a concrete instance of `EntityTypeKindInput` via:
+// EntityTypeKindInput is an input type that accepts values of the EntityTypeKind enum
+// A concrete instance of `EntityTypeKindInput` can be one of the following:
 //
-//	EntityTypeKindArgs{...}
+//	EntityTypeKindKindUnspecified
+//	EntityTypeKindKindMap
+//	EntityTypeKindKindList
+//	EntityTypeKindKindRegexp
 type EntityTypeKindInput interface {
 	pulumi.Input
 
@@ -753,12 +745,6 @@ func (in *entityTypeKindPtr) ToEntityTypeKindPtrOutput() EntityTypeKindPtrOutput
 
 func (in *entityTypeKindPtr) ToEntityTypeKindPtrOutputWithContext(ctx context.Context) EntityTypeKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTypeKindPtrOutput)
-}
-
-func (in *entityTypeKindPtr) ToOutput(ctx context.Context) pulumix.Output[*EntityTypeKind] {
-	return pulumix.Output[*EntityTypeKind]{
-		OutputState: in.ToEntityTypeKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the feature that enabled for fulfillment.
@@ -890,10 +876,11 @@ func (o GoogleCloudDialogflowV2beta1FulfillmentFeatureTypePtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeInput is an input type that accepts GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeArgs and GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeInput` via:
+// GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1FulfillmentFeatureType enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeArgs{...}
+//	GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeTypeUnspecified
+//	GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeSmalltalk
 type GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeInput interface {
 	pulumi.Input
 
@@ -928,10 +915,231 @@ func (in *googleCloudDialogflowV2beta1FulfillmentFeatureTypePtr) ToGoogleCloudDi
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1FulfillmentFeatureTypePtrOutput)
 }
 
-func (in *googleCloudDialogflowV2beta1FulfillmentFeatureTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1FulfillmentFeatureType] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1FulfillmentFeatureType]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1FulfillmentFeatureTypePtrOutputWithContext(ctx).OutputState,
-	}
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem string
+
+const (
+	// Undefined section type, does not return anything.
+	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemSectionTypeUnspecified = GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("SECTION_TYPE_UNSPECIFIED")
+	// What the customer needs help with or has question about. Section name: "situation".
+	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemSituation = GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("SITUATION")
+	// What the agent does to help the customer. Section name: "action".
+	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemAction = GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("ACTION")
+	// Result of the customer service. A single word describing the result of the conversation. Section name: "resolution".
+	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemResolution = GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("RESOLUTION")
+	// Reason for cancellation if the customer requests for a cancellation. "N/A" otherwise. Section name: "reason_for_cancellation".
+	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemReasonForCancellation = GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("REASON_FOR_CANCELLATION")
+	// "Unsatisfied" or "Satisfied" depending on the customer's feelings at the end of the conversation. Section name: "customer_satisfaction".
+	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemCustomerSatisfaction = GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("CUSTOMER_SATISFACTION")
+	// Key entities extracted from the conversation, such as ticket number, order number, dollar amount, etc. Section names are prefixed by "entities/".
+	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemEntities = GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("ENTITIES")
+)
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem)(nil)).Elem()
+}
+
+func (e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput {
+	return pulumi.ToOutput(e).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput)
+}
+
+func (e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput)
+}
+
+func (e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput {
+	return e.ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput {
+	return GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem(e).ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutputWithContext(ctx).ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutputWithContext(ctx)
+}
+
+func (e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput {
+	return o.ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem {
+		return &v
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput)
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput) Elem() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput {
+	return o.ApplyT(func(v *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem {
+		if v != nil {
+			return *v
+		}
+		var ret GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem
+		return ret
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput)
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemInput` can be one of the following:
+//
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemSectionTypeUnspecified
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemSituation
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemAction
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemResolution
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemReasonForCancellation
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemCustomerSatisfaction
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemEntities
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutputWithContext(context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput
+}
+
+var googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrType = reflect.TypeOf((**GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem)(nil)).Elem()
+
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutputWithContext(context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput
+}
+
+type googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtr string
+
+func GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtr(v string) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrInput {
+	return (*googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtr)(&v)
+}
+
+func (*googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtr) ElementType() reflect.Type {
+	return googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrType
+}
+
+func (in *googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtr) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput {
+	return pulumi.ToOutput(in).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput)
+}
+
+func (in *googleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtr) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput)
+}
+
+// GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayInput is an input type that accepts GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArray and GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput values.
+// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayInput` via:
+//
+//	GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArray{ GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArgs{...} }
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput
+	ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutputWithContext(context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput
+}
+
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArray []GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem)(nil)).Elem()
+}
+
+func (i GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArray) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput {
+	return i.ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutputWithContext(context.Background())
+}
+
+func (i GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArray) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput)
+}
+
+type GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput() GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput) ToGoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput) Index(i pulumi.IntInput) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem {
+		return vs[0].([]GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem)[vs[1].(int)]
+	}).(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput)
 }
 
 // Optional. Specifies the type of viewer that is used when opening the URL. Defaults to opening via web browser.
@@ -1065,10 +1273,12 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouse
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintArgs and GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHint enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintUrlTypeHintUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintAmpAction
+//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintAmpContent
 type GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintInput interface {
 	pulumi.Input
 
@@ -1101,12 +1311,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarou
 
 func (in *googleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintPtr) ToGoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHint] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHint]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Settings for displaying the image. Applies to every image in items.
@@ -1244,10 +1448,14 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsArgs and GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptions enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsImageDisplayOptionsUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsGray
+//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsWhite
+//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsCropped
+//	GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsBlurredBackground
 type GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsInput interface {
 	pulumi.Input
 
@@ -1280,12 +1488,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDispla
 
 func (in *googleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsPtr) ToGoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptions] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptions]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Defines text alignment for all cells in this column.
@@ -1421,10 +1623,13 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlign
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentArgs and GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignment enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentHorizontalAlignmentUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentLeading
+//	GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentCenter
+//	GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentTrailing
 type GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentInput interface {
 	pulumi.Input
 
@@ -1457,12 +1662,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAli
 
 func (in *googleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentPtr) ToGoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignment] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignment]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessageColumnPropertiesHorizontalAlignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. What type of media is the content (ie "audio").
@@ -1594,10 +1793,11 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypePtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeArgs and GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaType enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeResponseMediaTypeUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeAudio
 type GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypeInput interface {
 	pulumi.Input
 
@@ -1630,12 +1830,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypePtr) ToG
 
 func (in *googleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypePtr) ToGoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaType] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaType]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessageMediaContentMediaTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The platform that this message is intended for.
@@ -1785,10 +1979,20 @@ func (o GoogleCloudDialogflowV2beta1IntentMessagePlatformPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessagePlatformInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessagePlatformArgs and GoogleCloudDialogflowV2beta1IntentMessagePlatformOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessagePlatformInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessagePlatformInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessagePlatform enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessagePlatformInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessagePlatformArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformPlatformUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformFacebook
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformSlack
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformTelegram
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformKik
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformSkype
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformLine
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformViber
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformActionsOnGoogle
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformTelephony
+//	GoogleCloudDialogflowV2beta1IntentMessagePlatformGoogleHangouts
 type GoogleCloudDialogflowV2beta1IntentMessagePlatformInput interface {
 	pulumi.Input
 
@@ -1821,12 +2025,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessagePlatformPtr) ToGoogleCloudDia
 
 func (in *googleCloudDialogflowV2beta1IntentMessagePlatformPtr) ToGoogleCloudDialogflowV2beta1IntentMessagePlatformPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessagePlatformPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessagePlatformPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessagePlatformPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessagePlatform] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessagePlatform]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessagePlatformPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required for cards with vertical orientation. The height of the media within a rich card with a vertical layout. For a standalone card with horizontal layout, height is not customizable, and this field is ignored.
@@ -1962,10 +2160,13 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightArgs and GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeight enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightHeightUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightShort
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightMedium
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightTall
 type GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightInput interface {
 	pulumi.Input
 
@@ -1998,12 +2199,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightP
 
 func (in *googleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightPtr) ToGoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeight] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeight]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessageRbmCardContentRbmMediaHeightPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The width of the cards in the carousel.
@@ -2137,10 +2332,12 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthArgs and GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidth enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthCardWidthUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthSmall
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthMedium
 type GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthInput interface {
 	pulumi.Input
 
@@ -2173,12 +2370,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthPtr) 
 
 func (in *googleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthPtr) ToGoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidth] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidth]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessageRbmCarouselCardCardWidthPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Orientation of the card.
@@ -2312,10 +2503,12 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientatio
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationArgs and GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientation enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationCardOrientationUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationHorizontal
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationVertical
 type GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationInput interface {
 	pulumi.Input
 
@@ -2348,12 +2541,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientat
 
 func (in *googleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationPtr) ToGoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientation] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientation]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardCardOrientationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required if orientation is horizontal. Image preview alignment for standalone cards with horizontal layout.
@@ -2487,10 +2674,12 @@ func (o GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImage
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentArgs and GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentInput` via:
+// GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignment enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentThumbnailImageAlignmentUnspecified
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentLeft
+//	GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentRight
 type GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentInput interface {
 	pulumi.Input
 
@@ -2523,12 +2712,6 @@ func (in *googleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailIma
 
 func (in *googleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentPtr) ToGoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignment] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignment]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentMessageRbmStandaloneCardThumbnailImageAlignmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of the training phrase.
@@ -2662,10 +2845,12 @@ func (o GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypePtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeInput is an input type that accepts GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeArgs and GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeInput` via:
+// GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1IntentTrainingPhraseType enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeArgs{...}
+//	GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeTypeUnspecified
+//	GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeExample
+//	GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeTemplate
 type GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypeInput interface {
 	pulumi.Input
 
@@ -2698,12 +2883,6 @@ func (in *googleCloudDialogflowV2beta1IntentTrainingPhraseTypePtr) ToGoogleCloud
 
 func (in *googleCloudDialogflowV2beta1IntentTrainingPhraseTypePtr) ToGoogleCloudDialogflowV2beta1IntentTrainingPhraseTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1IntentTrainingPhraseTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1IntentTrainingPhraseTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1IntentTrainingPhraseType] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1IntentTrainingPhraseType]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1IntentTrainingPhraseTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Format of message.
@@ -2837,10 +3016,12 @@ func (o GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatPtrOutput) To
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatInput is an input type that accepts GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatArgs and GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatInput` via:
+// GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1NotificationConfigMessageFormat enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatArgs{...}
+//	GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatMessageFormatUnspecified
+//	GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatProto
+//	GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatJson
 type GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatInput interface {
 	pulumi.Input
 
@@ -2873,12 +3054,6 @@ func (in *googleCloudDialogflowV2beta1NotificationConfigMessageFormatPtr) ToGoog
 
 func (in *googleCloudDialogflowV2beta1NotificationConfigMessageFormatPtr) ToGoogleCloudDialogflowV2beta1NotificationConfigMessageFormatPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1NotificationConfigMessageFormatPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1NotificationConfigMessageFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1NotificationConfigMessageFormat] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1NotificationConfigMessageFormat]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1NotificationConfigMessageFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The speech model used in speech to text. `SPEECH_MODEL_VARIANT_UNSPECIFIED`, `USE_BEST_AVAILABLE` will be treated as `USE_ENHANCED`. It can be overridden in AnalyzeContentRequest and StreamingAnalyzeContentRequest request. If enhanced model variant is specified and an enhanced version of the specified model for the language does not exist, then it would emit an error.
@@ -3014,10 +3189,13 @@ func (o GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantInput is an input type that accepts GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantArgs and GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantInput` via:
+// GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariant enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantArgs{...}
+//	GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantSpeechModelVariantUnspecified
+//	GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantUseBestAvailable
+//	GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantUseStandard
+//	GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantUseEnhanced
 type GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantInput interface {
 	pulumi.Input
 
@@ -3050,12 +3228,6 @@ func (in *googleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantPtr) T
 
 func (in *googleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantPtr) ToGoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariant] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariant]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1SpeechToTextConfigSpeechModelVariantPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of Human Agent Assistant API feature to request.
@@ -3197,10 +3369,16 @@ func (o GoogleCloudDialogflowV2beta1SuggestionFeatureTypePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1SuggestionFeatureTypeInput is an input type that accepts GoogleCloudDialogflowV2beta1SuggestionFeatureTypeArgs and GoogleCloudDialogflowV2beta1SuggestionFeatureTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1SuggestionFeatureTypeInput` via:
+// GoogleCloudDialogflowV2beta1SuggestionFeatureTypeInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1SuggestionFeatureType enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1SuggestionFeatureTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1SuggestionFeatureTypeArgs{...}
+//	GoogleCloudDialogflowV2beta1SuggestionFeatureTypeTypeUnspecified
+//	GoogleCloudDialogflowV2beta1SuggestionFeatureTypeArticleSuggestion
+//	GoogleCloudDialogflowV2beta1SuggestionFeatureTypeFaq
+//	GoogleCloudDialogflowV2beta1SuggestionFeatureTypeSmartReply
+//	GoogleCloudDialogflowV2beta1SuggestionFeatureTypeDialogflowAssist
+//	GoogleCloudDialogflowV2beta1SuggestionFeatureTypeConversationSummarization
+//	GoogleCloudDialogflowV2beta1SuggestionFeatureTypeKnowledgeSearch
 type GoogleCloudDialogflowV2beta1SuggestionFeatureTypeInput interface {
 	pulumi.Input
 
@@ -3233,12 +3411,6 @@ func (in *googleCloudDialogflowV2beta1SuggestionFeatureTypePtr) ToGoogleCloudDia
 
 func (in *googleCloudDialogflowV2beta1SuggestionFeatureTypePtr) ToGoogleCloudDialogflowV2beta1SuggestionFeatureTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1SuggestionFeatureTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1SuggestionFeatureTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1SuggestionFeatureTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1SuggestionFeatureType] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1SuggestionFeatureType]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1SuggestionFeatureTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Audio encoding of the synthesized audio content.
@@ -3378,10 +3550,15 @@ func (o GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingInput is an input type that accepts GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingArgs and GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingInput` via:
+// GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncoding enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingArgs{...}
+//	GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingOutputAudioEncodingUnspecified
+//	GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingOutputAudioEncodingLinear16
+//	GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingOutputAudioEncodingMp3
+//	GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingOutputAudioEncodingMp364Kbps
+//	GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingOutputAudioEncodingOggOpus
+//	GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingOutputAudioEncodingMulaw
 type GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingInput interface {
 	pulumi.Input
 
@@ -3414,12 +3591,6 @@ func (in *googleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingPtr
 
 func (in *googleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingPtr) ToGoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncoding] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncoding]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1TextToSpeechSettingsOutputAudioEncodingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The preferred gender of the voice. If not set, the service will choose a voice based on the other parameters such as language_code and name. Note that this is only a preference, not requirement. If a voice of the appropriate gender is not available, the synthesizer should substitute a voice with a different gender rather than failing the request.
@@ -3555,10 +3726,13 @@ func (o GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderPtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderInput is an input type that accepts GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderArgs and GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderInput` via:
+// GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderInput is an input type that accepts values of the GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGender enum
+// A concrete instance of `GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderInput` can be one of the following:
 //
-//	GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderArgs{...}
+//	GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderSsmlVoiceGenderUnspecified
+//	GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderSsmlVoiceGenderMale
+//	GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderSsmlVoiceGenderFemale
+//	GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderSsmlVoiceGenderNeutral
 type GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderInput interface {
 	pulumi.Input
 
@@ -3591,12 +3765,6 @@ func (in *googleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderPtr) ToGoogl
 
 func (in *googleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderPtr) ToGoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderPtrOutput)
-}
-
-func (in *googleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGender] {
-	return pulumix.Output[*GoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGender]{
-		OutputState: in.ToGoogleCloudDialogflowV2beta1VoiceSelectionParamsSsmlGenderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type IntentDefaultResponsePlatformsItem string
@@ -3745,10 +3913,20 @@ func (o IntentDefaultResponsePlatformsItemPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntentDefaultResponsePlatformsItemInput is an input type that accepts IntentDefaultResponsePlatformsItemArgs and IntentDefaultResponsePlatformsItemOutput values.
-// You can construct a concrete instance of `IntentDefaultResponsePlatformsItemInput` via:
+// IntentDefaultResponsePlatformsItemInput is an input type that accepts values of the IntentDefaultResponsePlatformsItem enum
+// A concrete instance of `IntentDefaultResponsePlatformsItemInput` can be one of the following:
 //
-//	IntentDefaultResponsePlatformsItemArgs{...}
+//	IntentDefaultResponsePlatformsItemPlatformUnspecified
+//	IntentDefaultResponsePlatformsItemFacebook
+//	IntentDefaultResponsePlatformsItemSlack
+//	IntentDefaultResponsePlatformsItemTelegram
+//	IntentDefaultResponsePlatformsItemKik
+//	IntentDefaultResponsePlatformsItemSkype
+//	IntentDefaultResponsePlatformsItemLine
+//	IntentDefaultResponsePlatformsItemViber
+//	IntentDefaultResponsePlatformsItemActionsOnGoogle
+//	IntentDefaultResponsePlatformsItemTelephony
+//	IntentDefaultResponsePlatformsItemGoogleHangouts
 type IntentDefaultResponsePlatformsItemInput interface {
 	pulumi.Input
 
@@ -3781,12 +3959,6 @@ func (in *intentDefaultResponsePlatformsItemPtr) ToIntentDefaultResponsePlatform
 
 func (in *intentDefaultResponsePlatformsItemPtr) ToIntentDefaultResponsePlatformsItemPtrOutputWithContext(ctx context.Context) IntentDefaultResponsePlatformsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IntentDefaultResponsePlatformsItemPtrOutput)
-}
-
-func (in *intentDefaultResponsePlatformsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*IntentDefaultResponsePlatformsItem] {
-	return pulumix.Output[*IntentDefaultResponsePlatformsItem]{
-		OutputState: in.ToIntentDefaultResponsePlatformsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // IntentDefaultResponsePlatformsItemArrayInput is an input type that accepts IntentDefaultResponsePlatformsItemArray and IntentDefaultResponsePlatformsItemArrayOutput values.
@@ -3965,10 +4137,12 @@ func (o IntentWebhookStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// IntentWebhookStateInput is an input type that accepts IntentWebhookStateArgs and IntentWebhookStateOutput values.
-// You can construct a concrete instance of `IntentWebhookStateInput` via:
+// IntentWebhookStateInput is an input type that accepts values of the IntentWebhookState enum
+// A concrete instance of `IntentWebhookStateInput` can be one of the following:
 //
-//	IntentWebhookStateArgs{...}
+//	IntentWebhookStateWebhookStateUnspecified
+//	IntentWebhookStateWebhookStateEnabled
+//	IntentWebhookStateWebhookStateEnabledForSlotFilling
 type IntentWebhookStateInput interface {
 	pulumi.Input
 
@@ -4001,12 +4175,6 @@ func (in *intentWebhookStatePtr) ToIntentWebhookStatePtrOutput() IntentWebhookSt
 
 func (in *intentWebhookStatePtr) ToIntentWebhookStatePtrOutputWithContext(ctx context.Context) IntentWebhookStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IntentWebhookStatePtrOutput)
-}
-
-func (in *intentWebhookStatePtr) ToOutput(ctx context.Context) pulumix.Output[*IntentWebhookState] {
-	return pulumix.Output[*IntentWebhookState]{
-		OutputState: in.ToIntentWebhookStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The role this participant plays in the conversation. This field must be set during participant creation and is then immutable.
@@ -4142,10 +4310,13 @@ func (o ParticipantRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ParticipantRoleInput is an input type that accepts ParticipantRoleArgs and ParticipantRoleOutput values.
-// You can construct a concrete instance of `ParticipantRoleInput` via:
+// ParticipantRoleInput is an input type that accepts values of the ParticipantRole enum
+// A concrete instance of `ParticipantRoleInput` can be one of the following:
 //
-//	ParticipantRoleArgs{...}
+//	ParticipantRoleRoleUnspecified
+//	ParticipantRoleHumanAgent
+//	ParticipantRoleAutomatedAgent
+//	ParticipantRoleEndUser
 type ParticipantRoleInput interface {
 	pulumi.Input
 
@@ -4178,12 +4349,6 @@ func (in *participantRolePtr) ToParticipantRolePtrOutput() ParticipantRolePtrOut
 
 func (in *participantRolePtr) ToParticipantRolePtrOutputWithContext(ctx context.Context) ParticipantRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ParticipantRolePtrOutput)
-}
-
-func (in *participantRolePtr) ToOutput(ctx context.Context) pulumix.Output[*ParticipantRole] {
-	return pulumix.Output[*ParticipantRole]{
-		OutputState: in.ToParticipantRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Indicates whether the additional data should override or supplement the custom entity type definition.
@@ -4317,10 +4482,12 @@ func (o SessionEntityTypeEntityOverrideModePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SessionEntityTypeEntityOverrideModeInput is an input type that accepts SessionEntityTypeEntityOverrideModeArgs and SessionEntityTypeEntityOverrideModeOutput values.
-// You can construct a concrete instance of `SessionEntityTypeEntityOverrideModeInput` via:
+// SessionEntityTypeEntityOverrideModeInput is an input type that accepts values of the SessionEntityTypeEntityOverrideMode enum
+// A concrete instance of `SessionEntityTypeEntityOverrideModeInput` can be one of the following:
 //
-//	SessionEntityTypeEntityOverrideModeArgs{...}
+//	SessionEntityTypeEntityOverrideModeEntityOverrideModeUnspecified
+//	SessionEntityTypeEntityOverrideModeEntityOverrideModeOverride
+//	SessionEntityTypeEntityOverrideModeEntityOverrideModeSupplement
 type SessionEntityTypeEntityOverrideModeInput interface {
 	pulumi.Input
 
@@ -4355,12 +4522,6 @@ func (in *sessionEntityTypeEntityOverrideModePtr) ToSessionEntityTypeEntityOverr
 	return pulumi.ToOutputWithContext(ctx, in).(SessionEntityTypeEntityOverrideModePtrOutput)
 }
 
-func (in *sessionEntityTypeEntityOverrideModePtr) ToOutput(ctx context.Context) pulumix.Output[*SessionEntityTypeEntityOverrideMode] {
-	return pulumix.Output[*SessionEntityTypeEntityOverrideMode]{
-		OutputState: in.ToSessionEntityTypeEntityOverrideModePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConversationConversationStageInput)(nil)).Elem(), ConversationConversationStage("CONVERSATION_STAGE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*ConversationConversationStagePtrInput)(nil)).Elem(), ConversationConversationStage("CONVERSATION_STAGE_UNSPECIFIED"))
@@ -4373,6 +4534,9 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTypeKindPtrInput)(nil)).Elem(), EntityTypeKind("KIND_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1FulfillmentFeatureType("TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1FulfillmentFeatureTypePtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1FulfillmentFeatureType("TYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("SECTION_TYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem("SECTION_TYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHint("URL_TYPE_HINT_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintPtrInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHint("URL_TYPE_HINT_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsInput)(nil)).Elem(), GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptions("IMAGE_DISPLAY_OPTIONS_UNSPECIFIED"))
@@ -4423,6 +4587,9 @@ func init() {
 	pulumi.RegisterOutputType(EntityTypeKindPtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1FulfillmentFeatureTypeOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1FulfillmentFeatureTypePtrOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemPtrOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItemArrayOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardBrowseCarouselCardItemOpenUrlActionUrlTypeHintPtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowV2beta1IntentMessageBrowseCarouselCardImageDisplayOptionsOutput{})

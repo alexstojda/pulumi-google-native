@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The type of the entry. For details, see [`EntryType`](#entrytype).
@@ -168,10 +167,25 @@ func (o EntryTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// EntryTypeInput is an input type that accepts EntryTypeArgs and EntryTypeOutput values.
-// You can construct a concrete instance of `EntryTypeInput` via:
+// EntryTypeInput is an input type that accepts values of the EntryType enum
+// A concrete instance of `EntryTypeInput` can be one of the following:
 //
-//	EntryTypeArgs{...}
+//	EntryTypeEntryTypeUnspecified
+//	EntryTypeTable
+//	EntryTypeModel
+//	EntryTypeDataStream
+//	EntryTypeFileset
+//	EntryTypeCluster
+//	EntryTypeDatabase
+//	EntryTypeDataSourceConnection
+//	EntryTypeRoutine
+//	EntryTypeLake
+//	EntryTypeZone
+//	EntryTypeService
+//	EntryTypeDatabaseSchema
+//	EntryTypeDashboard
+//	EntryTypeExplore
+//	EntryTypeLook
 type EntryTypeInput interface {
 	pulumi.Input
 
@@ -204,12 +218,6 @@ func (in *entryTypePtr) ToEntryTypePtrOutput() EntryTypePtrOutput {
 
 func (in *entryTypePtr) ToEntryTypePtrOutputWithContext(ctx context.Context) EntryTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EntryTypePtrOutput)
-}
-
-func (in *entryTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EntryType] {
-	return pulumix.Output[*EntryType]{
-		OutputState: in.ToEntryTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Most important inclusion of this column.
@@ -347,10 +355,14 @@ func (o GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypePtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeInput is an input type that accepts GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeArgs and GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeInput` via:
+// GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeInput is an input type that accepts values of the GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingType enum
+// A concrete instance of `GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeArgs{...}
+//	GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeIndexingTypeUnspecified
+//	GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeIndexingTypeNone
+//	GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeIndexingTypeNonUnique
+//	GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeIndexingTypeUnique
+//	GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeIndexingTypePrimaryKey
 type GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypeInput interface {
 	pulumi.Input
 
@@ -383,12 +395,6 @@ func (in *googleCloudDatacatalogV1ColumnSchemaHighestIndexingTypePtr) ToGoogleCl
 
 func (in *googleCloudDatacatalogV1ColumnSchemaHighestIndexingTypePtr) ToGoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypePtrOutput)
-}
-
-func (in *googleCloudDatacatalogV1ColumnSchemaHighestIndexingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingType] {
-	return pulumix.Output[*GoogleCloudDatacatalogV1ColumnSchemaHighestIndexingType]{
-		OutputState: in.ToGoogleCloudDatacatalogV1ColumnSchemaHighestIndexingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Looker specific column type of this column.
@@ -528,10 +534,15 @@ func (o GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypePtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeInput is an input type that accepts GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeArgs and GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeInput` via:
+// GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeInput is an input type that accepts values of the GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecType enum
+// A concrete instance of `GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeArgs{...}
+//	GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeLookerColumnTypeUnspecified
+//	GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeDimension
+//	GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeDimensionGroup
+//	GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeFilter
+//	GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeMeasure
+//	GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeParameter
 type GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypeInput interface {
 	pulumi.Input
 
@@ -564,12 +575,6 @@ func (in *googleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypePtr) ToGoogleC
 
 func (in *googleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypePtr) ToGoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypePtrOutput)
-}
-
-func (in *googleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecType] {
-	return pulumix.Output[*GoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecType]{
-		OutputState: in.ToGoogleCloudDatacatalogV1ColumnSchemaLookerColumnSpecTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of this view.
@@ -703,10 +708,12 @@ func (o GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeInput is an input type that accepts GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeArgs and GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeInput` via:
+// GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeInput is an input type that accepts values of the GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewType enum
+// A concrete instance of `GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeArgs{...}
+//	GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeViewTypeUnspecified
+//	GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeStandardView
+//	GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeMaterializedView
 type GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypeInput interface {
 	pulumi.Input
 
@@ -739,12 +746,6 @@ func (in *googleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtr) 
 
 func (in *googleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtr) ToGoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtrOutput)
-}
-
-func (in *googleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewType] {
-	return pulumix.Output[*GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewType]{
-		OutputState: in.ToGoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of this table.
@@ -878,10 +879,12 @@ func (o GoogleCloudDatacatalogV1DatabaseTableSpecTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogV1DatabaseTableSpecTypeInput is an input type that accepts GoogleCloudDatacatalogV1DatabaseTableSpecTypeArgs and GoogleCloudDatacatalogV1DatabaseTableSpecTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogV1DatabaseTableSpecTypeInput` via:
+// GoogleCloudDatacatalogV1DatabaseTableSpecTypeInput is an input type that accepts values of the GoogleCloudDatacatalogV1DatabaseTableSpecType enum
+// A concrete instance of `GoogleCloudDatacatalogV1DatabaseTableSpecTypeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogV1DatabaseTableSpecTypeArgs{...}
+//	GoogleCloudDatacatalogV1DatabaseTableSpecTypeTableTypeUnspecified
+//	GoogleCloudDatacatalogV1DatabaseTableSpecTypeNative
+//	GoogleCloudDatacatalogV1DatabaseTableSpecTypeExternal
 type GoogleCloudDatacatalogV1DatabaseTableSpecTypeInput interface {
 	pulumi.Input
 
@@ -916,10 +919,184 @@ func (in *googleCloudDatacatalogV1DatabaseTableSpecTypePtr) ToGoogleCloudDatacat
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1DatabaseTableSpecTypePtrOutput)
 }
 
-func (in *googleCloudDatacatalogV1DatabaseTableSpecTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogV1DatabaseTableSpecType] {
-	return pulumix.Output[*GoogleCloudDatacatalogV1DatabaseTableSpecType]{
-		OutputState: in.ToGoogleCloudDatacatalogV1DatabaseTableSpecTypePtrOutputWithContext(ctx).OutputState,
-	}
+// Primitive types, such as string, boolean, etc.
+type GoogleCloudDatacatalogV1FieldTypePrimitiveType string
+
+const (
+	// The default invalid value for a type.
+	GoogleCloudDatacatalogV1FieldTypePrimitiveTypePrimitiveTypeUnspecified = GoogleCloudDatacatalogV1FieldTypePrimitiveType("PRIMITIVE_TYPE_UNSPECIFIED")
+	// A double precision number.
+	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeDouble = GoogleCloudDatacatalogV1FieldTypePrimitiveType("DOUBLE")
+	// An UTF-8 string.
+	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeString = GoogleCloudDatacatalogV1FieldTypePrimitiveType("STRING")
+	// A boolean value.
+	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeBool = GoogleCloudDatacatalogV1FieldTypePrimitiveType("BOOL")
+	// A timestamp.
+	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeTimestamp = GoogleCloudDatacatalogV1FieldTypePrimitiveType("TIMESTAMP")
+	// A Richtext description.
+	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeRichtext = GoogleCloudDatacatalogV1FieldTypePrimitiveType("RICHTEXT")
+)
+
+func (GoogleCloudDatacatalogV1FieldTypePrimitiveType) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDatacatalogV1FieldTypePrimitiveType)(nil)).Elem()
+}
+
+func (e GoogleCloudDatacatalogV1FieldTypePrimitiveType) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput() GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput {
+	return pulumi.ToOutput(e).(GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput)
+}
+
+func (e GoogleCloudDatacatalogV1FieldTypePrimitiveType) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput)
+}
+
+func (e GoogleCloudDatacatalogV1FieldTypePrimitiveType) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput() GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput {
+	return e.ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutputWithContext(context.Background())
+}
+
+func (e GoogleCloudDatacatalogV1FieldTypePrimitiveType) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput {
+	return GoogleCloudDatacatalogV1FieldTypePrimitiveType(e).ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutputWithContext(ctx).ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutputWithContext(ctx)
+}
+
+func (e GoogleCloudDatacatalogV1FieldTypePrimitiveType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GoogleCloudDatacatalogV1FieldTypePrimitiveType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GoogleCloudDatacatalogV1FieldTypePrimitiveType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GoogleCloudDatacatalogV1FieldTypePrimitiveType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDatacatalogV1FieldTypePrimitiveType)(nil)).Elem()
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput() GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput {
+	return o
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput {
+	return o
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput() GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput {
+	return o.ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GoogleCloudDatacatalogV1FieldTypePrimitiveType) *GoogleCloudDatacatalogV1FieldTypePrimitiveType {
+		return &v
+	}).(GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput)
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GoogleCloudDatacatalogV1FieldTypePrimitiveType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GoogleCloudDatacatalogV1FieldTypePrimitiveType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GoogleCloudDatacatalogV1FieldTypePrimitiveType)(nil)).Elem()
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput() GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput {
+	return o
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput {
+	return o
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput) Elem() GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput {
+	return o.ApplyT(func(v *GoogleCloudDatacatalogV1FieldTypePrimitiveType) GoogleCloudDatacatalogV1FieldTypePrimitiveType {
+		if v != nil {
+			return *v
+		}
+		var ret GoogleCloudDatacatalogV1FieldTypePrimitiveType
+		return ret
+	}).(GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput)
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GoogleCloudDatacatalogV1FieldTypePrimitiveType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GoogleCloudDatacatalogV1FieldTypePrimitiveTypeInput is an input type that accepts values of the GoogleCloudDatacatalogV1FieldTypePrimitiveType enum
+// A concrete instance of `GoogleCloudDatacatalogV1FieldTypePrimitiveTypeInput` can be one of the following:
+//
+//	GoogleCloudDatacatalogV1FieldTypePrimitiveTypePrimitiveTypeUnspecified
+//	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeDouble
+//	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeString
+//	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeBool
+//	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeTimestamp
+//	GoogleCloudDatacatalogV1FieldTypePrimitiveTypeRichtext
+type GoogleCloudDatacatalogV1FieldTypePrimitiveTypeInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput() GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput
+	ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutputWithContext(context.Context) GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput
+}
+
+var googleCloudDatacatalogV1FieldTypePrimitiveTypePtrType = reflect.TypeOf((**GoogleCloudDatacatalogV1FieldTypePrimitiveType)(nil)).Elem()
+
+type GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput() GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput
+	ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutputWithContext(context.Context) GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput
+}
+
+type googleCloudDatacatalogV1FieldTypePrimitiveTypePtr string
+
+func GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtr(v string) GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrInput {
+	return (*googleCloudDatacatalogV1FieldTypePrimitiveTypePtr)(&v)
+}
+
+func (*googleCloudDatacatalogV1FieldTypePrimitiveTypePtr) ElementType() reflect.Type {
+	return googleCloudDatacatalogV1FieldTypePrimitiveTypePtrType
+}
+
+func (in *googleCloudDatacatalogV1FieldTypePrimitiveTypePtr) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput() GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput {
+	return pulumi.ToOutput(in).(GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput)
+}
+
+func (in *googleCloudDatacatalogV1FieldTypePrimitiveTypePtr) ToGoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput)
 }
 
 // Specifies whether the argument is input or output.
@@ -1055,10 +1232,13 @@ func (o GoogleCloudDatacatalogV1RoutineSpecArgumentModePtrOutput) ToStringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogV1RoutineSpecArgumentModeInput is an input type that accepts GoogleCloudDatacatalogV1RoutineSpecArgumentModeArgs and GoogleCloudDatacatalogV1RoutineSpecArgumentModeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogV1RoutineSpecArgumentModeInput` via:
+// GoogleCloudDatacatalogV1RoutineSpecArgumentModeInput is an input type that accepts values of the GoogleCloudDatacatalogV1RoutineSpecArgumentMode enum
+// A concrete instance of `GoogleCloudDatacatalogV1RoutineSpecArgumentModeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogV1RoutineSpecArgumentModeArgs{...}
+//	GoogleCloudDatacatalogV1RoutineSpecArgumentModeModeUnspecified
+//	GoogleCloudDatacatalogV1RoutineSpecArgumentModeIn
+//	GoogleCloudDatacatalogV1RoutineSpecArgumentModeOut
+//	GoogleCloudDatacatalogV1RoutineSpecArgumentModeInout
 type GoogleCloudDatacatalogV1RoutineSpecArgumentModeInput interface {
 	pulumi.Input
 
@@ -1091,12 +1271,6 @@ func (in *googleCloudDatacatalogV1RoutineSpecArgumentModePtr) ToGoogleCloudDatac
 
 func (in *googleCloudDatacatalogV1RoutineSpecArgumentModePtr) ToGoogleCloudDatacatalogV1RoutineSpecArgumentModePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1RoutineSpecArgumentModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1RoutineSpecArgumentModePtrOutput)
-}
-
-func (in *googleCloudDatacatalogV1RoutineSpecArgumentModePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogV1RoutineSpecArgumentMode] {
-	return pulumix.Output[*GoogleCloudDatacatalogV1RoutineSpecArgumentMode]{
-		OutputState: in.ToGoogleCloudDatacatalogV1RoutineSpecArgumentModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the routine.
@@ -1230,10 +1404,12 @@ func (o GoogleCloudDatacatalogV1RoutineSpecRoutineTypePtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogV1RoutineSpecRoutineTypeInput is an input type that accepts GoogleCloudDatacatalogV1RoutineSpecRoutineTypeArgs and GoogleCloudDatacatalogV1RoutineSpecRoutineTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogV1RoutineSpecRoutineTypeInput` via:
+// GoogleCloudDatacatalogV1RoutineSpecRoutineTypeInput is an input type that accepts values of the GoogleCloudDatacatalogV1RoutineSpecRoutineType enum
+// A concrete instance of `GoogleCloudDatacatalogV1RoutineSpecRoutineTypeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogV1RoutineSpecRoutineTypeArgs{...}
+//	GoogleCloudDatacatalogV1RoutineSpecRoutineTypeRoutineTypeUnspecified
+//	GoogleCloudDatacatalogV1RoutineSpecRoutineTypeScalarFunction
+//	GoogleCloudDatacatalogV1RoutineSpecRoutineTypeProcedure
 type GoogleCloudDatacatalogV1RoutineSpecRoutineTypeInput interface {
 	pulumi.Input
 
@@ -1266,12 +1442,6 @@ func (in *googleCloudDatacatalogV1RoutineSpecRoutineTypePtr) ToGoogleCloudDataca
 
 func (in *googleCloudDatacatalogV1RoutineSpecRoutineTypePtr) ToGoogleCloudDatacatalogV1RoutineSpecRoutineTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1RoutineSpecRoutineTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1RoutineSpecRoutineTypePtrOutput)
-}
-
-func (in *googleCloudDatacatalogV1RoutineSpecRoutineTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogV1RoutineSpecRoutineType] {
-	return pulumix.Output[*GoogleCloudDatacatalogV1RoutineSpecRoutineType]{
-		OutputState: in.ToGoogleCloudDatacatalogV1RoutineSpecRoutineTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of the dataset.
@@ -1425,10 +1595,22 @@ func (o GoogleCloudDatacatalogV1VertexDatasetSpecDataTypePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeInput is an input type that accepts GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeArgs and GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeInput` via:
+// GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeInput is an input type that accepts values of the GoogleCloudDatacatalogV1VertexDatasetSpecDataType enum
+// A concrete instance of `GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeArgs{...}
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeDataTypeUnspecified
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeTable
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeImage
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeText
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeVideo
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeConversation
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeTimeSeries
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeDocument
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeTextToSpeech
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeTranslation
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeStoreVision
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeEnterpriseKnowledgeGraph
+//	GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeTextPrompt
 type GoogleCloudDatacatalogV1VertexDatasetSpecDataTypeInput interface {
 	pulumi.Input
 
@@ -1461,12 +1643,6 @@ func (in *googleCloudDatacatalogV1VertexDatasetSpecDataTypePtr) ToGoogleCloudDat
 
 func (in *googleCloudDatacatalogV1VertexDatasetSpecDataTypePtr) ToGoogleCloudDatacatalogV1VertexDatasetSpecDataTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1VertexDatasetSpecDataTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1VertexDatasetSpecDataTypePtrOutput)
-}
-
-func (in *googleCloudDatacatalogV1VertexDatasetSpecDataTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogV1VertexDatasetSpecDataType] {
-	return pulumix.Output[*GoogleCloudDatacatalogV1VertexDatasetSpecDataType]{
-		OutputState: in.ToGoogleCloudDatacatalogV1VertexDatasetSpecDataTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of the model source.
@@ -1604,10 +1780,14 @@ func (o GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypePtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeInput is an input type that accepts GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeArgs and GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeInput` via:
+// GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeInput is an input type that accepts values of the GoogleCloudDatacatalogV1VertexModelSourceInfoSourceType enum
+// A concrete instance of `GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeInput` can be one of the following:
 //
-//	GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeArgs{...}
+//	GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeModelSourceTypeUnspecified
+//	GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeAutoml
+//	GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeCustom
+//	GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeBqml
+//	GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeModelGarden
 type GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypeInput interface {
 	pulumi.Input
 
@@ -1640,12 +1820,6 @@ func (in *googleCloudDatacatalogV1VertexModelSourceInfoSourceTypePtr) ToGoogleCl
 
 func (in *googleCloudDatacatalogV1VertexModelSourceInfoSourceTypePtr) ToGoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypePtrOutputWithContext(ctx context.Context) GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypePtrOutput)
-}
-
-func (in *googleCloudDatacatalogV1VertexModelSourceInfoSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDatacatalogV1VertexModelSourceInfoSourceType] {
-	return pulumix.Output[*GoogleCloudDatacatalogV1VertexModelSourceInfoSourceType]{
-		OutputState: in.ToGoogleCloudDatacatalogV1VertexModelSourceInfoSourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type TaxonomyActivatedPolicyTypesItem string
@@ -1776,10 +1950,11 @@ func (o TaxonomyActivatedPolicyTypesItemPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TaxonomyActivatedPolicyTypesItemInput is an input type that accepts TaxonomyActivatedPolicyTypesItemArgs and TaxonomyActivatedPolicyTypesItemOutput values.
-// You can construct a concrete instance of `TaxonomyActivatedPolicyTypesItemInput` via:
+// TaxonomyActivatedPolicyTypesItemInput is an input type that accepts values of the TaxonomyActivatedPolicyTypesItem enum
+// A concrete instance of `TaxonomyActivatedPolicyTypesItemInput` can be one of the following:
 //
-//	TaxonomyActivatedPolicyTypesItemArgs{...}
+//	TaxonomyActivatedPolicyTypesItemPolicyTypeUnspecified
+//	TaxonomyActivatedPolicyTypesItemFineGrainedAccessControl
 type TaxonomyActivatedPolicyTypesItemInput interface {
 	pulumi.Input
 
@@ -1812,12 +1987,6 @@ func (in *taxonomyActivatedPolicyTypesItemPtr) ToTaxonomyActivatedPolicyTypesIte
 
 func (in *taxonomyActivatedPolicyTypesItemPtr) ToTaxonomyActivatedPolicyTypesItemPtrOutputWithContext(ctx context.Context) TaxonomyActivatedPolicyTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TaxonomyActivatedPolicyTypesItemPtrOutput)
-}
-
-func (in *taxonomyActivatedPolicyTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*TaxonomyActivatedPolicyTypesItem] {
-	return pulumix.Output[*TaxonomyActivatedPolicyTypesItem]{
-		OutputState: in.ToTaxonomyActivatedPolicyTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // TaxonomyActivatedPolicyTypesItemArrayInput is an input type that accepts TaxonomyActivatedPolicyTypesItemArray and TaxonomyActivatedPolicyTypesItemArrayOutput values.
@@ -1876,6 +2045,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtrInput)(nil)).Elem(), GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewType("VIEW_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDatacatalogV1DatabaseTableSpecTypeInput)(nil)).Elem(), GoogleCloudDatacatalogV1DatabaseTableSpecType("TABLE_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDatacatalogV1DatabaseTableSpecTypePtrInput)(nil)).Elem(), GoogleCloudDatacatalogV1DatabaseTableSpecType("TABLE_TYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDatacatalogV1FieldTypePrimitiveTypeInput)(nil)).Elem(), GoogleCloudDatacatalogV1FieldTypePrimitiveType("PRIMITIVE_TYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrInput)(nil)).Elem(), GoogleCloudDatacatalogV1FieldTypePrimitiveType("PRIMITIVE_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDatacatalogV1RoutineSpecArgumentModeInput)(nil)).Elem(), GoogleCloudDatacatalogV1RoutineSpecArgumentMode("MODE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDatacatalogV1RoutineSpecArgumentModePtrInput)(nil)).Elem(), GoogleCloudDatacatalogV1RoutineSpecArgumentMode("MODE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDatacatalogV1RoutineSpecRoutineTypeInput)(nil)).Elem(), GoogleCloudDatacatalogV1RoutineSpecRoutineType("ROUTINE_TYPE_UNSPECIFIED"))
@@ -1897,6 +2068,8 @@ func init() {
 	pulumi.RegisterOutputType(GoogleCloudDatacatalogV1DatabaseTableSpecDatabaseViewSpecViewTypePtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDatacatalogV1DatabaseTableSpecTypeOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDatacatalogV1DatabaseTableSpecTypePtrOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDatacatalogV1FieldTypePrimitiveTypeOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDatacatalogV1FieldTypePrimitiveTypePtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDatacatalogV1RoutineSpecArgumentModeOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDatacatalogV1RoutineSpecArgumentModePtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDatacatalogV1RoutineSpecRoutineTypeOutput{})

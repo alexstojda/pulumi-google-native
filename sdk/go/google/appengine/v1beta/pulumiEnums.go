@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Action to take when users access resources that require authentication. Defaults to redirect.
@@ -142,10 +141,12 @@ func (o ApiConfigHandlerAuthFailActionPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApiConfigHandlerAuthFailActionInput is an input type that accepts ApiConfigHandlerAuthFailActionArgs and ApiConfigHandlerAuthFailActionOutput values.
-// You can construct a concrete instance of `ApiConfigHandlerAuthFailActionInput` via:
+// ApiConfigHandlerAuthFailActionInput is an input type that accepts values of the ApiConfigHandlerAuthFailAction enum
+// A concrete instance of `ApiConfigHandlerAuthFailActionInput` can be one of the following:
 //
-//	ApiConfigHandlerAuthFailActionArgs{...}
+//	ApiConfigHandlerAuthFailActionAuthFailActionUnspecified
+//	ApiConfigHandlerAuthFailActionAuthFailActionRedirect
+//	ApiConfigHandlerAuthFailActionAuthFailActionUnauthorized
 type ApiConfigHandlerAuthFailActionInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *apiConfigHandlerAuthFailActionPtr) ToApiConfigHandlerAuthFailActionPtr
 
 func (in *apiConfigHandlerAuthFailActionPtr) ToApiConfigHandlerAuthFailActionPtrOutputWithContext(ctx context.Context) ApiConfigHandlerAuthFailActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApiConfigHandlerAuthFailActionPtrOutput)
-}
-
-func (in *apiConfigHandlerAuthFailActionPtr) ToOutput(ctx context.Context) pulumix.Output[*ApiConfigHandlerAuthFailAction] {
-	return pulumix.Output[*ApiConfigHandlerAuthFailAction]{
-		OutputState: in.ToApiConfigHandlerAuthFailActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Level of login required to access this resource. Defaults to optional.
@@ -319,10 +314,13 @@ func (o ApiConfigHandlerLoginPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApiConfigHandlerLoginInput is an input type that accepts ApiConfigHandlerLoginArgs and ApiConfigHandlerLoginOutput values.
-// You can construct a concrete instance of `ApiConfigHandlerLoginInput` via:
+// ApiConfigHandlerLoginInput is an input type that accepts values of the ApiConfigHandlerLogin enum
+// A concrete instance of `ApiConfigHandlerLoginInput` can be one of the following:
 //
-//	ApiConfigHandlerLoginArgs{...}
+//	ApiConfigHandlerLoginLoginUnspecified
+//	ApiConfigHandlerLoginLoginOptional
+//	ApiConfigHandlerLoginLoginAdmin
+//	ApiConfigHandlerLoginLoginRequired
 type ApiConfigHandlerLoginInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *apiConfigHandlerLoginPtr) ToApiConfigHandlerLoginPtrOutput() ApiConfig
 
 func (in *apiConfigHandlerLoginPtr) ToApiConfigHandlerLoginPtrOutputWithContext(ctx context.Context) ApiConfigHandlerLoginPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApiConfigHandlerLoginPtrOutput)
-}
-
-func (in *apiConfigHandlerLoginPtr) ToOutput(ctx context.Context) pulumix.Output[*ApiConfigHandlerLogin] {
-	return pulumix.Output[*ApiConfigHandlerLogin]{
-		OutputState: in.ToApiConfigHandlerLoginPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Security (HTTPS) enforcement for this URL.
@@ -498,10 +490,14 @@ func (o ApiConfigHandlerSecurityLevelPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApiConfigHandlerSecurityLevelInput is an input type that accepts ApiConfigHandlerSecurityLevelArgs and ApiConfigHandlerSecurityLevelOutput values.
-// You can construct a concrete instance of `ApiConfigHandlerSecurityLevelInput` via:
+// ApiConfigHandlerSecurityLevelInput is an input type that accepts values of the ApiConfigHandlerSecurityLevel enum
+// A concrete instance of `ApiConfigHandlerSecurityLevelInput` can be one of the following:
 //
-//	ApiConfigHandlerSecurityLevelArgs{...}
+//	ApiConfigHandlerSecurityLevelSecureUnspecified
+//	ApiConfigHandlerSecurityLevelSecureDefault
+//	ApiConfigHandlerSecurityLevelSecureNever
+//	ApiConfigHandlerSecurityLevelSecureOptional
+//	ApiConfigHandlerSecurityLevelSecureAlways
 type ApiConfigHandlerSecurityLevelInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *apiConfigHandlerSecurityLevelPtr) ToApiConfigHandlerSecurityLevelPtrOu
 
 func (in *apiConfigHandlerSecurityLevelPtr) ToApiConfigHandlerSecurityLevelPtrOutputWithContext(ctx context.Context) ApiConfigHandlerSecurityLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApiConfigHandlerSecurityLevelPtrOutput)
-}
-
-func (in *apiConfigHandlerSecurityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ApiConfigHandlerSecurityLevel] {
-	return pulumix.Output[*ApiConfigHandlerSecurityLevel]{
-		OutputState: in.ToApiConfigHandlerSecurityLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the Cloud Firestore or Cloud Datastore database associated with this application.
@@ -675,10 +665,13 @@ func (o AppDatabaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppDatabaseTypeInput is an input type that accepts AppDatabaseTypeArgs and AppDatabaseTypeOutput values.
-// You can construct a concrete instance of `AppDatabaseTypeInput` via:
+// AppDatabaseTypeInput is an input type that accepts values of the AppDatabaseType enum
+// A concrete instance of `AppDatabaseTypeInput` can be one of the following:
 //
-//	AppDatabaseTypeArgs{...}
+//	AppDatabaseTypeDatabaseTypeUnspecified
+//	AppDatabaseTypeCloudDatastore
+//	AppDatabaseTypeCloudFirestore
+//	AppDatabaseTypeCloudDatastoreCompatibility
 type AppDatabaseTypeInput interface {
 	pulumi.Input
 
@@ -711,12 +704,6 @@ func (in *appDatabaseTypePtr) ToAppDatabaseTypePtrOutput() AppDatabaseTypePtrOut
 
 func (in *appDatabaseTypePtr) ToAppDatabaseTypePtrOutputWithContext(ctx context.Context) AppDatabaseTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppDatabaseTypePtrOutput)
-}
-
-func (in *appDatabaseTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AppDatabaseType] {
-	return pulumix.Output[*AppDatabaseType]{
-		OutputState: in.ToAppDatabaseTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Serving status of this application.
@@ -852,10 +839,13 @@ func (o AppServingStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppServingStatusInput is an input type that accepts AppServingStatusArgs and AppServingStatusOutput values.
-// You can construct a concrete instance of `AppServingStatusInput` via:
+// AppServingStatusInput is an input type that accepts values of the AppServingStatus enum
+// A concrete instance of `AppServingStatusInput` can be one of the following:
 //
-//	AppServingStatusArgs{...}
+//	AppServingStatusUnspecified
+//	AppServingStatusServing
+//	AppServingStatusUserDisabled
+//	AppServingStatusSystemDisabled
 type AppServingStatusInput interface {
 	pulumi.Input
 
@@ -888,12 +878,6 @@ func (in *appServingStatusPtr) ToAppServingStatusPtrOutput() AppServingStatusPtr
 
 func (in *appServingStatusPtr) ToAppServingStatusPtrOutputWithContext(ctx context.Context) AppServingStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppServingStatusPtrOutput)
-}
-
-func (in *appServingStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*AppServingStatus] {
-	return pulumix.Output[*AppServingStatus]{
-		OutputState: in.ToAppServingStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Endpoints rollout strategy. If FIXED, config_id must be specified. If MANAGED, config_id must be omitted.
@@ -1027,10 +1011,12 @@ func (o EndpointsApiServiceRolloutStrategyPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EndpointsApiServiceRolloutStrategyInput is an input type that accepts EndpointsApiServiceRolloutStrategyArgs and EndpointsApiServiceRolloutStrategyOutput values.
-// You can construct a concrete instance of `EndpointsApiServiceRolloutStrategyInput` via:
+// EndpointsApiServiceRolloutStrategyInput is an input type that accepts values of the EndpointsApiServiceRolloutStrategy enum
+// A concrete instance of `EndpointsApiServiceRolloutStrategyInput` can be one of the following:
 //
-//	EndpointsApiServiceRolloutStrategyArgs{...}
+//	EndpointsApiServiceRolloutStrategyUnspecifiedRolloutStrategy
+//	EndpointsApiServiceRolloutStrategyFixed
+//	EndpointsApiServiceRolloutStrategyManaged
 type EndpointsApiServiceRolloutStrategyInput interface {
 	pulumi.Input
 
@@ -1063,12 +1049,6 @@ func (in *endpointsApiServiceRolloutStrategyPtr) ToEndpointsApiServiceRolloutStr
 
 func (in *endpointsApiServiceRolloutStrategyPtr) ToEndpointsApiServiceRolloutStrategyPtrOutputWithContext(ctx context.Context) EndpointsApiServiceRolloutStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointsApiServiceRolloutStrategyPtrOutput)
-}
-
-func (in *endpointsApiServiceRolloutStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*EndpointsApiServiceRolloutStrategy] {
-	return pulumix.Output[*EndpointsApiServiceRolloutStrategy]{
-		OutputState: in.ToEndpointsApiServiceRolloutStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Error condition this handler applies to.
@@ -1206,10 +1186,14 @@ func (o ErrorHandlerErrorCodePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ErrorHandlerErrorCodeInput is an input type that accepts ErrorHandlerErrorCodeArgs and ErrorHandlerErrorCodeOutput values.
-// You can construct a concrete instance of `ErrorHandlerErrorCodeInput` via:
+// ErrorHandlerErrorCodeInput is an input type that accepts values of the ErrorHandlerErrorCode enum
+// A concrete instance of `ErrorHandlerErrorCodeInput` can be one of the following:
 //
-//	ErrorHandlerErrorCodeArgs{...}
+//	ErrorHandlerErrorCodeErrorCodeUnspecified
+//	ErrorHandlerErrorCodeErrorCodeDefault
+//	ErrorHandlerErrorCodeErrorCodeOverQuota
+//	ErrorHandlerErrorCodeErrorCodeDosApiDenial
+//	ErrorHandlerErrorCodeErrorCodeTimeout
 type ErrorHandlerErrorCodeInput interface {
 	pulumi.Input
 
@@ -1242,12 +1226,6 @@ func (in *errorHandlerErrorCodePtr) ToErrorHandlerErrorCodePtrOutput() ErrorHand
 
 func (in *errorHandlerErrorCodePtr) ToErrorHandlerErrorCodePtrOutputWithContext(ctx context.Context) ErrorHandlerErrorCodePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ErrorHandlerErrorCodePtrOutput)
-}
-
-func (in *errorHandlerErrorCodePtr) ToOutput(ctx context.Context) pulumix.Output[*ErrorHandlerErrorCode] {
-	return pulumix.Output[*ErrorHandlerErrorCode]{
-		OutputState: in.ToErrorHandlerErrorCodePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The action to take on matched requests.
@@ -1380,10 +1358,12 @@ func (o IngressRuleActionPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// IngressRuleActionInput is an input type that accepts IngressRuleActionArgs and IngressRuleActionOutput values.
-// You can construct a concrete instance of `IngressRuleActionInput` via:
+// IngressRuleActionInput is an input type that accepts values of the IngressRuleAction enum
+// A concrete instance of `IngressRuleActionInput` can be one of the following:
 //
-//	IngressRuleActionArgs{...}
+//	IngressRuleActionUnspecifiedAction
+//	IngressRuleActionAllow
+//	IngressRuleActionDeny
 type IngressRuleActionInput interface {
 	pulumi.Input
 
@@ -1416,12 +1396,6 @@ func (in *ingressRuleActionPtr) ToIngressRuleActionPtrOutput() IngressRuleAction
 
 func (in *ingressRuleActionPtr) ToIngressRuleActionPtrOutputWithContext(ctx context.Context) IngressRuleActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IngressRuleActionPtrOutput)
-}
-
-func (in *ingressRuleActionPtr) ToOutput(ctx context.Context) pulumix.Output[*IngressRuleAction] {
-	return pulumix.Output[*IngressRuleAction]{
-		OutputState: in.ToIngressRuleActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The IP mode for instances. Only applicable in the App Engine flexible environment.
@@ -1555,10 +1529,12 @@ func (o NetworkInstanceIpModePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkInstanceIpModeInput is an input type that accepts NetworkInstanceIpModeArgs and NetworkInstanceIpModeOutput values.
-// You can construct a concrete instance of `NetworkInstanceIpModeInput` via:
+// NetworkInstanceIpModeInput is an input type that accepts values of the NetworkInstanceIpMode enum
+// A concrete instance of `NetworkInstanceIpModeInput` can be one of the following:
 //
-//	NetworkInstanceIpModeArgs{...}
+//	NetworkInstanceIpModeInstanceIpModeUnspecified
+//	NetworkInstanceIpModeExternal
+//	NetworkInstanceIpModeInternal
 type NetworkInstanceIpModeInput interface {
 	pulumi.Input
 
@@ -1591,12 +1567,6 @@ func (in *networkInstanceIpModePtr) ToNetworkInstanceIpModePtrOutput() NetworkIn
 
 func (in *networkInstanceIpModePtr) ToNetworkInstanceIpModePtrOutputWithContext(ctx context.Context) NetworkInstanceIpModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkInstanceIpModePtrOutput)
-}
-
-func (in *networkInstanceIpModePtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkInstanceIpMode] {
-	return pulumix.Output[*NetworkInstanceIpMode]{
-		OutputState: in.ToNetworkInstanceIpModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SSL management type for this domain. If AUTOMATIC, a managed certificate is automatically provisioned. If MANUAL, certificate_id must be manually specified in order to configure SSL for this domain.
@@ -1728,10 +1698,11 @@ func (o SslSettingsSslManagementTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// SslSettingsSslManagementTypeInput is an input type that accepts SslSettingsSslManagementTypeArgs and SslSettingsSslManagementTypeOutput values.
-// You can construct a concrete instance of `SslSettingsSslManagementTypeInput` via:
+// SslSettingsSslManagementTypeInput is an input type that accepts values of the SslSettingsSslManagementType enum
+// A concrete instance of `SslSettingsSslManagementTypeInput` can be one of the following:
 //
-//	SslSettingsSslManagementTypeArgs{...}
+//	SslSettingsSslManagementTypeAutomatic
+//	SslSettingsSslManagementTypeManual
 type SslSettingsSslManagementTypeInput interface {
 	pulumi.Input
 
@@ -1764,12 +1735,6 @@ func (in *sslSettingsSslManagementTypePtr) ToSslSettingsSslManagementTypePtrOutp
 
 func (in *sslSettingsSslManagementTypePtr) ToSslSettingsSslManagementTypePtrOutputWithContext(ctx context.Context) SslSettingsSslManagementTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SslSettingsSslManagementTypePtrOutput)
-}
-
-func (in *sslSettingsSslManagementTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SslSettingsSslManagementType] {
-	return pulumix.Output[*SslSettingsSslManagementType]{
-		OutputState: in.ToSslSettingsSslManagementTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Action to take when users access resources that require authentication. Defaults to redirect.
@@ -1903,10 +1868,12 @@ func (o UrlMapAuthFailActionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// UrlMapAuthFailActionInput is an input type that accepts UrlMapAuthFailActionArgs and UrlMapAuthFailActionOutput values.
-// You can construct a concrete instance of `UrlMapAuthFailActionInput` via:
+// UrlMapAuthFailActionInput is an input type that accepts values of the UrlMapAuthFailAction enum
+// A concrete instance of `UrlMapAuthFailActionInput` can be one of the following:
 //
-//	UrlMapAuthFailActionArgs{...}
+//	UrlMapAuthFailActionAuthFailActionUnspecified
+//	UrlMapAuthFailActionAuthFailActionRedirect
+//	UrlMapAuthFailActionAuthFailActionUnauthorized
 type UrlMapAuthFailActionInput interface {
 	pulumi.Input
 
@@ -1939,12 +1906,6 @@ func (in *urlMapAuthFailActionPtr) ToUrlMapAuthFailActionPtrOutput() UrlMapAuthF
 
 func (in *urlMapAuthFailActionPtr) ToUrlMapAuthFailActionPtrOutputWithContext(ctx context.Context) UrlMapAuthFailActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UrlMapAuthFailActionPtrOutput)
-}
-
-func (in *urlMapAuthFailActionPtr) ToOutput(ctx context.Context) pulumix.Output[*UrlMapAuthFailAction] {
-	return pulumix.Output[*UrlMapAuthFailAction]{
-		OutputState: in.ToUrlMapAuthFailActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Level of login required to access this resource. Not supported for Node.js in the App Engine standard environment.
@@ -2080,10 +2041,13 @@ func (o UrlMapLoginPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// UrlMapLoginInput is an input type that accepts UrlMapLoginArgs and UrlMapLoginOutput values.
-// You can construct a concrete instance of `UrlMapLoginInput` via:
+// UrlMapLoginInput is an input type that accepts values of the UrlMapLogin enum
+// A concrete instance of `UrlMapLoginInput` can be one of the following:
 //
-//	UrlMapLoginArgs{...}
+//	UrlMapLoginLoginUnspecified
+//	UrlMapLoginLoginOptional
+//	UrlMapLoginLoginAdmin
+//	UrlMapLoginLoginRequired
 type UrlMapLoginInput interface {
 	pulumi.Input
 
@@ -2116,12 +2080,6 @@ func (in *urlMapLoginPtr) ToUrlMapLoginPtrOutput() UrlMapLoginPtrOutput {
 
 func (in *urlMapLoginPtr) ToUrlMapLoginPtrOutputWithContext(ctx context.Context) UrlMapLoginPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UrlMapLoginPtrOutput)
-}
-
-func (in *urlMapLoginPtr) ToOutput(ctx context.Context) pulumix.Output[*UrlMapLogin] {
-	return pulumix.Output[*UrlMapLogin]{
-		OutputState: in.ToUrlMapLoginPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // 30x code to use when performing redirects for the secure field. Defaults to 302.
@@ -2259,10 +2217,14 @@ func (o UrlMapRedirectHttpResponseCodePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// UrlMapRedirectHttpResponseCodeInput is an input type that accepts UrlMapRedirectHttpResponseCodeArgs and UrlMapRedirectHttpResponseCodeOutput values.
-// You can construct a concrete instance of `UrlMapRedirectHttpResponseCodeInput` via:
+// UrlMapRedirectHttpResponseCodeInput is an input type that accepts values of the UrlMapRedirectHttpResponseCode enum
+// A concrete instance of `UrlMapRedirectHttpResponseCodeInput` can be one of the following:
 //
-//	UrlMapRedirectHttpResponseCodeArgs{...}
+//	UrlMapRedirectHttpResponseCodeRedirectHttpResponseCodeUnspecified
+//	UrlMapRedirectHttpResponseCodeRedirectHttpResponseCode301
+//	UrlMapRedirectHttpResponseCodeRedirectHttpResponseCode302
+//	UrlMapRedirectHttpResponseCodeRedirectHttpResponseCode303
+//	UrlMapRedirectHttpResponseCodeRedirectHttpResponseCode307
 type UrlMapRedirectHttpResponseCodeInput interface {
 	pulumi.Input
 
@@ -2295,12 +2257,6 @@ func (in *urlMapRedirectHttpResponseCodePtr) ToUrlMapRedirectHttpResponseCodePtr
 
 func (in *urlMapRedirectHttpResponseCodePtr) ToUrlMapRedirectHttpResponseCodePtrOutputWithContext(ctx context.Context) UrlMapRedirectHttpResponseCodePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UrlMapRedirectHttpResponseCodePtrOutput)
-}
-
-func (in *urlMapRedirectHttpResponseCodePtr) ToOutput(ctx context.Context) pulumix.Output[*UrlMapRedirectHttpResponseCode] {
-	return pulumix.Output[*UrlMapRedirectHttpResponseCode]{
-		OutputState: in.ToUrlMapRedirectHttpResponseCodePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Security (HTTPS) enforcement for this URL.
@@ -2438,10 +2394,14 @@ func (o UrlMapSecurityLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// UrlMapSecurityLevelInput is an input type that accepts UrlMapSecurityLevelArgs and UrlMapSecurityLevelOutput values.
-// You can construct a concrete instance of `UrlMapSecurityLevelInput` via:
+// UrlMapSecurityLevelInput is an input type that accepts values of the UrlMapSecurityLevel enum
+// A concrete instance of `UrlMapSecurityLevelInput` can be one of the following:
 //
-//	UrlMapSecurityLevelArgs{...}
+//	UrlMapSecurityLevelSecureUnspecified
+//	UrlMapSecurityLevelSecureDefault
+//	UrlMapSecurityLevelSecureNever
+//	UrlMapSecurityLevelSecureOptional
+//	UrlMapSecurityLevelSecureAlways
 type UrlMapSecurityLevelInput interface {
 	pulumi.Input
 
@@ -2474,12 +2434,6 @@ func (in *urlMapSecurityLevelPtr) ToUrlMapSecurityLevelPtrOutput() UrlMapSecurit
 
 func (in *urlMapSecurityLevelPtr) ToUrlMapSecurityLevelPtrOutputWithContext(ctx context.Context) UrlMapSecurityLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UrlMapSecurityLevelPtrOutput)
-}
-
-func (in *urlMapSecurityLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*UrlMapSecurityLevel] {
-	return pulumix.Output[*UrlMapSecurityLevel]{
-		OutputState: in.ToUrlMapSecurityLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type VersionInboundServicesItem string
@@ -2624,10 +2578,18 @@ func (o VersionInboundServicesItemPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// VersionInboundServicesItemInput is an input type that accepts VersionInboundServicesItemArgs and VersionInboundServicesItemOutput values.
-// You can construct a concrete instance of `VersionInboundServicesItemInput` via:
+// VersionInboundServicesItemInput is an input type that accepts values of the VersionInboundServicesItem enum
+// A concrete instance of `VersionInboundServicesItemInput` can be one of the following:
 //
-//	VersionInboundServicesItemArgs{...}
+//	VersionInboundServicesItemInboundServiceUnspecified
+//	VersionInboundServicesItemInboundServiceMail
+//	VersionInboundServicesItemInboundServiceMailBounce
+//	VersionInboundServicesItemInboundServiceXmppError
+//	VersionInboundServicesItemInboundServiceXmppMessage
+//	VersionInboundServicesItemInboundServiceXmppSubscribe
+//	VersionInboundServicesItemInboundServiceXmppPresence
+//	VersionInboundServicesItemInboundServiceChannelPresence
+//	VersionInboundServicesItemInboundServiceWarmup
 type VersionInboundServicesItemInput interface {
 	pulumi.Input
 
@@ -2660,12 +2622,6 @@ func (in *versionInboundServicesItemPtr) ToVersionInboundServicesItemPtrOutput()
 
 func (in *versionInboundServicesItemPtr) ToVersionInboundServicesItemPtrOutputWithContext(ctx context.Context) VersionInboundServicesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VersionInboundServicesItemPtrOutput)
-}
-
-func (in *versionInboundServicesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*VersionInboundServicesItem] {
-	return pulumix.Output[*VersionInboundServicesItem]{
-		OutputState: in.ToVersionInboundServicesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // VersionInboundServicesItemArrayInput is an input type that accepts VersionInboundServicesItemArray and VersionInboundServicesItemArrayOutput values.
@@ -2844,10 +2800,12 @@ func (o VersionServingStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// VersionServingStatusInput is an input type that accepts VersionServingStatusArgs and VersionServingStatusOutput values.
-// You can construct a concrete instance of `VersionServingStatusInput` via:
+// VersionServingStatusInput is an input type that accepts values of the VersionServingStatus enum
+// A concrete instance of `VersionServingStatusInput` can be one of the following:
 //
-//	VersionServingStatusArgs{...}
+//	VersionServingStatusServingStatusUnspecified
+//	VersionServingStatusServing
+//	VersionServingStatusStopped
 type VersionServingStatusInput interface {
 	pulumi.Input
 
@@ -2880,12 +2838,6 @@ func (in *versionServingStatusPtr) ToVersionServingStatusPtrOutput() VersionServ
 
 func (in *versionServingStatusPtr) ToVersionServingStatusPtrOutputWithContext(ctx context.Context) VersionServingStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VersionServingStatusPtrOutput)
-}
-
-func (in *versionServingStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*VersionServingStatus] {
-	return pulumix.Output[*VersionServingStatus]{
-		OutputState: in.ToVersionServingStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The egress setting for the connector, controlling what traffic is diverted through it.
@@ -3018,10 +2970,12 @@ func (o VpcAccessConnectorEgressSettingPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// VpcAccessConnectorEgressSettingInput is an input type that accepts VpcAccessConnectorEgressSettingArgs and VpcAccessConnectorEgressSettingOutput values.
-// You can construct a concrete instance of `VpcAccessConnectorEgressSettingInput` via:
+// VpcAccessConnectorEgressSettingInput is an input type that accepts values of the VpcAccessConnectorEgressSetting enum
+// A concrete instance of `VpcAccessConnectorEgressSettingInput` can be one of the following:
 //
-//	VpcAccessConnectorEgressSettingArgs{...}
+//	VpcAccessConnectorEgressSettingEgressSettingUnspecified
+//	VpcAccessConnectorEgressSettingAllTraffic
+//	VpcAccessConnectorEgressSettingPrivateIpRanges
 type VpcAccessConnectorEgressSettingInput interface {
 	pulumi.Input
 
@@ -3054,12 +3008,6 @@ func (in *vpcAccessConnectorEgressSettingPtr) ToVpcAccessConnectorEgressSettingP
 
 func (in *vpcAccessConnectorEgressSettingPtr) ToVpcAccessConnectorEgressSettingPtrOutputWithContext(ctx context.Context) VpcAccessConnectorEgressSettingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VpcAccessConnectorEgressSettingPtrOutput)
-}
-
-func (in *vpcAccessConnectorEgressSettingPtr) ToOutput(ctx context.Context) pulumix.Output[*VpcAccessConnectorEgressSetting] {
-	return pulumix.Output[*VpcAccessConnectorEgressSetting]{
-		OutputState: in.ToVpcAccessConnectorEgressSettingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

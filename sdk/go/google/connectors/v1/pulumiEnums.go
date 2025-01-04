@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -182,12 +184,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
 }
 
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 // The type of authentication configured.
 type AuthConfigAuthType string
 
@@ -204,6 +200,8 @@ const (
 	AuthConfigAuthTypeSshPublicKey = AuthConfigAuthType("SSH_PUBLIC_KEY")
 	// Oauth 2.0 Authorization Code Flow
 	AuthConfigAuthTypeOauth2AuthCodeFlow = AuthConfigAuthType("OAUTH2_AUTH_CODE_FLOW")
+	// Google authentication
+	AuthConfigAuthTypeGoogleAuthentication = AuthConfigAuthType("GOOGLE_AUTHENTICATION")
 )
 
 func (AuthConfigAuthType) ElementType() reflect.Type {
@@ -325,10 +323,16 @@ func (o AuthConfigAuthTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuthConfigAuthTypeInput is an input type that accepts AuthConfigAuthTypeArgs and AuthConfigAuthTypeOutput values.
-// You can construct a concrete instance of `AuthConfigAuthTypeInput` via:
+// AuthConfigAuthTypeInput is an input type that accepts values of the AuthConfigAuthType enum
+// A concrete instance of `AuthConfigAuthTypeInput` can be one of the following:
 //
-//	AuthConfigAuthTypeArgs{...}
+//	AuthConfigAuthTypeAuthTypeUnspecified
+//	AuthConfigAuthTypeUserPassword
+//	AuthConfigAuthTypeOauth2JwtBearer
+//	AuthConfigAuthTypeOauth2ClientCredentials
+//	AuthConfigAuthTypeSshPublicKey
+//	AuthConfigAuthTypeOauth2AuthCodeFlow
+//	AuthConfigAuthTypeGoogleAuthentication
 type AuthConfigAuthTypeInput interface {
 	pulumi.Input
 
@@ -361,12 +365,6 @@ func (in *authConfigAuthTypePtr) ToAuthConfigAuthTypePtrOutput() AuthConfigAuthT
 
 func (in *authConfigAuthTypePtr) ToAuthConfigAuthTypePtrOutputWithContext(ctx context.Context) AuthConfigAuthTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuthConfigAuthTypePtrOutput)
-}
-
-func (in *authConfigAuthTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuthConfigAuthType] {
-	return pulumix.Output[*AuthConfigAuthType]{
-		OutputState: in.ToAuthConfigAuthTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Eventing enablement type. Will be nil if eventing is not enabled.
@@ -500,10 +498,12 @@ func (o ConnectionEventingEnablementTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConnectionEventingEnablementTypeInput is an input type that accepts ConnectionEventingEnablementTypeArgs and ConnectionEventingEnablementTypeOutput values.
-// You can construct a concrete instance of `ConnectionEventingEnablementTypeInput` via:
+// ConnectionEventingEnablementTypeInput is an input type that accepts values of the ConnectionEventingEnablementType enum
+// A concrete instance of `ConnectionEventingEnablementTypeInput` can be one of the following:
 //
-//	ConnectionEventingEnablementTypeArgs{...}
+//	ConnectionEventingEnablementTypeEventingEnablementTypeUnspecified
+//	ConnectionEventingEnablementTypeEventingAndConnection
+//	ConnectionEventingEnablementTypeOnlyEventing
 type ConnectionEventingEnablementTypeInput interface {
 	pulumi.Input
 
@@ -536,12 +536,6 @@ func (in *connectionEventingEnablementTypePtr) ToConnectionEventingEnablementTyp
 
 func (in *connectionEventingEnablementTypePtr) ToConnectionEventingEnablementTypePtrOutputWithContext(ctx context.Context) ConnectionEventingEnablementTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConnectionEventingEnablementTypePtrOutput)
-}
-
-func (in *connectionEventingEnablementTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ConnectionEventingEnablementType] {
-	return pulumix.Output[*ConnectionEventingEnablementType]{
-		OutputState: in.ToConnectionEventingEnablementTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Type of the custom connector.
@@ -675,10 +669,12 @@ func (o CustomConnectorCustomConnectorTypePtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomConnectorCustomConnectorTypeInput is an input type that accepts CustomConnectorCustomConnectorTypeArgs and CustomConnectorCustomConnectorTypeOutput values.
-// You can construct a concrete instance of `CustomConnectorCustomConnectorTypeInput` via:
+// CustomConnectorCustomConnectorTypeInput is an input type that accepts values of the CustomConnectorCustomConnectorType enum
+// A concrete instance of `CustomConnectorCustomConnectorTypeInput` can be one of the following:
 //
-//	CustomConnectorCustomConnectorTypeArgs{...}
+//	CustomConnectorCustomConnectorTypeCustomConnectorTypeUnspecified
+//	CustomConnectorCustomConnectorTypeOpenApi
+//	CustomConnectorCustomConnectorTypeProto
 type CustomConnectorCustomConnectorTypeInput interface {
 	pulumi.Input
 
@@ -711,187 +707,6 @@ func (in *customConnectorCustomConnectorTypePtr) ToCustomConnectorCustomConnecto
 
 func (in *customConnectorCustomConnectorTypePtr) ToCustomConnectorCustomConnectorTypePtrOutputWithContext(ctx context.Context) CustomConnectorCustomConnectorTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomConnectorCustomConnectorTypePtrOutput)
-}
-
-func (in *customConnectorCustomConnectorTypePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomConnectorCustomConnectorType] {
-	return pulumix.Output[*CustomConnectorCustomConnectorType]{
-		OutputState: in.ToCustomConnectorCustomConnectorTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
-// Required. Type of the customConnector.
-type CustomConnectorVersionType string
-
-const (
-	// Connector type is not specified.
-	CustomConnectorVersionTypeCustomConnectorTypeUnspecified = CustomConnectorVersionType("CUSTOM_CONNECTOR_TYPE_UNSPECIFIED")
-	// OpenAPI connector.
-	CustomConnectorVersionTypeOpenApi = CustomConnectorVersionType("OPEN_API")
-	// Proto connector.
-	CustomConnectorVersionTypeProto = CustomConnectorVersionType("PROTO")
-)
-
-func (CustomConnectorVersionType) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomConnectorVersionType)(nil)).Elem()
-}
-
-func (e CustomConnectorVersionType) ToCustomConnectorVersionTypeOutput() CustomConnectorVersionTypeOutput {
-	return pulumi.ToOutput(e).(CustomConnectorVersionTypeOutput)
-}
-
-func (e CustomConnectorVersionType) ToCustomConnectorVersionTypeOutputWithContext(ctx context.Context) CustomConnectorVersionTypeOutput {
-	return pulumi.ToOutputWithContext(ctx, e).(CustomConnectorVersionTypeOutput)
-}
-
-func (e CustomConnectorVersionType) ToCustomConnectorVersionTypePtrOutput() CustomConnectorVersionTypePtrOutput {
-	return e.ToCustomConnectorVersionTypePtrOutputWithContext(context.Background())
-}
-
-func (e CustomConnectorVersionType) ToCustomConnectorVersionTypePtrOutputWithContext(ctx context.Context) CustomConnectorVersionTypePtrOutput {
-	return CustomConnectorVersionType(e).ToCustomConnectorVersionTypeOutputWithContext(ctx).ToCustomConnectorVersionTypePtrOutputWithContext(ctx)
-}
-
-func (e CustomConnectorVersionType) ToStringOutput() pulumi.StringOutput {
-	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CustomConnectorVersionType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
-}
-
-func (e CustomConnectorVersionType) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
-}
-
-func (e CustomConnectorVersionType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
-}
-
-type CustomConnectorVersionTypeOutput struct{ *pulumi.OutputState }
-
-func (CustomConnectorVersionTypeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*CustomConnectorVersionType)(nil)).Elem()
-}
-
-func (o CustomConnectorVersionTypeOutput) ToCustomConnectorVersionTypeOutput() CustomConnectorVersionTypeOutput {
-	return o
-}
-
-func (o CustomConnectorVersionTypeOutput) ToCustomConnectorVersionTypeOutputWithContext(ctx context.Context) CustomConnectorVersionTypeOutput {
-	return o
-}
-
-func (o CustomConnectorVersionTypeOutput) ToCustomConnectorVersionTypePtrOutput() CustomConnectorVersionTypePtrOutput {
-	return o.ToCustomConnectorVersionTypePtrOutputWithContext(context.Background())
-}
-
-func (o CustomConnectorVersionTypeOutput) ToCustomConnectorVersionTypePtrOutputWithContext(ctx context.Context) CustomConnectorVersionTypePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomConnectorVersionType) *CustomConnectorVersionType {
-		return &v
-	}).(CustomConnectorVersionTypePtrOutput)
-}
-
-func (o CustomConnectorVersionTypeOutput) ToStringOutput() pulumi.StringOutput {
-	return o.ToStringOutputWithContext(context.Background())
-}
-
-func (o CustomConnectorVersionTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomConnectorVersionType) string {
-		return string(e)
-	}).(pulumi.StringOutput)
-}
-
-func (o CustomConnectorVersionTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o CustomConnectorVersionTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e CustomConnectorVersionType) *string {
-		v := string(e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-type CustomConnectorVersionTypePtrOutput struct{ *pulumi.OutputState }
-
-func (CustomConnectorVersionTypePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**CustomConnectorVersionType)(nil)).Elem()
-}
-
-func (o CustomConnectorVersionTypePtrOutput) ToCustomConnectorVersionTypePtrOutput() CustomConnectorVersionTypePtrOutput {
-	return o
-}
-
-func (o CustomConnectorVersionTypePtrOutput) ToCustomConnectorVersionTypePtrOutputWithContext(ctx context.Context) CustomConnectorVersionTypePtrOutput {
-	return o
-}
-
-func (o CustomConnectorVersionTypePtrOutput) Elem() CustomConnectorVersionTypeOutput {
-	return o.ApplyT(func(v *CustomConnectorVersionType) CustomConnectorVersionType {
-		if v != nil {
-			return *v
-		}
-		var ret CustomConnectorVersionType
-		return ret
-	}).(CustomConnectorVersionTypeOutput)
-}
-
-func (o CustomConnectorVersionTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
-	return o.ToStringPtrOutputWithContext(context.Background())
-}
-
-func (o CustomConnectorVersionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, e *CustomConnectorVersionType) *string {
-		if e == nil {
-			return nil
-		}
-		v := string(*e)
-		return &v
-	}).(pulumi.StringPtrOutput)
-}
-
-// CustomConnectorVersionTypeInput is an input type that accepts CustomConnectorVersionTypeArgs and CustomConnectorVersionTypeOutput values.
-// You can construct a concrete instance of `CustomConnectorVersionTypeInput` via:
-//
-//	CustomConnectorVersionTypeArgs{...}
-type CustomConnectorVersionTypeInput interface {
-	pulumi.Input
-
-	ToCustomConnectorVersionTypeOutput() CustomConnectorVersionTypeOutput
-	ToCustomConnectorVersionTypeOutputWithContext(context.Context) CustomConnectorVersionTypeOutput
-}
-
-var customConnectorVersionTypePtrType = reflect.TypeOf((**CustomConnectorVersionType)(nil)).Elem()
-
-type CustomConnectorVersionTypePtrInput interface {
-	pulumi.Input
-
-	ToCustomConnectorVersionTypePtrOutput() CustomConnectorVersionTypePtrOutput
-	ToCustomConnectorVersionTypePtrOutputWithContext(context.Context) CustomConnectorVersionTypePtrOutput
-}
-
-type customConnectorVersionTypePtr string
-
-func CustomConnectorVersionTypePtr(v string) CustomConnectorVersionTypePtrInput {
-	return (*customConnectorVersionTypePtr)(&v)
-}
-
-func (*customConnectorVersionTypePtr) ElementType() reflect.Type {
-	return customConnectorVersionTypePtrType
-}
-
-func (in *customConnectorVersionTypePtr) ToCustomConnectorVersionTypePtrOutput() CustomConnectorVersionTypePtrOutput {
-	return pulumi.ToOutput(in).(CustomConnectorVersionTypePtrOutput)
-}
-
-func (in *customConnectorVersionTypePtr) ToCustomConnectorVersionTypePtrOutputWithContext(ctx context.Context) CustomConnectorVersionTypePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, in).(CustomConnectorVersionTypePtrOutput)
-}
-
-func (in *customConnectorVersionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomConnectorVersionType] {
-	return pulumix.Output[*CustomConnectorVersionType]{
-		OutputState: in.ToCustomConnectorVersionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type.
@@ -1025,10 +840,12 @@ func (o EncryptionKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// EncryptionKeyTypeInput is an input type that accepts EncryptionKeyTypeArgs and EncryptionKeyTypeOutput values.
-// You can construct a concrete instance of `EncryptionKeyTypeInput` via:
+// EncryptionKeyTypeInput is an input type that accepts values of the EncryptionKeyType enum
+// A concrete instance of `EncryptionKeyTypeInput` can be one of the following:
 //
-//	EncryptionKeyTypeArgs{...}
+//	EncryptionKeyTypeTypeUnspecified
+//	EncryptionKeyTypeGoogleManaged
+//	EncryptionKeyTypeCustomerManaged
 type EncryptionKeyTypeInput interface {
 	pulumi.Input
 
@@ -1061,12 +878,6 @@ func (in *encryptionKeyTypePtr) ToEncryptionKeyTypePtrOutput() EncryptionKeyType
 
 func (in *encryptionKeyTypePtr) ToEncryptionKeyTypePtrOutputWithContext(ctx context.Context) EncryptionKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EncryptionKeyTypePtrOutput)
-}
-
-func (in *encryptionKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EncryptionKeyType] {
-	return pulumix.Output[*EncryptionKeyType]{
-		OutputState: in.ToEncryptionKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // type of the destination
@@ -1198,10 +1009,11 @@ func (o EventSubscriptionDestinationTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// EventSubscriptionDestinationTypeInput is an input type that accepts EventSubscriptionDestinationTypeArgs and EventSubscriptionDestinationTypeOutput values.
-// You can construct a concrete instance of `EventSubscriptionDestinationTypeInput` via:
+// EventSubscriptionDestinationTypeInput is an input type that accepts values of the EventSubscriptionDestinationType enum
+// A concrete instance of `EventSubscriptionDestinationTypeInput` can be one of the following:
 //
-//	EventSubscriptionDestinationTypeArgs{...}
+//	EventSubscriptionDestinationTypeTypeUnspecified
+//	EventSubscriptionDestinationTypeEndpoint
 type EventSubscriptionDestinationTypeInput interface {
 	pulumi.Input
 
@@ -1234,12 +1046,6 @@ func (in *eventSubscriptionDestinationTypePtr) ToEventSubscriptionDestinationTyp
 
 func (in *eventSubscriptionDestinationTypePtr) ToEventSubscriptionDestinationTypePtrOutputWithContext(ctx context.Context) EventSubscriptionDestinationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EventSubscriptionDestinationTypePtrOutput)
-}
-
-func (in *eventSubscriptionDestinationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EventSubscriptionDestinationType] {
-	return pulumix.Output[*EventSubscriptionDestinationType]{
-		OutputState: in.ToEventSubscriptionDestinationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Type of the JMS Source. i.e. Queue or Topic
@@ -1373,10 +1179,12 @@ func (o JMSTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// JMSTypeInput is an input type that accepts JMSTypeArgs and JMSTypeOutput values.
-// You can construct a concrete instance of `JMSTypeInput` via:
+// JMSTypeInput is an input type that accepts values of the JMSType enum
+// A concrete instance of `JMSTypeInput` can be one of the following:
 //
-//	JMSTypeArgs{...}
+//	JMSTypeTypeUnspecified
+//	JMSTypeQueue
+//	JMSTypeTopic
 type JMSTypeInput interface {
 	pulumi.Input
 
@@ -1409,12 +1217,6 @@ func (in *jmstypePtr) ToJMSTypePtrOutput() JMSTypePtrOutput {
 
 func (in *jmstypePtr) ToJMSTypePtrOutputWithContext(ctx context.Context) JMSTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JMSTypePtrOutput)
-}
-
-func (in *jmstypePtr) ToOutput(ctx context.Context) pulumix.Output[*JMSType] {
-	return pulumix.Output[*JMSType]{
-		OutputState: in.ToJMSTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of Client Cert (PEM/JKS/.. etc.)
@@ -1546,10 +1348,11 @@ func (o SslConfigClientCertTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SslConfigClientCertTypeInput is an input type that accepts SslConfigClientCertTypeArgs and SslConfigClientCertTypeOutput values.
-// You can construct a concrete instance of `SslConfigClientCertTypeInput` via:
+// SslConfigClientCertTypeInput is an input type that accepts values of the SslConfigClientCertType enum
+// A concrete instance of `SslConfigClientCertTypeInput` can be one of the following:
 //
-//	SslConfigClientCertTypeArgs{...}
+//	SslConfigClientCertTypeCertTypeUnspecified
+//	SslConfigClientCertTypePem
 type SslConfigClientCertTypeInput interface {
 	pulumi.Input
 
@@ -1582,12 +1385,6 @@ func (in *sslConfigClientCertTypePtr) ToSslConfigClientCertTypePtrOutput() SslCo
 
 func (in *sslConfigClientCertTypePtr) ToSslConfigClientCertTypePtrOutputWithContext(ctx context.Context) SslConfigClientCertTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SslConfigClientCertTypePtrOutput)
-}
-
-func (in *sslConfigClientCertTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SslConfigClientCertType] {
-	return pulumix.Output[*SslConfigClientCertType]{
-		OutputState: in.ToSslConfigClientCertTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of Server Cert (PEM/JKS/.. etc.)
@@ -1719,10 +1516,11 @@ func (o SslConfigServerCertTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SslConfigServerCertTypeInput is an input type that accepts SslConfigServerCertTypeArgs and SslConfigServerCertTypeOutput values.
-// You can construct a concrete instance of `SslConfigServerCertTypeInput` via:
+// SslConfigServerCertTypeInput is an input type that accepts values of the SslConfigServerCertType enum
+// A concrete instance of `SslConfigServerCertTypeInput` can be one of the following:
 //
-//	SslConfigServerCertTypeArgs{...}
+//	SslConfigServerCertTypeCertTypeUnspecified
+//	SslConfigServerCertTypePem
 type SslConfigServerCertTypeInput interface {
 	pulumi.Input
 
@@ -1755,12 +1553,6 @@ func (in *sslConfigServerCertTypePtr) ToSslConfigServerCertTypePtrOutput() SslCo
 
 func (in *sslConfigServerCertTypePtr) ToSslConfigServerCertTypePtrOutputWithContext(ctx context.Context) SslConfigServerCertTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SslConfigServerCertTypePtrOutput)
-}
-
-func (in *sslConfigServerCertTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SslConfigServerCertType] {
-	return pulumix.Output[*SslConfigServerCertType]{
-		OutputState: in.ToSslConfigServerCertTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Trust Model of the SSL connection
@@ -1894,10 +1686,12 @@ func (o SslConfigTrustModelPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// SslConfigTrustModelInput is an input type that accepts SslConfigTrustModelArgs and SslConfigTrustModelOutput values.
-// You can construct a concrete instance of `SslConfigTrustModelInput` via:
+// SslConfigTrustModelInput is an input type that accepts values of the SslConfigTrustModel enum
+// A concrete instance of `SslConfigTrustModelInput` can be one of the following:
 //
-//	SslConfigTrustModelArgs{...}
+//	SslConfigTrustModelPublic
+//	SslConfigTrustModelPrivate
+//	SslConfigTrustModelInsecure
 type SslConfigTrustModelInput interface {
 	pulumi.Input
 
@@ -1930,12 +1724,6 @@ func (in *sslConfigTrustModelPtr) ToSslConfigTrustModelPtrOutput() SslConfigTrus
 
 func (in *sslConfigTrustModelPtr) ToSslConfigTrustModelPtrOutputWithContext(ctx context.Context) SslConfigTrustModelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SslConfigTrustModelPtrOutput)
-}
-
-func (in *sslConfigTrustModelPtr) ToOutput(ctx context.Context) pulumix.Output[*SslConfigTrustModel] {
-	return pulumix.Output[*SslConfigTrustModel]{
-		OutputState: in.ToSslConfigTrustModelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Controls the ssl type for the given connector version.
@@ -2069,10 +1857,12 @@ func (o SslConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// SslConfigTypeInput is an input type that accepts SslConfigTypeArgs and SslConfigTypeOutput values.
-// You can construct a concrete instance of `SslConfigTypeInput` via:
+// SslConfigTypeInput is an input type that accepts values of the SslConfigType enum
+// A concrete instance of `SslConfigTypeInput` can be one of the following:
 //
-//	SslConfigTypeArgs{...}
+//	SslConfigTypeSslTypeUnspecified
+//	SslConfigTypeTls
+//	SslConfigTypeMtls
 type SslConfigTypeInput interface {
 	pulumi.Input
 
@@ -2107,12 +1897,6 @@ func (in *sslConfigTypePtr) ToSslConfigTypePtrOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, in).(SslConfigTypePtrOutput)
 }
 
-func (in *sslConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SslConfigType] {
-	return pulumix.Output[*SslConfigType]{
-		OutputState: in.ToSslConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuditLogConfigLogTypeInput)(nil)).Elem(), AuditLogConfigLogType("LOG_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AuditLogConfigLogTypePtrInput)(nil)).Elem(), AuditLogConfigLogType("LOG_TYPE_UNSPECIFIED"))
@@ -2122,8 +1906,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectionEventingEnablementTypePtrInput)(nil)).Elem(), ConnectionEventingEnablementType("EVENTING_ENABLEMENT_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomConnectorCustomConnectorTypeInput)(nil)).Elem(), CustomConnectorCustomConnectorType("CUSTOM_CONNECTOR_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomConnectorCustomConnectorTypePtrInput)(nil)).Elem(), CustomConnectorCustomConnectorType("CUSTOM_CONNECTOR_TYPE_UNSPECIFIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomConnectorVersionTypeInput)(nil)).Elem(), CustomConnectorVersionType("CUSTOM_CONNECTOR_TYPE_UNSPECIFIED"))
-	pulumi.RegisterInputType(reflect.TypeOf((*CustomConnectorVersionTypePtrInput)(nil)).Elem(), CustomConnectorVersionType("CUSTOM_CONNECTOR_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeyTypeInput)(nil)).Elem(), EncryptionKeyType("TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EncryptionKeyTypePtrInput)(nil)).Elem(), EncryptionKeyType("TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EventSubscriptionDestinationTypeInput)(nil)).Elem(), EventSubscriptionDestinationType("TYPE_UNSPECIFIED"))
@@ -2146,8 +1928,6 @@ func init() {
 	pulumi.RegisterOutputType(ConnectionEventingEnablementTypePtrOutput{})
 	pulumi.RegisterOutputType(CustomConnectorCustomConnectorTypeOutput{})
 	pulumi.RegisterOutputType(CustomConnectorCustomConnectorTypePtrOutput{})
-	pulumi.RegisterOutputType(CustomConnectorVersionTypeOutput{})
-	pulumi.RegisterOutputType(CustomConnectorVersionTypePtrOutput{})
 	pulumi.RegisterOutputType(EncryptionKeyTypeOutput{})
 	pulumi.RegisterOutputType(EncryptionKeyTypePtrOutput{})
 	pulumi.RegisterOutputType(EventSubscriptionDestinationTypeOutput{})

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The action that the external access rule performs.
@@ -319,10 +315,12 @@ func (o ExternalAccessRuleActionPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExternalAccessRuleActionInput is an input type that accepts ExternalAccessRuleActionArgs and ExternalAccessRuleActionOutput values.
-// You can construct a concrete instance of `ExternalAccessRuleActionInput` via:
+// ExternalAccessRuleActionInput is an input type that accepts values of the ExternalAccessRuleAction enum
+// A concrete instance of `ExternalAccessRuleActionInput` can be one of the following:
 //
-//	ExternalAccessRuleActionArgs{...}
+//	ExternalAccessRuleActionActionUnspecified
+//	ExternalAccessRuleActionAllow
+//	ExternalAccessRuleActionDeny
 type ExternalAccessRuleActionInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *externalAccessRuleActionPtr) ToExternalAccessRuleActionPtrOutput() Ext
 
 func (in *externalAccessRuleActionPtr) ToExternalAccessRuleActionPtrOutputWithContext(ctx context.Context) ExternalAccessRuleActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExternalAccessRuleActionPtrOutput)
-}
-
-func (in *externalAccessRuleActionPtr) ToOutput(ctx context.Context) pulumix.Output[*ExternalAccessRuleAction] {
-	return pulumix.Output[*ExternalAccessRuleAction]{
-		OutputState: in.ToExternalAccessRuleActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Protocol used by vCenter to send logs to a logging server.
@@ -494,10 +486,12 @@ func (o LoggingServerProtocolPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingServerProtocolInput is an input type that accepts LoggingServerProtocolArgs and LoggingServerProtocolOutput values.
-// You can construct a concrete instance of `LoggingServerProtocolInput` via:
+// LoggingServerProtocolInput is an input type that accepts values of the LoggingServerProtocol enum
+// A concrete instance of `LoggingServerProtocolInput` can be one of the following:
 //
-//	LoggingServerProtocolArgs{...}
+//	LoggingServerProtocolProtocolUnspecified
+//	LoggingServerProtocolUdp
+//	LoggingServerProtocolTcp
 type LoggingServerProtocolInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *loggingServerProtocolPtr) ToLoggingServerProtocolPtrOutput() LoggingSe
 
 func (in *loggingServerProtocolPtr) ToLoggingServerProtocolPtrOutputWithContext(ctx context.Context) LoggingServerProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingServerProtocolPtrOutput)
-}
-
-func (in *loggingServerProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingServerProtocol] {
-	return pulumix.Output[*LoggingServerProtocol]{
-		OutputState: in.ToLoggingServerProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of component that produces logs that will be forwarded to this logging server.
@@ -669,10 +657,12 @@ func (o LoggingServerSourceTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingServerSourceTypeInput is an input type that accepts LoggingServerSourceTypeArgs and LoggingServerSourceTypeOutput values.
-// You can construct a concrete instance of `LoggingServerSourceTypeInput` via:
+// LoggingServerSourceTypeInput is an input type that accepts values of the LoggingServerSourceType enum
+// A concrete instance of `LoggingServerSourceTypeInput` can be one of the following:
 //
-//	LoggingServerSourceTypeArgs{...}
+//	LoggingServerSourceTypeSourceTypeUnspecified
+//	LoggingServerSourceTypeEsxi
+//	LoggingServerSourceTypeVcsa
 type LoggingServerSourceTypeInput interface {
 	pulumi.Input
 
@@ -705,12 +695,6 @@ func (in *loggingServerSourceTypePtr) ToLoggingServerSourceTypePtrOutput() Loggi
 
 func (in *loggingServerSourceTypePtr) ToLoggingServerSourceTypePtrOutputWithContext(ctx context.Context) LoggingServerSourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingServerSourceTypePtrOutput)
-}
-
-func (in *loggingServerSourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingServerSourceType] {
-	return pulumix.Output[*LoggingServerSourceType]{
-		OutputState: in.ToLoggingServerSourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of the network to peer with the VMware Engine network.
@@ -852,10 +836,16 @@ func (o NetworkPeeringPeerNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkPeeringPeerNetworkTypeInput is an input type that accepts NetworkPeeringPeerNetworkTypeArgs and NetworkPeeringPeerNetworkTypeOutput values.
-// You can construct a concrete instance of `NetworkPeeringPeerNetworkTypeInput` via:
+// NetworkPeeringPeerNetworkTypeInput is an input type that accepts values of the NetworkPeeringPeerNetworkType enum
+// A concrete instance of `NetworkPeeringPeerNetworkTypeInput` can be one of the following:
 //
-//	NetworkPeeringPeerNetworkTypeArgs{...}
+//	NetworkPeeringPeerNetworkTypePeerNetworkTypeUnspecified
+//	NetworkPeeringPeerNetworkTypeStandard
+//	NetworkPeeringPeerNetworkTypeVmwareEngineNetwork
+//	NetworkPeeringPeerNetworkTypePrivateServicesAccess
+//	NetworkPeeringPeerNetworkTypeNetappCloudVolumes
+//	NetworkPeeringPeerNetworkTypeThirdPartyService
+//	NetworkPeeringPeerNetworkTypeDellPowerscale
 type NetworkPeeringPeerNetworkTypeInput interface {
 	pulumi.Input
 
@@ -888,12 +878,6 @@ func (in *networkPeeringPeerNetworkTypePtr) ToNetworkPeeringPeerNetworkTypePtrOu
 
 func (in *networkPeeringPeerNetworkTypePtr) ToNetworkPeeringPeerNetworkTypePtrOutputWithContext(ctx context.Context) NetworkPeeringPeerNetworkTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkPeeringPeerNetworkTypePtrOutput)
-}
-
-func (in *networkPeeringPeerNetworkTypePtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkPeeringPeerNetworkType] {
-	return pulumix.Output[*NetworkPeeringPeerNetworkType]{
-		OutputState: in.ToNetworkPeeringPeerNetworkTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Type of the private cloud. Defaults to STANDARD.
@@ -1027,10 +1011,12 @@ func (o PrivateCloudTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PrivateCloudTypeInput is an input type that accepts PrivateCloudTypeArgs and PrivateCloudTypeOutput values.
-// You can construct a concrete instance of `PrivateCloudTypeInput` via:
+// PrivateCloudTypeInput is an input type that accepts values of the PrivateCloudType enum
+// A concrete instance of `PrivateCloudTypeInput` can be one of the following:
 //
-//	PrivateCloudTypeArgs{...}
+//	PrivateCloudTypeStandard
+//	PrivateCloudTypeTimeLimited
+//	PrivateCloudTypeStretched
 type PrivateCloudTypeInput interface {
 	pulumi.Input
 
@@ -1063,12 +1049,6 @@ func (in *privateCloudTypePtr) ToPrivateCloudTypePtrOutput() PrivateCloudTypePtr
 
 func (in *privateCloudTypePtr) ToPrivateCloudTypePtrOutputWithContext(ctx context.Context) PrivateCloudTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateCloudTypePtrOutput)
-}
-
-func (in *privateCloudTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PrivateCloudType] {
-	return pulumix.Output[*PrivateCloudType]{
-		OutputState: in.ToPrivateCloudTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Routing Mode. Default value is set to GLOBAL. For type = PRIVATE_SERVICE_ACCESS, this field can be set to GLOBAL or REGIONAL, for other types only GLOBAL is supported.
@@ -1202,10 +1182,12 @@ func (o PrivateConnectionRoutingModePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// PrivateConnectionRoutingModeInput is an input type that accepts PrivateConnectionRoutingModeArgs and PrivateConnectionRoutingModeOutput values.
-// You can construct a concrete instance of `PrivateConnectionRoutingModeInput` via:
+// PrivateConnectionRoutingModeInput is an input type that accepts values of the PrivateConnectionRoutingMode enum
+// A concrete instance of `PrivateConnectionRoutingModeInput` can be one of the following:
 //
-//	PrivateConnectionRoutingModeArgs{...}
+//	PrivateConnectionRoutingModeRoutingModeUnspecified
+//	PrivateConnectionRoutingModeGlobal
+//	PrivateConnectionRoutingModeRegional
 type PrivateConnectionRoutingModeInput interface {
 	pulumi.Input
 
@@ -1238,12 +1220,6 @@ func (in *privateConnectionRoutingModePtr) ToPrivateConnectionRoutingModePtrOutp
 
 func (in *privateConnectionRoutingModePtr) ToPrivateConnectionRoutingModePtrOutputWithContext(ctx context.Context) PrivateConnectionRoutingModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateConnectionRoutingModePtrOutput)
-}
-
-func (in *privateConnectionRoutingModePtr) ToOutput(ctx context.Context) pulumix.Output[*PrivateConnectionRoutingMode] {
-	return pulumix.Output[*PrivateConnectionRoutingMode]{
-		OutputState: in.ToPrivateConnectionRoutingModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Private connection type.
@@ -1381,10 +1357,14 @@ func (o PrivateConnectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// PrivateConnectionTypeInput is an input type that accepts PrivateConnectionTypeArgs and PrivateConnectionTypeOutput values.
-// You can construct a concrete instance of `PrivateConnectionTypeInput` via:
+// PrivateConnectionTypeInput is an input type that accepts values of the PrivateConnectionType enum
+// A concrete instance of `PrivateConnectionTypeInput` can be one of the following:
 //
-//	PrivateConnectionTypeArgs{...}
+//	PrivateConnectionTypeTypeUnspecified
+//	PrivateConnectionTypePrivateServiceAccess
+//	PrivateConnectionTypeNetappCloudVolumes
+//	PrivateConnectionTypeDellPowerscale
+//	PrivateConnectionTypeThirdPartyService
 type PrivateConnectionTypeInput interface {
 	pulumi.Input
 
@@ -1417,12 +1397,6 @@ func (in *privateConnectionTypePtr) ToPrivateConnectionTypePtrOutput() PrivateCo
 
 func (in *privateConnectionTypePtr) ToPrivateConnectionTypePtrOutputWithContext(ctx context.Context) PrivateConnectionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PrivateConnectionTypePtrOutput)
-}
-
-func (in *privateConnectionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PrivateConnectionType] {
-	return pulumix.Output[*PrivateConnectionType]{
-		OutputState: in.ToPrivateConnectionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. VMware Engine network type.
@@ -1556,10 +1530,12 @@ func (o VmwareEngineNetworkTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// VmwareEngineNetworkTypeInput is an input type that accepts VmwareEngineNetworkTypeArgs and VmwareEngineNetworkTypeOutput values.
-// You can construct a concrete instance of `VmwareEngineNetworkTypeInput` via:
+// VmwareEngineNetworkTypeInput is an input type that accepts values of the VmwareEngineNetworkType enum
+// A concrete instance of `VmwareEngineNetworkTypeInput` can be one of the following:
 //
-//	VmwareEngineNetworkTypeArgs{...}
+//	VmwareEngineNetworkTypeTypeUnspecified
+//	VmwareEngineNetworkTypeLegacy
+//	VmwareEngineNetworkTypeStandard
 type VmwareEngineNetworkTypeInput interface {
 	pulumi.Input
 
@@ -1592,12 +1568,6 @@ func (in *vmwareEngineNetworkTypePtr) ToVmwareEngineNetworkTypePtrOutput() Vmwar
 
 func (in *vmwareEngineNetworkTypePtr) ToVmwareEngineNetworkTypePtrOutputWithContext(ctx context.Context) VmwareEngineNetworkTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VmwareEngineNetworkTypePtrOutput)
-}
-
-func (in *vmwareEngineNetworkTypePtr) ToOutput(ctx context.Context) pulumix.Output[*VmwareEngineNetworkType] {
-	return pulumix.Output[*VmwareEngineNetworkType]{
-		OutputState: in.ToVmwareEngineNetworkTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

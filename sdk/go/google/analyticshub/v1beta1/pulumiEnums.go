@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ListingCategoriesItem string
@@ -332,10 +328,29 @@ func (o ListingCategoriesItemPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ListingCategoriesItemInput is an input type that accepts ListingCategoriesItemArgs and ListingCategoriesItemOutput values.
-// You can construct a concrete instance of `ListingCategoriesItemInput` via:
+// ListingCategoriesItemInput is an input type that accepts values of the ListingCategoriesItem enum
+// A concrete instance of `ListingCategoriesItemInput` can be one of the following:
 //
-//	ListingCategoriesItemArgs{...}
+//	ListingCategoriesItemCategoryUnspecified
+//	ListingCategoriesItemCategoryOthers
+//	ListingCategoriesItemCategoryAdvertisingAndMarketing
+//	ListingCategoriesItemCategoryCommerce
+//	ListingCategoriesItemCategoryClimateAndEnvironment
+//	ListingCategoriesItemCategoryDemographics
+//	ListingCategoriesItemCategoryEconomics
+//	ListingCategoriesItemCategoryEducation
+//	ListingCategoriesItemCategoryEnergy
+//	ListingCategoriesItemCategoryFinancial
+//	ListingCategoriesItemCategoryGaming
+//	ListingCategoriesItemCategoryGeospatial
+//	ListingCategoriesItemCategoryHealthcareAndLifeScience
+//	ListingCategoriesItemCategoryMedia
+//	ListingCategoriesItemCategoryPublicSector
+//	ListingCategoriesItemCategoryRetail
+//	ListingCategoriesItemCategorySports
+//	ListingCategoriesItemCategoryScienceAndResearch
+//	ListingCategoriesItemCategoryTransportationAndLogistics
+//	ListingCategoriesItemCategoryTravelAndTourism
 type ListingCategoriesItemInput interface {
 	pulumi.Input
 
@@ -368,12 +383,6 @@ func (in *listingCategoriesItemPtr) ToListingCategoriesItemPtrOutput() ListingCa
 
 func (in *listingCategoriesItemPtr) ToListingCategoriesItemPtrOutputWithContext(ctx context.Context) ListingCategoriesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ListingCategoriesItemPtrOutput)
-}
-
-func (in *listingCategoriesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*ListingCategoriesItem] {
-	return pulumix.Output[*ListingCategoriesItem]{
-		OutputState: in.ToListingCategoriesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ListingCategoriesItemArrayInput is an input type that accepts ListingCategoriesItemArray and ListingCategoriesItemArrayOutput values.

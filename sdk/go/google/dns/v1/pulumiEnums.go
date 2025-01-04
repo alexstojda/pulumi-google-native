@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // String mnemonic specifying the DNSSEC algorithm of this key.
@@ -141,10 +140,14 @@ func (o DnsKeySpecAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// DnsKeySpecAlgorithmInput is an input type that accepts DnsKeySpecAlgorithmArgs and DnsKeySpecAlgorithmOutput values.
-// You can construct a concrete instance of `DnsKeySpecAlgorithmInput` via:
+// DnsKeySpecAlgorithmInput is an input type that accepts values of the DnsKeySpecAlgorithm enum
+// A concrete instance of `DnsKeySpecAlgorithmInput` can be one of the following:
 //
-//	DnsKeySpecAlgorithmArgs{...}
+//	DnsKeySpecAlgorithmRsasha1
+//	DnsKeySpecAlgorithmRsasha256
+//	DnsKeySpecAlgorithmRsasha512
+//	DnsKeySpecAlgorithmEcdsap256sha256
+//	DnsKeySpecAlgorithmEcdsap384sha384
 type DnsKeySpecAlgorithmInput interface {
 	pulumi.Input
 
@@ -177,12 +180,6 @@ func (in *dnsKeySpecAlgorithmPtr) ToDnsKeySpecAlgorithmPtrOutput() DnsKeySpecAlg
 
 func (in *dnsKeySpecAlgorithmPtr) ToDnsKeySpecAlgorithmPtrOutputWithContext(ctx context.Context) DnsKeySpecAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DnsKeySpecAlgorithmPtrOutput)
-}
-
-func (in *dnsKeySpecAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*DnsKeySpecAlgorithm] {
-	return pulumix.Output[*DnsKeySpecAlgorithm]{
-		OutputState: in.ToDnsKeySpecAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies whether this is a key signing key (KSK) or a zone signing key (ZSK). Key signing keys have the Secure Entry Point flag set and, when active, are only used to sign resource record sets of type DNSKEY. Zone signing keys do not have the Secure Entry Point flag set and are used to sign all other types of resource record sets.
@@ -312,10 +309,11 @@ func (o DnsKeySpecKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DnsKeySpecKeyTypeInput is an input type that accepts DnsKeySpecKeyTypeArgs and DnsKeySpecKeyTypeOutput values.
-// You can construct a concrete instance of `DnsKeySpecKeyTypeInput` via:
+// DnsKeySpecKeyTypeInput is an input type that accepts values of the DnsKeySpecKeyType enum
+// A concrete instance of `DnsKeySpecKeyTypeInput` can be one of the following:
 //
-//	DnsKeySpecKeyTypeArgs{...}
+//	DnsKeySpecKeyTypeKeySigning
+//	DnsKeySpecKeyTypeZoneSigning
 type DnsKeySpecKeyTypeInput interface {
 	pulumi.Input
 
@@ -348,12 +346,6 @@ func (in *dnsKeySpecKeyTypePtr) ToDnsKeySpecKeyTypePtrOutput() DnsKeySpecKeyType
 
 func (in *dnsKeySpecKeyTypePtr) ToDnsKeySpecKeyTypePtrOutputWithContext(ctx context.Context) DnsKeySpecKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DnsKeySpecKeyTypePtrOutput)
-}
-
-func (in *dnsKeySpecKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DnsKeySpecKeyType] {
-	return pulumix.Output[*DnsKeySpecKeyType]{
-		OutputState: in.ToDnsKeySpecKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -489,10 +481,13 @@ func (o GoogleIamV1AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts GoogleIamV1AuditLogConfigLogTypeArgs and GoogleIamV1AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` via:
+// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts values of the GoogleIamV1AuditLogConfigLogType enum
+// A concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	GoogleIamV1AuditLogConfigLogTypeArgs{...}
+//	GoogleIamV1AuditLogConfigLogTypeLogTypeUnspecified
+//	GoogleIamV1AuditLogConfigLogTypeAdminRead
+//	GoogleIamV1AuditLogConfigLogTypeDataWrite
+//	GoogleIamV1AuditLogConfigLogTypeDataRead
 type GoogleIamV1AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -525,12 +520,6 @@ func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTyp
 
 func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) GoogleIamV1AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamV1AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *googleIamV1AuditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamV1AuditLogConfigLogType] {
-	return pulumix.Output[*GoogleIamV1AuditLogConfigLogType]{
-		OutputState: in.ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the mechanism for authenticated denial-of-existence responses. Can only be changed while the state is OFF.
@@ -660,10 +649,11 @@ func (o ManagedZoneDnsSecConfigNonExistencePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagedZoneDnsSecConfigNonExistenceInput is an input type that accepts ManagedZoneDnsSecConfigNonExistenceArgs and ManagedZoneDnsSecConfigNonExistenceOutput values.
-// You can construct a concrete instance of `ManagedZoneDnsSecConfigNonExistenceInput` via:
+// ManagedZoneDnsSecConfigNonExistenceInput is an input type that accepts values of the ManagedZoneDnsSecConfigNonExistence enum
+// A concrete instance of `ManagedZoneDnsSecConfigNonExistenceInput` can be one of the following:
 //
-//	ManagedZoneDnsSecConfigNonExistenceArgs{...}
+//	ManagedZoneDnsSecConfigNonExistenceNsec
+//	ManagedZoneDnsSecConfigNonExistenceNsec3
 type ManagedZoneDnsSecConfigNonExistenceInput interface {
 	pulumi.Input
 
@@ -696,12 +686,6 @@ func (in *managedZoneDnsSecConfigNonExistencePtr) ToManagedZoneDnsSecConfigNonEx
 
 func (in *managedZoneDnsSecConfigNonExistencePtr) ToManagedZoneDnsSecConfigNonExistencePtrOutputWithContext(ctx context.Context) ManagedZoneDnsSecConfigNonExistencePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedZoneDnsSecConfigNonExistencePtrOutput)
-}
-
-func (in *managedZoneDnsSecConfigNonExistencePtr) ToOutput(ctx context.Context) pulumix.Output[*ManagedZoneDnsSecConfigNonExistence] {
-	return pulumix.Output[*ManagedZoneDnsSecConfigNonExistence]{
-		OutputState: in.ToManagedZoneDnsSecConfigNonExistencePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies whether DNSSEC is enabled, and what mode it is in.
@@ -835,10 +819,12 @@ func (o ManagedZoneDnsSecConfigStatePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagedZoneDnsSecConfigStateInput is an input type that accepts ManagedZoneDnsSecConfigStateArgs and ManagedZoneDnsSecConfigStateOutput values.
-// You can construct a concrete instance of `ManagedZoneDnsSecConfigStateInput` via:
+// ManagedZoneDnsSecConfigStateInput is an input type that accepts values of the ManagedZoneDnsSecConfigState enum
+// A concrete instance of `ManagedZoneDnsSecConfigStateInput` can be one of the following:
 //
-//	ManagedZoneDnsSecConfigStateArgs{...}
+//	ManagedZoneDnsSecConfigStateOff
+//	ManagedZoneDnsSecConfigStateOn
+//	ManagedZoneDnsSecConfigStateTransfer
 type ManagedZoneDnsSecConfigStateInput interface {
 	pulumi.Input
 
@@ -871,12 +857,6 @@ func (in *managedZoneDnsSecConfigStatePtr) ToManagedZoneDnsSecConfigStatePtrOutp
 
 func (in *managedZoneDnsSecConfigStatePtr) ToManagedZoneDnsSecConfigStatePtrOutputWithContext(ctx context.Context) ManagedZoneDnsSecConfigStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedZoneDnsSecConfigStatePtrOutput)
-}
-
-func (in *managedZoneDnsSecConfigStatePtr) ToOutput(ctx context.Context) pulumix.Output[*ManagedZoneDnsSecConfigState] {
-	return pulumix.Output[*ManagedZoneDnsSecConfigState]{
-		OutputState: in.ToManagedZoneDnsSecConfigStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Forwarding path for this NameServerTarget. If unset or set to DEFAULT, Cloud DNS makes forwarding decisions based on IP address ranges; that is, RFC1918 addresses go to the VPC network, non-RFC1918 addresses go to the internet. When set to PRIVATE, Cloud DNS always sends queries through the VPC network for this target.
@@ -1008,10 +988,11 @@ func (o ManagedZoneForwardingConfigNameServerTargetForwardingPathPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagedZoneForwardingConfigNameServerTargetForwardingPathInput is an input type that accepts ManagedZoneForwardingConfigNameServerTargetForwardingPathArgs and ManagedZoneForwardingConfigNameServerTargetForwardingPathOutput values.
-// You can construct a concrete instance of `ManagedZoneForwardingConfigNameServerTargetForwardingPathInput` via:
+// ManagedZoneForwardingConfigNameServerTargetForwardingPathInput is an input type that accepts values of the ManagedZoneForwardingConfigNameServerTargetForwardingPath enum
+// A concrete instance of `ManagedZoneForwardingConfigNameServerTargetForwardingPathInput` can be one of the following:
 //
-//	ManagedZoneForwardingConfigNameServerTargetForwardingPathArgs{...}
+//	ManagedZoneForwardingConfigNameServerTargetForwardingPathDefault
+//	ManagedZoneForwardingConfigNameServerTargetForwardingPathPrivate
 type ManagedZoneForwardingConfigNameServerTargetForwardingPathInput interface {
 	pulumi.Input
 
@@ -1044,12 +1025,6 @@ func (in *managedZoneForwardingConfigNameServerTargetForwardingPathPtr) ToManage
 
 func (in *managedZoneForwardingConfigNameServerTargetForwardingPathPtr) ToManagedZoneForwardingConfigNameServerTargetForwardingPathPtrOutputWithContext(ctx context.Context) ManagedZoneForwardingConfigNameServerTargetForwardingPathPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedZoneForwardingConfigNameServerTargetForwardingPathPtrOutput)
-}
-
-func (in *managedZoneForwardingConfigNameServerTargetForwardingPathPtr) ToOutput(ctx context.Context) pulumix.Output[*ManagedZoneForwardingConfigNameServerTargetForwardingPath] {
-	return pulumix.Output[*ManagedZoneForwardingConfigNameServerTargetForwardingPath]{
-		OutputState: in.ToManagedZoneForwardingConfigNameServerTargetForwardingPathPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The zone's visibility: public zones are exposed to the Internet, while private zones are visible only to Virtual Private Cloud resources.
@@ -1179,10 +1154,11 @@ func (o ManagedZoneVisibilityPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagedZoneVisibilityInput is an input type that accepts ManagedZoneVisibilityArgs and ManagedZoneVisibilityOutput values.
-// You can construct a concrete instance of `ManagedZoneVisibilityInput` via:
+// ManagedZoneVisibilityInput is an input type that accepts values of the ManagedZoneVisibility enum
+// A concrete instance of `ManagedZoneVisibilityInput` can be one of the following:
 //
-//	ManagedZoneVisibilityArgs{...}
+//	ManagedZoneVisibilityPublic
+//	ManagedZoneVisibilityPrivate
 type ManagedZoneVisibilityInput interface {
 	pulumi.Input
 
@@ -1215,12 +1191,6 @@ func (in *managedZoneVisibilityPtr) ToManagedZoneVisibilityPtrOutput() ManagedZo
 
 func (in *managedZoneVisibilityPtr) ToManagedZoneVisibilityPtrOutputWithContext(ctx context.Context) ManagedZoneVisibilityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManagedZoneVisibilityPtrOutput)
-}
-
-func (in *managedZoneVisibilityPtr) ToOutput(ctx context.Context) pulumix.Output[*ManagedZoneVisibility] {
-	return pulumix.Output[*ManagedZoneVisibility]{
-		OutputState: in.ToManagedZoneVisibilityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Forwarding path for this TargetNameServer. If unset or set to DEFAULT, Cloud DNS makes forwarding decisions based on address ranges; that is, RFC1918 addresses go to the VPC network, non-RFC1918 addresses go to the internet. When set to PRIVATE, Cloud DNS always sends queries through the VPC network for this target.
@@ -1352,10 +1322,11 @@ func (o PolicyAlternativeNameServerConfigTargetNameServerForwardingPathPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyAlternativeNameServerConfigTargetNameServerForwardingPathInput is an input type that accepts PolicyAlternativeNameServerConfigTargetNameServerForwardingPathArgs and PolicyAlternativeNameServerConfigTargetNameServerForwardingPathOutput values.
-// You can construct a concrete instance of `PolicyAlternativeNameServerConfigTargetNameServerForwardingPathInput` via:
+// PolicyAlternativeNameServerConfigTargetNameServerForwardingPathInput is an input type that accepts values of the PolicyAlternativeNameServerConfigTargetNameServerForwardingPath enum
+// A concrete instance of `PolicyAlternativeNameServerConfigTargetNameServerForwardingPathInput` can be one of the following:
 //
-//	PolicyAlternativeNameServerConfigTargetNameServerForwardingPathArgs{...}
+//	PolicyAlternativeNameServerConfigTargetNameServerForwardingPathDefault
+//	PolicyAlternativeNameServerConfigTargetNameServerForwardingPathPrivate
 type PolicyAlternativeNameServerConfigTargetNameServerForwardingPathInput interface {
 	pulumi.Input
 
@@ -1388,12 +1359,6 @@ func (in *policyAlternativeNameServerConfigTargetNameServerForwardingPathPtr) To
 
 func (in *policyAlternativeNameServerConfigTargetNameServerForwardingPathPtr) ToPolicyAlternativeNameServerConfigTargetNameServerForwardingPathPtrOutputWithContext(ctx context.Context) PolicyAlternativeNameServerConfigTargetNameServerForwardingPathPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyAlternativeNameServerConfigTargetNameServerForwardingPathPtrOutput)
-}
-
-func (in *policyAlternativeNameServerConfigTargetNameServerForwardingPathPtr) ToOutput(ctx context.Context) pulumix.Output[*PolicyAlternativeNameServerConfigTargetNameServerForwardingPath] {
-	return pulumix.Output[*PolicyAlternativeNameServerConfigTargetNameServerForwardingPath]{
-		OutputState: in.ToPolicyAlternativeNameServerConfigTargetNameServerForwardingPathPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The protocol of the load balancer to health check.
@@ -1524,10 +1489,12 @@ func (o RRSetRoutingPolicyLoadBalancerTargetIpProtocolPtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// RRSetRoutingPolicyLoadBalancerTargetIpProtocolInput is an input type that accepts RRSetRoutingPolicyLoadBalancerTargetIpProtocolArgs and RRSetRoutingPolicyLoadBalancerTargetIpProtocolOutput values.
-// You can construct a concrete instance of `RRSetRoutingPolicyLoadBalancerTargetIpProtocolInput` via:
+// RRSetRoutingPolicyLoadBalancerTargetIpProtocolInput is an input type that accepts values of the RRSetRoutingPolicyLoadBalancerTargetIpProtocol enum
+// A concrete instance of `RRSetRoutingPolicyLoadBalancerTargetIpProtocolInput` can be one of the following:
 //
-//	RRSetRoutingPolicyLoadBalancerTargetIpProtocolArgs{...}
+//	RRSetRoutingPolicyLoadBalancerTargetIpProtocolUndefined
+//	RRSetRoutingPolicyLoadBalancerTargetIpProtocolTcp
+//	RRSetRoutingPolicyLoadBalancerTargetIpProtocolUdp
 type RRSetRoutingPolicyLoadBalancerTargetIpProtocolInput interface {
 	pulumi.Input
 
@@ -1560,12 +1527,6 @@ func (in *rrsetRoutingPolicyLoadBalancerTargetIpProtocolPtr) ToRRSetRoutingPolic
 
 func (in *rrsetRoutingPolicyLoadBalancerTargetIpProtocolPtr) ToRRSetRoutingPolicyLoadBalancerTargetIpProtocolPtrOutputWithContext(ctx context.Context) RRSetRoutingPolicyLoadBalancerTargetIpProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RRSetRoutingPolicyLoadBalancerTargetIpProtocolPtrOutput)
-}
-
-func (in *rrsetRoutingPolicyLoadBalancerTargetIpProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*RRSetRoutingPolicyLoadBalancerTargetIpProtocol] {
-	return pulumix.Output[*RRSetRoutingPolicyLoadBalancerTargetIpProtocol]{
-		OutputState: in.ToRRSetRoutingPolicyLoadBalancerTargetIpProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of load balancer specified by this target. This value must match the configuration of the load balancer located at the LoadBalancerTarget's IP address, port, and region. Use the following: - *regionalL4ilb*: for a regional internal passthrough Network Load Balancer. - *regionalL7ilb*: for a regional internal Application Load Balancer. - *globalL7ilb*: for a global internal Application Load Balancer.
@@ -1697,10 +1658,13 @@ func (o RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypePtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeInput is an input type that accepts RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeArgs and RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeOutput values.
-// You can construct a concrete instance of `RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeInput` via:
+// RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeInput is an input type that accepts values of the RRSetRoutingPolicyLoadBalancerTargetLoadBalancerType enum
+// A concrete instance of `RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeInput` can be one of the following:
 //
-//	RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeArgs{...}
+//	RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeNone
+//	RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeGlobalL7ilb
+//	RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeRegionalL4ilb
+//	RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeRegionalL7ilb
 type RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypeInput interface {
 	pulumi.Input
 
@@ -1733,12 +1697,6 @@ func (in *rrsetRoutingPolicyLoadBalancerTargetLoadBalancerTypePtr) ToRRSetRoutin
 
 func (in *rrsetRoutingPolicyLoadBalancerTargetLoadBalancerTypePtr) ToRRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypePtrOutputWithContext(ctx context.Context) RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypePtrOutput)
-}
-
-func (in *rrsetRoutingPolicyLoadBalancerTargetLoadBalancerTypePtr) ToOutput(ctx context.Context) pulumix.Output[*RRSetRoutingPolicyLoadBalancerTargetLoadBalancerType] {
-	return pulumix.Output[*RRSetRoutingPolicyLoadBalancerTargetLoadBalancerType]{
-		OutputState: in.ToRRSetRoutingPolicyLoadBalancerTargetLoadBalancerTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Answer this query with a behavior rather than DNS data.

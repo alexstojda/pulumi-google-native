@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Optional. The encoding of messages validated against `schema`.
@@ -142,10 +141,12 @@ func (o SchemaSettingsEncodingPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaSettingsEncodingInput is an input type that accepts SchemaSettingsEncodingArgs and SchemaSettingsEncodingOutput values.
-// You can construct a concrete instance of `SchemaSettingsEncodingInput` via:
+// SchemaSettingsEncodingInput is an input type that accepts values of the SchemaSettingsEncoding enum
+// A concrete instance of `SchemaSettingsEncodingInput` can be one of the following:
 //
-//	SchemaSettingsEncodingArgs{...}
+//	SchemaSettingsEncodingEncodingUnspecified
+//	SchemaSettingsEncodingJson
+//	SchemaSettingsEncodingBinary
 type SchemaSettingsEncodingInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *schemaSettingsEncodingPtr) ToSchemaSettingsEncodingPtrOutput() SchemaS
 
 func (in *schemaSettingsEncodingPtr) ToSchemaSettingsEncodingPtrOutputWithContext(ctx context.Context) SchemaSettingsEncodingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaSettingsEncodingPtrOutput)
-}
-
-func (in *schemaSettingsEncodingPtr) ToOutput(ctx context.Context) pulumix.Output[*SchemaSettingsEncoding] {
-	return pulumix.Output[*SchemaSettingsEncoding]{
-		OutputState: in.ToSchemaSettingsEncodingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the schema definition.
@@ -317,10 +312,12 @@ func (o SchemaTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaTypeInput is an input type that accepts SchemaTypeArgs and SchemaTypeOutput values.
-// You can construct a concrete instance of `SchemaTypeInput` via:
+// SchemaTypeInput is an input type that accepts values of the SchemaType enum
+// A concrete instance of `SchemaTypeInput` can be one of the following:
 //
-//	SchemaTypeArgs{...}
+//	SchemaTypeTypeUnspecified
+//	SchemaTypeProtocolBuffer
+//	SchemaTypeAvro
 type SchemaTypeInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *schemaTypePtr) ToSchemaTypePtrOutput() SchemaTypePtrOutput {
 
 func (in *schemaTypePtr) ToSchemaTypePtrOutputWithContext(ctx context.Context) SchemaTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaTypePtrOutput)
-}
-
-func (in *schemaTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SchemaType] {
-	return pulumix.Output[*SchemaType]{
-		OutputState: in.ToSchemaTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

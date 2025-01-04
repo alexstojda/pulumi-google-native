@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The immutable purpose of this CryptoKey.
@@ -325,10 +321,15 @@ func (o CryptoKeyPurposePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// CryptoKeyPurposeInput is an input type that accepts CryptoKeyPurposeArgs and CryptoKeyPurposeOutput values.
-// You can construct a concrete instance of `CryptoKeyPurposeInput` via:
+// CryptoKeyPurposeInput is an input type that accepts values of the CryptoKeyPurpose enum
+// A concrete instance of `CryptoKeyPurposeInput` can be one of the following:
 //
-//	CryptoKeyPurposeArgs{...}
+//	CryptoKeyPurposeCryptoKeyPurposeUnspecified
+//	CryptoKeyPurposeEncryptDecrypt
+//	CryptoKeyPurposeAsymmetricSign
+//	CryptoKeyPurposeAsymmetricDecrypt
+//	CryptoKeyPurposeRawEncryptDecrypt
+//	CryptoKeyPurposeMac
 type CryptoKeyPurposeInput interface {
 	pulumi.Input
 
@@ -361,12 +362,6 @@ func (in *cryptoKeyPurposePtr) ToCryptoKeyPurposePtrOutput() CryptoKeyPurposePtr
 
 func (in *cryptoKeyPurposePtr) ToCryptoKeyPurposePtrOutputWithContext(ctx context.Context) CryptoKeyPurposePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CryptoKeyPurposePtrOutput)
-}
-
-func (in *cryptoKeyPurposePtr) ToOutput(ctx context.Context) pulumix.Output[*CryptoKeyPurpose] {
-	return pulumix.Output[*CryptoKeyPurpose]{
-		OutputState: in.ToCryptoKeyPurposePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current state of the CryptoKeyVersion.
@@ -516,10 +511,20 @@ func (o CryptoKeyVersionStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// CryptoKeyVersionStateEnumInput is an input type that accepts CryptoKeyVersionStateEnumArgs and CryptoKeyVersionStateEnumOutput values.
-// You can construct a concrete instance of `CryptoKeyVersionStateEnumInput` via:
+// CryptoKeyVersionStateEnumInput is an input type that accepts values of the CryptoKeyVersionStateEnum enum
+// A concrete instance of `CryptoKeyVersionStateEnumInput` can be one of the following:
 //
-//	CryptoKeyVersionStateEnumArgs{...}
+//	CryptoKeyVersionStateEnumCryptoKeyVersionStateUnspecified
+//	CryptoKeyVersionStateEnumPendingGeneration
+//	CryptoKeyVersionStateEnumEnabled
+//	CryptoKeyVersionStateEnumDisabled
+//	CryptoKeyVersionStateEnumDestroyed
+//	CryptoKeyVersionStateEnumDestroyScheduled
+//	CryptoKeyVersionStateEnumPendingImport
+//	CryptoKeyVersionStateEnumImportFailed
+//	CryptoKeyVersionStateEnumGenerationFailed
+//	CryptoKeyVersionStateEnumPendingExternalDestruction
+//	CryptoKeyVersionStateEnumExternalDestructionFailed
 type CryptoKeyVersionStateEnumInput interface {
 	pulumi.Input
 
@@ -552,12 +557,6 @@ func (in *cryptoKeyVersionStateEnumPtr) ToCryptoKeyVersionStateEnumPtrOutput() C
 
 func (in *cryptoKeyVersionStateEnumPtr) ToCryptoKeyVersionStateEnumPtrOutputWithContext(ctx context.Context) CryptoKeyVersionStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CryptoKeyVersionStateEnumPtrOutput)
-}
-
-func (in *cryptoKeyVersionStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*CryptoKeyVersionStateEnum] {
-	return pulumix.Output[*CryptoKeyVersionStateEnum]{
-		OutputState: in.ToCryptoKeyVersionStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Algorithm to use when creating a CryptoKeyVersion based on this template. For backwards compatibility, GOOGLE_SYMMETRIC_ENCRYPTION is implied if both this field is omitted and CryptoKey.purpose is ENCRYPT_DECRYPT.
@@ -755,10 +754,44 @@ func (o CryptoKeyVersionTemplateAlgorithmPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// CryptoKeyVersionTemplateAlgorithmInput is an input type that accepts CryptoKeyVersionTemplateAlgorithmArgs and CryptoKeyVersionTemplateAlgorithmOutput values.
-// You can construct a concrete instance of `CryptoKeyVersionTemplateAlgorithmInput` via:
+// CryptoKeyVersionTemplateAlgorithmInput is an input type that accepts values of the CryptoKeyVersionTemplateAlgorithm enum
+// A concrete instance of `CryptoKeyVersionTemplateAlgorithmInput` can be one of the following:
 //
-//	CryptoKeyVersionTemplateAlgorithmArgs{...}
+//	CryptoKeyVersionTemplateAlgorithmCryptoKeyVersionAlgorithmUnspecified
+//	CryptoKeyVersionTemplateAlgorithmGoogleSymmetricEncryption
+//	CryptoKeyVersionTemplateAlgorithmAes128Gcm
+//	CryptoKeyVersionTemplateAlgorithmAes256Gcm
+//	CryptoKeyVersionTemplateAlgorithmAes128Cbc
+//	CryptoKeyVersionTemplateAlgorithmAes256Cbc
+//	CryptoKeyVersionTemplateAlgorithmAes128Ctr
+//	CryptoKeyVersionTemplateAlgorithmAes256Ctr
+//	CryptoKeyVersionTemplateAlgorithmRsaSignPss2048Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaSignPss3072Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaSignPss4096Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaSignPss4096Sha512
+//	CryptoKeyVersionTemplateAlgorithmRsaSignPkcs12048Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaSignPkcs13072Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaSignPkcs14096Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaSignPkcs14096Sha512
+//	CryptoKeyVersionTemplateAlgorithmRsaSignRawPkcs12048
+//	CryptoKeyVersionTemplateAlgorithmRsaSignRawPkcs13072
+//	CryptoKeyVersionTemplateAlgorithmRsaSignRawPkcs14096
+//	CryptoKeyVersionTemplateAlgorithmRsaDecryptOaep2048Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaDecryptOaep3072Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaDecryptOaep4096Sha256
+//	CryptoKeyVersionTemplateAlgorithmRsaDecryptOaep4096Sha512
+//	CryptoKeyVersionTemplateAlgorithmRsaDecryptOaep2048Sha1
+//	CryptoKeyVersionTemplateAlgorithmRsaDecryptOaep3072Sha1
+//	CryptoKeyVersionTemplateAlgorithmRsaDecryptOaep4096Sha1
+//	CryptoKeyVersionTemplateAlgorithmEcSignP256Sha256
+//	CryptoKeyVersionTemplateAlgorithmEcSignP384Sha384
+//	CryptoKeyVersionTemplateAlgorithmEcSignSecp256k1Sha256
+//	CryptoKeyVersionTemplateAlgorithmHmacSha256
+//	CryptoKeyVersionTemplateAlgorithmHmacSha1
+//	CryptoKeyVersionTemplateAlgorithmHmacSha384
+//	CryptoKeyVersionTemplateAlgorithmHmacSha512
+//	CryptoKeyVersionTemplateAlgorithmHmacSha224
+//	CryptoKeyVersionTemplateAlgorithmExternalSymmetricEncryption
 type CryptoKeyVersionTemplateAlgorithmInput interface {
 	pulumi.Input
 
@@ -791,12 +824,6 @@ func (in *cryptoKeyVersionTemplateAlgorithmPtr) ToCryptoKeyVersionTemplateAlgori
 
 func (in *cryptoKeyVersionTemplateAlgorithmPtr) ToCryptoKeyVersionTemplateAlgorithmPtrOutputWithContext(ctx context.Context) CryptoKeyVersionTemplateAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CryptoKeyVersionTemplateAlgorithmPtrOutput)
-}
-
-func (in *cryptoKeyVersionTemplateAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*CryptoKeyVersionTemplateAlgorithm] {
-	return pulumix.Output[*CryptoKeyVersionTemplateAlgorithm]{
-		OutputState: in.ToCryptoKeyVersionTemplateAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProtectionLevel to use when creating a CryptoKeyVersion based on this template. Immutable. Defaults to SOFTWARE.
@@ -934,10 +961,14 @@ func (o CryptoKeyVersionTemplateProtectionLevelPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// CryptoKeyVersionTemplateProtectionLevelInput is an input type that accepts CryptoKeyVersionTemplateProtectionLevelArgs and CryptoKeyVersionTemplateProtectionLevelOutput values.
-// You can construct a concrete instance of `CryptoKeyVersionTemplateProtectionLevelInput` via:
+// CryptoKeyVersionTemplateProtectionLevelInput is an input type that accepts values of the CryptoKeyVersionTemplateProtectionLevel enum
+// A concrete instance of `CryptoKeyVersionTemplateProtectionLevelInput` can be one of the following:
 //
-//	CryptoKeyVersionTemplateProtectionLevelArgs{...}
+//	CryptoKeyVersionTemplateProtectionLevelProtectionLevelUnspecified
+//	CryptoKeyVersionTemplateProtectionLevelSoftware
+//	CryptoKeyVersionTemplateProtectionLevelHsm
+//	CryptoKeyVersionTemplateProtectionLevelExternal
+//	CryptoKeyVersionTemplateProtectionLevelExternalVpc
 type CryptoKeyVersionTemplateProtectionLevelInput interface {
 	pulumi.Input
 
@@ -970,12 +1001,6 @@ func (in *cryptoKeyVersionTemplateProtectionLevelPtr) ToCryptoKeyVersionTemplate
 
 func (in *cryptoKeyVersionTemplateProtectionLevelPtr) ToCryptoKeyVersionTemplateProtectionLevelPtrOutputWithContext(ctx context.Context) CryptoKeyVersionTemplateProtectionLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CryptoKeyVersionTemplateProtectionLevelPtrOutput)
-}
-
-func (in *cryptoKeyVersionTemplateProtectionLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*CryptoKeyVersionTemplateProtectionLevel] {
-	return pulumix.Output[*CryptoKeyVersionTemplateProtectionLevel]{
-		OutputState: in.ToCryptoKeyVersionTemplateProtectionLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Describes who can perform control plane operations on the EKM. If unset, this defaults to MANUAL.
@@ -1109,10 +1134,12 @@ func (o EkmConnectionKeyManagementModePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// EkmConnectionKeyManagementModeInput is an input type that accepts EkmConnectionKeyManagementModeArgs and EkmConnectionKeyManagementModeOutput values.
-// You can construct a concrete instance of `EkmConnectionKeyManagementModeInput` via:
+// EkmConnectionKeyManagementModeInput is an input type that accepts values of the EkmConnectionKeyManagementMode enum
+// A concrete instance of `EkmConnectionKeyManagementModeInput` can be one of the following:
 //
-//	EkmConnectionKeyManagementModeArgs{...}
+//	EkmConnectionKeyManagementModeKeyManagementModeUnspecified
+//	EkmConnectionKeyManagementModeManual
+//	EkmConnectionKeyManagementModeCloudKms
 type EkmConnectionKeyManagementModeInput interface {
 	pulumi.Input
 
@@ -1145,12 +1172,6 @@ func (in *ekmConnectionKeyManagementModePtr) ToEkmConnectionKeyManagementModePtr
 
 func (in *ekmConnectionKeyManagementModePtr) ToEkmConnectionKeyManagementModePtrOutputWithContext(ctx context.Context) EkmConnectionKeyManagementModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EkmConnectionKeyManagementModePtrOutput)
-}
-
-func (in *ekmConnectionKeyManagementModePtr) ToOutput(ctx context.Context) pulumix.Output[*EkmConnectionKeyManagementMode] {
-	return pulumix.Output[*EkmConnectionKeyManagementMode]{
-		OutputState: in.ToEkmConnectionKeyManagementModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. The wrapping method to be used for incoming key material.
@@ -1292,10 +1313,16 @@ func (o ImportJobImportMethodPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImportJobImportMethodInput is an input type that accepts ImportJobImportMethodArgs and ImportJobImportMethodOutput values.
-// You can construct a concrete instance of `ImportJobImportMethodInput` via:
+// ImportJobImportMethodInput is an input type that accepts values of the ImportJobImportMethod enum
+// A concrete instance of `ImportJobImportMethodInput` can be one of the following:
 //
-//	ImportJobImportMethodArgs{...}
+//	ImportJobImportMethodImportMethodUnspecified
+//	ImportJobImportMethodRsaOaep3072Sha1Aes256
+//	ImportJobImportMethodRsaOaep4096Sha1Aes256
+//	ImportJobImportMethodRsaOaep3072Sha256Aes256
+//	ImportJobImportMethodRsaOaep4096Sha256Aes256
+//	ImportJobImportMethodRsaOaep3072Sha256
+//	ImportJobImportMethodRsaOaep4096Sha256
 type ImportJobImportMethodInput interface {
 	pulumi.Input
 
@@ -1328,12 +1355,6 @@ func (in *importJobImportMethodPtr) ToImportJobImportMethodPtrOutput() ImportJob
 
 func (in *importJobImportMethodPtr) ToImportJobImportMethodPtrOutputWithContext(ctx context.Context) ImportJobImportMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ImportJobImportMethodPtrOutput)
-}
-
-func (in *importJobImportMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*ImportJobImportMethod] {
-	return pulumix.Output[*ImportJobImportMethod]{
-		OutputState: in.ToImportJobImportMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. The protection level of the ImportJob. This must match the protection_level of the version_template on the CryptoKey you attempt to import into.
@@ -1471,10 +1492,14 @@ func (o ImportJobProtectionLevelPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImportJobProtectionLevelInput is an input type that accepts ImportJobProtectionLevelArgs and ImportJobProtectionLevelOutput values.
-// You can construct a concrete instance of `ImportJobProtectionLevelInput` via:
+// ImportJobProtectionLevelInput is an input type that accepts values of the ImportJobProtectionLevel enum
+// A concrete instance of `ImportJobProtectionLevelInput` can be one of the following:
 //
-//	ImportJobProtectionLevelArgs{...}
+//	ImportJobProtectionLevelProtectionLevelUnspecified
+//	ImportJobProtectionLevelSoftware
+//	ImportJobProtectionLevelHsm
+//	ImportJobProtectionLevelExternal
+//	ImportJobProtectionLevelExternalVpc
 type ImportJobProtectionLevelInput interface {
 	pulumi.Input
 
@@ -1507,12 +1532,6 @@ func (in *importJobProtectionLevelPtr) ToImportJobProtectionLevelPtrOutput() Imp
 
 func (in *importJobProtectionLevelPtr) ToImportJobProtectionLevelPtrOutputWithContext(ctx context.Context) ImportJobProtectionLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ImportJobProtectionLevelPtrOutput)
-}
-
-func (in *importJobProtectionLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*ImportJobProtectionLevel] {
-	return pulumix.Output[*ImportJobProtectionLevel]{
-		OutputState: in.ToImportJobProtectionLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

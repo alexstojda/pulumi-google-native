@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The unit that 'retained_backups' represents.
@@ -140,10 +139,11 @@ func (o BackupRetentionSettingsRetentionUnitPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// BackupRetentionSettingsRetentionUnitInput is an input type that accepts BackupRetentionSettingsRetentionUnitArgs and BackupRetentionSettingsRetentionUnitOutput values.
-// You can construct a concrete instance of `BackupRetentionSettingsRetentionUnitInput` via:
+// BackupRetentionSettingsRetentionUnitInput is an input type that accepts values of the BackupRetentionSettingsRetentionUnit enum
+// A concrete instance of `BackupRetentionSettingsRetentionUnitInput` can be one of the following:
 //
-//	BackupRetentionSettingsRetentionUnitArgs{...}
+//	BackupRetentionSettingsRetentionUnitRetentionUnitUnspecified
+//	BackupRetentionSettingsRetentionUnitCount
 type BackupRetentionSettingsRetentionUnitInput interface {
 	pulumi.Input
 
@@ -176,12 +176,6 @@ func (in *backupRetentionSettingsRetentionUnitPtr) ToBackupRetentionSettingsRete
 
 func (in *backupRetentionSettingsRetentionUnitPtr) ToBackupRetentionSettingsRetentionUnitPtrOutputWithContext(ctx context.Context) BackupRetentionSettingsRetentionUnitPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BackupRetentionSettingsRetentionUnitPtrOutput)
-}
-
-func (in *backupRetentionSettingsRetentionUnitPtr) ToOutput(ctx context.Context) pulumix.Output[*BackupRetentionSettingsRetentionUnit] {
-	return pulumix.Output[*BackupRetentionSettingsRetentionUnit]{
-		OutputState: in.ToBackupRetentionSettingsRetentionUnitPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the kind of backup, PHYSICAL or DEFAULT_SNAPSHOT.
@@ -315,10 +309,12 @@ func (o BackupRunBackupKindPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// BackupRunBackupKindInput is an input type that accepts BackupRunBackupKindArgs and BackupRunBackupKindOutput values.
-// You can construct a concrete instance of `BackupRunBackupKindInput` via:
+// BackupRunBackupKindInput is an input type that accepts values of the BackupRunBackupKind enum
+// A concrete instance of `BackupRunBackupKindInput` can be one of the following:
 //
-//	BackupRunBackupKindArgs{...}
+//	BackupRunBackupKindSqlBackupKindUnspecified
+//	BackupRunBackupKindSnapshot
+//	BackupRunBackupKindPhysical
 type BackupRunBackupKindInput interface {
 	pulumi.Input
 
@@ -351,12 +347,6 @@ func (in *backupRunBackupKindPtr) ToBackupRunBackupKindPtrOutput() BackupRunBack
 
 func (in *backupRunBackupKindPtr) ToBackupRunBackupKindPtrOutputWithContext(ctx context.Context) BackupRunBackupKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BackupRunBackupKindPtrOutput)
-}
-
-func (in *backupRunBackupKindPtr) ToOutput(ctx context.Context) pulumix.Output[*BackupRunBackupKind] {
-	return pulumix.Output[*BackupRunBackupKind]{
-		OutputState: in.ToBackupRunBackupKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The status of this run.
@@ -516,10 +506,12 @@ func (o BackupRunTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// BackupRunTypeInput is an input type that accepts BackupRunTypeArgs and BackupRunTypeOutput values.
-// You can construct a concrete instance of `BackupRunTypeInput` via:
+// BackupRunTypeInput is an input type that accepts values of the BackupRunType enum
+// A concrete instance of `BackupRunTypeInput` can be one of the following:
 //
-//	BackupRunTypeArgs{...}
+//	BackupRunTypeSqlBackupRunTypeUnspecified
+//	BackupRunTypeAutomated
+//	BackupRunTypeOnDemand
 type BackupRunTypeInput interface {
 	pulumi.Input
 
@@ -552,12 +544,6 @@ func (in *backupRunTypePtr) ToBackupRunTypePtrOutput() BackupRunTypePtrOutput {
 
 func (in *backupRunTypePtr) ToBackupRunTypePtrOutputWithContext(ctx context.Context) BackupRunTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BackupRunTypePtrOutput)
-}
-
-func (in *backupRunTypePtr) ToOutput(ctx context.Context) pulumix.Output[*BackupRunType] {
-	return pulumix.Output[*BackupRunType]{
-		OutputState: in.ToBackupRunTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The backend type. `SECOND_GEN`: Cloud SQL database instance. `EXTERNAL`: A database server that is not managed by Google. This property is read-only; use the `tier` property in the `settings` object to determine the database type.
@@ -693,10 +679,13 @@ func (o InstanceBackendTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceBackendTypeInput is an input type that accepts InstanceBackendTypeArgs and InstanceBackendTypeOutput values.
-// You can construct a concrete instance of `InstanceBackendTypeInput` via:
+// InstanceBackendTypeInput is an input type that accepts values of the InstanceBackendType enum
+// A concrete instance of `InstanceBackendTypeInput` can be one of the following:
 //
-//	InstanceBackendTypeArgs{...}
+//	InstanceBackendTypeSqlBackendTypeUnspecified
+//	InstanceBackendTypeFirstGen
+//	InstanceBackendTypeSecondGen
+//	InstanceBackendTypeExternal
 type InstanceBackendTypeInput interface {
 	pulumi.Input
 
@@ -729,12 +718,6 @@ func (in *instanceBackendTypePtr) ToInstanceBackendTypePtrOutput() InstanceBacke
 
 func (in *instanceBackendTypePtr) ToInstanceBackendTypePtrOutputWithContext(ctx context.Context) InstanceBackendTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceBackendTypePtrOutput)
-}
-
-func (in *instanceBackendTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceBackendType] {
-	return pulumix.Output[*InstanceBackendType]{
-		OutputState: in.ToInstanceBackendTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The database engine type and version. The `databaseVersion` field cannot be changed after instance creation.
@@ -936,10 +919,46 @@ func (o InstanceDatabaseVersionPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceDatabaseVersionInput is an input type that accepts InstanceDatabaseVersionArgs and InstanceDatabaseVersionOutput values.
-// You can construct a concrete instance of `InstanceDatabaseVersionInput` via:
+// InstanceDatabaseVersionInput is an input type that accepts values of the InstanceDatabaseVersion enum
+// A concrete instance of `InstanceDatabaseVersionInput` can be one of the following:
 //
-//	InstanceDatabaseVersionArgs{...}
+//	InstanceDatabaseVersionSqlDatabaseVersionUnspecified
+//	InstanceDatabaseVersionMysql51
+//	InstanceDatabaseVersionMysql55
+//	InstanceDatabaseVersionMysql56
+//	InstanceDatabaseVersionMysql57
+//	InstanceDatabaseVersionSqlserver2017Standard
+//	InstanceDatabaseVersionSqlserver2017Enterprise
+//	InstanceDatabaseVersionSqlserver2017Express
+//	InstanceDatabaseVersionSqlserver2017Web
+//	InstanceDatabaseVersionPostgres96
+//	InstanceDatabaseVersionPostgres10
+//	InstanceDatabaseVersionPostgres11
+//	InstanceDatabaseVersionPostgres12
+//	InstanceDatabaseVersionPostgres13
+//	InstanceDatabaseVersionPostgres14
+//	InstanceDatabaseVersionPostgres15
+//	InstanceDatabaseVersionMysql80
+//	InstanceDatabaseVersionMysql8018
+//	InstanceDatabaseVersionMysql8026
+//	InstanceDatabaseVersionMysql8027
+//	InstanceDatabaseVersionMysql8028
+//	InstanceDatabaseVersionMysql8029
+//	InstanceDatabaseVersionMysql8030
+//	InstanceDatabaseVersionMysql8031
+//	InstanceDatabaseVersionMysql8032
+//	InstanceDatabaseVersionMysql8033
+//	InstanceDatabaseVersionMysql8034
+//	InstanceDatabaseVersionMysql8035
+//	InstanceDatabaseVersionMysql8036
+//	InstanceDatabaseVersionSqlserver2019Standard
+//	InstanceDatabaseVersionSqlserver2019Enterprise
+//	InstanceDatabaseVersionSqlserver2019Express
+//	InstanceDatabaseVersionSqlserver2019Web
+//	InstanceDatabaseVersionSqlserver2022Standard
+//	InstanceDatabaseVersionSqlserver2022Enterprise
+//	InstanceDatabaseVersionSqlserver2022Express
+//	InstanceDatabaseVersionSqlserver2022Web
 type InstanceDatabaseVersionInput interface {
 	pulumi.Input
 
@@ -972,12 +991,6 @@ func (in *instanceDatabaseVersionPtr) ToInstanceDatabaseVersionPtrOutput() Insta
 
 func (in *instanceDatabaseVersionPtr) ToInstanceDatabaseVersionPtrOutputWithContext(ctx context.Context) InstanceDatabaseVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceDatabaseVersionPtrOutput)
-}
-
-func (in *instanceDatabaseVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceDatabaseVersion] {
-	return pulumix.Output[*InstanceDatabaseVersion]{
-		OutputState: in.ToInstanceDatabaseVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The instance type.
@@ -1113,10 +1126,13 @@ func (o InstanceInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceInstanceTypeInput is an input type that accepts InstanceInstanceTypeArgs and InstanceInstanceTypeOutput values.
-// You can construct a concrete instance of `InstanceInstanceTypeInput` via:
+// InstanceInstanceTypeInput is an input type that accepts values of the InstanceInstanceType enum
+// A concrete instance of `InstanceInstanceTypeInput` can be one of the following:
 //
-//	InstanceInstanceTypeArgs{...}
+//	InstanceInstanceTypeSqlInstanceTypeUnspecified
+//	InstanceInstanceTypeCloudSqlInstance
+//	InstanceInstanceTypeOnPremisesInstance
+//	InstanceInstanceTypeReadReplicaInstance
 type InstanceInstanceTypeInput interface {
 	pulumi.Input
 
@@ -1149,12 +1165,6 @@ func (in *instanceInstanceTypePtr) ToInstanceInstanceTypePtrOutput() InstanceIns
 
 func (in *instanceInstanceTypePtr) ToInstanceInstanceTypePtrOutputWithContext(ctx context.Context) InstanceInstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceInstanceTypePtrOutput)
-}
-
-func (in *instanceInstanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceInstanceType] {
-	return pulumix.Output[*InstanceInstanceType]{
-		OutputState: in.ToInstanceInstanceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The SQL network architecture for the instance.
@@ -1287,10 +1297,12 @@ func (o InstanceSqlNetworkArchitecturePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceSqlNetworkArchitectureInput is an input type that accepts InstanceSqlNetworkArchitectureArgs and InstanceSqlNetworkArchitectureOutput values.
-// You can construct a concrete instance of `InstanceSqlNetworkArchitectureInput` via:
+// InstanceSqlNetworkArchitectureInput is an input type that accepts values of the InstanceSqlNetworkArchitecture enum
+// A concrete instance of `InstanceSqlNetworkArchitectureInput` can be one of the following:
 //
-//	InstanceSqlNetworkArchitectureArgs{...}
+//	InstanceSqlNetworkArchitectureSqlNetworkArchitectureUnspecified
+//	InstanceSqlNetworkArchitectureNewNetworkArchitecture
+//	InstanceSqlNetworkArchitectureOldNetworkArchitecture
 type InstanceSqlNetworkArchitectureInput interface {
 	pulumi.Input
 
@@ -1323,12 +1335,6 @@ func (in *instanceSqlNetworkArchitecturePtr) ToInstanceSqlNetworkArchitecturePtr
 
 func (in *instanceSqlNetworkArchitecturePtr) ToInstanceSqlNetworkArchitecturePtrOutputWithContext(ctx context.Context) InstanceSqlNetworkArchitecturePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceSqlNetworkArchitecturePtrOutput)
-}
-
-func (in *instanceSqlNetworkArchitecturePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceSqlNetworkArchitecture] {
-	return pulumix.Output[*InstanceSqlNetworkArchitecture]{
-		OutputState: in.ToInstanceSqlNetworkArchitecturePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current serving state of the Cloud SQL instance.
@@ -1472,10 +1478,17 @@ func (o InstanceStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceStateEnumInput is an input type that accepts InstanceStateEnumArgs and InstanceStateEnumOutput values.
-// You can construct a concrete instance of `InstanceStateEnumInput` via:
+// InstanceStateEnumInput is an input type that accepts values of the InstanceStateEnum enum
+// A concrete instance of `InstanceStateEnumInput` can be one of the following:
 //
-//	InstanceStateEnumArgs{...}
+//	InstanceStateEnumSqlInstanceStateUnspecified
+//	InstanceStateEnumRunnable
+//	InstanceStateEnumSuspended
+//	InstanceStateEnumPendingDelete
+//	InstanceStateEnumPendingCreate
+//	InstanceStateEnumMaintenance
+//	InstanceStateEnumFailed
+//	InstanceStateEnumOnlineMaintenance
 type InstanceStateEnumInput interface {
 	pulumi.Input
 
@@ -1508,12 +1521,6 @@ func (in *instanceStateEnumPtr) ToInstanceStateEnumPtrOutput() InstanceStateEnum
 
 func (in *instanceStateEnumPtr) ToInstanceStateEnumPtrOutputWithContext(ctx context.Context) InstanceStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceStateEnumPtrOutput)
-}
-
-func (in *instanceStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceStateEnum] {
-	return pulumix.Output[*InstanceStateEnum]{
-		OutputState: in.ToInstanceStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type InstanceSuspensionReasonItem string
@@ -1650,10 +1657,14 @@ func (o InstanceSuspensionReasonItemPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceSuspensionReasonItemInput is an input type that accepts InstanceSuspensionReasonItemArgs and InstanceSuspensionReasonItemOutput values.
-// You can construct a concrete instance of `InstanceSuspensionReasonItemInput` via:
+// InstanceSuspensionReasonItemInput is an input type that accepts values of the InstanceSuspensionReasonItem enum
+// A concrete instance of `InstanceSuspensionReasonItemInput` can be one of the following:
 //
-//	InstanceSuspensionReasonItemArgs{...}
+//	InstanceSuspensionReasonItemSqlSuspensionReasonUnspecified
+//	InstanceSuspensionReasonItemBillingIssue
+//	InstanceSuspensionReasonItemLegalIssue
+//	InstanceSuspensionReasonItemOperationalIssue
+//	InstanceSuspensionReasonItemKmsKeyIssue
 type InstanceSuspensionReasonItemInput interface {
 	pulumi.Input
 
@@ -1686,12 +1697,6 @@ func (in *instanceSuspensionReasonItemPtr) ToInstanceSuspensionReasonItemPtrOutp
 
 func (in *instanceSuspensionReasonItemPtr) ToInstanceSuspensionReasonItemPtrOutputWithContext(ctx context.Context) InstanceSuspensionReasonItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceSuspensionReasonItemPtrOutput)
-}
-
-func (in *instanceSuspensionReasonItemPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceSuspensionReasonItem] {
-	return pulumix.Output[*InstanceSuspensionReasonItem]{
-		OutputState: in.ToInstanceSuspensionReasonItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InstanceSuspensionReasonItemArrayInput is an input type that accepts InstanceSuspensionReasonItemArray and InstanceSuspensionReasonItemArrayOutput values.
@@ -1872,10 +1877,13 @@ func (o IpConfigurationSslModePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// IpConfigurationSslModeInput is an input type that accepts IpConfigurationSslModeArgs and IpConfigurationSslModeOutput values.
-// You can construct a concrete instance of `IpConfigurationSslModeInput` via:
+// IpConfigurationSslModeInput is an input type that accepts values of the IpConfigurationSslMode enum
+// A concrete instance of `IpConfigurationSslModeInput` can be one of the following:
 //
-//	IpConfigurationSslModeArgs{...}
+//	IpConfigurationSslModeSslModeUnspecified
+//	IpConfigurationSslModeAllowUnencryptedAndEncrypted
+//	IpConfigurationSslModeEncryptedOnly
+//	IpConfigurationSslModeTrustedClientCertificateRequired
 type IpConfigurationSslModeInput interface {
 	pulumi.Input
 
@@ -1908,12 +1916,6 @@ func (in *ipConfigurationSslModePtr) ToIpConfigurationSslModePtrOutput() IpConfi
 
 func (in *ipConfigurationSslModePtr) ToIpConfigurationSslModePtrOutputWithContext(ctx context.Context) IpConfigurationSslModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IpConfigurationSslModePtrOutput)
-}
-
-func (in *ipConfigurationSslModePtr) ToOutput(ctx context.Context) pulumix.Output[*IpConfigurationSslMode] {
-	return pulumix.Output[*IpConfigurationSslMode]{
-		OutputState: in.ToIpConfigurationSslModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of this IP address. A `PRIMARY` address is a public address that can accept incoming connections. A `PRIVATE` address is a private address that can accept incoming connections. An `OUTGOING` address is the source address of connections originating from the instance, if supported.
@@ -2051,10 +2053,14 @@ func (o IpMappingTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// IpMappingTypeInput is an input type that accepts IpMappingTypeArgs and IpMappingTypeOutput values.
-// You can construct a concrete instance of `IpMappingTypeInput` via:
+// IpMappingTypeInput is an input type that accepts values of the IpMappingType enum
+// A concrete instance of `IpMappingTypeInput` can be one of the following:
 //
-//	IpMappingTypeArgs{...}
+//	IpMappingTypeSqlIpAddressTypeUnspecified
+//	IpMappingTypePrimary
+//	IpMappingTypeOutgoing
+//	IpMappingTypePrivate
+//	IpMappingTypeMigrated1stGen
 type IpMappingTypeInput interface {
 	pulumi.Input
 
@@ -2087,12 +2093,6 @@ func (in *ipMappingTypePtr) ToIpMappingTypePtrOutput() IpMappingTypePtrOutput {
 
 func (in *ipMappingTypePtr) ToIpMappingTypePtrOutputWithContext(ctx context.Context) IpMappingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IpMappingTypePtrOutput)
-}
-
-func (in *ipMappingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IpMappingType] {
-	return pulumix.Output[*IpMappingType]{
-		OutputState: in.ToIpMappingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Maintenance timing setting: `canary` (Earlier) or `stable` (Later). [Learn more](https://cloud.google.com/sql/docs/mysql/instance-settings#maintenance-timing-2ndgen).
@@ -2228,10 +2228,13 @@ func (o MaintenanceWindowUpdateTrackPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// MaintenanceWindowUpdateTrackInput is an input type that accepts MaintenanceWindowUpdateTrackArgs and MaintenanceWindowUpdateTrackOutput values.
-// You can construct a concrete instance of `MaintenanceWindowUpdateTrackInput` via:
+// MaintenanceWindowUpdateTrackInput is an input type that accepts values of the MaintenanceWindowUpdateTrack enum
+// A concrete instance of `MaintenanceWindowUpdateTrackInput` can be one of the following:
 //
-//	MaintenanceWindowUpdateTrackArgs{...}
+//	MaintenanceWindowUpdateTrackSqlUpdateTrackUnspecified
+//	MaintenanceWindowUpdateTrackCanary
+//	MaintenanceWindowUpdateTrackStable
+//	MaintenanceWindowUpdateTrackWeek5
 type MaintenanceWindowUpdateTrackInput interface {
 	pulumi.Input
 
@@ -2264,12 +2267,6 @@ func (in *maintenanceWindowUpdateTrackPtr) ToMaintenanceWindowUpdateTrackPtrOutp
 
 func (in *maintenanceWindowUpdateTrackPtr) ToMaintenanceWindowUpdateTrackPtrOutputWithContext(ctx context.Context) MaintenanceWindowUpdateTrackPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MaintenanceWindowUpdateTrackPtrOutput)
-}
-
-func (in *maintenanceWindowUpdateTrackPtr) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowUpdateTrack] {
-	return pulumix.Output[*MaintenanceWindowUpdateTrack]{
-		OutputState: in.ToMaintenanceWindowUpdateTrackPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The complexity of the password.
@@ -2401,10 +2398,11 @@ func (o PasswordValidationPolicyComplexityPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// PasswordValidationPolicyComplexityInput is an input type that accepts PasswordValidationPolicyComplexityArgs and PasswordValidationPolicyComplexityOutput values.
-// You can construct a concrete instance of `PasswordValidationPolicyComplexityInput` via:
+// PasswordValidationPolicyComplexityInput is an input type that accepts values of the PasswordValidationPolicyComplexity enum
+// A concrete instance of `PasswordValidationPolicyComplexityInput` can be one of the following:
 //
-//	PasswordValidationPolicyComplexityArgs{...}
+//	PasswordValidationPolicyComplexityComplexityUnspecified
+//	PasswordValidationPolicyComplexityComplexityDefault
 type PasswordValidationPolicyComplexityInput interface {
 	pulumi.Input
 
@@ -2437,12 +2435,6 @@ func (in *passwordValidationPolicyComplexityPtr) ToPasswordValidationPolicyCompl
 
 func (in *passwordValidationPolicyComplexityPtr) ToPasswordValidationPolicyComplexityPtrOutputWithContext(ctx context.Context) PasswordValidationPolicyComplexityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PasswordValidationPolicyComplexityPtrOutput)
-}
-
-func (in *passwordValidationPolicyComplexityPtr) ToOutput(ctx context.Context) pulumix.Output[*PasswordValidationPolicyComplexity] {
-	return pulumix.Output[*PasswordValidationPolicyComplexity]{
-		OutputState: in.ToPasswordValidationPolicyComplexityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The activation policy specifies when the instance is activated; it is applicable only when the instance state is RUNNABLE. Valid values: * `ALWAYS`: The instance is on, and remains so even in the absence of connection requests. * `NEVER`: The instance is off; it is not activated, even if a connection request arrives.
@@ -2578,10 +2570,13 @@ func (o SettingsActivationPolicyPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SettingsActivationPolicyInput is an input type that accepts SettingsActivationPolicyArgs and SettingsActivationPolicyOutput values.
-// You can construct a concrete instance of `SettingsActivationPolicyInput` via:
+// SettingsActivationPolicyInput is an input type that accepts values of the SettingsActivationPolicy enum
+// A concrete instance of `SettingsActivationPolicyInput` can be one of the following:
 //
-//	SettingsActivationPolicyArgs{...}
+//	SettingsActivationPolicySqlActivationPolicyUnspecified
+//	SettingsActivationPolicyAlways
+//	SettingsActivationPolicyNever
+//	SettingsActivationPolicyOnDemand
 type SettingsActivationPolicyInput interface {
 	pulumi.Input
 
@@ -2614,12 +2609,6 @@ func (in *settingsActivationPolicyPtr) ToSettingsActivationPolicyPtrOutput() Set
 
 func (in *settingsActivationPolicyPtr) ToSettingsActivationPolicyPtrOutputWithContext(ctx context.Context) SettingsActivationPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SettingsActivationPolicyPtrOutput)
-}
-
-func (in *settingsActivationPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*SettingsActivationPolicy] {
-	return pulumix.Output[*SettingsActivationPolicy]{
-		OutputState: in.ToSettingsActivationPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Availability type. Potential values: * `ZONAL`: The instance serves data from only one zone. Outages in that zone affect data accessibility. * `REGIONAL`: The instance can serve data from more than one zone in a region (it is highly available)./ For more information, see [Overview of the High Availability Configuration](https://cloud.google.com/sql/docs/mysql/high-availability).
@@ -2753,10 +2742,12 @@ func (o SettingsAvailabilityTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SettingsAvailabilityTypeInput is an input type that accepts SettingsAvailabilityTypeArgs and SettingsAvailabilityTypeOutput values.
-// You can construct a concrete instance of `SettingsAvailabilityTypeInput` via:
+// SettingsAvailabilityTypeInput is an input type that accepts values of the SettingsAvailabilityType enum
+// A concrete instance of `SettingsAvailabilityTypeInput` can be one of the following:
 //
-//	SettingsAvailabilityTypeArgs{...}
+//	SettingsAvailabilityTypeSqlAvailabilityTypeUnspecified
+//	SettingsAvailabilityTypeZonal
+//	SettingsAvailabilityTypeRegional
 type SettingsAvailabilityTypeInput interface {
 	pulumi.Input
 
@@ -2789,12 +2780,6 @@ func (in *settingsAvailabilityTypePtr) ToSettingsAvailabilityTypePtrOutput() Set
 
 func (in *settingsAvailabilityTypePtr) ToSettingsAvailabilityTypePtrOutputWithContext(ctx context.Context) SettingsAvailabilityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SettingsAvailabilityTypePtrOutput)
-}
-
-func (in *settingsAvailabilityTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SettingsAvailabilityType] {
-	return pulumix.Output[*SettingsAvailabilityType]{
-		OutputState: in.ToSettingsAvailabilityTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies if connections must use Cloud SQL connectors. Option values include the following: `NOT_REQUIRED` (Cloud SQL instances can be connected without Cloud SQL Connectors) and `REQUIRED` (Only allow connections that use Cloud SQL Connectors) Note that using REQUIRED disables all existing authorized networks. If this field is not specified when creating a new instance, NOT_REQUIRED is used. If this field is not specified when patching or updating an existing instance, it is left unchanged in the instance.
@@ -2928,10 +2913,12 @@ func (o SettingsConnectorEnforcementPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// SettingsConnectorEnforcementInput is an input type that accepts SettingsConnectorEnforcementArgs and SettingsConnectorEnforcementOutput values.
-// You can construct a concrete instance of `SettingsConnectorEnforcementInput` via:
+// SettingsConnectorEnforcementInput is an input type that accepts values of the SettingsConnectorEnforcement enum
+// A concrete instance of `SettingsConnectorEnforcementInput` can be one of the following:
 //
-//	SettingsConnectorEnforcementArgs{...}
+//	SettingsConnectorEnforcementConnectorEnforcementUnspecified
+//	SettingsConnectorEnforcementNotRequired
+//	SettingsConnectorEnforcementRequired
 type SettingsConnectorEnforcementInput interface {
 	pulumi.Input
 
@@ -2964,12 +2951,6 @@ func (in *settingsConnectorEnforcementPtr) ToSettingsConnectorEnforcementPtrOutp
 
 func (in *settingsConnectorEnforcementPtr) ToSettingsConnectorEnforcementPtrOutputWithContext(ctx context.Context) SettingsConnectorEnforcementPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SettingsConnectorEnforcementPtrOutput)
-}
-
-func (in *settingsConnectorEnforcementPtr) ToOutput(ctx context.Context) pulumix.Output[*SettingsConnectorEnforcement] {
-	return pulumix.Output[*SettingsConnectorEnforcement]{
-		OutputState: in.ToSettingsConnectorEnforcementPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of data disk: `PD_SSD` (default) or `PD_HDD`. Not used for First Generation instances.
@@ -3105,10 +3086,13 @@ func (o SettingsDataDiskTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// SettingsDataDiskTypeInput is an input type that accepts SettingsDataDiskTypeArgs and SettingsDataDiskTypeOutput values.
-// You can construct a concrete instance of `SettingsDataDiskTypeInput` via:
+// SettingsDataDiskTypeInput is an input type that accepts values of the SettingsDataDiskType enum
+// A concrete instance of `SettingsDataDiskTypeInput` can be one of the following:
 //
-//	SettingsDataDiskTypeArgs{...}
+//	SettingsDataDiskTypeSqlDataDiskTypeUnspecified
+//	SettingsDataDiskTypePdSsd
+//	SettingsDataDiskTypePdHdd
+//	SettingsDataDiskTypeObsoleteLocalSsd
 type SettingsDataDiskTypeInput interface {
 	pulumi.Input
 
@@ -3141,12 +3125,6 @@ func (in *settingsDataDiskTypePtr) ToSettingsDataDiskTypePtrOutput() SettingsDat
 
 func (in *settingsDataDiskTypePtr) ToSettingsDataDiskTypePtrOutputWithContext(ctx context.Context) SettingsDataDiskTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SettingsDataDiskTypePtrOutput)
-}
-
-func (in *settingsDataDiskTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SettingsDataDiskType] {
-	return pulumix.Output[*SettingsDataDiskType]{
-		OutputState: in.ToSettingsDataDiskTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The edition of the instance.
@@ -3280,10 +3258,12 @@ func (o SettingsEditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SettingsEditionInput is an input type that accepts SettingsEditionArgs and SettingsEditionOutput values.
-// You can construct a concrete instance of `SettingsEditionInput` via:
+// SettingsEditionInput is an input type that accepts values of the SettingsEdition enum
+// A concrete instance of `SettingsEditionInput` can be one of the following:
 //
-//	SettingsEditionArgs{...}
+//	SettingsEditionEditionUnspecified
+//	SettingsEditionEnterprise
+//	SettingsEditionEnterprisePlus
 type SettingsEditionInput interface {
 	pulumi.Input
 
@@ -3316,12 +3296,6 @@ func (in *settingsEditionPtr) ToSettingsEditionPtrOutput() SettingsEditionPtrOut
 
 func (in *settingsEditionPtr) ToSettingsEditionPtrOutputWithContext(ctx context.Context) SettingsEditionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SettingsEditionPtrOutput)
-}
-
-func (in *settingsEditionPtr) ToOutput(ctx context.Context) pulumix.Output[*SettingsEdition] {
-	return pulumix.Output[*SettingsEdition]{
-		OutputState: in.ToSettingsEditionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The pricing plan for this instance. This can be either `PER_USE` or `PACKAGE`. Only `PER_USE` is supported for Second Generation instances.
@@ -3455,10 +3429,12 @@ func (o SettingsPricingPlanPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// SettingsPricingPlanInput is an input type that accepts SettingsPricingPlanArgs and SettingsPricingPlanOutput values.
-// You can construct a concrete instance of `SettingsPricingPlanInput` via:
+// SettingsPricingPlanInput is an input type that accepts values of the SettingsPricingPlan enum
+// A concrete instance of `SettingsPricingPlanInput` can be one of the following:
 //
-//	SettingsPricingPlanArgs{...}
+//	SettingsPricingPlanSqlPricingPlanUnspecified
+//	SettingsPricingPlanPackage
+//	SettingsPricingPlanPerUse
 type SettingsPricingPlanInput interface {
 	pulumi.Input
 
@@ -3491,12 +3467,6 @@ func (in *settingsPricingPlanPtr) ToSettingsPricingPlanPtrOutput() SettingsPrici
 
 func (in *settingsPricingPlanPtr) ToSettingsPricingPlanPtrOutputWithContext(ctx context.Context) SettingsPricingPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SettingsPricingPlanPtrOutput)
-}
-
-func (in *settingsPricingPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*SettingsPricingPlan] {
-	return pulumix.Output[*SettingsPricingPlan]{
-		OutputState: in.ToSettingsPricingPlanPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of replication this instance uses. This can be either `ASYNCHRONOUS` or `SYNCHRONOUS`. (Deprecated) This property was only applicable to First Generation instances.
@@ -3630,10 +3600,12 @@ func (o SettingsReplicationTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SettingsReplicationTypeInput is an input type that accepts SettingsReplicationTypeArgs and SettingsReplicationTypeOutput values.
-// You can construct a concrete instance of `SettingsReplicationTypeInput` via:
+// SettingsReplicationTypeInput is an input type that accepts values of the SettingsReplicationType enum
+// A concrete instance of `SettingsReplicationTypeInput` can be one of the following:
 //
-//	SettingsReplicationTypeArgs{...}
+//	SettingsReplicationTypeSqlReplicationTypeUnspecified
+//	SettingsReplicationTypeSynchronous
+//	SettingsReplicationTypeAsynchronous
 type SettingsReplicationTypeInput interface {
 	pulumi.Input
 
@@ -3666,12 +3638,6 @@ func (in *settingsReplicationTypePtr) ToSettingsReplicationTypePtrOutput() Setti
 
 func (in *settingsReplicationTypePtr) ToSettingsReplicationTypePtrOutputWithContext(ctx context.Context) SettingsReplicationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SettingsReplicationTypePtrOutput)
-}
-
-func (in *settingsReplicationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SettingsReplicationType] {
-	return pulumix.Output[*SettingsReplicationType]{
-		OutputState: in.ToSettingsReplicationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // This field represents the state generated by the proactive database wellness job for OutOfDisk issues. * Writers: * the proactive database wellness job for OOD. * Readers: * the proactive database wellness job
@@ -3805,10 +3771,12 @@ func (o SqlOutOfDiskReportSqlOutOfDiskStatePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SqlOutOfDiskReportSqlOutOfDiskStateInput is an input type that accepts SqlOutOfDiskReportSqlOutOfDiskStateArgs and SqlOutOfDiskReportSqlOutOfDiskStateOutput values.
-// You can construct a concrete instance of `SqlOutOfDiskReportSqlOutOfDiskStateInput` via:
+// SqlOutOfDiskReportSqlOutOfDiskStateInput is an input type that accepts values of the SqlOutOfDiskReportSqlOutOfDiskState enum
+// A concrete instance of `SqlOutOfDiskReportSqlOutOfDiskStateInput` can be one of the following:
 //
-//	SqlOutOfDiskReportSqlOutOfDiskStateArgs{...}
+//	SqlOutOfDiskReportSqlOutOfDiskStateSqlOutOfDiskStateUnspecified
+//	SqlOutOfDiskReportSqlOutOfDiskStateNormal
+//	SqlOutOfDiskReportSqlOutOfDiskStateSoftShutdown
 type SqlOutOfDiskReportSqlOutOfDiskStateInput interface {
 	pulumi.Input
 
@@ -3841,12 +3809,6 @@ func (in *sqlOutOfDiskReportSqlOutOfDiskStatePtr) ToSqlOutOfDiskReportSqlOutOfDi
 
 func (in *sqlOutOfDiskReportSqlOutOfDiskStatePtr) ToSqlOutOfDiskReportSqlOutOfDiskStatePtrOutputWithContext(ctx context.Context) SqlOutOfDiskReportSqlOutOfDiskStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SqlOutOfDiskReportSqlOutOfDiskStatePtrOutput)
-}
-
-func (in *sqlOutOfDiskReportSqlOutOfDiskStatePtr) ToOutput(ctx context.Context) pulumix.Output[*SqlOutOfDiskReportSqlOutOfDiskState] {
-	return pulumix.Output[*SqlOutOfDiskReportSqlOutOfDiskState]{
-		OutputState: in.ToSqlOutOfDiskReportSqlOutOfDiskStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Dual password status for the user.
@@ -3982,10 +3944,13 @@ func (o UserDualPasswordTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// UserDualPasswordTypeInput is an input type that accepts UserDualPasswordTypeArgs and UserDualPasswordTypeOutput values.
-// You can construct a concrete instance of `UserDualPasswordTypeInput` via:
+// UserDualPasswordTypeInput is an input type that accepts values of the UserDualPasswordType enum
+// A concrete instance of `UserDualPasswordTypeInput` can be one of the following:
 //
-//	UserDualPasswordTypeArgs{...}
+//	UserDualPasswordTypeDualPasswordTypeUnspecified
+//	UserDualPasswordTypeNoModifyDualPassword
+//	UserDualPasswordTypeNoDualPassword
+//	UserDualPasswordTypeDualPassword
 type UserDualPasswordTypeInput interface {
 	pulumi.Input
 
@@ -4018,12 +3983,6 @@ func (in *userDualPasswordTypePtr) ToUserDualPasswordTypePtrOutput() UserDualPas
 
 func (in *userDualPasswordTypePtr) ToUserDualPasswordTypePtrOutputWithContext(ctx context.Context) UserDualPasswordTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserDualPasswordTypePtrOutput)
-}
-
-func (in *userDualPasswordTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UserDualPasswordType] {
-	return pulumix.Output[*UserDualPasswordType]{
-		OutputState: in.ToUserDualPasswordTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The user type. It determines the method to authenticate the user during login. The default is the database's built-in user type.
@@ -4163,10 +4122,15 @@ func (o UserTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// UserTypeInput is an input type that accepts UserTypeArgs and UserTypeOutput values.
-// You can construct a concrete instance of `UserTypeInput` via:
+// UserTypeInput is an input type that accepts values of the UserType enum
+// A concrete instance of `UserTypeInput` can be one of the following:
 //
-//	UserTypeArgs{...}
+//	UserTypeBuiltIn
+//	UserTypeCloudIamUser
+//	UserTypeCloudIamServiceAccount
+//	UserTypeCloudIamGroup
+//	UserTypeCloudIamGroupUser
+//	UserTypeCloudIamGroupServiceAccount
 type UserTypeInput interface {
 	pulumi.Input
 
@@ -4199,12 +4163,6 @@ func (in *userTypePtr) ToUserTypePtrOutput() UserTypePtrOutput {
 
 func (in *userTypePtr) ToUserTypePtrOutputWithContext(ctx context.Context) UserTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(UserTypePtrOutput)
-}
-
-func (in *userTypePtr) ToOutput(ctx context.Context) pulumix.Output[*UserType] {
-	return pulumix.Output[*UserType]{
-		OutputState: in.ToUserTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

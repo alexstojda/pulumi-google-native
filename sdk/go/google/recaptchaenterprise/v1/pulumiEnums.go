@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Optional. For challenge-based keys only (CHECKBOX, INVISIBLE), all challenge requests for this site will return nocaptcha if NOCAPTCHA, or an unsolvable challenge if CHALLENGE.
@@ -142,10 +141,12 @@ func (o GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengePtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeInput is an input type that accepts GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeArgs and GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeOutput values.
-// You can construct a concrete instance of `GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeInput` via:
+// GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeInput is an input type that accepts values of the GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallenge enum
+// A concrete instance of `GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeInput` can be one of the following:
 //
-//	GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeArgs{...}
+//	GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeTestingChallengeUnspecified
+//	GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeNocaptcha
+//	GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeUnsolvableChallenge
 type GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *googleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengePtr) ToG
 
 func (in *googleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengePtr) ToGoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengePtrOutputWithContext(ctx context.Context) GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengePtrOutput)
-}
-
-func (in *googleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallenge] {
-	return pulumix.Output[*GoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallenge]{
-		OutputState: in.ToGoogleCloudRecaptchaenterpriseV1TestingOptionsTestingChallengePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The WAF feature for which this key is enabled.
@@ -321,10 +316,14 @@ func (o GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeaturePtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureInput is an input type that accepts GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureArgs and GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureOutput values.
-// You can construct a concrete instance of `GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureInput` via:
+// GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureInput is an input type that accepts values of the GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeature enum
+// A concrete instance of `GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureInput` can be one of the following:
 //
-//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureArgs{...}
+//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureWafFeatureUnspecified
+//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureChallengePage
+//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureSessionToken
+//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureActionToken
+//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureExpress
 type GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeatureInput interface {
 	pulumi.Input
 
@@ -357,12 +356,6 @@ func (in *googleCloudRecaptchaenterpriseV1WafSettingsWafFeaturePtr) ToGoogleClou
 
 func (in *googleCloudRecaptchaenterpriseV1WafSettingsWafFeaturePtr) ToGoogleCloudRecaptchaenterpriseV1WafSettingsWafFeaturePtrOutputWithContext(ctx context.Context) GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeaturePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeaturePtrOutput)
-}
-
-func (in *googleCloudRecaptchaenterpriseV1WafSettingsWafFeaturePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeature] {
-	return pulumix.Output[*GoogleCloudRecaptchaenterpriseV1WafSettingsWafFeature]{
-		OutputState: in.ToGoogleCloudRecaptchaenterpriseV1WafSettingsWafFeaturePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The WAF service that uses this key.
@@ -496,10 +489,12 @@ func (o GoogleCloudRecaptchaenterpriseV1WafSettingsWafServicePtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceInput is an input type that accepts GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceArgs and GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceOutput values.
-// You can construct a concrete instance of `GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceInput` via:
+// GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceInput is an input type that accepts values of the GoogleCloudRecaptchaenterpriseV1WafSettingsWafService enum
+// A concrete instance of `GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceInput` can be one of the following:
 //
-//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceArgs{...}
+//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceWafServiceUnspecified
+//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceCa
+//	GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceFastly
 type GoogleCloudRecaptchaenterpriseV1WafSettingsWafServiceInput interface {
 	pulumi.Input
 
@@ -532,12 +527,6 @@ func (in *googleCloudRecaptchaenterpriseV1WafSettingsWafServicePtr) ToGoogleClou
 
 func (in *googleCloudRecaptchaenterpriseV1WafSettingsWafServicePtr) ToGoogleCloudRecaptchaenterpriseV1WafSettingsWafServicePtrOutputWithContext(ctx context.Context) GoogleCloudRecaptchaenterpriseV1WafSettingsWafServicePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudRecaptchaenterpriseV1WafSettingsWafServicePtrOutput)
-}
-
-func (in *googleCloudRecaptchaenterpriseV1WafSettingsWafServicePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudRecaptchaenterpriseV1WafSettingsWafService] {
-	return pulumix.Output[*GoogleCloudRecaptchaenterpriseV1WafSettingsWafService]{
-		OutputState: in.ToGoogleCloudRecaptchaenterpriseV1WafSettingsWafServicePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Settings for the frequency and difficulty at which this key triggers captcha challenges. This should only be specified for IntegrationTypes CHECKBOX and INVISIBLE.
@@ -673,10 +662,13 @@ func (o GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenc
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceInput is an input type that accepts GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceArgs and GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceOutput values.
-// You can construct a concrete instance of `GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceInput` via:
+// GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceInput is an input type that accepts values of the GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreference enum
+// A concrete instance of `GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceInput` can be one of the following:
 //
-//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceArgs{...}
+//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceChallengeSecurityPreferenceUnspecified
+//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceUsability
+//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceBalance
+//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceSecurity
 type GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferenceInput interface {
 	pulumi.Input
 
@@ -709,12 +701,6 @@ func (in *googleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPrefere
 
 func (in *googleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferencePtr) ToGoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferencePtrOutputWithContext(ctx context.Context) GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferencePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferencePtrOutput)
-}
-
-func (in *googleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferencePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreference] {
-	return pulumix.Output[*GoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreference]{
-		OutputState: in.ToGoogleCloudRecaptchaenterpriseV1WebKeySettingsChallengeSecurityPreferencePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Describes how this key is integrated with the website.
@@ -850,10 +836,13 @@ func (o GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeInput is an input type that accepts GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeArgs and GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeInput` via:
+// GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeInput is an input type that accepts values of the GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationType enum
+// A concrete instance of `GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeInput` can be one of the following:
 //
-//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeArgs{...}
+//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeIntegrationTypeUnspecified
+//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeScore
+//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeCheckbox
+//	GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeInvisible
 type GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypeInput interface {
 	pulumi.Input
 
@@ -886,12 +875,6 @@ func (in *googleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypePtr) ToGo
 
 func (in *googleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypePtr) ToGoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypePtrOutputWithContext(ctx context.Context) GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypePtrOutput)
-}
-
-func (in *googleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationType] {
-	return pulumix.Output[*GoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationType]{
-		OutputState: in.ToGoogleCloudRecaptchaenterpriseV1WebKeySettingsIntegrationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

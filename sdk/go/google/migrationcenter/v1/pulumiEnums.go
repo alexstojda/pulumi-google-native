@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // License type to consider when calculating costs for virtual machine insights and recommendations. If unspecified, costs are calculated based on the default licensing plan.
@@ -142,10 +141,12 @@ func (o ComputeEnginePreferencesLicenseTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ComputeEnginePreferencesLicenseTypeInput is an input type that accepts ComputeEnginePreferencesLicenseTypeArgs and ComputeEnginePreferencesLicenseTypeOutput values.
-// You can construct a concrete instance of `ComputeEnginePreferencesLicenseTypeInput` via:
+// ComputeEnginePreferencesLicenseTypeInput is an input type that accepts values of the ComputeEnginePreferencesLicenseType enum
+// A concrete instance of `ComputeEnginePreferencesLicenseTypeInput` can be one of the following:
 //
-//	ComputeEnginePreferencesLicenseTypeArgs{...}
+//	ComputeEnginePreferencesLicenseTypeLicenseTypeUnspecified
+//	ComputeEnginePreferencesLicenseTypeLicenseTypeDefault
+//	ComputeEnginePreferencesLicenseTypeLicenseTypeBringYourOwnLicense
 type ComputeEnginePreferencesLicenseTypeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *computeEnginePreferencesLicenseTypePtr) ToComputeEnginePreferencesLice
 
 func (in *computeEnginePreferencesLicenseTypePtr) ToComputeEnginePreferencesLicenseTypePtrOutputWithContext(ctx context.Context) ComputeEnginePreferencesLicenseTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ComputeEnginePreferencesLicenseTypePtrOutput)
-}
-
-func (in *computeEnginePreferencesLicenseTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ComputeEnginePreferencesLicenseType] {
-	return pulumix.Output[*ComputeEnginePreferencesLicenseType]{
-		OutputState: in.ToComputeEnginePreferencesLicenseTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The payload format.
@@ -323,10 +318,15 @@ func (o ImportDataFileFormatPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImportDataFileFormatInput is an input type that accepts ImportDataFileFormatArgs and ImportDataFileFormatOutput values.
-// You can construct a concrete instance of `ImportDataFileFormatInput` via:
+// ImportDataFileFormatInput is an input type that accepts values of the ImportDataFileFormat enum
+// A concrete instance of `ImportDataFileFormatInput` can be one of the following:
 //
-//	ImportDataFileFormatArgs{...}
+//	ImportDataFileFormatImportJobFormatUnspecified
+//	ImportDataFileFormatImportJobFormatRvtoolsXlsx
+//	ImportDataFileFormatImportJobFormatRvtoolsCsv
+//	ImportDataFileFormatImportJobFormatExportedAwsCsv
+//	ImportDataFileFormatImportJobFormatExportedAzureCsv
+//	ImportDataFileFormatImportJobFormatStratozoneCsv
 type ImportDataFileFormatInput interface {
 	pulumi.Input
 
@@ -359,12 +359,6 @@ func (in *importDataFileFormatPtr) ToImportDataFileFormatPtrOutput() ImportDataF
 
 func (in *importDataFileFormatPtr) ToImportDataFileFormatPtrOutputWithContext(ctx context.Context) ImportDataFileFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ImportDataFileFormatPtrOutput)
-}
-
-func (in *importDataFileFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*ImportDataFileFormat] {
-	return pulumix.Output[*ImportDataFileFormat]{
-		OutputState: in.ToImportDataFileFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Report creation state.
@@ -500,10 +494,13 @@ func (o ReportStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReportStateEnumInput is an input type that accepts ReportStateEnumArgs and ReportStateEnumOutput values.
-// You can construct a concrete instance of `ReportStateEnumInput` via:
+// ReportStateEnumInput is an input type that accepts values of the ReportStateEnum enum
+// A concrete instance of `ReportStateEnumInput` can be one of the following:
 //
-//	ReportStateEnumArgs{...}
+//	ReportStateEnumStateUnspecified
+//	ReportStateEnumPending
+//	ReportStateEnumSucceeded
+//	ReportStateEnumFailed
 type ReportStateEnumInput interface {
 	pulumi.Input
 
@@ -536,12 +533,6 @@ func (in *reportStateEnumPtr) ToReportStateEnumPtrOutput() ReportStateEnumPtrOut
 
 func (in *reportStateEnumPtr) ToReportStateEnumPtrOutputWithContext(ctx context.Context) ReportStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReportStateEnumPtrOutput)
-}
-
-func (in *reportStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ReportStateEnum] {
-	return pulumix.Output[*ReportStateEnum]{
-		OutputState: in.ToReportStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Report type.
@@ -673,10 +664,11 @@ func (o ReportTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReportTypeInput is an input type that accepts ReportTypeArgs and ReportTypeOutput values.
-// You can construct a concrete instance of `ReportTypeInput` via:
+// ReportTypeInput is an input type that accepts values of the ReportType enum
+// A concrete instance of `ReportTypeInput` can be one of the following:
 //
-//	ReportTypeArgs{...}
+//	ReportTypeTypeUnspecified
+//	ReportTypeTotalCostOfOwnership
 type ReportTypeInput interface {
 	pulumi.Input
 
@@ -709,12 +701,6 @@ func (in *reportTypePtr) ToReportTypePtrOutput() ReportTypePtrOutput {
 
 func (in *reportTypePtr) ToReportTypePtrOutputWithContext(ctx context.Context) ReportTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReportTypePtrOutput)
-}
-
-func (in *reportTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ReportType] {
-	return pulumix.Output[*ReportType]{
-		OutputState: in.ToReportTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Commitment plan to consider when calculating costs for virtual machine insights and recommendations. If you are unsure which value to set, a 3 year commitment plan is often a good value to start with.
@@ -850,10 +836,13 @@ func (o SoleTenancyPreferencesCommitmentPlanPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SoleTenancyPreferencesCommitmentPlanInput is an input type that accepts SoleTenancyPreferencesCommitmentPlanArgs and SoleTenancyPreferencesCommitmentPlanOutput values.
-// You can construct a concrete instance of `SoleTenancyPreferencesCommitmentPlanInput` via:
+// SoleTenancyPreferencesCommitmentPlanInput is an input type that accepts values of the SoleTenancyPreferencesCommitmentPlan enum
+// A concrete instance of `SoleTenancyPreferencesCommitmentPlanInput` can be one of the following:
 //
-//	SoleTenancyPreferencesCommitmentPlanArgs{...}
+//	SoleTenancyPreferencesCommitmentPlanCommitmentPlanUnspecified
+//	SoleTenancyPreferencesCommitmentPlanOnDemand
+//	SoleTenancyPreferencesCommitmentPlanCommitment1Year
+//	SoleTenancyPreferencesCommitmentPlanCommitment3Year
 type SoleTenancyPreferencesCommitmentPlanInput interface {
 	pulumi.Input
 
@@ -886,12 +875,6 @@ func (in *soleTenancyPreferencesCommitmentPlanPtr) ToSoleTenancyPreferencesCommi
 
 func (in *soleTenancyPreferencesCommitmentPlanPtr) ToSoleTenancyPreferencesCommitmentPlanPtrOutputWithContext(ctx context.Context) SoleTenancyPreferencesCommitmentPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SoleTenancyPreferencesCommitmentPlanPtrOutput)
-}
-
-func (in *soleTenancyPreferencesCommitmentPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*SoleTenancyPreferencesCommitmentPlan] {
-	return pulumix.Output[*SoleTenancyPreferencesCommitmentPlan]{
-		OutputState: in.ToSoleTenancyPreferencesCommitmentPlanPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Sole Tenancy nodes maintenance policy.
@@ -1027,10 +1010,13 @@ func (o SoleTenancyPreferencesHostMaintenancePolicyPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// SoleTenancyPreferencesHostMaintenancePolicyInput is an input type that accepts SoleTenancyPreferencesHostMaintenancePolicyArgs and SoleTenancyPreferencesHostMaintenancePolicyOutput values.
-// You can construct a concrete instance of `SoleTenancyPreferencesHostMaintenancePolicyInput` via:
+// SoleTenancyPreferencesHostMaintenancePolicyInput is an input type that accepts values of the SoleTenancyPreferencesHostMaintenancePolicy enum
+// A concrete instance of `SoleTenancyPreferencesHostMaintenancePolicyInput` can be one of the following:
 //
-//	SoleTenancyPreferencesHostMaintenancePolicyArgs{...}
+//	SoleTenancyPreferencesHostMaintenancePolicyHostMaintenancePolicyUnspecified
+//	SoleTenancyPreferencesHostMaintenancePolicyHostMaintenancePolicyDefault
+//	SoleTenancyPreferencesHostMaintenancePolicyHostMaintenancePolicyRestartInPlace
+//	SoleTenancyPreferencesHostMaintenancePolicyHostMaintenancePolicyMigrateWithinNodeGroup
 type SoleTenancyPreferencesHostMaintenancePolicyInput interface {
 	pulumi.Input
 
@@ -1063,12 +1049,6 @@ func (in *soleTenancyPreferencesHostMaintenancePolicyPtr) ToSoleTenancyPreferenc
 
 func (in *soleTenancyPreferencesHostMaintenancePolicyPtr) ToSoleTenancyPreferencesHostMaintenancePolicyPtrOutputWithContext(ctx context.Context) SoleTenancyPreferencesHostMaintenancePolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SoleTenancyPreferencesHostMaintenancePolicyPtrOutput)
-}
-
-func (in *soleTenancyPreferencesHostMaintenancePolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*SoleTenancyPreferencesHostMaintenancePolicy] {
-	return pulumix.Output[*SoleTenancyPreferencesHostMaintenancePolicy]{
-		OutputState: in.ToSoleTenancyPreferencesHostMaintenancePolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Data source type.
@@ -1206,10 +1186,14 @@ func (o SourceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// SourceTypeInput is an input type that accepts SourceTypeArgs and SourceTypeOutput values.
-// You can construct a concrete instance of `SourceTypeInput` via:
+// SourceTypeInput is an input type that accepts values of the SourceType enum
+// A concrete instance of `SourceTypeInput` can be one of the following:
 //
-//	SourceTypeArgs{...}
+//	SourceTypeSourceTypeUnknown
+//	SourceTypeSourceTypeUpload
+//	SourceTypeSourceTypeGuestOsScan
+//	SourceTypeSourceTypeInventoryScan
+//	SourceTypeSourceTypeCustom
 type SourceTypeInput interface {
 	pulumi.Input
 
@@ -1242,12 +1226,6 @@ func (in *sourceTypePtr) ToSourceTypePtrOutput() SourceTypePtrOutput {
 
 func (in *sourceTypePtr) ToSourceTypePtrOutputWithContext(ctx context.Context) SourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SourceTypePtrOutput)
-}
-
-func (in *sourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SourceType] {
-	return pulumix.Output[*SourceType]{
-		OutputState: in.ToSourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Commitment plan to consider when calculating costs for virtual machine insights and recommendations. If you are unsure which value to set, a 3 year commitment plan is often a good value to start with.
@@ -1383,10 +1361,13 @@ func (o VirtualMachinePreferencesCommitmentPlanPtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// VirtualMachinePreferencesCommitmentPlanInput is an input type that accepts VirtualMachinePreferencesCommitmentPlanArgs and VirtualMachinePreferencesCommitmentPlanOutput values.
-// You can construct a concrete instance of `VirtualMachinePreferencesCommitmentPlanInput` via:
+// VirtualMachinePreferencesCommitmentPlanInput is an input type that accepts values of the VirtualMachinePreferencesCommitmentPlan enum
+// A concrete instance of `VirtualMachinePreferencesCommitmentPlanInput` can be one of the following:
 //
-//	VirtualMachinePreferencesCommitmentPlanArgs{...}
+//	VirtualMachinePreferencesCommitmentPlanCommitmentPlanUnspecified
+//	VirtualMachinePreferencesCommitmentPlanCommitmentPlanNone
+//	VirtualMachinePreferencesCommitmentPlanCommitmentPlanOneYear
+//	VirtualMachinePreferencesCommitmentPlanCommitmentPlanThreeYears
 type VirtualMachinePreferencesCommitmentPlanInput interface {
 	pulumi.Input
 
@@ -1419,12 +1400,6 @@ func (in *virtualMachinePreferencesCommitmentPlanPtr) ToVirtualMachinePreference
 
 func (in *virtualMachinePreferencesCommitmentPlanPtr) ToVirtualMachinePreferencesCommitmentPlanPtrOutputWithContext(ctx context.Context) VirtualMachinePreferencesCommitmentPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualMachinePreferencesCommitmentPlanPtrOutput)
-}
-
-func (in *virtualMachinePreferencesCommitmentPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachinePreferencesCommitmentPlan] {
-	return pulumix.Output[*VirtualMachinePreferencesCommitmentPlan]{
-		OutputState: in.ToVirtualMachinePreferencesCommitmentPlanPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Sizing optimization strategy specifies the preferred strategy used when extrapolating usage data to calculate insights and recommendations for a virtual machine. If you are unsure which value to set, a moderate sizing optimization strategy is often a good value to start with.
@@ -1560,10 +1535,13 @@ func (o VirtualMachinePreferencesSizingOptimizationStrategyPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// VirtualMachinePreferencesSizingOptimizationStrategyInput is an input type that accepts VirtualMachinePreferencesSizingOptimizationStrategyArgs and VirtualMachinePreferencesSizingOptimizationStrategyOutput values.
-// You can construct a concrete instance of `VirtualMachinePreferencesSizingOptimizationStrategyInput` via:
+// VirtualMachinePreferencesSizingOptimizationStrategyInput is an input type that accepts values of the VirtualMachinePreferencesSizingOptimizationStrategy enum
+// A concrete instance of `VirtualMachinePreferencesSizingOptimizationStrategyInput` can be one of the following:
 //
-//	VirtualMachinePreferencesSizingOptimizationStrategyArgs{...}
+//	VirtualMachinePreferencesSizingOptimizationStrategySizingOptimizationStrategyUnspecified
+//	VirtualMachinePreferencesSizingOptimizationStrategySizingOptimizationStrategySameAsSource
+//	VirtualMachinePreferencesSizingOptimizationStrategySizingOptimizationStrategyModerate
+//	VirtualMachinePreferencesSizingOptimizationStrategySizingOptimizationStrategyAggressive
 type VirtualMachinePreferencesSizingOptimizationStrategyInput interface {
 	pulumi.Input
 
@@ -1596,12 +1574,6 @@ func (in *virtualMachinePreferencesSizingOptimizationStrategyPtr) ToVirtualMachi
 
 func (in *virtualMachinePreferencesSizingOptimizationStrategyPtr) ToVirtualMachinePreferencesSizingOptimizationStrategyPtrOutputWithContext(ctx context.Context) VirtualMachinePreferencesSizingOptimizationStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualMachinePreferencesSizingOptimizationStrategyPtrOutput)
-}
-
-func (in *virtualMachinePreferencesSizingOptimizationStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachinePreferencesSizingOptimizationStrategy] {
-	return pulumix.Output[*VirtualMachinePreferencesSizingOptimizationStrategy]{
-		OutputState: in.ToVirtualMachinePreferencesSizingOptimizationStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Target product for assets using this preference set. Specify either target product or business goal, but not both.
@@ -1737,10 +1709,13 @@ func (o VirtualMachinePreferencesTargetProductPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// VirtualMachinePreferencesTargetProductInput is an input type that accepts VirtualMachinePreferencesTargetProductArgs and VirtualMachinePreferencesTargetProductOutput values.
-// You can construct a concrete instance of `VirtualMachinePreferencesTargetProductInput` via:
+// VirtualMachinePreferencesTargetProductInput is an input type that accepts values of the VirtualMachinePreferencesTargetProduct enum
+// A concrete instance of `VirtualMachinePreferencesTargetProductInput` can be one of the following:
 //
-//	VirtualMachinePreferencesTargetProductArgs{...}
+//	VirtualMachinePreferencesTargetProductComputeMigrationTargetProductUnspecified
+//	VirtualMachinePreferencesTargetProductComputeMigrationTargetProductComputeEngine
+//	VirtualMachinePreferencesTargetProductComputeMigrationTargetProductVmwareEngine
+//	VirtualMachinePreferencesTargetProductComputeMigrationTargetProductSoleTenancy
 type VirtualMachinePreferencesTargetProductInput interface {
 	pulumi.Input
 
@@ -1773,12 +1748,6 @@ func (in *virtualMachinePreferencesTargetProductPtr) ToVirtualMachinePreferences
 
 func (in *virtualMachinePreferencesTargetProductPtr) ToVirtualMachinePreferencesTargetProductPtrOutputWithContext(ctx context.Context) VirtualMachinePreferencesTargetProductPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VirtualMachinePreferencesTargetProductPtrOutput)
-}
-
-func (in *virtualMachinePreferencesTargetProductPtr) ToOutput(ctx context.Context) pulumix.Output[*VirtualMachinePreferencesTargetProduct] {
-	return pulumix.Output[*VirtualMachinePreferencesTargetProduct]{
-		OutputState: in.ToVirtualMachinePreferencesTargetProductPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Commitment plan to consider when calculating costs for virtual machine insights and recommendations. If you are unsure which value to set, a 3 year commitment plan is often a good value to start with.
@@ -1918,10 +1887,15 @@ func (o VmwareEnginePreferencesCommitmentPlanPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// VmwareEnginePreferencesCommitmentPlanInput is an input type that accepts VmwareEnginePreferencesCommitmentPlanArgs and VmwareEnginePreferencesCommitmentPlanOutput values.
-// You can construct a concrete instance of `VmwareEnginePreferencesCommitmentPlanInput` via:
+// VmwareEnginePreferencesCommitmentPlanInput is an input type that accepts values of the VmwareEnginePreferencesCommitmentPlan enum
+// A concrete instance of `VmwareEnginePreferencesCommitmentPlanInput` can be one of the following:
 //
-//	VmwareEnginePreferencesCommitmentPlanArgs{...}
+//	VmwareEnginePreferencesCommitmentPlanCommitmentPlanUnspecified
+//	VmwareEnginePreferencesCommitmentPlanOnDemand
+//	VmwareEnginePreferencesCommitmentPlanCommitment1YearMonthlyPayments
+//	VmwareEnginePreferencesCommitmentPlanCommitment3YearMonthlyPayments
+//	VmwareEnginePreferencesCommitmentPlanCommitment1YearUpfrontPayment
+//	VmwareEnginePreferencesCommitmentPlanCommitment3YearUpfrontPayment
 type VmwareEnginePreferencesCommitmentPlanInput interface {
 	pulumi.Input
 
@@ -1954,12 +1928,6 @@ func (in *vmwareEnginePreferencesCommitmentPlanPtr) ToVmwareEnginePreferencesCom
 
 func (in *vmwareEnginePreferencesCommitmentPlanPtr) ToVmwareEnginePreferencesCommitmentPlanPtrOutputWithContext(ctx context.Context) VmwareEnginePreferencesCommitmentPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(VmwareEnginePreferencesCommitmentPlanPtrOutput)
-}
-
-func (in *vmwareEnginePreferencesCommitmentPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*VmwareEnginePreferencesCommitmentPlan] {
-	return pulumix.Output[*VmwareEnginePreferencesCommitmentPlan]{
-		OutputState: in.ToVmwareEnginePreferencesCommitmentPlanPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

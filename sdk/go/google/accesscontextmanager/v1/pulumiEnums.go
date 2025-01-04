@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The asset type of this authorized orgs desc. Valid values are `ASSET_TYPE_DEVICE`, and `ASSET_TYPE_CREDENTIAL_STRENGTH`.
@@ -319,10 +315,12 @@ func (o AuthorizedOrgsDescAssetTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuthorizedOrgsDescAssetTypeInput is an input type that accepts AuthorizedOrgsDescAssetTypeArgs and AuthorizedOrgsDescAssetTypeOutput values.
-// You can construct a concrete instance of `AuthorizedOrgsDescAssetTypeInput` via:
+// AuthorizedOrgsDescAssetTypeInput is an input type that accepts values of the AuthorizedOrgsDescAssetType enum
+// A concrete instance of `AuthorizedOrgsDescAssetTypeInput` can be one of the following:
 //
-//	AuthorizedOrgsDescAssetTypeArgs{...}
+//	AuthorizedOrgsDescAssetTypeAssetTypeUnspecified
+//	AuthorizedOrgsDescAssetTypeAssetTypeDevice
+//	AuthorizedOrgsDescAssetTypeAssetTypeCredentialStrength
 type AuthorizedOrgsDescAssetTypeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *authorizedOrgsDescAssetTypePtr) ToAuthorizedOrgsDescAssetTypePtrOutput
 
 func (in *authorizedOrgsDescAssetTypePtr) ToAuthorizedOrgsDescAssetTypePtrOutputWithContext(ctx context.Context) AuthorizedOrgsDescAssetTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizedOrgsDescAssetTypePtrOutput)
-}
-
-func (in *authorizedOrgsDescAssetTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuthorizedOrgsDescAssetType] {
-	return pulumix.Output[*AuthorizedOrgsDescAssetType]{
-		OutputState: in.ToAuthorizedOrgsDescAssetTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The direction of the authorization relationship between this organization and the organizations listed in the `orgs` field. The valid values for this field include the following: `AUTHORIZATION_DIRECTION_FROM`: Allows this organization to evaluate traffic in the organizations listed in the `orgs` field. `AUTHORIZATION_DIRECTION_TO`: Allows the organizations listed in the `orgs` field to evaluate the traffic in this organization. For the authorization relationship to take effect, all of the organizations must authorize and specify the appropriate relationship direction. For example, if organization A authorized organization B and C to evaluate its traffic, by specifying `AUTHORIZATION_DIRECTION_TO` as the authorization direction, organizations B and C must specify `AUTHORIZATION_DIRECTION_FROM` as the authorization direction in their `AuthorizedOrgsDesc` resource.
@@ -494,10 +486,12 @@ func (o AuthorizedOrgsDescAuthorizationDirectionPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuthorizedOrgsDescAuthorizationDirectionInput is an input type that accepts AuthorizedOrgsDescAuthorizationDirectionArgs and AuthorizedOrgsDescAuthorizationDirectionOutput values.
-// You can construct a concrete instance of `AuthorizedOrgsDescAuthorizationDirectionInput` via:
+// AuthorizedOrgsDescAuthorizationDirectionInput is an input type that accepts values of the AuthorizedOrgsDescAuthorizationDirection enum
+// A concrete instance of `AuthorizedOrgsDescAuthorizationDirectionInput` can be one of the following:
 //
-//	AuthorizedOrgsDescAuthorizationDirectionArgs{...}
+//	AuthorizedOrgsDescAuthorizationDirectionAuthorizationDirectionUnspecified
+//	AuthorizedOrgsDescAuthorizationDirectionAuthorizationDirectionTo
+//	AuthorizedOrgsDescAuthorizationDirectionAuthorizationDirectionFrom
 type AuthorizedOrgsDescAuthorizationDirectionInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *authorizedOrgsDescAuthorizationDirectionPtr) ToAuthorizedOrgsDescAutho
 
 func (in *authorizedOrgsDescAuthorizationDirectionPtr) ToAuthorizedOrgsDescAuthorizationDirectionPtrOutputWithContext(ctx context.Context) AuthorizedOrgsDescAuthorizationDirectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizedOrgsDescAuthorizationDirectionPtrOutput)
-}
-
-func (in *authorizedOrgsDescAuthorizationDirectionPtr) ToOutput(ctx context.Context) pulumix.Output[*AuthorizedOrgsDescAuthorizationDirection] {
-	return pulumix.Output[*AuthorizedOrgsDescAuthorizationDirection]{
-		OutputState: in.ToAuthorizedOrgsDescAuthorizationDirectionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A granular control type for authorization levels. Valid value is `AUTHORIZATION_TYPE_TRUST`.
@@ -667,10 +655,11 @@ func (o AuthorizedOrgsDescAuthorizationTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuthorizedOrgsDescAuthorizationTypeInput is an input type that accepts AuthorizedOrgsDescAuthorizationTypeArgs and AuthorizedOrgsDescAuthorizationTypeOutput values.
-// You can construct a concrete instance of `AuthorizedOrgsDescAuthorizationTypeInput` via:
+// AuthorizedOrgsDescAuthorizationTypeInput is an input type that accepts values of the AuthorizedOrgsDescAuthorizationType enum
+// A concrete instance of `AuthorizedOrgsDescAuthorizationTypeInput` can be one of the following:
 //
-//	AuthorizedOrgsDescAuthorizationTypeArgs{...}
+//	AuthorizedOrgsDescAuthorizationTypeAuthorizationTypeUnspecified
+//	AuthorizedOrgsDescAuthorizationTypeAuthorizationTypeTrust
 type AuthorizedOrgsDescAuthorizationTypeInput interface {
 	pulumi.Input
 
@@ -703,12 +692,6 @@ func (in *authorizedOrgsDescAuthorizationTypePtr) ToAuthorizedOrgsDescAuthorizat
 
 func (in *authorizedOrgsDescAuthorizationTypePtr) ToAuthorizedOrgsDescAuthorizationTypePtrOutputWithContext(ctx context.Context) AuthorizedOrgsDescAuthorizationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizedOrgsDescAuthorizationTypePtrOutput)
-}
-
-func (in *authorizedOrgsDescAuthorizationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuthorizedOrgsDescAuthorizationType] {
-	return pulumix.Output[*AuthorizedOrgsDescAuthorizationType]{
-		OutputState: in.ToAuthorizedOrgsDescAuthorizationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // How the `conditions` list should be combined to determine if a request is granted this `AccessLevel`. If AND is used, each `Condition` in `conditions` must be satisfied for the `AccessLevel` to be applied. If OR is used, at least one `Condition` in `conditions` must be satisfied for the `AccessLevel` to be applied. Default behavior is AND.
@@ -840,10 +823,11 @@ func (o BasicLevelCombiningFunctionPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// BasicLevelCombiningFunctionInput is an input type that accepts BasicLevelCombiningFunctionArgs and BasicLevelCombiningFunctionOutput values.
-// You can construct a concrete instance of `BasicLevelCombiningFunctionInput` via:
+// BasicLevelCombiningFunctionInput is an input type that accepts values of the BasicLevelCombiningFunction enum
+// A concrete instance of `BasicLevelCombiningFunctionInput` can be one of the following:
 //
-//	BasicLevelCombiningFunctionArgs{...}
+//	BasicLevelCombiningFunctionAnd
+//	BasicLevelCombiningFunctionOr
 type BasicLevelCombiningFunctionInput interface {
 	pulumi.Input
 
@@ -876,12 +860,6 @@ func (in *basicLevelCombiningFunctionPtr) ToBasicLevelCombiningFunctionPtrOutput
 
 func (in *basicLevelCombiningFunctionPtr) ToBasicLevelCombiningFunctionPtrOutputWithContext(ctx context.Context) BasicLevelCombiningFunctionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BasicLevelCombiningFunctionPtrOutput)
-}
-
-func (in *basicLevelCombiningFunctionPtr) ToOutput(ctx context.Context) pulumix.Output[*BasicLevelCombiningFunction] {
-	return pulumix.Output[*BasicLevelCombiningFunction]{
-		OutputState: in.ToBasicLevelCombiningFunctionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type DevicePolicyAllowedDeviceManagementLevelsItem string
@@ -1016,10 +994,13 @@ func (o DevicePolicyAllowedDeviceManagementLevelsItemPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// DevicePolicyAllowedDeviceManagementLevelsItemInput is an input type that accepts DevicePolicyAllowedDeviceManagementLevelsItemArgs and DevicePolicyAllowedDeviceManagementLevelsItemOutput values.
-// You can construct a concrete instance of `DevicePolicyAllowedDeviceManagementLevelsItemInput` via:
+// DevicePolicyAllowedDeviceManagementLevelsItemInput is an input type that accepts values of the DevicePolicyAllowedDeviceManagementLevelsItem enum
+// A concrete instance of `DevicePolicyAllowedDeviceManagementLevelsItemInput` can be one of the following:
 //
-//	DevicePolicyAllowedDeviceManagementLevelsItemArgs{...}
+//	DevicePolicyAllowedDeviceManagementLevelsItemManagementUnspecified
+//	DevicePolicyAllowedDeviceManagementLevelsItemNone
+//	DevicePolicyAllowedDeviceManagementLevelsItemBasic
+//	DevicePolicyAllowedDeviceManagementLevelsItemComplete
 type DevicePolicyAllowedDeviceManagementLevelsItemInput interface {
 	pulumi.Input
 
@@ -1052,12 +1033,6 @@ func (in *devicePolicyAllowedDeviceManagementLevelsItemPtr) ToDevicePolicyAllowe
 
 func (in *devicePolicyAllowedDeviceManagementLevelsItemPtr) ToDevicePolicyAllowedDeviceManagementLevelsItemPtrOutputWithContext(ctx context.Context) DevicePolicyAllowedDeviceManagementLevelsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DevicePolicyAllowedDeviceManagementLevelsItemPtrOutput)
-}
-
-func (in *devicePolicyAllowedDeviceManagementLevelsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*DevicePolicyAllowedDeviceManagementLevelsItem] {
-	return pulumix.Output[*DevicePolicyAllowedDeviceManagementLevelsItem]{
-		OutputState: in.ToDevicePolicyAllowedDeviceManagementLevelsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DevicePolicyAllowedDeviceManagementLevelsItemArrayInput is an input type that accepts DevicePolicyAllowedDeviceManagementLevelsItemArray and DevicePolicyAllowedDeviceManagementLevelsItemArrayOutput values.
@@ -1237,10 +1212,13 @@ func (o DevicePolicyAllowedEncryptionStatusesItemPtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// DevicePolicyAllowedEncryptionStatusesItemInput is an input type that accepts DevicePolicyAllowedEncryptionStatusesItemArgs and DevicePolicyAllowedEncryptionStatusesItemOutput values.
-// You can construct a concrete instance of `DevicePolicyAllowedEncryptionStatusesItemInput` via:
+// DevicePolicyAllowedEncryptionStatusesItemInput is an input type that accepts values of the DevicePolicyAllowedEncryptionStatusesItem enum
+// A concrete instance of `DevicePolicyAllowedEncryptionStatusesItemInput` can be one of the following:
 //
-//	DevicePolicyAllowedEncryptionStatusesItemArgs{...}
+//	DevicePolicyAllowedEncryptionStatusesItemEncryptionUnspecified
+//	DevicePolicyAllowedEncryptionStatusesItemEncryptionUnsupported
+//	DevicePolicyAllowedEncryptionStatusesItemUnencrypted
+//	DevicePolicyAllowedEncryptionStatusesItemEncrypted
 type DevicePolicyAllowedEncryptionStatusesItemInput interface {
 	pulumi.Input
 
@@ -1273,12 +1251,6 @@ func (in *devicePolicyAllowedEncryptionStatusesItemPtr) ToDevicePolicyAllowedEnc
 
 func (in *devicePolicyAllowedEncryptionStatusesItemPtr) ToDevicePolicyAllowedEncryptionStatusesItemPtrOutputWithContext(ctx context.Context) DevicePolicyAllowedEncryptionStatusesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DevicePolicyAllowedEncryptionStatusesItemPtrOutput)
-}
-
-func (in *devicePolicyAllowedEncryptionStatusesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*DevicePolicyAllowedEncryptionStatusesItem] {
-	return pulumix.Output[*DevicePolicyAllowedEncryptionStatusesItem]{
-		OutputState: in.ToDevicePolicyAllowedEncryptionStatusesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DevicePolicyAllowedEncryptionStatusesItemArrayInput is an input type that accepts DevicePolicyAllowedEncryptionStatusesItemArray and DevicePolicyAllowedEncryptionStatusesItemArrayOutput values.
@@ -1459,10 +1431,13 @@ func (o EgressFromIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EgressFromIdentityTypeInput is an input type that accepts EgressFromIdentityTypeArgs and EgressFromIdentityTypeOutput values.
-// You can construct a concrete instance of `EgressFromIdentityTypeInput` via:
+// EgressFromIdentityTypeInput is an input type that accepts values of the EgressFromIdentityType enum
+// A concrete instance of `EgressFromIdentityTypeInput` can be one of the following:
 //
-//	EgressFromIdentityTypeArgs{...}
+//	EgressFromIdentityTypeIdentityTypeUnspecified
+//	EgressFromIdentityTypeAnyIdentity
+//	EgressFromIdentityTypeAnyUserAccount
+//	EgressFromIdentityTypeAnyServiceAccount
 type EgressFromIdentityTypeInput interface {
 	pulumi.Input
 
@@ -1495,12 +1470,6 @@ func (in *egressFromIdentityTypePtr) ToEgressFromIdentityTypePtrOutput() EgressF
 
 func (in *egressFromIdentityTypePtr) ToEgressFromIdentityTypePtrOutputWithContext(ctx context.Context) EgressFromIdentityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EgressFromIdentityTypePtrOutput)
-}
-
-func (in *egressFromIdentityTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EgressFromIdentityType] {
-	return pulumix.Output[*EgressFromIdentityType]{
-		OutputState: in.ToEgressFromIdentityTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether to enforce traffic restrictions based on `sources` field. If the `sources` fields is non-empty, then this field must be set to `SOURCE_RESTRICTION_ENABLED`.
@@ -1634,10 +1603,12 @@ func (o EgressFromSourceRestrictionPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// EgressFromSourceRestrictionInput is an input type that accepts EgressFromSourceRestrictionArgs and EgressFromSourceRestrictionOutput values.
-// You can construct a concrete instance of `EgressFromSourceRestrictionInput` via:
+// EgressFromSourceRestrictionInput is an input type that accepts values of the EgressFromSourceRestriction enum
+// A concrete instance of `EgressFromSourceRestrictionInput` can be one of the following:
 //
-//	EgressFromSourceRestrictionArgs{...}
+//	EgressFromSourceRestrictionSourceRestrictionUnspecified
+//	EgressFromSourceRestrictionSourceRestrictionEnabled
+//	EgressFromSourceRestrictionSourceRestrictionDisabled
 type EgressFromSourceRestrictionInput interface {
 	pulumi.Input
 
@@ -1670,12 +1641,6 @@ func (in *egressFromSourceRestrictionPtr) ToEgressFromSourceRestrictionPtrOutput
 
 func (in *egressFromSourceRestrictionPtr) ToEgressFromSourceRestrictionPtrOutputWithContext(ctx context.Context) EgressFromSourceRestrictionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EgressFromSourceRestrictionPtrOutput)
-}
-
-func (in *egressFromSourceRestrictionPtr) ToOutput(ctx context.Context) pulumix.Output[*EgressFromSourceRestriction] {
-	return pulumix.Output[*EgressFromSourceRestriction]{
-		OutputState: in.ToEgressFromSourceRestrictionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the type of identities that are allowed access from outside the perimeter. If left unspecified, then members of `identities` field will be allowed access.
@@ -1811,10 +1776,13 @@ func (o IngressFromIdentityTypePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// IngressFromIdentityTypeInput is an input type that accepts IngressFromIdentityTypeArgs and IngressFromIdentityTypeOutput values.
-// You can construct a concrete instance of `IngressFromIdentityTypeInput` via:
+// IngressFromIdentityTypeInput is an input type that accepts values of the IngressFromIdentityType enum
+// A concrete instance of `IngressFromIdentityTypeInput` can be one of the following:
 //
-//	IngressFromIdentityTypeArgs{...}
+//	IngressFromIdentityTypeIdentityTypeUnspecified
+//	IngressFromIdentityTypeAnyIdentity
+//	IngressFromIdentityTypeAnyUserAccount
+//	IngressFromIdentityTypeAnyServiceAccount
 type IngressFromIdentityTypeInput interface {
 	pulumi.Input
 
@@ -1847,12 +1815,6 @@ func (in *ingressFromIdentityTypePtr) ToIngressFromIdentityTypePtrOutput() Ingre
 
 func (in *ingressFromIdentityTypePtr) ToIngressFromIdentityTypePtrOutputWithContext(ctx context.Context) IngressFromIdentityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IngressFromIdentityTypePtrOutput)
-}
-
-func (in *ingressFromIdentityTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IngressFromIdentityType] {
-	return pulumix.Output[*IngressFromIdentityType]{
-		OutputState: in.ToIngressFromIdentityTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The allowed OS type.
@@ -1994,10 +1956,16 @@ func (o OsConstraintOsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// OsConstraintOsTypeInput is an input type that accepts OsConstraintOsTypeArgs and OsConstraintOsTypeOutput values.
-// You can construct a concrete instance of `OsConstraintOsTypeInput` via:
+// OsConstraintOsTypeInput is an input type that accepts values of the OsConstraintOsType enum
+// A concrete instance of `OsConstraintOsTypeInput` can be one of the following:
 //
-//	OsConstraintOsTypeArgs{...}
+//	OsConstraintOsTypeOsUnspecified
+//	OsConstraintOsTypeDesktopMac
+//	OsConstraintOsTypeDesktopWindows
+//	OsConstraintOsTypeDesktopLinux
+//	OsConstraintOsTypeDesktopChromeOs
+//	OsConstraintOsTypeAndroid
+//	OsConstraintOsTypeIos
 type OsConstraintOsTypeInput interface {
 	pulumi.Input
 
@@ -2030,12 +1998,6 @@ func (in *osConstraintOsTypePtr) ToOsConstraintOsTypePtrOutput() OsConstraintOsT
 
 func (in *osConstraintOsTypePtr) ToOsConstraintOsTypePtrOutputWithContext(ctx context.Context) OsConstraintOsTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OsConstraintOsTypePtrOutput)
-}
-
-func (in *osConstraintOsTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OsConstraintOsType] {
-	return pulumix.Output[*OsConstraintOsType]{
-		OutputState: in.ToOsConstraintOsTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Perimeter type indicator. A single project or VPC network is allowed to be a member of single regular perimeter, but multiple service perimeter bridges. A project cannot be a included in a perimeter bridge without being included in regular perimeter. For perimeter bridges, the restricted service list as well as access level lists must be empty.
@@ -2167,10 +2129,11 @@ func (o ServicePerimeterPerimeterTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServicePerimeterPerimeterTypeInput is an input type that accepts ServicePerimeterPerimeterTypeArgs and ServicePerimeterPerimeterTypeOutput values.
-// You can construct a concrete instance of `ServicePerimeterPerimeterTypeInput` via:
+// ServicePerimeterPerimeterTypeInput is an input type that accepts values of the ServicePerimeterPerimeterType enum
+// A concrete instance of `ServicePerimeterPerimeterTypeInput` can be one of the following:
 //
-//	ServicePerimeterPerimeterTypeArgs{...}
+//	ServicePerimeterPerimeterTypePerimeterTypeRegular
+//	ServicePerimeterPerimeterTypePerimeterTypeBridge
 type ServicePerimeterPerimeterTypeInput interface {
 	pulumi.Input
 
@@ -2203,12 +2166,6 @@ func (in *servicePerimeterPerimeterTypePtr) ToServicePerimeterPerimeterTypePtrOu
 
 func (in *servicePerimeterPerimeterTypePtr) ToServicePerimeterPerimeterTypePtrOutputWithContext(ctx context.Context) ServicePerimeterPerimeterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServicePerimeterPerimeterTypePtrOutput)
-}
-
-func (in *servicePerimeterPerimeterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServicePerimeterPerimeterType] {
-	return pulumix.Output[*ServicePerimeterPerimeterType]{
-		OutputState: in.ToServicePerimeterPerimeterTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. The type of the Address Group. Possible values are "IPv4" or "IPV6".
@@ -142,10 +141,12 @@ func (o AddressGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AddressGroupTypeInput is an input type that accepts AddressGroupTypeArgs and AddressGroupTypeOutput values.
-// You can construct a concrete instance of `AddressGroupTypeInput` via:
+// AddressGroupTypeInput is an input type that accepts values of the AddressGroupType enum
+// A concrete instance of `AddressGroupTypeInput` can be one of the following:
 //
-//	AddressGroupTypeArgs{...}
+//	AddressGroupTypeTypeUnspecified
+//	AddressGroupTypeIpv4
+//	AddressGroupTypeIpv6
 type AddressGroupTypeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *addressGroupTypePtr) ToAddressGroupTypePtrOutput() AddressGroupTypePtr
 
 func (in *addressGroupTypePtr) ToAddressGroupTypePtrOutputWithContext(ctx context.Context) AddressGroupTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AddressGroupTypePtrOutput)
-}
-
-func (in *addressGroupTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AddressGroupType] {
-	return pulumix.Output[*AddressGroupType]{
-		OutputState: in.ToAddressGroupTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The action to take when a rule match is found. Possible values are "ALLOW" or "DENY".
@@ -317,10 +312,12 @@ func (o AuthorizationPolicyActionPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuthorizationPolicyActionInput is an input type that accepts AuthorizationPolicyActionArgs and AuthorizationPolicyActionOutput values.
-// You can construct a concrete instance of `AuthorizationPolicyActionInput` via:
+// AuthorizationPolicyActionInput is an input type that accepts values of the AuthorizationPolicyAction enum
+// A concrete instance of `AuthorizationPolicyActionInput` can be one of the following:
 //
-//	AuthorizationPolicyActionArgs{...}
+//	AuthorizationPolicyActionActionUnspecified
+//	AuthorizationPolicyActionAllow
+//	AuthorizationPolicyActionDeny
 type AuthorizationPolicyActionInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *authorizationPolicyActionPtr) ToAuthorizationPolicyActionPtrOutput() A
 
 func (in *authorizationPolicyActionPtr) ToAuthorizationPolicyActionPtrOutputWithContext(ctx context.Context) AuthorizationPolicyActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuthorizationPolicyActionPtrOutput)
-}
-
-func (in *authorizationPolicyActionPtr) ToOutput(ctx context.Context) pulumix.Output[*AuthorizationPolicyAction] {
-	return pulumix.Output[*AuthorizationPolicyAction]{
-		OutputState: in.ToAuthorizationPolicyActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -494,10 +485,13 @@ func (o GoogleIamV1AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts GoogleIamV1AuditLogConfigLogTypeArgs and GoogleIamV1AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` via:
+// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts values of the GoogleIamV1AuditLogConfigLogType enum
+// A concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	GoogleIamV1AuditLogConfigLogTypeArgs{...}
+//	GoogleIamV1AuditLogConfigLogTypeLogTypeUnspecified
+//	GoogleIamV1AuditLogConfigLogTypeAdminRead
+//	GoogleIamV1AuditLogConfigLogTypeDataWrite
+//	GoogleIamV1AuditLogConfigLogTypeDataRead
 type GoogleIamV1AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTyp
 
 func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) GoogleIamV1AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamV1AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *googleIamV1AuditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamV1AuditLogConfigLogType] {
-	return pulumix.Output[*GoogleIamV1AuditLogConfigLogType]{
-		OutputState: in.ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // When the client presents an invalid certificate or no certificate to the load balancer, the `client_validation_mode` specifies how the client connection is handled. Required if the policy is to be used with the external HTTPS load balancing. For Traffic Director it must be empty.
@@ -669,10 +657,12 @@ func (o MTLSPolicyClientValidationModePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// MTLSPolicyClientValidationModeInput is an input type that accepts MTLSPolicyClientValidationModeArgs and MTLSPolicyClientValidationModeOutput values.
-// You can construct a concrete instance of `MTLSPolicyClientValidationModeInput` via:
+// MTLSPolicyClientValidationModeInput is an input type that accepts values of the MTLSPolicyClientValidationMode enum
+// A concrete instance of `MTLSPolicyClientValidationModeInput` can be one of the following:
 //
-//	MTLSPolicyClientValidationModeArgs{...}
+//	MTLSPolicyClientValidationModeClientValidationModeUnspecified
+//	MTLSPolicyClientValidationModeAllowInvalidOrMissingClientCert
+//	MTLSPolicyClientValidationModeRejectInvalid
 type MTLSPolicyClientValidationModeInput interface {
 	pulumi.Input
 
@@ -705,12 +695,6 @@ func (in *mtlspolicyClientValidationModePtr) ToMTLSPolicyClientValidationModePtr
 
 func (in *mtlspolicyClientValidationModePtr) ToMTLSPolicyClientValidationModePtrOutputWithContext(ctx context.Context) MTLSPolicyClientValidationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MTLSPolicyClientValidationModePtrOutput)
-}
-
-func (in *mtlspolicyClientValidationModePtr) ToOutput(ctx context.Context) pulumix.Output[*MTLSPolicyClientValidationMode] {
-	return pulumix.Output[*MTLSPolicyClientValidationMode]{
-		OutputState: in.ToMTLSPolicyClientValidationModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of the Address Group. Possible values are "IPv4" or "IPV6".
@@ -844,10 +828,12 @@ func (o OrganizationAddressGroupTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// OrganizationAddressGroupTypeInput is an input type that accepts OrganizationAddressGroupTypeArgs and OrganizationAddressGroupTypeOutput values.
-// You can construct a concrete instance of `OrganizationAddressGroupTypeInput` via:
+// OrganizationAddressGroupTypeInput is an input type that accepts values of the OrganizationAddressGroupType enum
+// A concrete instance of `OrganizationAddressGroupTypeInput` can be one of the following:
 //
-//	OrganizationAddressGroupTypeArgs{...}
+//	OrganizationAddressGroupTypeTypeUnspecified
+//	OrganizationAddressGroupTypeIpv4
+//	OrganizationAddressGroupTypeIpv6
 type OrganizationAddressGroupTypeInput interface {
 	pulumi.Input
 
@@ -880,12 +866,6 @@ func (in *organizationAddressGroupTypePtr) ToOrganizationAddressGroupTypePtrOutp
 
 func (in *organizationAddressGroupTypePtr) ToOrganizationAddressGroupTypePtrOutputWithContext(ctx context.Context) OrganizationAddressGroupTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationAddressGroupTypePtrOutput)
-}
-
-func (in *organizationAddressGroupTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OrganizationAddressGroupType] {
-	return pulumix.Output[*OrganizationAddressGroupType]{
-		OutputState: in.ToOrganizationAddressGroupTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Profile which tells what the primitive action should be.
@@ -1019,10 +999,12 @@ func (o RuleBasicProfilePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RuleBasicProfileInput is an input type that accepts RuleBasicProfileArgs and RuleBasicProfileOutput values.
-// You can construct a concrete instance of `RuleBasicProfileInput` via:
+// RuleBasicProfileInput is an input type that accepts values of the RuleBasicProfile enum
+// A concrete instance of `RuleBasicProfileInput` can be one of the following:
 //
-//	RuleBasicProfileArgs{...}
+//	RuleBasicProfileBasicProfileUnspecified
+//	RuleBasicProfileAllow
+//	RuleBasicProfileDeny
 type RuleBasicProfileInput interface {
 	pulumi.Input
 
@@ -1055,12 +1037,6 @@ func (in *ruleBasicProfilePtr) ToRuleBasicProfilePtrOutput() RuleBasicProfilePtr
 
 func (in *ruleBasicProfilePtr) ToRuleBasicProfilePtrOutputWithContext(ctx context.Context) RuleBasicProfilePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RuleBasicProfilePtrOutput)
-}
-
-func (in *ruleBasicProfilePtr) ToOutput(ctx context.Context) pulumix.Output[*RuleBasicProfile] {
-	return pulumix.Output[*RuleBasicProfile]{
-		OutputState: in.ToRuleBasicProfilePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The single ProfileType that the SecurityProfile resource configures.
@@ -1192,10 +1168,11 @@ func (o SecurityProfileTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecurityProfileTypeInput is an input type that accepts SecurityProfileTypeArgs and SecurityProfileTypeOutput values.
-// You can construct a concrete instance of `SecurityProfileTypeInput` via:
+// SecurityProfileTypeInput is an input type that accepts values of the SecurityProfileType enum
+// A concrete instance of `SecurityProfileTypeInput` can be one of the following:
 //
-//	SecurityProfileTypeArgs{...}
+//	SecurityProfileTypeProfileTypeUnspecified
+//	SecurityProfileTypeThreatPrevention
 type SecurityProfileTypeInput interface {
 	pulumi.Input
 
@@ -1228,12 +1205,6 @@ func (in *securityProfileTypePtr) ToSecurityProfileTypePtrOutput() SecurityProfi
 
 func (in *securityProfileTypePtr) ToSecurityProfileTypePtrOutputWithContext(ctx context.Context) SecurityProfileTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityProfileTypePtrOutput)
-}
-
-func (in *securityProfileTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SecurityProfileType] {
-	return pulumix.Output[*SecurityProfileType]{
-		OutputState: in.ToSecurityProfileTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Threat action override.
@@ -1371,10 +1342,14 @@ func (o SeverityOverrideActionPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// SeverityOverrideActionInput is an input type that accepts SeverityOverrideActionArgs and SeverityOverrideActionOutput values.
-// You can construct a concrete instance of `SeverityOverrideActionInput` via:
+// SeverityOverrideActionInput is an input type that accepts values of the SeverityOverrideAction enum
+// A concrete instance of `SeverityOverrideActionInput` can be one of the following:
 //
-//	SeverityOverrideActionArgs{...}
+//	SeverityOverrideActionThreatActionUnspecified
+//	SeverityOverrideActionDefaultAction
+//	SeverityOverrideActionAllow
+//	SeverityOverrideActionAlert
+//	SeverityOverrideActionDeny
 type SeverityOverrideActionInput interface {
 	pulumi.Input
 
@@ -1407,12 +1382,6 @@ func (in *severityOverrideActionPtr) ToSeverityOverrideActionPtrOutput() Severit
 
 func (in *severityOverrideActionPtr) ToSeverityOverrideActionPtrOutputWithContext(ctx context.Context) SeverityOverrideActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SeverityOverrideActionPtrOutput)
-}
-
-func (in *severityOverrideActionPtr) ToOutput(ctx context.Context) pulumix.Output[*SeverityOverrideAction] {
-	return pulumix.Output[*SeverityOverrideAction]{
-		OutputState: in.ToSeverityOverrideActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Severity level to match.
@@ -1552,10 +1521,15 @@ func (o SeverityOverrideSeverityPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// SeverityOverrideSeverityInput is an input type that accepts SeverityOverrideSeverityArgs and SeverityOverrideSeverityOutput values.
-// You can construct a concrete instance of `SeverityOverrideSeverityInput` via:
+// SeverityOverrideSeverityInput is an input type that accepts values of the SeverityOverrideSeverity enum
+// A concrete instance of `SeverityOverrideSeverityInput` can be one of the following:
 //
-//	SeverityOverrideSeverityArgs{...}
+//	SeverityOverrideSeveritySeverityUnspecified
+//	SeverityOverrideSeverityInformational
+//	SeverityOverrideSeverityLow
+//	SeverityOverrideSeverityMedium
+//	SeverityOverrideSeverityHigh
+//	SeverityOverrideSeverityCritical
 type SeverityOverrideSeverityInput interface {
 	pulumi.Input
 
@@ -1588,12 +1562,6 @@ func (in *severityOverrideSeverityPtr) ToSeverityOverrideSeverityPtrOutput() Sev
 
 func (in *severityOverrideSeverityPtr) ToSeverityOverrideSeverityPtrOutputWithContext(ctx context.Context) SeverityOverrideSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SeverityOverrideSeverityPtrOutput)
-}
-
-func (in *severityOverrideSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*SeverityOverrideSeverity] {
-	return pulumix.Output[*SeverityOverrideSeverity]{
-		OutputState: in.ToSeverityOverrideSeverityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Threat action override. For some threat types, only a subset of actions applies.
@@ -1731,10 +1699,14 @@ func (o ThreatOverrideActionPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// ThreatOverrideActionInput is an input type that accepts ThreatOverrideActionArgs and ThreatOverrideActionOutput values.
-// You can construct a concrete instance of `ThreatOverrideActionInput` via:
+// ThreatOverrideActionInput is an input type that accepts values of the ThreatOverrideAction enum
+// A concrete instance of `ThreatOverrideActionInput` can be one of the following:
 //
-//	ThreatOverrideActionArgs{...}
+//	ThreatOverrideActionThreatActionUnspecified
+//	ThreatOverrideActionDefaultAction
+//	ThreatOverrideActionAllow
+//	ThreatOverrideActionAlert
+//	ThreatOverrideActionDeny
 type ThreatOverrideActionInput interface {
 	pulumi.Input
 
@@ -1767,12 +1739,6 @@ func (in *threatOverrideActionPtr) ToThreatOverrideActionPtrOutput() ThreatOverr
 
 func (in *threatOverrideActionPtr) ToThreatOverrideActionPtrOutputWithContext(ctx context.Context) ThreatOverrideActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ThreatOverrideActionPtrOutput)
-}
-
-func (in *threatOverrideActionPtr) ToOutput(ctx context.Context) pulumix.Output[*ThreatOverrideAction] {
-	return pulumix.Output[*ThreatOverrideAction]{
-		OutputState: in.ToThreatOverrideActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Minimum TLS version that the firewall should use when negotiating connections with both clients and servers. If this is not set, then the default value is to allow the broadest set of clients and servers (TLS 1.0 or higher). Setting this to more restrictive values may improve security, but may also prevent the firewall from connecting to some clients or servers. Note that Secure Web Proxy does not yet honor this field.
@@ -1910,10 +1876,14 @@ func (o TlsInspectionPolicyMinTlsVersionPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// TlsInspectionPolicyMinTlsVersionInput is an input type that accepts TlsInspectionPolicyMinTlsVersionArgs and TlsInspectionPolicyMinTlsVersionOutput values.
-// You can construct a concrete instance of `TlsInspectionPolicyMinTlsVersionInput` via:
+// TlsInspectionPolicyMinTlsVersionInput is an input type that accepts values of the TlsInspectionPolicyMinTlsVersion enum
+// A concrete instance of `TlsInspectionPolicyMinTlsVersionInput` can be one of the following:
 //
-//	TlsInspectionPolicyMinTlsVersionArgs{...}
+//	TlsInspectionPolicyMinTlsVersionTlsVersionUnspecified
+//	TlsInspectionPolicyMinTlsVersionTls10
+//	TlsInspectionPolicyMinTlsVersionTls11
+//	TlsInspectionPolicyMinTlsVersionTls12
+//	TlsInspectionPolicyMinTlsVersionTls13
 type TlsInspectionPolicyMinTlsVersionInput interface {
 	pulumi.Input
 
@@ -1946,12 +1916,6 @@ func (in *tlsInspectionPolicyMinTlsVersionPtr) ToTlsInspectionPolicyMinTlsVersio
 
 func (in *tlsInspectionPolicyMinTlsVersionPtr) ToTlsInspectionPolicyMinTlsVersionPtrOutputWithContext(ctx context.Context) TlsInspectionPolicyMinTlsVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TlsInspectionPolicyMinTlsVersionPtrOutput)
-}
-
-func (in *tlsInspectionPolicyMinTlsVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionPolicyMinTlsVersion] {
-	return pulumix.Output[*TlsInspectionPolicyMinTlsVersion]{
-		OutputState: in.ToTlsInspectionPolicyMinTlsVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The selected Profile. If this is not set, then the default value is to allow the broadest set of clients and servers ("PROFILE_COMPATIBLE"). Setting this to more restrictive values may improve security, but may also prevent the TLS inspection proxy from connecting to some clients or servers. Note that Secure Web Proxy does not yet honor this field.
@@ -2089,10 +2053,14 @@ func (o TlsInspectionPolicyTlsFeatureProfilePtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TlsInspectionPolicyTlsFeatureProfileInput is an input type that accepts TlsInspectionPolicyTlsFeatureProfileArgs and TlsInspectionPolicyTlsFeatureProfileOutput values.
-// You can construct a concrete instance of `TlsInspectionPolicyTlsFeatureProfileInput` via:
+// TlsInspectionPolicyTlsFeatureProfileInput is an input type that accepts values of the TlsInspectionPolicyTlsFeatureProfile enum
+// A concrete instance of `TlsInspectionPolicyTlsFeatureProfileInput` can be one of the following:
 //
-//	TlsInspectionPolicyTlsFeatureProfileArgs{...}
+//	TlsInspectionPolicyTlsFeatureProfileProfileUnspecified
+//	TlsInspectionPolicyTlsFeatureProfileProfileCompatible
+//	TlsInspectionPolicyTlsFeatureProfileProfileModern
+//	TlsInspectionPolicyTlsFeatureProfileProfileRestricted
+//	TlsInspectionPolicyTlsFeatureProfileProfileCustom
 type TlsInspectionPolicyTlsFeatureProfileInput interface {
 	pulumi.Input
 
@@ -2125,12 +2093,6 @@ func (in *tlsInspectionPolicyTlsFeatureProfilePtr) ToTlsInspectionPolicyTlsFeatu
 
 func (in *tlsInspectionPolicyTlsFeatureProfilePtr) ToTlsInspectionPolicyTlsFeatureProfilePtrOutputWithContext(ctx context.Context) TlsInspectionPolicyTlsFeatureProfilePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TlsInspectionPolicyTlsFeatureProfilePtrOutput)
-}
-
-func (in *tlsInspectionPolicyTlsFeatureProfilePtr) ToOutput(ctx context.Context) pulumix.Output[*TlsInspectionPolicyTlsFeatureProfile] {
-	return pulumix.Output[*TlsInspectionPolicyTlsFeatureProfile]{
-		OutputState: in.ToTlsInspectionPolicyTlsFeatureProfilePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

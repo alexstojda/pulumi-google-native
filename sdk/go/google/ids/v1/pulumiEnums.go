@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Lowest threat severity that this endpoint will alert on.
@@ -325,10 +321,15 @@ func (o EndpointSeverityPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// EndpointSeverityInput is an input type that accepts EndpointSeverityArgs and EndpointSeverityOutput values.
-// You can construct a concrete instance of `EndpointSeverityInput` via:
+// EndpointSeverityInput is an input type that accepts values of the EndpointSeverity enum
+// A concrete instance of `EndpointSeverityInput` can be one of the following:
 //
-//	EndpointSeverityArgs{...}
+//	EndpointSeveritySeverityUnspecified
+//	EndpointSeverityInformational
+//	EndpointSeverityLow
+//	EndpointSeverityMedium
+//	EndpointSeverityHigh
+//	EndpointSeverityCritical
 type EndpointSeverityInput interface {
 	pulumi.Input
 
@@ -361,12 +362,6 @@ func (in *endpointSeverityPtr) ToEndpointSeverityPtrOutput() EndpointSeverityPtr
 
 func (in *endpointSeverityPtr) ToEndpointSeverityPtrOutputWithContext(ctx context.Context) EndpointSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EndpointSeverityPtrOutput)
-}
-
-func (in *endpointSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*EndpointSeverity] {
-	return pulumix.Output[*EndpointSeverity]{
-		OutputState: in.ToEndpointSeverityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

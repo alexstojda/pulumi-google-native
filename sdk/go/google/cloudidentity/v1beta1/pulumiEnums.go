@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type DeviceClientTypesItem string
@@ -147,10 +146,15 @@ func (o DeviceClientTypesItemPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DeviceClientTypesItemInput is an input type that accepts DeviceClientTypesItemArgs and DeviceClientTypesItemOutput values.
-// You can construct a concrete instance of `DeviceClientTypesItemInput` via:
+// DeviceClientTypesItemInput is an input type that accepts values of the DeviceClientTypesItem enum
+// A concrete instance of `DeviceClientTypesItemInput` can be one of the following:
 //
-//	DeviceClientTypesItemArgs{...}
+//	DeviceClientTypesItemClientTypeUnspecified
+//	DeviceClientTypesItemDriveFs
+//	DeviceClientTypesItemFundamental
+//	DeviceClientTypesItemEndpointVerification
+//	DeviceClientTypesItemWindowsAdvanced
+//	DeviceClientTypesItemGoogleCredentialsProviderForWindows
 type DeviceClientTypesItemInput interface {
 	pulumi.Input
 
@@ -183,12 +187,6 @@ func (in *deviceClientTypesItemPtr) ToDeviceClientTypesItemPtrOutput() DeviceCli
 
 func (in *deviceClientTypesItemPtr) ToDeviceClientTypesItemPtrOutputWithContext(ctx context.Context) DeviceClientTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DeviceClientTypesItemPtrOutput)
-}
-
-func (in *deviceClientTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*DeviceClientTypesItem] {
-	return pulumix.Output[*DeviceClientTypesItem]{
-		OutputState: in.ToDeviceClientTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // DeviceClientTypesItemArrayInput is an input type that accepts DeviceClientTypesItemArray and DeviceClientTypesItemArrayOutput values.
@@ -364,10 +362,11 @@ func (o DynamicGroupQueryResourceTypePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// DynamicGroupQueryResourceTypeInput is an input type that accepts DynamicGroupQueryResourceTypeArgs and DynamicGroupQueryResourceTypeOutput values.
-// You can construct a concrete instance of `DynamicGroupQueryResourceTypeInput` via:
+// DynamicGroupQueryResourceTypeInput is an input type that accepts values of the DynamicGroupQueryResourceType enum
+// A concrete instance of `DynamicGroupQueryResourceTypeInput` can be one of the following:
 //
-//	DynamicGroupQueryResourceTypeArgs{...}
+//	DynamicGroupQueryResourceTypeResourceTypeUnspecified
+//	DynamicGroupQueryResourceTypeUser
 type DynamicGroupQueryResourceTypeInput interface {
 	pulumi.Input
 
@@ -400,12 +399,6 @@ func (in *dynamicGroupQueryResourceTypePtr) ToDynamicGroupQueryResourceTypePtrOu
 
 func (in *dynamicGroupQueryResourceTypePtr) ToDynamicGroupQueryResourceTypePtrOutputWithContext(ctx context.Context) DynamicGroupQueryResourceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DynamicGroupQueryResourceTypePtrOutput)
-}
-
-func (in *dynamicGroupQueryResourceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DynamicGroupQueryResourceType] {
-	return pulumix.Output[*DynamicGroupQueryResourceType]{
-		OutputState: in.ToDynamicGroupQueryResourceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Inbound SSO behavior.
@@ -541,10 +534,13 @@ func (o InboundSsoAssignmentSsoModePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// InboundSsoAssignmentSsoModeInput is an input type that accepts InboundSsoAssignmentSsoModeArgs and InboundSsoAssignmentSsoModeOutput values.
-// You can construct a concrete instance of `InboundSsoAssignmentSsoModeInput` via:
+// InboundSsoAssignmentSsoModeInput is an input type that accepts values of the InboundSsoAssignmentSsoMode enum
+// A concrete instance of `InboundSsoAssignmentSsoModeInput` can be one of the following:
 //
-//	InboundSsoAssignmentSsoModeArgs{...}
+//	InboundSsoAssignmentSsoModeSsoModeUnspecified
+//	InboundSsoAssignmentSsoModeSsoOff
+//	InboundSsoAssignmentSsoModeSamlSso
+//	InboundSsoAssignmentSsoModeDomainWideSamlIfEnabled
 type InboundSsoAssignmentSsoModeInput interface {
 	pulumi.Input
 
@@ -577,12 +573,6 @@ func (in *inboundSsoAssignmentSsoModePtr) ToInboundSsoAssignmentSsoModePtrOutput
 
 func (in *inboundSsoAssignmentSsoModePtr) ToInboundSsoAssignmentSsoModePtrOutputWithContext(ctx context.Context) InboundSsoAssignmentSsoModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InboundSsoAssignmentSsoModePtrOutput)
-}
-
-func (in *inboundSsoAssignmentSsoModePtr) ToOutput(ctx context.Context) pulumix.Output[*InboundSsoAssignmentSsoMode] {
-	return pulumix.Output[*InboundSsoAssignmentSsoMode]{
-		OutputState: in.ToInboundSsoAssignmentSsoModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // When to redirect sign-ins to the IdP.
@@ -714,10 +704,11 @@ func (o SignInBehaviorRedirectConditionPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// SignInBehaviorRedirectConditionInput is an input type that accepts SignInBehaviorRedirectConditionArgs and SignInBehaviorRedirectConditionOutput values.
-// You can construct a concrete instance of `SignInBehaviorRedirectConditionInput` via:
+// SignInBehaviorRedirectConditionInput is an input type that accepts values of the SignInBehaviorRedirectCondition enum
+// A concrete instance of `SignInBehaviorRedirectConditionInput` can be one of the following:
 //
-//	SignInBehaviorRedirectConditionArgs{...}
+//	SignInBehaviorRedirectConditionRedirectConditionUnspecified
+//	SignInBehaviorRedirectConditionNever
 type SignInBehaviorRedirectConditionInput interface {
 	pulumi.Input
 
@@ -750,12 +741,6 @@ func (in *signInBehaviorRedirectConditionPtr) ToSignInBehaviorRedirectConditionP
 
 func (in *signInBehaviorRedirectConditionPtr) ToSignInBehaviorRedirectConditionPtrOutputWithContext(ctx context.Context) SignInBehaviorRedirectConditionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SignInBehaviorRedirectConditionPtrOutput)
-}
-
-func (in *signInBehaviorRedirectConditionPtr) ToOutput(ctx context.Context) pulumix.Output[*SignInBehaviorRedirectCondition] {
-	return pulumix.Output[*SignInBehaviorRedirectCondition]{
-		OutputState: in.ToSignInBehaviorRedirectConditionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

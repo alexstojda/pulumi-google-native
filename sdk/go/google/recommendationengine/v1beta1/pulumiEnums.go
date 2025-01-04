@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Optional. Online stock state of the catalog item. Default is `IN_STOCK`.
@@ -146,10 +145,14 @@ func (o GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateInput is an input type that accepts GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateArgs and GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateOutput values.
-// You can construct a concrete instance of `GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateInput` via:
+// GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateInput is an input type that accepts values of the GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockState enum
+// A concrete instance of `GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateInput` can be one of the following:
 //
-//	GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateArgs{...}
+//	GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateStockStateUnspecified
+//	GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateInStock
+//	GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateOutOfStock
+//	GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePreorder
+//	GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateBackorder
 type GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStateInput interface {
 	pulumi.Input
 
@@ -182,12 +185,6 @@ func (in *googleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePtr)
 
 func (in *googleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePtr) ToGoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePtrOutputWithContext(ctx context.Context) GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePtrOutput)
-}
-
-func (in *googleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockState] {
-	return pulumix.Output[*GoogleCloudRecommendationengineV1beta1ProductCatalogItemStockState]{
-		OutputState: in.ToGoogleCloudRecommendationengineV1beta1ProductCatalogItemStockStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

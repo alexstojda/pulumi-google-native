@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // This field has been deprecated in favor of `standard_isolation.priority`. If you set this field, `standard_isolation.priority` will be set instead. The priority of requests sent using this app profile.
@@ -141,10 +140,13 @@ func (o AppProfilePriorityPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppProfilePriorityInput is an input type that accepts AppProfilePriorityArgs and AppProfilePriorityOutput values.
-// You can construct a concrete instance of `AppProfilePriorityInput` via:
+// AppProfilePriorityInput is an input type that accepts values of the AppProfilePriority enum
+// A concrete instance of `AppProfilePriorityInput` can be one of the following:
 //
-//	AppProfilePriorityArgs{...}
+//	AppProfilePriorityPriorityUnspecified
+//	AppProfilePriorityPriorityLow
+//	AppProfilePriorityPriorityMedium
+//	AppProfilePriorityPriorityHigh
 type AppProfilePriorityInput interface {
 	pulumi.Input
 
@@ -177,12 +179,6 @@ func (in *appProfilePriorityPtr) ToAppProfilePriorityPtrOutput() AppProfilePrior
 
 func (in *appProfilePriorityPtr) ToAppProfilePriorityPtrOutputWithContext(ctx context.Context) AppProfilePriorityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppProfilePriorityPtrOutput)
-}
-
-func (in *appProfilePriorityPtr) ToOutput(ctx context.Context) pulumix.Output[*AppProfilePriority] {
-	return pulumix.Output[*AppProfilePriority]{
-		OutputState: in.ToAppProfilePriorityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -318,10 +314,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -354,12 +353,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The type of storage used by this cluster to serve its parent instance's tables, unless explicitly overridden.
@@ -493,10 +486,12 @@ func (o ClusterDefaultStorageTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterDefaultStorageTypeInput is an input type that accepts ClusterDefaultStorageTypeArgs and ClusterDefaultStorageTypeOutput values.
-// You can construct a concrete instance of `ClusterDefaultStorageTypeInput` via:
+// ClusterDefaultStorageTypeInput is an input type that accepts values of the ClusterDefaultStorageType enum
+// A concrete instance of `ClusterDefaultStorageTypeInput` can be one of the following:
 //
-//	ClusterDefaultStorageTypeArgs{...}
+//	ClusterDefaultStorageTypeStorageTypeUnspecified
+//	ClusterDefaultStorageTypeSsd
+//	ClusterDefaultStorageTypeHdd
 type ClusterDefaultStorageTypeInput interface {
 	pulumi.Input
 
@@ -529,12 +524,6 @@ func (in *clusterDefaultStorageTypePtr) ToClusterDefaultStorageTypePtrOutput() C
 
 func (in *clusterDefaultStorageTypePtr) ToClusterDefaultStorageTypePtrOutputWithContext(ctx context.Context) ClusterDefaultStorageTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterDefaultStorageTypePtrOutput)
-}
-
-func (in *clusterDefaultStorageTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterDefaultStorageType] {
-	return pulumix.Output[*ClusterDefaultStorageType]{
-		OutputState: in.ToClusterDefaultStorageTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the instance. Defaults to `PRODUCTION`.
@@ -668,10 +657,12 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
-// You can construct a concrete instance of `InstanceTypeInput` via:
+// InstanceTypeInput is an input type that accepts values of the InstanceType enum
+// A concrete instance of `InstanceTypeInput` can be one of the following:
 //
-//	InstanceTypeArgs{...}
+//	InstanceTypeTypeUnspecified
+//	InstanceTypeProduction
+//	InstanceTypeDevelopment
 type InstanceTypeInput interface {
 	pulumi.Input
 
@@ -704,12 +695,6 @@ func (in *instanceTypePtr) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (in *instanceTypePtr) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceTypePtrOutput)
-}
-
-func (in *instanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceType] {
-	return pulumix.Output[*InstanceType]{
-		OutputState: in.ToInstanceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The priority of requests sent using this app profile.
@@ -842,10 +827,13 @@ func (o StandardIsolationPriorityPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// StandardIsolationPriorityInput is an input type that accepts StandardIsolationPriorityArgs and StandardIsolationPriorityOutput values.
-// You can construct a concrete instance of `StandardIsolationPriorityInput` via:
+// StandardIsolationPriorityInput is an input type that accepts values of the StandardIsolationPriority enum
+// A concrete instance of `StandardIsolationPriorityInput` can be one of the following:
 //
-//	StandardIsolationPriorityArgs{...}
+//	StandardIsolationPriorityPriorityUnspecified
+//	StandardIsolationPriorityPriorityLow
+//	StandardIsolationPriorityPriorityMedium
+//	StandardIsolationPriorityPriorityHigh
 type StandardIsolationPriorityInput interface {
 	pulumi.Input
 
@@ -878,12 +866,6 @@ func (in *standardIsolationPriorityPtr) ToStandardIsolationPriorityPtrOutput() S
 
 func (in *standardIsolationPriorityPtr) ToStandardIsolationPriorityPtrOutputWithContext(ctx context.Context) StandardIsolationPriorityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(StandardIsolationPriorityPtrOutput)
-}
-
-func (in *standardIsolationPriorityPtr) ToOutput(ctx context.Context) pulumix.Output[*StandardIsolationPriority] {
-	return pulumix.Output[*StandardIsolationPriority]{
-		OutputState: in.ToStandardIsolationPriorityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The granularity (i.e. `MILLIS`) at which timestamps are stored in this table. Timestamps not matching the granularity will be rejected. If unspecified at creation time, the value will be set to `MILLIS`. Views: `SCHEMA_VIEW`, `FULL`.
@@ -1015,10 +997,11 @@ func (o TableGranularityPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TableGranularityInput is an input type that accepts TableGranularityArgs and TableGranularityOutput values.
-// You can construct a concrete instance of `TableGranularityInput` via:
+// TableGranularityInput is an input type that accepts values of the TableGranularity enum
+// A concrete instance of `TableGranularityInput` can be one of the following:
 //
-//	TableGranularityArgs{...}
+//	TableGranularityTimestampGranularityUnspecified
+//	TableGranularityMillis
 type TableGranularityInput interface {
 	pulumi.Input
 
@@ -1051,12 +1034,6 @@ func (in *tableGranularityPtr) ToTableGranularityPtrOutput() TableGranularityPtr
 
 func (in *tableGranularityPtr) ToTableGranularityPtrOutputWithContext(ctx context.Context) TableGranularityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TableGranularityPtrOutput)
-}
-
-func (in *tableGranularityPtr) ToOutput(ctx context.Context) pulumix.Output[*TableGranularity] {
-	return pulumix.Output[*TableGranularity]{
-		OutputState: in.ToTableGranularityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

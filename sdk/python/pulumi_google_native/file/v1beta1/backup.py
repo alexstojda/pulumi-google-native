@@ -221,11 +221,12 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["create_time"] = None
             __props__.__dict__["download_bytes"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["satisfies_pzi"] = None
             __props__.__dict__["satisfies_pzs"] = None
             __props__.__dict__["source_instance_tier"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["storage_bytes"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backup_id", "location", "project"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["backupId", "location", "project"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Backup, __self__).__init__(
             'google-native:file/v1beta1:Backup',
@@ -259,6 +260,7 @@ class Backup(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["project"] = None
+        __props__.__dict__["satisfies_pzi"] = None
         __props__.__dict__["satisfies_pzs"] = None
         __props__.__dict__["source_file_share"] = None
         __props__.__dict__["source_instance"] = None
@@ -340,6 +342,14 @@ class Backup(pulumi.CustomResource):
     @pulumi.getter
     def project(self) -> pulumi.Output[str]:
         return pulumi.get(self, "project")
+
+    @property
+    @pulumi.getter(name="satisfiesPzi")
+    def satisfies_pzi(self) -> pulumi.Output[bool]:
+        """
+        Reserved for future use.
+        """
+        return pulumi.get(self, "satisfies_pzi")
 
     @property
     @pulumi.getter(name="satisfiesPzs")

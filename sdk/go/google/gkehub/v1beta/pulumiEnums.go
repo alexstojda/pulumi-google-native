@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Mode of operation for binauthz policy evaluation.
@@ -319,10 +315,12 @@ func (o BinaryAuthorizationConfigEvaluationModePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// BinaryAuthorizationConfigEvaluationModeInput is an input type that accepts BinaryAuthorizationConfigEvaluationModeArgs and BinaryAuthorizationConfigEvaluationModeOutput values.
-// You can construct a concrete instance of `BinaryAuthorizationConfigEvaluationModeInput` via:
+// BinaryAuthorizationConfigEvaluationModeInput is an input type that accepts values of the BinaryAuthorizationConfigEvaluationMode enum
+// A concrete instance of `BinaryAuthorizationConfigEvaluationModeInput` can be one of the following:
 //
-//	BinaryAuthorizationConfigEvaluationModeArgs{...}
+//	BinaryAuthorizationConfigEvaluationModeEvaluationModeUnspecified
+//	BinaryAuthorizationConfigEvaluationModeDisabled
+//	BinaryAuthorizationConfigEvaluationModePolicyBindings
 type BinaryAuthorizationConfigEvaluationModeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *binaryAuthorizationConfigEvaluationModePtr) ToBinaryAuthorizationConfi
 
 func (in *binaryAuthorizationConfigEvaluationModePtr) ToBinaryAuthorizationConfigEvaluationModePtrOutputWithContext(ctx context.Context) BinaryAuthorizationConfigEvaluationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BinaryAuthorizationConfigEvaluationModePtrOutput)
-}
-
-func (in *binaryAuthorizationConfigEvaluationModePtr) ToOutput(ctx context.Context) pulumix.Output[*BinaryAuthorizationConfigEvaluationMode] {
-	return pulumix.Output[*BinaryAuthorizationConfigEvaluationMode]{
-		OutputState: in.ToBinaryAuthorizationConfigEvaluationModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type ConfigManagementPolicyControllerMonitoringBackendsItem string
@@ -493,10 +485,12 @@ func (o ConfigManagementPolicyControllerMonitoringBackendsItemPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConfigManagementPolicyControllerMonitoringBackendsItemInput is an input type that accepts ConfigManagementPolicyControllerMonitoringBackendsItemArgs and ConfigManagementPolicyControllerMonitoringBackendsItemOutput values.
-// You can construct a concrete instance of `ConfigManagementPolicyControllerMonitoringBackendsItemInput` via:
+// ConfigManagementPolicyControllerMonitoringBackendsItemInput is an input type that accepts values of the ConfigManagementPolicyControllerMonitoringBackendsItem enum
+// A concrete instance of `ConfigManagementPolicyControllerMonitoringBackendsItemInput` can be one of the following:
 //
-//	ConfigManagementPolicyControllerMonitoringBackendsItemArgs{...}
+//	ConfigManagementPolicyControllerMonitoringBackendsItemMonitoringBackendUnspecified
+//	ConfigManagementPolicyControllerMonitoringBackendsItemPrometheus
+//	ConfigManagementPolicyControllerMonitoringBackendsItemCloudMonitoring
 type ConfigManagementPolicyControllerMonitoringBackendsItemInput interface {
 	pulumi.Input
 
@@ -529,12 +523,6 @@ func (in *configManagementPolicyControllerMonitoringBackendsItemPtr) ToConfigMan
 
 func (in *configManagementPolicyControllerMonitoringBackendsItemPtr) ToConfigManagementPolicyControllerMonitoringBackendsItemPtrOutputWithContext(ctx context.Context) ConfigManagementPolicyControllerMonitoringBackendsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConfigManagementPolicyControllerMonitoringBackendsItemPtrOutput)
-}
-
-func (in *configManagementPolicyControllerMonitoringBackendsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*ConfigManagementPolicyControllerMonitoringBackendsItem] {
-	return pulumix.Output[*ConfigManagementPolicyControllerMonitoringBackendsItem]{
-		OutputState: in.ToConfigManagementPolicyControllerMonitoringBackendsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ConfigManagementPolicyControllerMonitoringBackendsItemArrayInput is an input type that accepts ConfigManagementPolicyControllerMonitoringBackendsItemArray and ConfigManagementPolicyControllerMonitoringBackendsItemArrayOutput values.
@@ -713,10 +701,12 @@ func (o FleetObservabilityRoutingConfigModePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// FleetObservabilityRoutingConfigModeInput is an input type that accepts FleetObservabilityRoutingConfigModeArgs and FleetObservabilityRoutingConfigModeOutput values.
-// You can construct a concrete instance of `FleetObservabilityRoutingConfigModeInput` via:
+// FleetObservabilityRoutingConfigModeInput is an input type that accepts values of the FleetObservabilityRoutingConfigMode enum
+// A concrete instance of `FleetObservabilityRoutingConfigModeInput` can be one of the following:
 //
-//	FleetObservabilityRoutingConfigModeArgs{...}
+//	FleetObservabilityRoutingConfigModeModeUnspecified
+//	FleetObservabilityRoutingConfigModeCopy
+//	FleetObservabilityRoutingConfigModeMove
 type FleetObservabilityRoutingConfigModeInput interface {
 	pulumi.Input
 
@@ -751,10 +741,175 @@ func (in *fleetObservabilityRoutingConfigModePtr) ToFleetObservabilityRoutingCon
 	return pulumi.ToOutputWithContext(ctx, in).(FleetObservabilityRoutingConfigModePtrOutput)
 }
 
-func (in *fleetObservabilityRoutingConfigModePtr) ToOutput(ctx context.Context) pulumix.Output[*FleetObservabilityRoutingConfigMode] {
-	return pulumix.Output[*FleetObservabilityRoutingConfigMode]{
-		OutputState: in.ToFleetObservabilityRoutingConfigModePtrOutputWithContext(ctx).OutputState,
-	}
+// Whether it is allowed to run the privileged builds on the cluster or not.
+type MembershipSpecSecurityPolicy string
+
+const (
+	// Unspecified policy
+	MembershipSpecSecurityPolicySecurityPolicyUnspecified = MembershipSpecSecurityPolicy("SECURITY_POLICY_UNSPECIFIED")
+	// Privileged build pods are disallowed
+	MembershipSpecSecurityPolicyNonPrivileged = MembershipSpecSecurityPolicy("NON_PRIVILEGED")
+	// Privileged build pods are allowed
+	MembershipSpecSecurityPolicyPrivileged = MembershipSpecSecurityPolicy("PRIVILEGED")
+)
+
+func (MembershipSpecSecurityPolicy) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipSpecSecurityPolicy)(nil)).Elem()
+}
+
+func (e MembershipSpecSecurityPolicy) ToMembershipSpecSecurityPolicyOutput() MembershipSpecSecurityPolicyOutput {
+	return pulumi.ToOutput(e).(MembershipSpecSecurityPolicyOutput)
+}
+
+func (e MembershipSpecSecurityPolicy) ToMembershipSpecSecurityPolicyOutputWithContext(ctx context.Context) MembershipSpecSecurityPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(MembershipSpecSecurityPolicyOutput)
+}
+
+func (e MembershipSpecSecurityPolicy) ToMembershipSpecSecurityPolicyPtrOutput() MembershipSpecSecurityPolicyPtrOutput {
+	return e.ToMembershipSpecSecurityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (e MembershipSpecSecurityPolicy) ToMembershipSpecSecurityPolicyPtrOutputWithContext(ctx context.Context) MembershipSpecSecurityPolicyPtrOutput {
+	return MembershipSpecSecurityPolicy(e).ToMembershipSpecSecurityPolicyOutputWithContext(ctx).ToMembershipSpecSecurityPolicyPtrOutputWithContext(ctx)
+}
+
+func (e MembershipSpecSecurityPolicy) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MembershipSpecSecurityPolicy) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e MembershipSpecSecurityPolicy) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e MembershipSpecSecurityPolicy) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type MembershipSpecSecurityPolicyOutput struct{ *pulumi.OutputState }
+
+func (MembershipSpecSecurityPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MembershipSpecSecurityPolicy)(nil)).Elem()
+}
+
+func (o MembershipSpecSecurityPolicyOutput) ToMembershipSpecSecurityPolicyOutput() MembershipSpecSecurityPolicyOutput {
+	return o
+}
+
+func (o MembershipSpecSecurityPolicyOutput) ToMembershipSpecSecurityPolicyOutputWithContext(ctx context.Context) MembershipSpecSecurityPolicyOutput {
+	return o
+}
+
+func (o MembershipSpecSecurityPolicyOutput) ToMembershipSpecSecurityPolicyPtrOutput() MembershipSpecSecurityPolicyPtrOutput {
+	return o.ToMembershipSpecSecurityPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipSpecSecurityPolicyOutput) ToMembershipSpecSecurityPolicyPtrOutputWithContext(ctx context.Context) MembershipSpecSecurityPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MembershipSpecSecurityPolicy) *MembershipSpecSecurityPolicy {
+		return &v
+	}).(MembershipSpecSecurityPolicyPtrOutput)
+}
+
+func (o MembershipSpecSecurityPolicyOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o MembershipSpecSecurityPolicyOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MembershipSpecSecurityPolicy) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o MembershipSpecSecurityPolicyOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipSpecSecurityPolicyOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e MembershipSpecSecurityPolicy) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type MembershipSpecSecurityPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (MembershipSpecSecurityPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MembershipSpecSecurityPolicy)(nil)).Elem()
+}
+
+func (o MembershipSpecSecurityPolicyPtrOutput) ToMembershipSpecSecurityPolicyPtrOutput() MembershipSpecSecurityPolicyPtrOutput {
+	return o
+}
+
+func (o MembershipSpecSecurityPolicyPtrOutput) ToMembershipSpecSecurityPolicyPtrOutputWithContext(ctx context.Context) MembershipSpecSecurityPolicyPtrOutput {
+	return o
+}
+
+func (o MembershipSpecSecurityPolicyPtrOutput) Elem() MembershipSpecSecurityPolicyOutput {
+	return o.ApplyT(func(v *MembershipSpecSecurityPolicy) MembershipSpecSecurityPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret MembershipSpecSecurityPolicy
+		return ret
+	}).(MembershipSpecSecurityPolicyOutput)
+}
+
+func (o MembershipSpecSecurityPolicyPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o MembershipSpecSecurityPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *MembershipSpecSecurityPolicy) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// MembershipSpecSecurityPolicyInput is an input type that accepts values of the MembershipSpecSecurityPolicy enum
+// A concrete instance of `MembershipSpecSecurityPolicyInput` can be one of the following:
+//
+//	MembershipSpecSecurityPolicySecurityPolicyUnspecified
+//	MembershipSpecSecurityPolicyNonPrivileged
+//	MembershipSpecSecurityPolicyPrivileged
+type MembershipSpecSecurityPolicyInput interface {
+	pulumi.Input
+
+	ToMembershipSpecSecurityPolicyOutput() MembershipSpecSecurityPolicyOutput
+	ToMembershipSpecSecurityPolicyOutputWithContext(context.Context) MembershipSpecSecurityPolicyOutput
+}
+
+var membershipSpecSecurityPolicyPtrType = reflect.TypeOf((**MembershipSpecSecurityPolicy)(nil)).Elem()
+
+type MembershipSpecSecurityPolicyPtrInput interface {
+	pulumi.Input
+
+	ToMembershipSpecSecurityPolicyPtrOutput() MembershipSpecSecurityPolicyPtrOutput
+	ToMembershipSpecSecurityPolicyPtrOutputWithContext(context.Context) MembershipSpecSecurityPolicyPtrOutput
+}
+
+type membershipSpecSecurityPolicyPtr string
+
+func MembershipSpecSecurityPolicyPtr(v string) MembershipSpecSecurityPolicyPtrInput {
+	return (*membershipSpecSecurityPolicyPtr)(&v)
+}
+
+func (*membershipSpecSecurityPolicyPtr) ElementType() reflect.Type {
+	return membershipSpecSecurityPolicyPtrType
+}
+
+func (in *membershipSpecSecurityPolicyPtr) ToMembershipSpecSecurityPolicyPtrOutput() MembershipSpecSecurityPolicyPtrOutput {
+	return pulumi.ToOutput(in).(MembershipSpecSecurityPolicyPtrOutput)
+}
+
+func (in *membershipSpecSecurityPolicyPtr) ToMembershipSpecSecurityPolicyPtrOutputWithContext(ctx context.Context) MembershipSpecSecurityPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(MembershipSpecSecurityPolicyPtrOutput)
 }
 
 // Deprecated: This field will be ignored and should not be set. Customer's billing structure.
@@ -888,10 +1043,12 @@ func (o MultiClusterIngressFeatureSpecBillingPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// MultiClusterIngressFeatureSpecBillingInput is an input type that accepts MultiClusterIngressFeatureSpecBillingArgs and MultiClusterIngressFeatureSpecBillingOutput values.
-// You can construct a concrete instance of `MultiClusterIngressFeatureSpecBillingInput` via:
+// MultiClusterIngressFeatureSpecBillingInput is an input type that accepts values of the MultiClusterIngressFeatureSpecBilling enum
+// A concrete instance of `MultiClusterIngressFeatureSpecBillingInput` can be one of the following:
 //
-//	MultiClusterIngressFeatureSpecBillingArgs{...}
+//	MultiClusterIngressFeatureSpecBillingBillingUnspecified
+//	MultiClusterIngressFeatureSpecBillingPayAsYouGo
+//	MultiClusterIngressFeatureSpecBillingAnthosLicense
 type MultiClusterIngressFeatureSpecBillingInput interface {
 	pulumi.Input
 
@@ -924,12 +1081,6 @@ func (in *multiClusterIngressFeatureSpecBillingPtr) ToMultiClusterIngressFeature
 
 func (in *multiClusterIngressFeatureSpecBillingPtr) ToMultiClusterIngressFeatureSpecBillingPtrOutputWithContext(ctx context.Context) MultiClusterIngressFeatureSpecBillingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MultiClusterIngressFeatureSpecBillingPtrOutput)
-}
-
-func (in *multiClusterIngressFeatureSpecBillingPtr) ToOutput(ctx context.Context) pulumix.Output[*MultiClusterIngressFeatureSpecBilling] {
-	return pulumix.Output[*MultiClusterIngressFeatureSpecBilling]{
-		OutputState: in.ToMultiClusterIngressFeatureSpecBillingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The on prem cluster's type.
@@ -1067,10 +1218,14 @@ func (o OnPremClusterClusterTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// OnPremClusterClusterTypeInput is an input type that accepts OnPremClusterClusterTypeArgs and OnPremClusterClusterTypeOutput values.
-// You can construct a concrete instance of `OnPremClusterClusterTypeInput` via:
+// OnPremClusterClusterTypeInput is an input type that accepts values of the OnPremClusterClusterType enum
+// A concrete instance of `OnPremClusterClusterTypeInput` can be one of the following:
 //
-//	OnPremClusterClusterTypeArgs{...}
+//	OnPremClusterClusterTypeClustertypeUnspecified
+//	OnPremClusterClusterTypeBootstrap
+//	OnPremClusterClusterTypeHybrid
+//	OnPremClusterClusterTypeStandalone
+//	OnPremClusterClusterTypeUser
 type OnPremClusterClusterTypeInput interface {
 	pulumi.Input
 
@@ -1105,10 +1260,178 @@ func (in *onPremClusterClusterTypePtr) ToOnPremClusterClusterTypePtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(OnPremClusterClusterTypePtrOutput)
 }
 
-func (in *onPremClusterClusterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OnPremClusterClusterType] {
-	return pulumix.Output[*OnPremClusterClusterType]{
-		OutputState: in.ToOnPremClusterClusterTypePtrOutputWithContext(ctx).OutputState,
-	}
+// Type specifies which type of origin is set.
+type OriginType string
+
+const (
+	// Type is unknown or not set.
+	OriginTypeTypeUnspecified = OriginType("TYPE_UNSPECIFIED")
+	// Per-Membership spec was inherited from the fleet-level default.
+	OriginTypeFleet = OriginType("FLEET")
+	// Per-Membership spec was inherited from the fleet-level default but is now out of sync with the current default.
+	OriginTypeFleetOutOfSync = OriginType("FLEET_OUT_OF_SYNC")
+	// Per-Membership spec was inherited from a user specification.
+	OriginTypeUser = OriginType("USER")
+)
+
+func (OriginType) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginType)(nil)).Elem()
+}
+
+func (e OriginType) ToOriginTypeOutput() OriginTypeOutput {
+	return pulumi.ToOutput(e).(OriginTypeOutput)
+}
+
+func (e OriginType) ToOriginTypeOutputWithContext(ctx context.Context) OriginTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(OriginTypeOutput)
+}
+
+func (e OriginType) ToOriginTypePtrOutput() OriginTypePtrOutput {
+	return e.ToOriginTypePtrOutputWithContext(context.Background())
+}
+
+func (e OriginType) ToOriginTypePtrOutputWithContext(ctx context.Context) OriginTypePtrOutput {
+	return OriginType(e).ToOriginTypeOutputWithContext(ctx).ToOriginTypePtrOutputWithContext(ctx)
+}
+
+func (e OriginType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e OriginType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e OriginType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type OriginTypeOutput struct{ *pulumi.OutputState }
+
+func (OriginTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OriginType)(nil)).Elem()
+}
+
+func (o OriginTypeOutput) ToOriginTypeOutput() OriginTypeOutput {
+	return o
+}
+
+func (o OriginTypeOutput) ToOriginTypeOutputWithContext(ctx context.Context) OriginTypeOutput {
+	return o
+}
+
+func (o OriginTypeOutput) ToOriginTypePtrOutput() OriginTypePtrOutput {
+	return o.ToOriginTypePtrOutputWithContext(context.Background())
+}
+
+func (o OriginTypeOutput) ToOriginTypePtrOutputWithContext(ctx context.Context) OriginTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OriginType) *OriginType {
+		return &v
+	}).(OriginTypePtrOutput)
+}
+
+func (o OriginTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o OriginTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o OriginTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e OriginType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type OriginTypePtrOutput struct{ *pulumi.OutputState }
+
+func (OriginTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OriginType)(nil)).Elem()
+}
+
+func (o OriginTypePtrOutput) ToOriginTypePtrOutput() OriginTypePtrOutput {
+	return o
+}
+
+func (o OriginTypePtrOutput) ToOriginTypePtrOutputWithContext(ctx context.Context) OriginTypePtrOutput {
+	return o
+}
+
+func (o OriginTypePtrOutput) Elem() OriginTypeOutput {
+	return o.ApplyT(func(v *OriginType) OriginType {
+		if v != nil {
+			return *v
+		}
+		var ret OriginType
+		return ret
+	}).(OriginTypeOutput)
+}
+
+func (o OriginTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o OriginTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *OriginType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// OriginTypeInput is an input type that accepts values of the OriginType enum
+// A concrete instance of `OriginTypeInput` can be one of the following:
+//
+//	OriginTypeTypeUnspecified
+//	OriginTypeFleet
+//	OriginTypeFleetOutOfSync
+//	OriginTypeUser
+type OriginTypeInput interface {
+	pulumi.Input
+
+	ToOriginTypeOutput() OriginTypeOutput
+	ToOriginTypeOutputWithContext(context.Context) OriginTypeOutput
+}
+
+var originTypePtrType = reflect.TypeOf((**OriginType)(nil)).Elem()
+
+type OriginTypePtrInput interface {
+	pulumi.Input
+
+	ToOriginTypePtrOutput() OriginTypePtrOutput
+	ToOriginTypePtrOutputWithContext(context.Context) OriginTypePtrOutput
+}
+
+type originTypePtr string
+
+func OriginTypePtr(v string) OriginTypePtrInput {
+	return (*originTypePtr)(&v)
+}
+
+func (*originTypePtr) ElementType() reflect.Type {
+	return originTypePtrType
+}
+
+func (in *originTypePtr) ToOriginTypePtrOutput() OriginTypePtrOutput {
+	return pulumi.ToOutput(in).(OriginTypePtrOutput)
+}
+
+func (in *originTypePtr) ToOriginTypePtrOutputWithContext(ctx context.Context) OriginTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(OriginTypePtrOutput)
 }
 
 // The install_spec represents the intended state specified by the latest request that mutated install_spec in the feature spec, not the lifecycle state of the feature observed by the Hub feature controller that is reported in the feature state.
@@ -1246,10 +1569,14 @@ func (o PolicyControllerHubConfigInstallSpecPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyControllerHubConfigInstallSpecInput is an input type that accepts PolicyControllerHubConfigInstallSpecArgs and PolicyControllerHubConfigInstallSpecOutput values.
-// You can construct a concrete instance of `PolicyControllerHubConfigInstallSpecInput` via:
+// PolicyControllerHubConfigInstallSpecInput is an input type that accepts values of the PolicyControllerHubConfigInstallSpec enum
+// A concrete instance of `PolicyControllerHubConfigInstallSpecInput` can be one of the following:
 //
-//	PolicyControllerHubConfigInstallSpecArgs{...}
+//	PolicyControllerHubConfigInstallSpecInstallSpecUnspecified
+//	PolicyControllerHubConfigInstallSpecInstallSpecNotInstalled
+//	PolicyControllerHubConfigInstallSpecInstallSpecEnabled
+//	PolicyControllerHubConfigInstallSpecInstallSpecSuspended
+//	PolicyControllerHubConfigInstallSpecInstallSpecDetached
 type PolicyControllerHubConfigInstallSpecInput interface {
 	pulumi.Input
 
@@ -1282,12 +1609,6 @@ func (in *policyControllerHubConfigInstallSpecPtr) ToPolicyControllerHubConfigIn
 
 func (in *policyControllerHubConfigInstallSpecPtr) ToPolicyControllerHubConfigInstallSpecPtrOutputWithContext(ctx context.Context) PolicyControllerHubConfigInstallSpecPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyControllerHubConfigInstallSpecPtrOutput)
-}
-
-func (in *policyControllerHubConfigInstallSpecPtr) ToOutput(ctx context.Context) pulumix.Output[*PolicyControllerHubConfigInstallSpec] {
-	return pulumix.Output[*PolicyControllerHubConfigInstallSpec]{
-		OutputState: in.ToPolicyControllerHubConfigInstallSpecPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type PolicyControllerMonitoringConfigBackendsItem string
@@ -1420,10 +1741,12 @@ func (o PolicyControllerMonitoringConfigBackendsItemPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyControllerMonitoringConfigBackendsItemInput is an input type that accepts PolicyControllerMonitoringConfigBackendsItemArgs and PolicyControllerMonitoringConfigBackendsItemOutput values.
-// You can construct a concrete instance of `PolicyControllerMonitoringConfigBackendsItemInput` via:
+// PolicyControllerMonitoringConfigBackendsItemInput is an input type that accepts values of the PolicyControllerMonitoringConfigBackendsItem enum
+// A concrete instance of `PolicyControllerMonitoringConfigBackendsItemInput` can be one of the following:
 //
-//	PolicyControllerMonitoringConfigBackendsItemArgs{...}
+//	PolicyControllerMonitoringConfigBackendsItemMonitoringBackendUnspecified
+//	PolicyControllerMonitoringConfigBackendsItemPrometheus
+//	PolicyControllerMonitoringConfigBackendsItemCloudMonitoring
 type PolicyControllerMonitoringConfigBackendsItemInput interface {
 	pulumi.Input
 
@@ -1456,12 +1779,6 @@ func (in *policyControllerMonitoringConfigBackendsItemPtr) ToPolicyControllerMon
 
 func (in *policyControllerMonitoringConfigBackendsItemPtr) ToPolicyControllerMonitoringConfigBackendsItemPtrOutputWithContext(ctx context.Context) PolicyControllerMonitoringConfigBackendsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyControllerMonitoringConfigBackendsItemPtrOutput)
-}
-
-func (in *policyControllerMonitoringConfigBackendsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*PolicyControllerMonitoringConfigBackendsItem] {
-	return pulumix.Output[*PolicyControllerMonitoringConfigBackendsItem]{
-		OutputState: in.ToPolicyControllerMonitoringConfigBackendsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // PolicyControllerMonitoringConfigBackendsItemArrayInput is an input type that accepts PolicyControllerMonitoringConfigBackendsItemArray and PolicyControllerMonitoringConfigBackendsItemArrayOutput values.
@@ -1507,6 +1824,177 @@ func (o PolicyControllerMonitoringConfigBackendsItemArrayOutput) Index(i pulumi.
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PolicyControllerMonitoringConfigBackendsItem {
 		return vs[0].([]PolicyControllerMonitoringConfigBackendsItem)[vs[1].(int)]
 	}).(PolicyControllerMonitoringConfigBackendsItemOutput)
+}
+
+// Pod affinity configuration.
+type PolicyControllerPolicyControllerDeploymentConfigPodAffinity string
+
+const (
+	// No affinity configuration has been specified.
+	PolicyControllerPolicyControllerDeploymentConfigPodAffinityAffinityUnspecified = PolicyControllerPolicyControllerDeploymentConfigPodAffinity("AFFINITY_UNSPECIFIED")
+	// Affinity configurations will be removed from the deployment.
+	PolicyControllerPolicyControllerDeploymentConfigPodAffinityNoAffinity = PolicyControllerPolicyControllerDeploymentConfigPodAffinity("NO_AFFINITY")
+	// Anti-affinity configuration will be applied to this deployment. Default for admissions deployment.
+	PolicyControllerPolicyControllerDeploymentConfigPodAffinityAntiAffinity = PolicyControllerPolicyControllerDeploymentConfigPodAffinity("ANTI_AFFINITY")
+)
+
+func (PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyControllerPolicyControllerDeploymentConfigPodAffinity)(nil)).Elem()
+}
+
+func (e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput() PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput {
+	return pulumi.ToOutput(e).(PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput)
+}
+
+func (e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityOutputWithContext(ctx context.Context) PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput)
+}
+
+func (e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput() PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput {
+	return e.ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutputWithContext(ctx context.Context) PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput {
+	return PolicyControllerPolicyControllerDeploymentConfigPodAffinity(e).ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityOutputWithContext(ctx).ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutputWithContext(ctx)
+}
+
+func (e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput struct{ *pulumi.OutputState }
+
+func (PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PolicyControllerPolicyControllerDeploymentConfigPodAffinity)(nil)).Elem()
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput() PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput {
+	return o
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityOutputWithContext(ctx context.Context) PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput {
+	return o
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput() PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput {
+	return o.ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutputWithContext(ctx context.Context) PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PolicyControllerPolicyControllerDeploymentConfigPodAffinity) *PolicyControllerPolicyControllerDeploymentConfigPodAffinity {
+		return &v
+	}).(PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput)
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e PolicyControllerPolicyControllerDeploymentConfigPodAffinity) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput struct{ *pulumi.OutputState }
+
+func (PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PolicyControllerPolicyControllerDeploymentConfigPodAffinity)(nil)).Elem()
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput() PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput {
+	return o
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutputWithContext(ctx context.Context) PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput {
+	return o
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput) Elem() PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput {
+	return o.ApplyT(func(v *PolicyControllerPolicyControllerDeploymentConfigPodAffinity) PolicyControllerPolicyControllerDeploymentConfigPodAffinity {
+		if v != nil {
+			return *v
+		}
+		var ret PolicyControllerPolicyControllerDeploymentConfigPodAffinity
+		return ret
+	}).(PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput)
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *PolicyControllerPolicyControllerDeploymentConfigPodAffinity) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// PolicyControllerPolicyControllerDeploymentConfigPodAffinityInput is an input type that accepts values of the PolicyControllerPolicyControllerDeploymentConfigPodAffinity enum
+// A concrete instance of `PolicyControllerPolicyControllerDeploymentConfigPodAffinityInput` can be one of the following:
+//
+//	PolicyControllerPolicyControllerDeploymentConfigPodAffinityAffinityUnspecified
+//	PolicyControllerPolicyControllerDeploymentConfigPodAffinityNoAffinity
+//	PolicyControllerPolicyControllerDeploymentConfigPodAffinityAntiAffinity
+type PolicyControllerPolicyControllerDeploymentConfigPodAffinityInput interface {
+	pulumi.Input
+
+	ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput() PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput
+	ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityOutputWithContext(context.Context) PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput
+}
+
+var policyControllerPolicyControllerDeploymentConfigPodAffinityPtrType = reflect.TypeOf((**PolicyControllerPolicyControllerDeploymentConfigPodAffinity)(nil)).Elem()
+
+type PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrInput interface {
+	pulumi.Input
+
+	ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput() PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput
+	ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutputWithContext(context.Context) PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput
+}
+
+type policyControllerPolicyControllerDeploymentConfigPodAffinityPtr string
+
+func PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtr(v string) PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrInput {
+	return (*policyControllerPolicyControllerDeploymentConfigPodAffinityPtr)(&v)
+}
+
+func (*policyControllerPolicyControllerDeploymentConfigPodAffinityPtr) ElementType() reflect.Type {
+	return policyControllerPolicyControllerDeploymentConfigPodAffinityPtrType
+}
+
+func (in *policyControllerPolicyControllerDeploymentConfigPodAffinityPtr) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput() PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput {
+	return pulumi.ToOutput(in).(PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput)
+}
+
+func (in *policyControllerPolicyControllerDeploymentConfigPodAffinityPtr) ToPolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutputWithContext(ctx context.Context) PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput)
 }
 
 // Configures the manner in which the template library is installed on the cluster.
@@ -1640,10 +2128,12 @@ func (o PolicyControllerTemplateLibraryConfigInstallationPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// PolicyControllerTemplateLibraryConfigInstallationInput is an input type that accepts PolicyControllerTemplateLibraryConfigInstallationArgs and PolicyControllerTemplateLibraryConfigInstallationOutput values.
-// You can construct a concrete instance of `PolicyControllerTemplateLibraryConfigInstallationInput` via:
+// PolicyControllerTemplateLibraryConfigInstallationInput is an input type that accepts values of the PolicyControllerTemplateLibraryConfigInstallation enum
+// A concrete instance of `PolicyControllerTemplateLibraryConfigInstallationInput` can be one of the following:
 //
-//	PolicyControllerTemplateLibraryConfigInstallationArgs{...}
+//	PolicyControllerTemplateLibraryConfigInstallationInstallationUnspecified
+//	PolicyControllerTemplateLibraryConfigInstallationNotInstalled
+//	PolicyControllerTemplateLibraryConfigInstallationAll
 type PolicyControllerTemplateLibraryConfigInstallationInput interface {
 	pulumi.Input
 
@@ -1676,12 +2166,6 @@ func (in *policyControllerTemplateLibraryConfigInstallationPtr) ToPolicyControll
 
 func (in *policyControllerTemplateLibraryConfigInstallationPtr) ToPolicyControllerTemplateLibraryConfigInstallationPtrOutputWithContext(ctx context.Context) PolicyControllerTemplateLibraryConfigInstallationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PolicyControllerTemplateLibraryConfigInstallationPtrOutput)
-}
-
-func (in *policyControllerTemplateLibraryConfigInstallationPtr) ToOutput(ctx context.Context) pulumix.Output[*PolicyControllerTemplateLibraryConfigInstallation] {
-	return pulumix.Output[*PolicyControllerTemplateLibraryConfigInstallation]{
-		OutputState: in.ToPolicyControllerTemplateLibraryConfigInstallationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // predefined_role is the Kubernetes default role to use
@@ -1819,10 +2303,14 @@ func (o RolePredefinedRolePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// RolePredefinedRoleInput is an input type that accepts RolePredefinedRoleArgs and RolePredefinedRoleOutput values.
-// You can construct a concrete instance of `RolePredefinedRoleInput` via:
+// RolePredefinedRoleInput is an input type that accepts values of the RolePredefinedRole enum
+// A concrete instance of `RolePredefinedRoleInput` can be one of the following:
 //
-//	RolePredefinedRoleArgs{...}
+//	RolePredefinedRoleUnknown
+//	RolePredefinedRoleAdmin
+//	RolePredefinedRoleEdit
+//	RolePredefinedRoleView
+//	RolePredefinedRoleAnthosSupport
 type RolePredefinedRoleInput interface {
 	pulumi.Input
 
@@ -1855,12 +2343,6 @@ func (in *rolePredefinedRolePtr) ToRolePredefinedRolePtrOutput() RolePredefinedR
 
 func (in *rolePredefinedRolePtr) ToRolePredefinedRolePtrOutputWithContext(ctx context.Context) RolePredefinedRolePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RolePredefinedRolePtrOutput)
-}
-
-func (in *rolePredefinedRolePtr) ToOutput(ctx context.Context) pulumix.Output[*RolePredefinedRole] {
-	return pulumix.Output[*RolePredefinedRole]{
-		OutputState: in.ToRolePredefinedRolePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Sets which mode to use for Security Posture features.
@@ -1994,10 +2476,12 @@ func (o SecurityPostureConfigModePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecurityPostureConfigModeInput is an input type that accepts SecurityPostureConfigModeArgs and SecurityPostureConfigModeOutput values.
-// You can construct a concrete instance of `SecurityPostureConfigModeInput` via:
+// SecurityPostureConfigModeInput is an input type that accepts values of the SecurityPostureConfigMode enum
+// A concrete instance of `SecurityPostureConfigModeInput` can be one of the following:
 //
-//	SecurityPostureConfigModeArgs{...}
+//	SecurityPostureConfigModeModeUnspecified
+//	SecurityPostureConfigModeDisabled
+//	SecurityPostureConfigModeBasic
 type SecurityPostureConfigModeInput interface {
 	pulumi.Input
 
@@ -2030,12 +2514,6 @@ func (in *securityPostureConfigModePtr) ToSecurityPostureConfigModePtrOutput() S
 
 func (in *securityPostureConfigModePtr) ToSecurityPostureConfigModePtrOutputWithContext(ctx context.Context) SecurityPostureConfigModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityPostureConfigModePtrOutput)
-}
-
-func (in *securityPostureConfigModePtr) ToOutput(ctx context.Context) pulumix.Output[*SecurityPostureConfigMode] {
-	return pulumix.Output[*SecurityPostureConfigMode]{
-		OutputState: in.ToSecurityPostureConfigModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Sets which mode to use for vulnerability scanning.
@@ -2171,10 +2649,13 @@ func (o SecurityPostureConfigVulnerabilityModePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecurityPostureConfigVulnerabilityModeInput is an input type that accepts SecurityPostureConfigVulnerabilityModeArgs and SecurityPostureConfigVulnerabilityModeOutput values.
-// You can construct a concrete instance of `SecurityPostureConfigVulnerabilityModeInput` via:
+// SecurityPostureConfigVulnerabilityModeInput is an input type that accepts values of the SecurityPostureConfigVulnerabilityMode enum
+// A concrete instance of `SecurityPostureConfigVulnerabilityModeInput` can be one of the following:
 //
-//	SecurityPostureConfigVulnerabilityModeArgs{...}
+//	SecurityPostureConfigVulnerabilityModeVulnerabilityModeUnspecified
+//	SecurityPostureConfigVulnerabilityModeVulnerabilityDisabled
+//	SecurityPostureConfigVulnerabilityModeVulnerabilityBasic
+//	SecurityPostureConfigVulnerabilityModeVulnerabilityEnterprise
 type SecurityPostureConfigVulnerabilityModeInput interface {
 	pulumi.Input
 
@@ -2207,12 +2688,6 @@ func (in *securityPostureConfigVulnerabilityModePtr) ToSecurityPostureConfigVuln
 
 func (in *securityPostureConfigVulnerabilityModePtr) ToSecurityPostureConfigVulnerabilityModePtrOutputWithContext(ctx context.Context) SecurityPostureConfigVulnerabilityModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SecurityPostureConfigVulnerabilityModePtrOutput)
-}
-
-func (in *securityPostureConfigVulnerabilityModePtr) ToOutput(ctx context.Context) pulumix.Output[*SecurityPostureConfigVulnerabilityMode] {
-	return pulumix.Output[*SecurityPostureConfigVulnerabilityMode]{
-		OutputState: in.ToSecurityPostureConfigVulnerabilityModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deprecated: use `management` instead Enables automatic control plane management.
@@ -2346,10 +2821,12 @@ func (o ServiceMeshMembershipSpecControlPlanePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceMeshMembershipSpecControlPlaneInput is an input type that accepts ServiceMeshMembershipSpecControlPlaneArgs and ServiceMeshMembershipSpecControlPlaneOutput values.
-// You can construct a concrete instance of `ServiceMeshMembershipSpecControlPlaneInput` via:
+// ServiceMeshMembershipSpecControlPlaneInput is an input type that accepts values of the ServiceMeshMembershipSpecControlPlane enum
+// A concrete instance of `ServiceMeshMembershipSpecControlPlaneInput` can be one of the following:
 //
-//	ServiceMeshMembershipSpecControlPlaneArgs{...}
+//	ServiceMeshMembershipSpecControlPlaneControlPlaneManagementUnspecified
+//	ServiceMeshMembershipSpecControlPlaneAutomatic
+//	ServiceMeshMembershipSpecControlPlaneManual
 type ServiceMeshMembershipSpecControlPlaneInput interface {
 	pulumi.Input
 
@@ -2382,12 +2859,6 @@ func (in *serviceMeshMembershipSpecControlPlanePtr) ToServiceMeshMembershipSpecC
 
 func (in *serviceMeshMembershipSpecControlPlanePtr) ToServiceMeshMembershipSpecControlPlanePtrOutputWithContext(ctx context.Context) ServiceMeshMembershipSpecControlPlanePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceMeshMembershipSpecControlPlanePtrOutput)
-}
-
-func (in *serviceMeshMembershipSpecControlPlanePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceMeshMembershipSpecControlPlane] {
-	return pulumix.Output[*ServiceMeshMembershipSpecControlPlane]{
-		OutputState: in.ToServiceMeshMembershipSpecControlPlanePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Enables automatic Service Mesh management.
@@ -2521,10 +2992,12 @@ func (o ServiceMeshMembershipSpecManagementPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceMeshMembershipSpecManagementInput is an input type that accepts ServiceMeshMembershipSpecManagementArgs and ServiceMeshMembershipSpecManagementOutput values.
-// You can construct a concrete instance of `ServiceMeshMembershipSpecManagementInput` via:
+// ServiceMeshMembershipSpecManagementInput is an input type that accepts values of the ServiceMeshMembershipSpecManagement enum
+// A concrete instance of `ServiceMeshMembershipSpecManagementInput` can be one of the following:
 //
-//	ServiceMeshMembershipSpecManagementArgs{...}
+//	ServiceMeshMembershipSpecManagementManagementUnspecified
+//	ServiceMeshMembershipSpecManagementManagementAutomatic
+//	ServiceMeshMembershipSpecManagementManagementManual
 type ServiceMeshMembershipSpecManagementInput interface {
 	pulumi.Input
 
@@ -2559,12 +3032,6 @@ func (in *serviceMeshMembershipSpecManagementPtr) ToServiceMeshMembershipSpecMan
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceMeshMembershipSpecManagementPtrOutput)
 }
 
-func (in *serviceMeshMembershipSpecManagementPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceMeshMembershipSpecManagement] {
-	return pulumix.Output[*ServiceMeshMembershipSpecManagement]{
-		OutputState: in.ToServiceMeshMembershipSpecManagementPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuditLogConfigLogTypeInput)(nil)).Elem(), AuditLogConfigLogType("LOG_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AuditLogConfigLogTypePtrInput)(nil)).Elem(), AuditLogConfigLogType("LOG_TYPE_UNSPECIFIED"))
@@ -2575,15 +3042,21 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConfigManagementPolicyControllerMonitoringBackendsItemArrayInput)(nil)).Elem(), ConfigManagementPolicyControllerMonitoringBackendsItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetObservabilityRoutingConfigModeInput)(nil)).Elem(), FleetObservabilityRoutingConfigMode("MODE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*FleetObservabilityRoutingConfigModePtrInput)(nil)).Elem(), FleetObservabilityRoutingConfigMode("MODE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipSpecSecurityPolicyInput)(nil)).Elem(), MembershipSpecSecurityPolicy("SECURITY_POLICY_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*MembershipSpecSecurityPolicyPtrInput)(nil)).Elem(), MembershipSpecSecurityPolicy("SECURITY_POLICY_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiClusterIngressFeatureSpecBillingInput)(nil)).Elem(), MultiClusterIngressFeatureSpecBilling("BILLING_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiClusterIngressFeatureSpecBillingPtrInput)(nil)).Elem(), MultiClusterIngressFeatureSpecBilling("BILLING_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnPremClusterClusterTypeInput)(nil)).Elem(), OnPremClusterClusterType("CLUSTERTYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*OnPremClusterClusterTypePtrInput)(nil)).Elem(), OnPremClusterClusterType("CLUSTERTYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginTypeInput)(nil)).Elem(), OriginType("TYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*OriginTypePtrInput)(nil)).Elem(), OriginType("TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerHubConfigInstallSpecInput)(nil)).Elem(), PolicyControllerHubConfigInstallSpec("INSTALL_SPEC_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerHubConfigInstallSpecPtrInput)(nil)).Elem(), PolicyControllerHubConfigInstallSpec("INSTALL_SPEC_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerMonitoringConfigBackendsItemInput)(nil)).Elem(), PolicyControllerMonitoringConfigBackendsItem("MONITORING_BACKEND_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerMonitoringConfigBackendsItemPtrInput)(nil)).Elem(), PolicyControllerMonitoringConfigBackendsItem("MONITORING_BACKEND_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerMonitoringConfigBackendsItemArrayInput)(nil)).Elem(), PolicyControllerMonitoringConfigBackendsItemArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerPolicyControllerDeploymentConfigPodAffinityInput)(nil)).Elem(), PolicyControllerPolicyControllerDeploymentConfigPodAffinity("AFFINITY_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrInput)(nil)).Elem(), PolicyControllerPolicyControllerDeploymentConfigPodAffinity("AFFINITY_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerTemplateLibraryConfigInstallationInput)(nil)).Elem(), PolicyControllerTemplateLibraryConfigInstallation("INSTALLATION_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*PolicyControllerTemplateLibraryConfigInstallationPtrInput)(nil)).Elem(), PolicyControllerTemplateLibraryConfigInstallation("INSTALLATION_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*RolePredefinedRoleInput)(nil)).Elem(), RolePredefinedRole("UNKNOWN"))
@@ -2605,15 +3078,21 @@ func init() {
 	pulumi.RegisterOutputType(ConfigManagementPolicyControllerMonitoringBackendsItemArrayOutput{})
 	pulumi.RegisterOutputType(FleetObservabilityRoutingConfigModeOutput{})
 	pulumi.RegisterOutputType(FleetObservabilityRoutingConfigModePtrOutput{})
+	pulumi.RegisterOutputType(MembershipSpecSecurityPolicyOutput{})
+	pulumi.RegisterOutputType(MembershipSpecSecurityPolicyPtrOutput{})
 	pulumi.RegisterOutputType(MultiClusterIngressFeatureSpecBillingOutput{})
 	pulumi.RegisterOutputType(MultiClusterIngressFeatureSpecBillingPtrOutput{})
 	pulumi.RegisterOutputType(OnPremClusterClusterTypeOutput{})
 	pulumi.RegisterOutputType(OnPremClusterClusterTypePtrOutput{})
+	pulumi.RegisterOutputType(OriginTypeOutput{})
+	pulumi.RegisterOutputType(OriginTypePtrOutput{})
 	pulumi.RegisterOutputType(PolicyControllerHubConfigInstallSpecOutput{})
 	pulumi.RegisterOutputType(PolicyControllerHubConfigInstallSpecPtrOutput{})
 	pulumi.RegisterOutputType(PolicyControllerMonitoringConfigBackendsItemOutput{})
 	pulumi.RegisterOutputType(PolicyControllerMonitoringConfigBackendsItemPtrOutput{})
 	pulumi.RegisterOutputType(PolicyControllerMonitoringConfigBackendsItemArrayOutput{})
+	pulumi.RegisterOutputType(PolicyControllerPolicyControllerDeploymentConfigPodAffinityOutput{})
+	pulumi.RegisterOutputType(PolicyControllerPolicyControllerDeploymentConfigPodAffinityPtrOutput{})
 	pulumi.RegisterOutputType(PolicyControllerTemplateLibraryConfigInstallationOutput{})
 	pulumi.RegisterOutputType(PolicyControllerTemplateLibraryConfigInstallationPtrOutput{})
 	pulumi.RegisterOutputType(RolePredefinedRoleOutput{})

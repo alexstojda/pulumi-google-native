@@ -546,13 +546,11 @@ class GoogleCloudChannelV1RepricingConfigArgs:
 
     @property
     @pulumi.getter(name="channelPartnerGranularity")
+    @_utilities.deprecated("""Applies the repricing configuration at the channel partner level. Only ChannelPartnerRepricingConfig supports this value. Deprecated: This is no longer supported. Use RepricingConfig.entitlement_granularity instead.""")
     def channel_partner_granularity(self) -> Optional[pulumi.Input['GoogleCloudChannelV1RepricingConfigChannelPartnerGranularityArgs']]:
         """
         Applies the repricing configuration at the channel partner level. Only ChannelPartnerRepricingConfig supports this value. Deprecated: This is no longer supported. Use RepricingConfig.entitlement_granularity instead.
         """
-        warnings.warn("""Applies the repricing configuration at the channel partner level. Only ChannelPartnerRepricingConfig supports this value. Deprecated: This is no longer supported. Use RepricingConfig.entitlement_granularity instead.""", DeprecationWarning)
-        pulumi.log.warn("""channel_partner_granularity is deprecated: Applies the repricing configuration at the channel partner level. Only ChannelPartnerRepricingConfig supports this value. Deprecated: This is no longer supported. Use RepricingConfig.entitlement_granularity instead.""")
-
         return pulumi.get(self, "channel_partner_granularity")
 
     @channel_partner_granularity.setter
@@ -614,14 +612,14 @@ class GoogleCloudChannelV1ValueArgs:
                  bool_value: Optional[pulumi.Input[bool]] = None,
                  double_value: Optional[pulumi.Input[float]] = None,
                  int64_value: Optional[pulumi.Input[str]] = None,
-                 proto_value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 proto_value: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  string_value: Optional[pulumi.Input[str]] = None):
         """
         Data type and value of a parameter.
         :param pulumi.Input[bool] bool_value: Represents a boolean value.
         :param pulumi.Input[float] double_value: Represents a double value.
         :param pulumi.Input[str] int64_value: Represents an int64 value.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] proto_value: Represents an 'Any' proto value.
+        :param pulumi.Input[Mapping[str, Any]] proto_value: Represents an 'Any' proto value.
         :param pulumi.Input[str] string_value: Represents a string value.
         """
         if bool_value is not None:
@@ -673,14 +671,14 @@ class GoogleCloudChannelV1ValueArgs:
 
     @property
     @pulumi.getter(name="protoValue")
-    def proto_value(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def proto_value(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Represents an 'Any' proto value.
         """
         return pulumi.get(self, "proto_value")
 
     @proto_value.setter
-    def proto_value(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def proto_value(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "proto_value", value)
 
     @property

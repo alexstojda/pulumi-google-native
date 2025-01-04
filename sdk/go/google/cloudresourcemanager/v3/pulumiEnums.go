@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. A purpose denotes that this Tag is intended for use in policies of a specific policy engine, and will involve that policy engine in management operations involving this Tag. A purpose does not grant a policy engine exclusive rights to the Tag, and it may be referenced by other policy engines. A purpose cannot be changed once set.
@@ -319,10 +315,12 @@ func (o TagKeyPurposePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TagKeyPurposeInput is an input type that accepts TagKeyPurposeArgs and TagKeyPurposeOutput values.
-// You can construct a concrete instance of `TagKeyPurposeInput` via:
+// TagKeyPurposeInput is an input type that accepts values of the TagKeyPurpose enum
+// A concrete instance of `TagKeyPurposeInput` can be one of the following:
 //
-//	TagKeyPurposeArgs{...}
+//	TagKeyPurposePurposeUnspecified
+//	TagKeyPurposeGceFirewall
+//	TagKeyPurposeDataGovernance
 type TagKeyPurposeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *tagKeyPurposePtr) ToTagKeyPurposePtrOutput() TagKeyPurposePtrOutput {
 
 func (in *tagKeyPurposePtr) ToTagKeyPurposePtrOutputWithContext(ctx context.Context) TagKeyPurposePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TagKeyPurposePtrOutput)
-}
-
-func (in *tagKeyPurposePtr) ToOutput(ctx context.Context) pulumix.Output[*TagKeyPurpose] {
-	return pulumix.Output[*TagKeyPurpose]{
-		OutputState: in.ToTagKeyPurposePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

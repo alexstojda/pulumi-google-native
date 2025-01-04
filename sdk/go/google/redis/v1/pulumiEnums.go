@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Optional. The authorization mode of the Redis cluster. If not provided, auth feature is disabled for the cluster.
@@ -142,10 +141,12 @@ func (o ClusterAuthorizationModePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterAuthorizationModeInput is an input type that accepts ClusterAuthorizationModeArgs and ClusterAuthorizationModeOutput values.
-// You can construct a concrete instance of `ClusterAuthorizationModeInput` via:
+// ClusterAuthorizationModeInput is an input type that accepts values of the ClusterAuthorizationMode enum
+// A concrete instance of `ClusterAuthorizationModeInput` can be one of the following:
 //
-//	ClusterAuthorizationModeArgs{...}
+//	ClusterAuthorizationModeAuthModeUnspecified
+//	ClusterAuthorizationModeAuthModeIamAuth
+//	ClusterAuthorizationModeAuthModeDisabled
 type ClusterAuthorizationModeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *clusterAuthorizationModePtr) ToClusterAuthorizationModePtrOutput() Clu
 
 func (in *clusterAuthorizationModePtr) ToClusterAuthorizationModePtrOutputWithContext(ctx context.Context) ClusterAuthorizationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterAuthorizationModePtrOutput)
-}
-
-func (in *clusterAuthorizationModePtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterAuthorizationMode] {
-	return pulumix.Output[*ClusterAuthorizationMode]{
-		OutputState: in.ToClusterAuthorizationModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The in-transit encryption for the Redis cluster. If not provided, encryption is disabled for the cluster.
@@ -317,10 +312,12 @@ func (o ClusterTransitEncryptionModePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClusterTransitEncryptionModeInput is an input type that accepts ClusterTransitEncryptionModeArgs and ClusterTransitEncryptionModeOutput values.
-// You can construct a concrete instance of `ClusterTransitEncryptionModeInput` via:
+// ClusterTransitEncryptionModeInput is an input type that accepts values of the ClusterTransitEncryptionMode enum
+// A concrete instance of `ClusterTransitEncryptionModeInput` can be one of the following:
 //
-//	ClusterTransitEncryptionModeArgs{...}
+//	ClusterTransitEncryptionModeTransitEncryptionModeUnspecified
+//	ClusterTransitEncryptionModeTransitEncryptionModeDisabled
+//	ClusterTransitEncryptionModeTransitEncryptionModeServerAuthentication
 type ClusterTransitEncryptionModeInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *clusterTransitEncryptionModePtr) ToClusterTransitEncryptionModePtrOutp
 
 func (in *clusterTransitEncryptionModePtr) ToClusterTransitEncryptionModePtrOutputWithContext(ctx context.Context) ClusterTransitEncryptionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClusterTransitEncryptionModePtrOutput)
-}
-
-func (in *clusterTransitEncryptionModePtr) ToOutput(ctx context.Context) pulumix.Output[*ClusterTransitEncryptionMode] {
-	return pulumix.Output[*ClusterTransitEncryptionMode]{
-		OutputState: in.ToClusterTransitEncryptionModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The network connect mode of the Redis instance. If not provided, the connect mode defaults to DIRECT_PEERING.
@@ -492,10 +483,12 @@ func (o InstanceConnectModePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceConnectModeInput is an input type that accepts InstanceConnectModeArgs and InstanceConnectModeOutput values.
-// You can construct a concrete instance of `InstanceConnectModeInput` via:
+// InstanceConnectModeInput is an input type that accepts values of the InstanceConnectMode enum
+// A concrete instance of `InstanceConnectModeInput` can be one of the following:
 //
-//	InstanceConnectModeArgs{...}
+//	InstanceConnectModeConnectModeUnspecified
+//	InstanceConnectModeDirectPeering
+//	InstanceConnectModePrivateServiceAccess
 type InstanceConnectModeInput interface {
 	pulumi.Input
 
@@ -528,12 +521,6 @@ func (in *instanceConnectModePtr) ToInstanceConnectModePtrOutput() InstanceConne
 
 func (in *instanceConnectModePtr) ToInstanceConnectModePtrOutputWithContext(ctx context.Context) InstanceConnectModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceConnectModePtrOutput)
-}
-
-func (in *instanceConnectModePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceConnectMode] {
-	return pulumix.Output[*InstanceConnectMode]{
-		OutputState: in.ToInstanceConnectModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Read replicas mode for the instance. Defaults to READ_REPLICAS_DISABLED.
@@ -667,10 +654,12 @@ func (o InstanceReadReplicasModePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceReadReplicasModeInput is an input type that accepts InstanceReadReplicasModeArgs and InstanceReadReplicasModeOutput values.
-// You can construct a concrete instance of `InstanceReadReplicasModeInput` via:
+// InstanceReadReplicasModeInput is an input type that accepts values of the InstanceReadReplicasMode enum
+// A concrete instance of `InstanceReadReplicasModeInput` can be one of the following:
 //
-//	InstanceReadReplicasModeArgs{...}
+//	InstanceReadReplicasModeReadReplicasModeUnspecified
+//	InstanceReadReplicasModeReadReplicasDisabled
+//	InstanceReadReplicasModeReadReplicasEnabled
 type InstanceReadReplicasModeInput interface {
 	pulumi.Input
 
@@ -703,12 +692,6 @@ func (in *instanceReadReplicasModePtr) ToInstanceReadReplicasModePtrOutput() Ins
 
 func (in *instanceReadReplicasModePtr) ToInstanceReadReplicasModePtrOutputWithContext(ctx context.Context) InstanceReadReplicasModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceReadReplicasModePtrOutput)
-}
-
-func (in *instanceReadReplicasModePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceReadReplicasMode] {
-	return pulumix.Output[*InstanceReadReplicasMode]{
-		OutputState: in.ToInstanceReadReplicasModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type InstanceSuspensionReasonsItem string
@@ -839,10 +822,11 @@ func (o InstanceSuspensionReasonsItemPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceSuspensionReasonsItemInput is an input type that accepts InstanceSuspensionReasonsItemArgs and InstanceSuspensionReasonsItemOutput values.
-// You can construct a concrete instance of `InstanceSuspensionReasonsItemInput` via:
+// InstanceSuspensionReasonsItemInput is an input type that accepts values of the InstanceSuspensionReasonsItem enum
+// A concrete instance of `InstanceSuspensionReasonsItemInput` can be one of the following:
 //
-//	InstanceSuspensionReasonsItemArgs{...}
+//	InstanceSuspensionReasonsItemSuspensionReasonUnspecified
+//	InstanceSuspensionReasonsItemCustomerManagedKeyIssue
 type InstanceSuspensionReasonsItemInput interface {
 	pulumi.Input
 
@@ -875,12 +859,6 @@ func (in *instanceSuspensionReasonsItemPtr) ToInstanceSuspensionReasonsItemPtrOu
 
 func (in *instanceSuspensionReasonsItemPtr) ToInstanceSuspensionReasonsItemPtrOutputWithContext(ctx context.Context) InstanceSuspensionReasonsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceSuspensionReasonsItemPtrOutput)
-}
-
-func (in *instanceSuspensionReasonsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceSuspensionReasonsItem] {
-	return pulumix.Output[*InstanceSuspensionReasonsItem]{
-		OutputState: in.ToInstanceSuspensionReasonsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // InstanceSuspensionReasonsItemArrayInput is an input type that accepts InstanceSuspensionReasonsItemArray and InstanceSuspensionReasonsItemArrayOutput values.
@@ -1059,10 +1037,12 @@ func (o InstanceTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceTierInput is an input type that accepts InstanceTierArgs and InstanceTierOutput values.
-// You can construct a concrete instance of `InstanceTierInput` via:
+// InstanceTierInput is an input type that accepts values of the InstanceTier enum
+// A concrete instance of `InstanceTierInput` can be one of the following:
 //
-//	InstanceTierArgs{...}
+//	InstanceTierTierUnspecified
+//	InstanceTierBasic
+//	InstanceTierStandardHa
 type InstanceTierInput interface {
 	pulumi.Input
 
@@ -1095,12 +1075,6 @@ func (in *instanceTierPtr) ToInstanceTierPtrOutput() InstanceTierPtrOutput {
 
 func (in *instanceTierPtr) ToInstanceTierPtrOutputWithContext(ctx context.Context) InstanceTierPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceTierPtrOutput)
-}
-
-func (in *instanceTierPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceTier] {
-	return pulumix.Output[*InstanceTier]{
-		OutputState: in.ToInstanceTierPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The TLS mode of the Redis instance. If not provided, TLS is disabled for the instance.
@@ -1234,10 +1208,12 @@ func (o InstanceTransitEncryptionModePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceTransitEncryptionModeInput is an input type that accepts InstanceTransitEncryptionModeArgs and InstanceTransitEncryptionModeOutput values.
-// You can construct a concrete instance of `InstanceTransitEncryptionModeInput` via:
+// InstanceTransitEncryptionModeInput is an input type that accepts values of the InstanceTransitEncryptionMode enum
+// A concrete instance of `InstanceTransitEncryptionModeInput` can be one of the following:
 //
-//	InstanceTransitEncryptionModeArgs{...}
+//	InstanceTransitEncryptionModeTransitEncryptionModeUnspecified
+//	InstanceTransitEncryptionModeServerAuthentication
+//	InstanceTransitEncryptionModeDisabled
 type InstanceTransitEncryptionModeInput interface {
 	pulumi.Input
 
@@ -1270,12 +1246,6 @@ func (in *instanceTransitEncryptionModePtr) ToInstanceTransitEncryptionModePtrOu
 
 func (in *instanceTransitEncryptionModePtr) ToInstanceTransitEncryptionModePtrOutputWithContext(ctx context.Context) InstanceTransitEncryptionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceTransitEncryptionModePtrOutput)
-}
-
-func (in *instanceTransitEncryptionModePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceTransitEncryptionMode] {
-	return pulumix.Output[*InstanceTransitEncryptionMode]{
-		OutputState: in.ToInstanceTransitEncryptionModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Controls whether Persistence features are enabled. If not provided, the existing value will be used.
@@ -1409,10 +1379,12 @@ func (o PersistenceConfigPersistenceModePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// PersistenceConfigPersistenceModeInput is an input type that accepts PersistenceConfigPersistenceModeArgs and PersistenceConfigPersistenceModeOutput values.
-// You can construct a concrete instance of `PersistenceConfigPersistenceModeInput` via:
+// PersistenceConfigPersistenceModeInput is an input type that accepts values of the PersistenceConfigPersistenceMode enum
+// A concrete instance of `PersistenceConfigPersistenceModeInput` can be one of the following:
 //
-//	PersistenceConfigPersistenceModeArgs{...}
+//	PersistenceConfigPersistenceModePersistenceModeUnspecified
+//	PersistenceConfigPersistenceModeDisabled
+//	PersistenceConfigPersistenceModeRdb
 type PersistenceConfigPersistenceModeInput interface {
 	pulumi.Input
 
@@ -1445,12 +1417,6 @@ func (in *persistenceConfigPersistenceModePtr) ToPersistenceConfigPersistenceMod
 
 func (in *persistenceConfigPersistenceModePtr) ToPersistenceConfigPersistenceModePtrOutputWithContext(ctx context.Context) PersistenceConfigPersistenceModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PersistenceConfigPersistenceModePtrOutput)
-}
-
-func (in *persistenceConfigPersistenceModePtr) ToOutput(ctx context.Context) pulumix.Output[*PersistenceConfigPersistenceMode] {
-	return pulumix.Output[*PersistenceConfigPersistenceMode]{
-		OutputState: in.ToPersistenceConfigPersistenceModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Period between RDB snapshots. Snapshots will be attempted every period starting from the provided snapshot start time. For example, a start time of 01/01/2033 06:45 and SIX_HOURS snapshot period will do nothing until 01/01/2033, and then trigger snapshots every day at 06:45, 12:45, 18:45, and 00:45 the next day, and so on. If not provided, TWENTY_FOUR_HOURS will be used as default.
@@ -1588,10 +1554,14 @@ func (o PersistenceConfigRdbSnapshotPeriodPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// PersistenceConfigRdbSnapshotPeriodInput is an input type that accepts PersistenceConfigRdbSnapshotPeriodArgs and PersistenceConfigRdbSnapshotPeriodOutput values.
-// You can construct a concrete instance of `PersistenceConfigRdbSnapshotPeriodInput` via:
+// PersistenceConfigRdbSnapshotPeriodInput is an input type that accepts values of the PersistenceConfigRdbSnapshotPeriod enum
+// A concrete instance of `PersistenceConfigRdbSnapshotPeriodInput` can be one of the following:
 //
-//	PersistenceConfigRdbSnapshotPeriodArgs{...}
+//	PersistenceConfigRdbSnapshotPeriodSnapshotPeriodUnspecified
+//	PersistenceConfigRdbSnapshotPeriodOneHour
+//	PersistenceConfigRdbSnapshotPeriodSixHours
+//	PersistenceConfigRdbSnapshotPeriodTwelveHours
+//	PersistenceConfigRdbSnapshotPeriodTwentyFourHours
 type PersistenceConfigRdbSnapshotPeriodInput interface {
 	pulumi.Input
 
@@ -1624,12 +1594,6 @@ func (in *persistenceConfigRdbSnapshotPeriodPtr) ToPersistenceConfigRdbSnapshotP
 
 func (in *persistenceConfigRdbSnapshotPeriodPtr) ToPersistenceConfigRdbSnapshotPeriodPtrOutputWithContext(ctx context.Context) PersistenceConfigRdbSnapshotPeriodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PersistenceConfigRdbSnapshotPeriodPtrOutput)
-}
-
-func (in *persistenceConfigRdbSnapshotPeriodPtr) ToOutput(ctx context.Context) pulumix.Output[*PersistenceConfigRdbSnapshotPeriod] {
-	return pulumix.Output[*PersistenceConfigRdbSnapshotPeriod]{
-		OutputState: in.ToPersistenceConfigRdbSnapshotPeriodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The day of week that maintenance updates occur.
@@ -1773,10 +1737,17 @@ func (o WeeklyMaintenanceWindowDayPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// WeeklyMaintenanceWindowDayInput is an input type that accepts WeeklyMaintenanceWindowDayArgs and WeeklyMaintenanceWindowDayOutput values.
-// You can construct a concrete instance of `WeeklyMaintenanceWindowDayInput` via:
+// WeeklyMaintenanceWindowDayInput is an input type that accepts values of the WeeklyMaintenanceWindowDay enum
+// A concrete instance of `WeeklyMaintenanceWindowDayInput` can be one of the following:
 //
-//	WeeklyMaintenanceWindowDayArgs{...}
+//	WeeklyMaintenanceWindowDayDayOfWeekUnspecified
+//	WeeklyMaintenanceWindowDayMonday
+//	WeeklyMaintenanceWindowDayTuesday
+//	WeeklyMaintenanceWindowDayWednesday
+//	WeeklyMaintenanceWindowDayThursday
+//	WeeklyMaintenanceWindowDayFriday
+//	WeeklyMaintenanceWindowDaySaturday
+//	WeeklyMaintenanceWindowDaySunday
 type WeeklyMaintenanceWindowDayInput interface {
 	pulumi.Input
 
@@ -1809,12 +1780,6 @@ func (in *weeklyMaintenanceWindowDayPtr) ToWeeklyMaintenanceWindowDayPtrOutput()
 
 func (in *weeklyMaintenanceWindowDayPtr) ToWeeklyMaintenanceWindowDayPtrOutputWithContext(ctx context.Context) WeeklyMaintenanceWindowDayPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WeeklyMaintenanceWindowDayPtrOutput)
-}
-
-func (in *weeklyMaintenanceWindowDayPtr) ToOutput(ctx context.Context) pulumix.Output[*WeeklyMaintenanceWindowDay] {
-	return pulumix.Output[*WeeklyMaintenanceWindowDay]{
-		OutputState: in.ToWeeklyMaintenanceWindowDayPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -43,6 +43,7 @@ __all__ = [
     'DNSConfigResponse',
     'DailyMaintenanceWindowResponse',
     'DatabaseEncryptionResponse',
+    'DateResponse',
     'DefaultSnatStatusResponse',
     'DnsCacheConfigResponse',
     'EnterpriseConfigResponse',
@@ -137,6 +138,8 @@ __all__ = [
     'VerticalPodAutoscalingResponse',
     'VirtualNICResponse',
     'WindowsNodeConfigResponse',
+    'WindowsVersionResponse',
+    'WindowsVersionsResponse',
     'WorkloadALTSConfigResponse',
     'WorkloadCertificatesResponse',
     'WorkloadConfigResponse',
@@ -996,13 +999,11 @@ class AutoprovisioningNodePoolDefaultsResponse(dict):
 
     @property
     @pulumi.getter(name="minCpuPlatform")
+    @_utilities.deprecated("""Deprecated. Minimum CPU platform to be used for NAP created node pools. The instance may be scheduled on the specified or newer CPU platform. Applicable values are the friendly names of CPU platforms, such as minCpuPlatform: Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information, read [how to specify min CPU platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform). This field is deprecated, min_cpu_platform should be specified using `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To unset the min cpu platform field pass \"automatic\" as field value.""")
     def min_cpu_platform(self) -> str:
         """
         Deprecated. Minimum CPU platform to be used for NAP created node pools. The instance may be scheduled on the specified or newer CPU platform. Applicable values are the friendly names of CPU platforms, such as minCpuPlatform: Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information, read [how to specify min CPU platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform). This field is deprecated, min_cpu_platform should be specified using `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To unset the min cpu platform field pass "automatic" as field value.
         """
-        warnings.warn("""Deprecated. Minimum CPU platform to be used for NAP created node pools. The instance may be scheduled on the specified or newer CPU platform. Applicable values are the friendly names of CPU platforms, such as minCpuPlatform: Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information, read [how to specify min CPU platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform). This field is deprecated, min_cpu_platform should be specified using `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To unset the min cpu platform field pass \"automatic\" as field value.""", DeprecationWarning)
-        pulumi.log.warn("""min_cpu_platform is deprecated: Deprecated. Minimum CPU platform to be used for NAP created node pools. The instance may be scheduled on the specified or newer CPU platform. Applicable values are the friendly names of CPU platforms, such as minCpuPlatform: Intel Haswell or minCpuPlatform: Intel Sandy Bridge. For more information, read [how to specify min CPU platform](https://cloud.google.com/compute/docs/instances/specify-min-cpu-platform). This field is deprecated, min_cpu_platform should be specified using `cloud.google.com/requested-min-cpu-platform` label selector on the pod. To unset the min cpu platform field pass \"automatic\" as field value.""")
-
         return pulumi.get(self, "min_cpu_platform")
 
     @property
@@ -1200,13 +1201,11 @@ class BinaryAuthorizationResponse(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""This field is deprecated. Leave this unset and instead configure BinaryAuthorization using evaluation_mode. If evaluation_mode is set to anything other than EVALUATION_MODE_UNSPECIFIED, this field is ignored.""")
     def enabled(self) -> bool:
         """
         This field is deprecated. Leave this unset and instead configure BinaryAuthorization using evaluation_mode. If evaluation_mode is set to anything other than EVALUATION_MODE_UNSPECIFIED, this field is ignored.
         """
-        warnings.warn("""This field is deprecated. Leave this unset and instead configure BinaryAuthorization using evaluation_mode. If evaluation_mode is set to anything other than EVALUATION_MODE_UNSPECIFIED, this field is ignored.""", DeprecationWarning)
-        pulumi.log.warn("""enabled is deprecated: This field is deprecated. Leave this unset and instead configure BinaryAuthorization using evaluation_mode. If evaluation_mode is set to anything other than EVALUATION_MODE_UNSPECIFIED, this field is ignored.""")
-
         return pulumi.get(self, "enabled")
 
     @property
@@ -1911,6 +1910,50 @@ class DatabaseEncryptionResponse(dict):
         The desired state of etcd encryption.
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class DateResponse(dict):
+    """
+    Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+    """
+    def __init__(__self__, *,
+                 day: int,
+                 month: int,
+                 year: int):
+        """
+        Represents a whole or partial calendar date, such as a birthday. The time of day and time zone are either specified elsewhere or are insignificant. The date is relative to the Gregorian Calendar. This can represent one of the following: * A full date, with non-zero year, month, and day values. * A month and day, with a zero year (for example, an anniversary). * A year on its own, with a zero month and a zero day. * A year and month, with a zero day (for example, a credit card expiration date). Related types: * google.type.TimeOfDay * google.type.DateTime * google.protobuf.Timestamp
+        :param int day: Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.
+        :param int month: Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.
+        :param int year: Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.
+        """
+        pulumi.set(__self__, "day", day)
+        pulumi.set(__self__, "month", month)
+        pulumi.set(__self__, "year", year)
+
+    @property
+    @pulumi.getter
+    def day(self) -> int:
+        """
+        Day of a month. Must be from 1 to 31 and valid for the year and month, or 0 to specify a year by itself or a year and month where the day isn't significant.
+        """
+        return pulumi.get(self, "day")
+
+    @property
+    @pulumi.getter
+    def month(self) -> int:
+        """
+        Month of a year. Must be from 1 to 12, or 0 to specify a year without a month and day.
+        """
+        return pulumi.get(self, "month")
+
+    @property
+    @pulumi.getter
+    def year(self) -> int:
+        """
+        Year of the date. Must be from 1 to 9999, or 0 to specify a date without a year.
+        """
+        return pulumi.get(self, "year")
 
 
 @pulumi.output_type
@@ -2663,13 +2706,11 @@ class IPAllocationPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="clusterIpv4Cidr")
+    @_utilities.deprecated("""This field is deprecated, use cluster_ipv4_cidr_block.""")
     def cluster_ipv4_cidr(self) -> str:
         """
         This field is deprecated, use cluster_ipv4_cidr_block.
         """
-        warnings.warn("""This field is deprecated, use cluster_ipv4_cidr_block.""", DeprecationWarning)
-        pulumi.log.warn("""cluster_ipv4_cidr is deprecated: This field is deprecated, use cluster_ipv4_cidr_block.""")
-
         return pulumi.get(self, "cluster_ipv4_cidr")
 
     @property
@@ -2714,13 +2755,11 @@ class IPAllocationPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="nodeIpv4Cidr")
+    @_utilities.deprecated("""This field is deprecated, use node_ipv4_cidr_block.""")
     def node_ipv4_cidr(self) -> str:
         """
         This field is deprecated, use node_ipv4_cidr_block.
         """
-        warnings.warn("""This field is deprecated, use node_ipv4_cidr_block.""", DeprecationWarning)
-        pulumi.log.warn("""node_ipv4_cidr is deprecated: This field is deprecated, use node_ipv4_cidr_block.""")
-
         return pulumi.get(self, "node_ipv4_cidr")
 
     @property
@@ -2741,13 +2780,11 @@ class IPAllocationPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="servicesIpv4Cidr")
+    @_utilities.deprecated("""This field is deprecated, use services_ipv4_cidr_block.""")
     def services_ipv4_cidr(self) -> str:
         """
         This field is deprecated, use services_ipv4_cidr_block.
         """
-        warnings.warn("""This field is deprecated, use services_ipv4_cidr_block.""", DeprecationWarning)
-        pulumi.log.warn("""services_ipv4_cidr is deprecated: This field is deprecated, use services_ipv4_cidr_block.""")
-
         return pulumi.get(self, "services_ipv4_cidr")
 
     @property
@@ -2800,13 +2837,11 @@ class IPAllocationPolicyResponse(dict):
 
     @property
     @pulumi.getter(name="tpuIpv4CidrBlock")
+    @_utilities.deprecated("""The IP address range of the Cloud TPUs in this cluster. If unspecified, a range will be automatically chosen with the default size. This field is only applicable when `use_ip_aliases` is true. If unspecified, the range will use the default size. Set to /netmask (e.g. `/14`) to have a range chosen with a specific netmask. Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use. This field is deprecated, use cluster.tpu_config.ipv4_cidr_block instead.""")
     def tpu_ipv4_cidr_block(self) -> str:
         """
         The IP address range of the Cloud TPUs in this cluster. If unspecified, a range will be automatically chosen with the default size. This field is only applicable when `use_ip_aliases` is true. If unspecified, the range will use the default size. Set to /netmask (e.g. `/14`) to have a range chosen with a specific netmask. Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use. This field is deprecated, use cluster.tpu_config.ipv4_cidr_block instead.
         """
-        warnings.warn("""The IP address range of the Cloud TPUs in this cluster. If unspecified, a range will be automatically chosen with the default size. This field is only applicable when `use_ip_aliases` is true. If unspecified, the range will use the default size. Set to /netmask (e.g. `/14`) to have a range chosen with a specific netmask. Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use. This field is deprecated, use cluster.tpu_config.ipv4_cidr_block instead.""", DeprecationWarning)
-        pulumi.log.warn("""tpu_ipv4_cidr_block is deprecated: The IP address range of the Cloud TPUs in this cluster. If unspecified, a range will be automatically chosen with the default size. This field is only applicable when `use_ip_aliases` is true. If unspecified, the range will use the default size. Set to /netmask (e.g. `/14`) to have a range chosen with a specific netmask. Set to a [CIDR](http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation (e.g. `10.96.0.0/14`) from the RFC-1918 private networks (e.g. `10.0.0.0/8`, `172.16.0.0/12`, `192.168.0.0/16`) to pick a specific range to use. This field is deprecated, use cluster.tpu_config.ipv4_cidr_block instead.""")
-
         return pulumi.get(self, "tpu_ipv4_cidr_block")
 
     @property
@@ -3275,12 +3310,12 @@ class MaintenanceWindowResponse(dict):
 
     def __init__(__self__, *,
                  daily_maintenance_window: 'outputs.DailyMaintenanceWindowResponse',
-                 maintenance_exclusions: Mapping[str, str],
+                 maintenance_exclusions: Mapping[str, 'outputs.TimeWindowResponse'],
                  recurring_window: 'outputs.RecurringTimeWindowResponse'):
         """
         MaintenanceWindow defines the maintenance window to be used for the cluster.
         :param 'DailyMaintenanceWindowResponse' daily_maintenance_window: DailyMaintenanceWindow specifies a daily maintenance operation window.
-        :param Mapping[str, str] maintenance_exclusions: Exceptions to maintenance window. Non-emergency maintenance should not occur in these windows.
+        :param Mapping[str, 'TimeWindowResponse'] maintenance_exclusions: Exceptions to maintenance window. Non-emergency maintenance should not occur in these windows.
         :param 'RecurringTimeWindowResponse' recurring_window: RecurringWindow specifies some number of recurring time periods for maintenance to occur. The time windows may be overlapping. If no maintenance windows are set, maintenance can occur at any time.
         """
         pulumi.set(__self__, "daily_maintenance_window", daily_maintenance_window)
@@ -3297,7 +3332,7 @@ class MaintenanceWindowResponse(dict):
 
     @property
     @pulumi.getter(name="maintenanceExclusions")
-    def maintenance_exclusions(self) -> Mapping[str, str]:
+    def maintenance_exclusions(self) -> Mapping[str, 'outputs.TimeWindowResponse']:
         """
         Exceptions to maintenance window. Non-emergency maintenance should not occur in these windows.
         """
@@ -5425,13 +5460,11 @@ class NodePoolResponse(dict):
 
     @property
     @pulumi.getter(name="statusMessage")
+    @_utilities.deprecated("""[Output only] Deprecated. Use conditions instead. Additional information about the current status of this node pool instance, if available.""")
     def status_message(self) -> str:
         """
         [Output only] Deprecated. Use conditions instead. Additional information about the current status of this node pool instance, if available.
         """
-        warnings.warn("""[Output only] Deprecated. Use conditions instead. Additional information about the current status of this node pool instance, if available.""", DeprecationWarning)
-        pulumi.log.warn("""status_message is deprecated: [Output only] Deprecated. Use conditions instead. Additional information about the current status of this node pool instance, if available.""")
-
         return pulumi.get(self, "status_message")
 
     @property
@@ -6146,13 +6179,11 @@ class ReleaseChannelConfigResponse(dict):
 
     @property
     @pulumi.getter(name="availableVersions")
+    @_utilities.deprecated("""Deprecated. This field has been deprecated and replaced with the valid_versions field.""")
     def available_versions(self) -> Sequence['outputs.AvailableVersionResponse']:
         """
         Deprecated. This field has been deprecated and replaced with the valid_versions field.
         """
-        warnings.warn("""Deprecated. This field has been deprecated and replaced with the valid_versions field.""", DeprecationWarning)
-        pulumi.log.warn("""available_versions is deprecated: Deprecated. This field has been deprecated and replaced with the valid_versions field.""")
-
         return pulumi.get(self, "available_versions")
 
     @property
@@ -6757,13 +6788,11 @@ class StatusConditionResponse(dict):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""Machine-friendly representation of the condition Deprecated. Use canonical_code instead.""")
     def code(self) -> str:
         """
         Machine-friendly representation of the condition Deprecated. Use canonical_code instead.
         """
-        warnings.warn("""Machine-friendly representation of the condition Deprecated. Use canonical_code instead.""", DeprecationWarning)
-        pulumi.log.warn("""code is deprecated: Machine-friendly representation of the condition Deprecated. Use canonical_code instead.""")
-
         return pulumi.get(self, "code")
 
     @property
@@ -7099,6 +7128,72 @@ class WindowsNodeConfigResponse(dict):
         OSVersion specifies the Windows node config to be used on the node
         """
         return pulumi.get(self, "os_version")
+
+
+@pulumi.output_type
+class WindowsVersionResponse(dict):
+    """
+    Windows server version.
+    """
+    def __init__(__self__, *,
+                 image_type: str,
+                 os_version: str,
+                 support_end_date: 'outputs.DateResponse'):
+        """
+        Windows server version.
+        :param str image_type: Windows server image type
+        :param str os_version: Windows server build number
+        :param 'DateResponse' support_end_date: Mainstream support end date
+        """
+        pulumi.set(__self__, "image_type", image_type)
+        pulumi.set(__self__, "os_version", os_version)
+        pulumi.set(__self__, "support_end_date", support_end_date)
+
+    @property
+    @pulumi.getter(name="imageType")
+    def image_type(self) -> str:
+        """
+        Windows server image type
+        """
+        return pulumi.get(self, "image_type")
+
+    @property
+    @pulumi.getter(name="osVersion")
+    def os_version(self) -> str:
+        """
+        Windows server build number
+        """
+        return pulumi.get(self, "os_version")
+
+    @property
+    @pulumi.getter(name="supportEndDate")
+    def support_end_date(self) -> 'outputs.DateResponse':
+        """
+        Mainstream support end date
+        """
+        return pulumi.get(self, "support_end_date")
+
+
+@pulumi.output_type
+class WindowsVersionsResponse(dict):
+    """
+    Windows server versions.
+    """
+    def __init__(__self__, *,
+                 windows_versions: Sequence['outputs.WindowsVersionResponse']):
+        """
+        Windows server versions.
+        :param Sequence['WindowsVersionResponse'] windows_versions: List of Windows server versions.
+        """
+        pulumi.set(__self__, "windows_versions", windows_versions)
+
+    @property
+    @pulumi.getter(name="windowsVersions")
+    def windows_versions(self) -> Sequence['outputs.WindowsVersionResponse']:
+        """
+        List of Windows server versions.
+        """
+        return pulumi.get(self, "windows_versions")
 
 
 @pulumi.output_type

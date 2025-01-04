@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. The key algorithm to use when generating the private key.
@@ -142,10 +141,12 @@ func (o CertificateIssuanceConfigKeyAlgorithmPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// CertificateIssuanceConfigKeyAlgorithmInput is an input type that accepts CertificateIssuanceConfigKeyAlgorithmArgs and CertificateIssuanceConfigKeyAlgorithmOutput values.
-// You can construct a concrete instance of `CertificateIssuanceConfigKeyAlgorithmInput` via:
+// CertificateIssuanceConfigKeyAlgorithmInput is an input type that accepts values of the CertificateIssuanceConfigKeyAlgorithm enum
+// A concrete instance of `CertificateIssuanceConfigKeyAlgorithmInput` can be one of the following:
 //
-//	CertificateIssuanceConfigKeyAlgorithmArgs{...}
+//	CertificateIssuanceConfigKeyAlgorithmKeyAlgorithmUnspecified
+//	CertificateIssuanceConfigKeyAlgorithmRsa2048
+//	CertificateIssuanceConfigKeyAlgorithmEcdsaP256
 type CertificateIssuanceConfigKeyAlgorithmInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *certificateIssuanceConfigKeyAlgorithmPtr) ToCertificateIssuanceConfigK
 
 func (in *certificateIssuanceConfigKeyAlgorithmPtr) ToCertificateIssuanceConfigKeyAlgorithmPtrOutputWithContext(ctx context.Context) CertificateIssuanceConfigKeyAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateIssuanceConfigKeyAlgorithmPtrOutput)
-}
-
-func (in *certificateIssuanceConfigKeyAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*CertificateIssuanceConfigKeyAlgorithm] {
-	return pulumix.Output[*CertificateIssuanceConfigKeyAlgorithm]{
-		OutputState: in.ToCertificateIssuanceConfigKeyAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A predefined matcher for particular cases, other than SNI selection.
@@ -315,10 +310,11 @@ func (o CertificateMapEntryMatcherPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// CertificateMapEntryMatcherInput is an input type that accepts CertificateMapEntryMatcherArgs and CertificateMapEntryMatcherOutput values.
-// You can construct a concrete instance of `CertificateMapEntryMatcherInput` via:
+// CertificateMapEntryMatcherInput is an input type that accepts values of the CertificateMapEntryMatcher enum
+// A concrete instance of `CertificateMapEntryMatcherInput` can be one of the following:
 //
-//	CertificateMapEntryMatcherArgs{...}
+//	CertificateMapEntryMatcherMatcherUnspecified
+//	CertificateMapEntryMatcherPrimary
 type CertificateMapEntryMatcherInput interface {
 	pulumi.Input
 
@@ -351,12 +347,6 @@ func (in *certificateMapEntryMatcherPtr) ToCertificateMapEntryMatcherPtrOutput()
 
 func (in *certificateMapEntryMatcherPtr) ToCertificateMapEntryMatcherPtrOutputWithContext(ctx context.Context) CertificateMapEntryMatcherPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateMapEntryMatcherPtrOutput)
-}
-
-func (in *certificateMapEntryMatcherPtr) ToOutput(ctx context.Context) pulumix.Output[*CertificateMapEntryMatcher] {
-	return pulumix.Output[*CertificateMapEntryMatcher]{
-		OutputState: in.ToCertificateMapEntryMatcherPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The scope of the certificate.
@@ -490,10 +480,12 @@ func (o CertificateScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// CertificateScopeInput is an input type that accepts CertificateScopeArgs and CertificateScopeOutput values.
-// You can construct a concrete instance of `CertificateScopeInput` via:
+// CertificateScopeInput is an input type that accepts values of the CertificateScope enum
+// A concrete instance of `CertificateScopeInput` can be one of the following:
 //
-//	CertificateScopeArgs{...}
+//	CertificateScopeDefault
+//	CertificateScopeEdgeCache
+//	CertificateScopeAllRegions
 type CertificateScopeInput interface {
 	pulumi.Input
 
@@ -526,12 +518,6 @@ func (in *certificateScopePtr) ToCertificateScopePtrOutput() CertificateScopePtr
 
 func (in *certificateScopePtr) ToCertificateScopePtrOutputWithContext(ctx context.Context) CertificateScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CertificateScopePtrOutput)
-}
-
-func (in *certificateScopePtr) ToOutput(ctx context.Context) pulumix.Output[*CertificateScope] {
-	return pulumix.Output[*CertificateScope]{
-		OutputState: in.ToCertificateScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

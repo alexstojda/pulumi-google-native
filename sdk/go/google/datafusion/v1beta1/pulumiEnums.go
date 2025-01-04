@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Instance type.
@@ -321,10 +317,13 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceTypeInput is an input type that accepts InstanceTypeArgs and InstanceTypeOutput values.
-// You can construct a concrete instance of `InstanceTypeInput` via:
+// InstanceTypeInput is an input type that accepts values of the InstanceType enum
+// A concrete instance of `InstanceTypeInput` can be one of the following:
 //
-//	InstanceTypeArgs{...}
+//	InstanceTypeTypeUnspecified
+//	InstanceTypeBasic
+//	InstanceTypeEnterprise
+//	InstanceTypeDeveloper
 type InstanceTypeInput interface {
 	pulumi.Input
 
@@ -357,12 +356,6 @@ func (in *instanceTypePtr) ToInstanceTypePtrOutput() InstanceTypePtrOutput {
 
 func (in *instanceTypePtr) ToInstanceTypePtrOutputWithContext(ctx context.Context) InstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceTypePtrOutput)
-}
-
-func (in *instanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceType] {
-	return pulumix.Output[*InstanceType]{
-		OutputState: in.ToInstanceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Type of connection for establishing private IP connectivity between the Data Fusion customer project VPC and the corresponding tenant project from a predefined list of available connection modes. If this field is unspecified for a private instance, VPC peering is used.
@@ -496,10 +489,12 @@ func (o NetworkConfigConnectionTypePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkConfigConnectionTypeInput is an input type that accepts NetworkConfigConnectionTypeArgs and NetworkConfigConnectionTypeOutput values.
-// You can construct a concrete instance of `NetworkConfigConnectionTypeInput` via:
+// NetworkConfigConnectionTypeInput is an input type that accepts values of the NetworkConfigConnectionType enum
+// A concrete instance of `NetworkConfigConnectionTypeInput` can be one of the following:
 //
-//	NetworkConfigConnectionTypeArgs{...}
+//	NetworkConfigConnectionTypeConnectionTypeUnspecified
+//	NetworkConfigConnectionTypeVpcPeering
+//	NetworkConfigConnectionTypePrivateServiceConnectInterfaces
 type NetworkConfigConnectionTypeInput interface {
 	pulumi.Input
 
@@ -532,12 +527,6 @@ func (in *networkConfigConnectionTypePtr) ToNetworkConfigConnectionTypePtrOutput
 
 func (in *networkConfigConnectionTypePtr) ToNetworkConfigConnectionTypePtrOutputWithContext(ctx context.Context) NetworkConfigConnectionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkConfigConnectionTypePtrOutput)
-}
-
-func (in *networkConfigConnectionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkConfigConnectionType] {
-	return pulumix.Output[*NetworkConfigConnectionType]{
-		OutputState: in.ToNetworkConfigConnectionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

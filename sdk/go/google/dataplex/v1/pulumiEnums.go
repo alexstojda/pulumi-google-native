@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. Immutable. Identifies the storage system of the entity data.
@@ -142,10 +141,12 @@ func (o EntitySystemPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// EntitySystemInput is an input type that accepts EntitySystemArgs and EntitySystemOutput values.
-// You can construct a concrete instance of `EntitySystemInput` via:
+// EntitySystemInput is an input type that accepts values of the EntitySystem enum
+// A concrete instance of `EntitySystemInput` can be one of the following:
 //
-//	EntitySystemArgs{...}
+//	EntitySystemStorageSystemUnspecified
+//	EntitySystemCloudStorage
+//	EntitySystemBigquery
 type EntitySystemInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *entitySystemPtr) ToEntitySystemPtrOutput() EntitySystemPtrOutput {
 
 func (in *entitySystemPtr) ToEntitySystemPtrOutputWithContext(ctx context.Context) EntitySystemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EntitySystemPtrOutput)
-}
-
-func (in *entitySystemPtr) ToOutput(ctx context.Context) pulumix.Output[*EntitySystem] {
-	return pulumix.Output[*EntitySystem]{
-		OutputState: in.ToEntitySystemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. The type of entity.
@@ -317,10 +312,12 @@ func (o EntityTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// EntityTypeInput is an input type that accepts EntityTypeArgs and EntityTypeOutput values.
-// You can construct a concrete instance of `EntityTypeInput` via:
+// EntityTypeInput is an input type that accepts values of the EntityType enum
+// A concrete instance of `EntityTypeInput` can be one of the following:
 //
-//	EntityTypeArgs{...}
+//	EntityTypeTypeUnspecified
+//	EntityTypeTable
+//	EntityTypeFileset
 type EntityTypeInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *entityTypePtr) ToEntityTypePtrOutput() EntityTypePtrOutput {
 
 func (in *entityTypePtr) ToEntityTypePtrOutputWithContext(ctx context.Context) EntityTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTypePtrOutput)
-}
-
-func (in *entityTypePtr) ToOutput(ctx context.Context) pulumix.Output[*EntityType] {
-	return pulumix.Output[*EntityType]{
-		OutputState: in.ToEntityTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Determines how read permissions are handled for each asset and their associated tables. Only available to storage buckets assets.
@@ -492,10 +483,12 @@ func (o GoogleCloudDataplexV1AssetResourceSpecReadAccessModePtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1AssetResourceSpecReadAccessModeInput is an input type that accepts GoogleCloudDataplexV1AssetResourceSpecReadAccessModeArgs and GoogleCloudDataplexV1AssetResourceSpecReadAccessModeOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1AssetResourceSpecReadAccessModeInput` via:
+// GoogleCloudDataplexV1AssetResourceSpecReadAccessModeInput is an input type that accepts values of the GoogleCloudDataplexV1AssetResourceSpecReadAccessMode enum
+// A concrete instance of `GoogleCloudDataplexV1AssetResourceSpecReadAccessModeInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1AssetResourceSpecReadAccessModeArgs{...}
+//	GoogleCloudDataplexV1AssetResourceSpecReadAccessModeAccessModeUnspecified
+//	GoogleCloudDataplexV1AssetResourceSpecReadAccessModeDirect
+//	GoogleCloudDataplexV1AssetResourceSpecReadAccessModeManaged
 type GoogleCloudDataplexV1AssetResourceSpecReadAccessModeInput interface {
 	pulumi.Input
 
@@ -528,12 +521,6 @@ func (in *googleCloudDataplexV1AssetResourceSpecReadAccessModePtr) ToGoogleCloud
 
 func (in *googleCloudDataplexV1AssetResourceSpecReadAccessModePtr) ToGoogleCloudDataplexV1AssetResourceSpecReadAccessModePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1AssetResourceSpecReadAccessModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1AssetResourceSpecReadAccessModePtrOutput)
-}
-
-func (in *googleCloudDataplexV1AssetResourceSpecReadAccessModePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1AssetResourceSpecReadAccessMode] {
-	return pulumix.Output[*GoogleCloudDataplexV1AssetResourceSpecReadAccessMode]{
-		OutputState: in.ToGoogleCloudDataplexV1AssetResourceSpecReadAccessModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. Type of resource.
@@ -667,10 +654,12 @@ func (o GoogleCloudDataplexV1AssetResourceSpecTypePtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1AssetResourceSpecTypeInput is an input type that accepts GoogleCloudDataplexV1AssetResourceSpecTypeArgs and GoogleCloudDataplexV1AssetResourceSpecTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1AssetResourceSpecTypeInput` via:
+// GoogleCloudDataplexV1AssetResourceSpecTypeInput is an input type that accepts values of the GoogleCloudDataplexV1AssetResourceSpecType enum
+// A concrete instance of `GoogleCloudDataplexV1AssetResourceSpecTypeInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1AssetResourceSpecTypeArgs{...}
+//	GoogleCloudDataplexV1AssetResourceSpecTypeTypeUnspecified
+//	GoogleCloudDataplexV1AssetResourceSpecTypeStorageBucket
+//	GoogleCloudDataplexV1AssetResourceSpecTypeBigqueryDataset
 type GoogleCloudDataplexV1AssetResourceSpecTypeInput interface {
 	pulumi.Input
 
@@ -703,12 +692,6 @@ func (in *googleCloudDataplexV1AssetResourceSpecTypePtr) ToGoogleCloudDataplexV1
 
 func (in *googleCloudDataplexV1AssetResourceSpecTypePtr) ToGoogleCloudDataplexV1AssetResourceSpecTypePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1AssetResourceSpecTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1AssetResourceSpecTypePtrOutput)
-}
-
-func (in *googleCloudDataplexV1AssetResourceSpecTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1AssetResourceSpecType] {
-	return pulumix.Output[*GoogleCloudDataplexV1AssetResourceSpecType]{
-		OutputState: in.ToGoogleCloudDataplexV1AssetResourceSpecTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Kernel Type of the notebook.
@@ -840,10 +823,11 @@ func (o GoogleCloudDataplexV1ContentNotebookKernelTypePtrOutput) ToStringPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1ContentNotebookKernelTypeInput is an input type that accepts GoogleCloudDataplexV1ContentNotebookKernelTypeArgs and GoogleCloudDataplexV1ContentNotebookKernelTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1ContentNotebookKernelTypeInput` via:
+// GoogleCloudDataplexV1ContentNotebookKernelTypeInput is an input type that accepts values of the GoogleCloudDataplexV1ContentNotebookKernelType enum
+// A concrete instance of `GoogleCloudDataplexV1ContentNotebookKernelTypeInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1ContentNotebookKernelTypeArgs{...}
+//	GoogleCloudDataplexV1ContentNotebookKernelTypeKernelTypeUnspecified
+//	GoogleCloudDataplexV1ContentNotebookKernelTypePython3
 type GoogleCloudDataplexV1ContentNotebookKernelTypeInput interface {
 	pulumi.Input
 
@@ -876,12 +860,6 @@ func (in *googleCloudDataplexV1ContentNotebookKernelTypePtr) ToGoogleCloudDatapl
 
 func (in *googleCloudDataplexV1ContentNotebookKernelTypePtr) ToGoogleCloudDataplexV1ContentNotebookKernelTypePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1ContentNotebookKernelTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1ContentNotebookKernelTypePtrOutput)
-}
-
-func (in *googleCloudDataplexV1ContentNotebookKernelTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1ContentNotebookKernelType] {
-	return pulumix.Output[*GoogleCloudDataplexV1ContentNotebookKernelType]{
-		OutputState: in.ToGoogleCloudDataplexV1ContentNotebookKernelTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Query Engine to be used for the Sql Query.
@@ -1013,10 +991,11 @@ func (o GoogleCloudDataplexV1ContentSqlScriptEnginePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1ContentSqlScriptEngineInput is an input type that accepts GoogleCloudDataplexV1ContentSqlScriptEngineArgs and GoogleCloudDataplexV1ContentSqlScriptEngineOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1ContentSqlScriptEngineInput` via:
+// GoogleCloudDataplexV1ContentSqlScriptEngineInput is an input type that accepts values of the GoogleCloudDataplexV1ContentSqlScriptEngine enum
+// A concrete instance of `GoogleCloudDataplexV1ContentSqlScriptEngineInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1ContentSqlScriptEngineArgs{...}
+//	GoogleCloudDataplexV1ContentSqlScriptEngineQueryEngineUnspecified
+//	GoogleCloudDataplexV1ContentSqlScriptEngineSpark
 type GoogleCloudDataplexV1ContentSqlScriptEngineInput interface {
 	pulumi.Input
 
@@ -1049,12 +1028,6 @@ func (in *googleCloudDataplexV1ContentSqlScriptEnginePtr) ToGoogleCloudDataplexV
 
 func (in *googleCloudDataplexV1ContentSqlScriptEnginePtr) ToGoogleCloudDataplexV1ContentSqlScriptEnginePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1ContentSqlScriptEnginePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1ContentSqlScriptEnginePtrOutput)
-}
-
-func (in *googleCloudDataplexV1ContentSqlScriptEnginePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1ContentSqlScriptEngine] {
-	return pulumix.Output[*GoogleCloudDataplexV1ContentSqlScriptEngine]{
-		OutputState: in.ToGoogleCloudDataplexV1ContentSqlScriptEnginePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The aggregate metric to evaluate.
@@ -1190,10 +1163,13 @@ func (o GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticInput is an input type that accepts GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticArgs and GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticInput` via:
+// GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticInput is an input type that accepts values of the GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatistic enum
+// A concrete instance of `GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticArgs{...}
+//	GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticStatisticUndefined
+//	GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticMean
+//	GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticMin
+//	GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticMax
 type GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticInput interface {
 	pulumi.Input
 
@@ -1226,12 +1202,6 @@ func (in *googleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatistic
 
 func (in *googleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticPtr) ToGoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticPtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticPtrOutput)
-}
-
-func (in *googleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatistic] {
-	return pulumix.Output[*GoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatistic]{
-		OutputState: in.ToGoogleCloudDataplexV1DataQualityRuleStatisticRangeExpectationStatisticPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. The type of field.
@@ -1391,10 +1361,25 @@ func (o GoogleCloudDataplexV1SchemaPartitionFieldTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1SchemaPartitionFieldTypeInput is an input type that accepts GoogleCloudDataplexV1SchemaPartitionFieldTypeArgs and GoogleCloudDataplexV1SchemaPartitionFieldTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1SchemaPartitionFieldTypeInput` via:
+// GoogleCloudDataplexV1SchemaPartitionFieldTypeInput is an input type that accepts values of the GoogleCloudDataplexV1SchemaPartitionFieldType enum
+// A concrete instance of `GoogleCloudDataplexV1SchemaPartitionFieldTypeInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1SchemaPartitionFieldTypeArgs{...}
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeTypeUnspecified
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeBoolean
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeByte
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeInt16
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeInt32
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeInt64
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeFloat
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeDouble
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeDecimal
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeString
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeBinary
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeTimestamp
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeDate
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeTime
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeRecord
+//	GoogleCloudDataplexV1SchemaPartitionFieldTypeNull
 type GoogleCloudDataplexV1SchemaPartitionFieldTypeInput interface {
 	pulumi.Input
 
@@ -1427,12 +1412,6 @@ func (in *googleCloudDataplexV1SchemaPartitionFieldTypePtr) ToGoogleCloudDataple
 
 func (in *googleCloudDataplexV1SchemaPartitionFieldTypePtr) ToGoogleCloudDataplexV1SchemaPartitionFieldTypePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1SchemaPartitionFieldTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1SchemaPartitionFieldTypePtrOutput)
-}
-
-func (in *googleCloudDataplexV1SchemaPartitionFieldTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1SchemaPartitionFieldType] {
-	return pulumix.Output[*GoogleCloudDataplexV1SchemaPartitionFieldType]{
-		OutputState: in.ToGoogleCloudDataplexV1SchemaPartitionFieldTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The structure of paths containing partition data within the entity.
@@ -1564,10 +1543,11 @@ func (o GoogleCloudDataplexV1SchemaPartitionStylePtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1SchemaPartitionStyleInput is an input type that accepts GoogleCloudDataplexV1SchemaPartitionStyleArgs and GoogleCloudDataplexV1SchemaPartitionStyleOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1SchemaPartitionStyleInput` via:
+// GoogleCloudDataplexV1SchemaPartitionStyleInput is an input type that accepts values of the GoogleCloudDataplexV1SchemaPartitionStyle enum
+// A concrete instance of `GoogleCloudDataplexV1SchemaPartitionStyleInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1SchemaPartitionStyleArgs{...}
+//	GoogleCloudDataplexV1SchemaPartitionStylePartitionStyleUnspecified
+//	GoogleCloudDataplexV1SchemaPartitionStyleHiveCompatible
 type GoogleCloudDataplexV1SchemaPartitionStyleInput interface {
 	pulumi.Input
 
@@ -1600,12 +1580,6 @@ func (in *googleCloudDataplexV1SchemaPartitionStylePtr) ToGoogleCloudDataplexV1S
 
 func (in *googleCloudDataplexV1SchemaPartitionStylePtr) ToGoogleCloudDataplexV1SchemaPartitionStylePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1SchemaPartitionStylePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1SchemaPartitionStylePtrOutput)
-}
-
-func (in *googleCloudDataplexV1SchemaPartitionStylePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1SchemaPartitionStyle] {
-	return pulumix.Output[*GoogleCloudDataplexV1SchemaPartitionStyle]{
-		OutputState: in.ToGoogleCloudDataplexV1SchemaPartitionStylePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Additional field semantics.
@@ -1741,10 +1715,13 @@ func (o GoogleCloudDataplexV1SchemaSchemaFieldModePtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1SchemaSchemaFieldModeInput is an input type that accepts GoogleCloudDataplexV1SchemaSchemaFieldModeArgs and GoogleCloudDataplexV1SchemaSchemaFieldModeOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1SchemaSchemaFieldModeInput` via:
+// GoogleCloudDataplexV1SchemaSchemaFieldModeInput is an input type that accepts values of the GoogleCloudDataplexV1SchemaSchemaFieldMode enum
+// A concrete instance of `GoogleCloudDataplexV1SchemaSchemaFieldModeInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1SchemaSchemaFieldModeArgs{...}
+//	GoogleCloudDataplexV1SchemaSchemaFieldModeModeUnspecified
+//	GoogleCloudDataplexV1SchemaSchemaFieldModeRequired
+//	GoogleCloudDataplexV1SchemaSchemaFieldModeNullable
+//	GoogleCloudDataplexV1SchemaSchemaFieldModeRepeated
 type GoogleCloudDataplexV1SchemaSchemaFieldModeInput interface {
 	pulumi.Input
 
@@ -1777,12 +1754,6 @@ func (in *googleCloudDataplexV1SchemaSchemaFieldModePtr) ToGoogleCloudDataplexV1
 
 func (in *googleCloudDataplexV1SchemaSchemaFieldModePtr) ToGoogleCloudDataplexV1SchemaSchemaFieldModePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1SchemaSchemaFieldModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1SchemaSchemaFieldModePtrOutput)
-}
-
-func (in *googleCloudDataplexV1SchemaSchemaFieldModePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1SchemaSchemaFieldMode] {
-	return pulumix.Output[*GoogleCloudDataplexV1SchemaSchemaFieldMode]{
-		OutputState: in.ToGoogleCloudDataplexV1SchemaSchemaFieldModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of field.
@@ -1942,10 +1913,25 @@ func (o GoogleCloudDataplexV1SchemaSchemaFieldTypePtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1SchemaSchemaFieldTypeInput is an input type that accepts GoogleCloudDataplexV1SchemaSchemaFieldTypeArgs and GoogleCloudDataplexV1SchemaSchemaFieldTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1SchemaSchemaFieldTypeInput` via:
+// GoogleCloudDataplexV1SchemaSchemaFieldTypeInput is an input type that accepts values of the GoogleCloudDataplexV1SchemaSchemaFieldType enum
+// A concrete instance of `GoogleCloudDataplexV1SchemaSchemaFieldTypeInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1SchemaSchemaFieldTypeArgs{...}
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeTypeUnspecified
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeBoolean
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeByte
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeInt16
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeInt32
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeInt64
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeFloat
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeDouble
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeDecimal
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeString
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeBinary
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeTimestamp
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeDate
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeTime
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeRecord
+//	GoogleCloudDataplexV1SchemaSchemaFieldTypeNull
 type GoogleCloudDataplexV1SchemaSchemaFieldTypeInput interface {
 	pulumi.Input
 
@@ -1978,12 +1964,6 @@ func (in *googleCloudDataplexV1SchemaSchemaFieldTypePtr) ToGoogleCloudDataplexV1
 
 func (in *googleCloudDataplexV1SchemaSchemaFieldTypePtr) ToGoogleCloudDataplexV1SchemaSchemaFieldTypePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1SchemaSchemaFieldTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1SchemaSchemaFieldTypePtrOutput)
-}
-
-func (in *googleCloudDataplexV1SchemaSchemaFieldTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1SchemaSchemaFieldType] {
-	return pulumix.Output[*GoogleCloudDataplexV1SchemaSchemaFieldType]{
-		OutputState: in.ToGoogleCloudDataplexV1SchemaSchemaFieldTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The compression type associated with the stored data. If unspecified, the data is uncompressed.
@@ -2117,10 +2097,12 @@ func (o GoogleCloudDataplexV1StorageFormatCompressionFormatPtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1StorageFormatCompressionFormatInput is an input type that accepts GoogleCloudDataplexV1StorageFormatCompressionFormatArgs and GoogleCloudDataplexV1StorageFormatCompressionFormatOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1StorageFormatCompressionFormatInput` via:
+// GoogleCloudDataplexV1StorageFormatCompressionFormatInput is an input type that accepts values of the GoogleCloudDataplexV1StorageFormatCompressionFormat enum
+// A concrete instance of `GoogleCloudDataplexV1StorageFormatCompressionFormatInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1StorageFormatCompressionFormatArgs{...}
+//	GoogleCloudDataplexV1StorageFormatCompressionFormatCompressionFormatUnspecified
+//	GoogleCloudDataplexV1StorageFormatCompressionFormatGzip
+//	GoogleCloudDataplexV1StorageFormatCompressionFormatBzip2
 type GoogleCloudDataplexV1StorageFormatCompressionFormatInput interface {
 	pulumi.Input
 
@@ -2153,12 +2135,6 @@ func (in *googleCloudDataplexV1StorageFormatCompressionFormatPtr) ToGoogleCloudD
 
 func (in *googleCloudDataplexV1StorageFormatCompressionFormatPtr) ToGoogleCloudDataplexV1StorageFormatCompressionFormatPtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1StorageFormatCompressionFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1StorageFormatCompressionFormatPtrOutput)
-}
-
-func (in *googleCloudDataplexV1StorageFormatCompressionFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1StorageFormatCompressionFormat] {
-	return pulumix.Output[*GoogleCloudDataplexV1StorageFormatCompressionFormat]{
-		OutputState: in.ToGoogleCloudDataplexV1StorageFormatCompressionFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. Trigger type of the user-specified Task.
@@ -2292,10 +2268,12 @@ func (o GoogleCloudDataplexV1TaskTriggerSpecTypePtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1TaskTriggerSpecTypeInput is an input type that accepts GoogleCloudDataplexV1TaskTriggerSpecTypeArgs and GoogleCloudDataplexV1TaskTriggerSpecTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1TaskTriggerSpecTypeInput` via:
+// GoogleCloudDataplexV1TaskTriggerSpecTypeInput is an input type that accepts values of the GoogleCloudDataplexV1TaskTriggerSpecType enum
+// A concrete instance of `GoogleCloudDataplexV1TaskTriggerSpecTypeInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1TaskTriggerSpecTypeArgs{...}
+//	GoogleCloudDataplexV1TaskTriggerSpecTypeTypeUnspecified
+//	GoogleCloudDataplexV1TaskTriggerSpecTypeOnDemand
+//	GoogleCloudDataplexV1TaskTriggerSpecTypeRecurring
 type GoogleCloudDataplexV1TaskTriggerSpecTypeInput interface {
 	pulumi.Input
 
@@ -2328,12 +2306,6 @@ func (in *googleCloudDataplexV1TaskTriggerSpecTypePtr) ToGoogleCloudDataplexV1Ta
 
 func (in *googleCloudDataplexV1TaskTriggerSpecTypePtr) ToGoogleCloudDataplexV1TaskTriggerSpecTypePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1TaskTriggerSpecTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1TaskTriggerSpecTypePtrOutput)
-}
-
-func (in *googleCloudDataplexV1TaskTriggerSpecTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1TaskTriggerSpecType] {
-	return pulumix.Output[*GoogleCloudDataplexV1TaskTriggerSpecType]{
-		OutputState: in.ToGoogleCloudDataplexV1TaskTriggerSpecTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. The location type of the resources that are allowed to be attached to the assets within this zone.
@@ -2467,10 +2439,12 @@ func (o GoogleCloudDataplexV1ZoneResourceSpecLocationTypePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDataplexV1ZoneResourceSpecLocationTypeInput is an input type that accepts GoogleCloudDataplexV1ZoneResourceSpecLocationTypeArgs and GoogleCloudDataplexV1ZoneResourceSpecLocationTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDataplexV1ZoneResourceSpecLocationTypeInput` via:
+// GoogleCloudDataplexV1ZoneResourceSpecLocationTypeInput is an input type that accepts values of the GoogleCloudDataplexV1ZoneResourceSpecLocationType enum
+// A concrete instance of `GoogleCloudDataplexV1ZoneResourceSpecLocationTypeInput` can be one of the following:
 //
-//	GoogleCloudDataplexV1ZoneResourceSpecLocationTypeArgs{...}
+//	GoogleCloudDataplexV1ZoneResourceSpecLocationTypeLocationTypeUnspecified
+//	GoogleCloudDataplexV1ZoneResourceSpecLocationTypeSingleRegion
+//	GoogleCloudDataplexV1ZoneResourceSpecLocationTypeMultiRegion
 type GoogleCloudDataplexV1ZoneResourceSpecLocationTypeInput interface {
 	pulumi.Input
 
@@ -2503,12 +2477,6 @@ func (in *googleCloudDataplexV1ZoneResourceSpecLocationTypePtr) ToGoogleCloudDat
 
 func (in *googleCloudDataplexV1ZoneResourceSpecLocationTypePtr) ToGoogleCloudDataplexV1ZoneResourceSpecLocationTypePtrOutputWithContext(ctx context.Context) GoogleCloudDataplexV1ZoneResourceSpecLocationTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDataplexV1ZoneResourceSpecLocationTypePtrOutput)
-}
-
-func (in *googleCloudDataplexV1ZoneResourceSpecLocationTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDataplexV1ZoneResourceSpecLocationType] {
-	return pulumix.Output[*GoogleCloudDataplexV1ZoneResourceSpecLocationType]{
-		OutputState: in.ToGoogleCloudDataplexV1ZoneResourceSpecLocationTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -2644,10 +2612,13 @@ func (o GoogleIamV1AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts GoogleIamV1AuditLogConfigLogTypeArgs and GoogleIamV1AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` via:
+// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts values of the GoogleIamV1AuditLogConfigLogType enum
+// A concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	GoogleIamV1AuditLogConfigLogTypeArgs{...}
+//	GoogleIamV1AuditLogConfigLogTypeLogTypeUnspecified
+//	GoogleIamV1AuditLogConfigLogTypeAdminRead
+//	GoogleIamV1AuditLogConfigLogTypeDataWrite
+//	GoogleIamV1AuditLogConfigLogTypeDataRead
 type GoogleIamV1AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -2680,12 +2651,6 @@ func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTyp
 
 func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) GoogleIamV1AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamV1AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *googleIamV1AuditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamV1AuditLogConfigLogType] {
-	return pulumix.Output[*GoogleIamV1AuditLogConfigLogType]{
-		OutputState: in.ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Immutable. The type of the zone.
@@ -2819,10 +2784,12 @@ func (o ZoneTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// ZoneTypeInput is an input type that accepts ZoneTypeArgs and ZoneTypeOutput values.
-// You can construct a concrete instance of `ZoneTypeInput` via:
+// ZoneTypeInput is an input type that accepts values of the ZoneType enum
+// A concrete instance of `ZoneTypeInput` can be one of the following:
 //
-//	ZoneTypeArgs{...}
+//	ZoneTypeTypeUnspecified
+//	ZoneTypeRaw
+//	ZoneTypeCurated
 type ZoneTypeInput interface {
 	pulumi.Input
 
@@ -2855,12 +2822,6 @@ func (in *zoneTypePtr) ToZoneTypePtrOutput() ZoneTypePtrOutput {
 
 func (in *zoneTypePtr) ToZoneTypePtrOutputWithContext(ctx context.Context) ZoneTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ZoneTypePtrOutput)
-}
-
-func (in *zoneTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ZoneType] {
-	return pulumix.Output[*ZoneType]{
-		OutputState: in.ToZoneTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

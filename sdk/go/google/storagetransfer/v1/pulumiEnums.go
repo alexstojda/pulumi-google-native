@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type LoggingConfigLogActionStatesItem string
@@ -141,10 +140,12 @@ func (o LoggingConfigLogActionStatesItemPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigLogActionStatesItemInput is an input type that accepts LoggingConfigLogActionStatesItemArgs and LoggingConfigLogActionStatesItemOutput values.
-// You can construct a concrete instance of `LoggingConfigLogActionStatesItemInput` via:
+// LoggingConfigLogActionStatesItemInput is an input type that accepts values of the LoggingConfigLogActionStatesItem enum
+// A concrete instance of `LoggingConfigLogActionStatesItemInput` can be one of the following:
 //
-//	LoggingConfigLogActionStatesItemArgs{...}
+//	LoggingConfigLogActionStatesItemLoggableActionStateUnspecified
+//	LoggingConfigLogActionStatesItemSucceeded
+//	LoggingConfigLogActionStatesItemFailed
 type LoggingConfigLogActionStatesItemInput interface {
 	pulumi.Input
 
@@ -177,12 +178,6 @@ func (in *loggingConfigLogActionStatesItemPtr) ToLoggingConfigLogActionStatesIte
 
 func (in *loggingConfigLogActionStatesItemPtr) ToLoggingConfigLogActionStatesItemPtrOutputWithContext(ctx context.Context) LoggingConfigLogActionStatesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigLogActionStatesItemPtrOutput)
-}
-
-func (in *loggingConfigLogActionStatesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigLogActionStatesItem] {
-	return pulumix.Output[*LoggingConfigLogActionStatesItem]{
-		OutputState: in.ToLoggingConfigLogActionStatesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LoggingConfigLogActionStatesItemArrayInput is an input type that accepts LoggingConfigLogActionStatesItemArray and LoggingConfigLogActionStatesItemArrayOutput values.
@@ -362,10 +357,13 @@ func (o LoggingConfigLogActionsItemPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// LoggingConfigLogActionsItemInput is an input type that accepts LoggingConfigLogActionsItemArgs and LoggingConfigLogActionsItemOutput values.
-// You can construct a concrete instance of `LoggingConfigLogActionsItemInput` via:
+// LoggingConfigLogActionsItemInput is an input type that accepts values of the LoggingConfigLogActionsItem enum
+// A concrete instance of `LoggingConfigLogActionsItemInput` can be one of the following:
 //
-//	LoggingConfigLogActionsItemArgs{...}
+//	LoggingConfigLogActionsItemLoggableActionUnspecified
+//	LoggingConfigLogActionsItemFind
+//	LoggingConfigLogActionsItemDelete
+//	LoggingConfigLogActionsItemCopy
 type LoggingConfigLogActionsItemInput interface {
 	pulumi.Input
 
@@ -398,12 +396,6 @@ func (in *loggingConfigLogActionsItemPtr) ToLoggingConfigLogActionsItemPtrOutput
 
 func (in *loggingConfigLogActionsItemPtr) ToLoggingConfigLogActionsItemPtrOutputWithContext(ctx context.Context) LoggingConfigLogActionsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LoggingConfigLogActionsItemPtrOutput)
-}
-
-func (in *loggingConfigLogActionsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*LoggingConfigLogActionsItem] {
-	return pulumix.Output[*LoggingConfigLogActionsItem]{
-		OutputState: in.ToLoggingConfigLogActionsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // LoggingConfigLogActionsItemArrayInput is an input type that accepts LoggingConfigLogActionsItemArray and LoggingConfigLogActionsItemArrayOutput values.
@@ -582,10 +574,12 @@ func (o MetadataOptionsAclPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsAclInput is an input type that accepts MetadataOptionsAclArgs and MetadataOptionsAclOutput values.
-// You can construct a concrete instance of `MetadataOptionsAclInput` via:
+// MetadataOptionsAclInput is an input type that accepts values of the MetadataOptionsAcl enum
+// A concrete instance of `MetadataOptionsAclInput` can be one of the following:
 //
-//	MetadataOptionsAclArgs{...}
+//	MetadataOptionsAclAclUnspecified
+//	MetadataOptionsAclAclDestinationBucketDefault
+//	MetadataOptionsAclAclPreserve
 type MetadataOptionsAclInput interface {
 	pulumi.Input
 
@@ -618,12 +612,6 @@ func (in *metadataOptionsAclPtr) ToMetadataOptionsAclPtrOutput() MetadataOptions
 
 func (in *metadataOptionsAclPtr) ToMetadataOptionsAclPtrOutputWithContext(ctx context.Context) MetadataOptionsAclPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsAclPtrOutput)
-}
-
-func (in *metadataOptionsAclPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsAcl] {
-	return pulumix.Output[*MetadataOptionsAcl]{
-		OutputState: in.ToMetadataOptionsAclPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how each file's POSIX group ID (GID) attribute should be handled by the transfer. By default, GID is not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers.
@@ -757,10 +745,12 @@ func (o MetadataOptionsGidPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsGidInput is an input type that accepts MetadataOptionsGidArgs and MetadataOptionsGidOutput values.
-// You can construct a concrete instance of `MetadataOptionsGidInput` via:
+// MetadataOptionsGidInput is an input type that accepts values of the MetadataOptionsGid enum
+// A concrete instance of `MetadataOptionsGidInput` can be one of the following:
 //
-//	MetadataOptionsGidArgs{...}
+//	MetadataOptionsGidGidUnspecified
+//	MetadataOptionsGidGidSkip
+//	MetadataOptionsGidGidNumber
 type MetadataOptionsGidInput interface {
 	pulumi.Input
 
@@ -793,12 +783,6 @@ func (in *metadataOptionsGidPtr) ToMetadataOptionsGidPtrOutput() MetadataOptions
 
 func (in *metadataOptionsGidPtr) ToMetadataOptionsGidPtrOutputWithContext(ctx context.Context) MetadataOptionsGidPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsGidPtrOutput)
-}
-
-func (in *metadataOptionsGidPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsGid] {
-	return pulumix.Output[*MetadataOptionsGid]{
-		OutputState: in.ToMetadataOptionsGidPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how each object's Cloud KMS customer-managed encryption key (CMEK) is preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as KMS_KEY_DESTINATION_BUCKET_DEFAULT.
@@ -932,10 +916,12 @@ func (o MetadataOptionsKmsKeyPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsKmsKeyInput is an input type that accepts MetadataOptionsKmsKeyArgs and MetadataOptionsKmsKeyOutput values.
-// You can construct a concrete instance of `MetadataOptionsKmsKeyInput` via:
+// MetadataOptionsKmsKeyInput is an input type that accepts values of the MetadataOptionsKmsKey enum
+// A concrete instance of `MetadataOptionsKmsKeyInput` can be one of the following:
 //
-//	MetadataOptionsKmsKeyArgs{...}
+//	MetadataOptionsKmsKeyKmsKeyUnspecified
+//	MetadataOptionsKmsKeyKmsKeyDestinationBucketDefault
+//	MetadataOptionsKmsKeyKmsKeyPreserve
 type MetadataOptionsKmsKeyInput interface {
 	pulumi.Input
 
@@ -968,12 +954,6 @@ func (in *metadataOptionsKmsKeyPtr) ToMetadataOptionsKmsKeyPtrOutput() MetadataO
 
 func (in *metadataOptionsKmsKeyPtr) ToMetadataOptionsKmsKeyPtrOutputWithContext(ctx context.Context) MetadataOptionsKmsKeyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsKmsKeyPtrOutput)
-}
-
-func (in *metadataOptionsKmsKeyPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsKmsKey] {
-	return pulumix.Output[*MetadataOptionsKmsKey]{
-		OutputState: in.ToMetadataOptionsKmsKeyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how each file's mode attribute should be handled by the transfer. By default, mode is not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers.
@@ -1107,10 +1087,12 @@ func (o MetadataOptionsModePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsModeInput is an input type that accepts MetadataOptionsModeArgs and MetadataOptionsModeOutput values.
-// You can construct a concrete instance of `MetadataOptionsModeInput` via:
+// MetadataOptionsModeInput is an input type that accepts values of the MetadataOptionsMode enum
+// A concrete instance of `MetadataOptionsModeInput` can be one of the following:
 //
-//	MetadataOptionsModeArgs{...}
+//	MetadataOptionsModeModeUnspecified
+//	MetadataOptionsModeModeSkip
+//	MetadataOptionsModeModePreserve
 type MetadataOptionsModeInput interface {
 	pulumi.Input
 
@@ -1143,12 +1125,6 @@ func (in *metadataOptionsModePtr) ToMetadataOptionsModePtrOutput() MetadataOptio
 
 func (in *metadataOptionsModePtr) ToMetadataOptionsModePtrOutputWithContext(ctx context.Context) MetadataOptionsModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsModePtrOutput)
-}
-
-func (in *metadataOptionsModePtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsMode] {
-	return pulumix.Output[*MetadataOptionsMode]{
-		OutputState: in.ToMetadataOptionsModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the storage class to set on objects being transferred to Google Cloud Storage buckets. If unspecified, the default behavior is the same as STORAGE_CLASS_DESTINATION_BUCKET_DEFAULT.
@@ -1290,10 +1266,16 @@ func (o MetadataOptionsStorageClassPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsStorageClassInput is an input type that accepts MetadataOptionsStorageClassArgs and MetadataOptionsStorageClassOutput values.
-// You can construct a concrete instance of `MetadataOptionsStorageClassInput` via:
+// MetadataOptionsStorageClassInput is an input type that accepts values of the MetadataOptionsStorageClass enum
+// A concrete instance of `MetadataOptionsStorageClassInput` can be one of the following:
 //
-//	MetadataOptionsStorageClassArgs{...}
+//	MetadataOptionsStorageClassStorageClassUnspecified
+//	MetadataOptionsStorageClassStorageClassDestinationBucketDefault
+//	MetadataOptionsStorageClassStorageClassPreserve
+//	MetadataOptionsStorageClassStorageClassStandard
+//	MetadataOptionsStorageClassStorageClassNearline
+//	MetadataOptionsStorageClassStorageClassColdline
+//	MetadataOptionsStorageClassStorageClassArchive
 type MetadataOptionsStorageClassInput interface {
 	pulumi.Input
 
@@ -1326,12 +1308,6 @@ func (in *metadataOptionsStorageClassPtr) ToMetadataOptionsStorageClassPtrOutput
 
 func (in *metadataOptionsStorageClassPtr) ToMetadataOptionsStorageClassPtrOutputWithContext(ctx context.Context) MetadataOptionsStorageClassPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsStorageClassPtrOutput)
-}
-
-func (in *metadataOptionsStorageClassPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsStorageClass] {
-	return pulumix.Output[*MetadataOptionsStorageClass]{
-		OutputState: in.ToMetadataOptionsStorageClassPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how symlinks should be handled by the transfer. By default, symlinks are not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers.
@@ -1465,10 +1441,12 @@ func (o MetadataOptionsSymlinkPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsSymlinkInput is an input type that accepts MetadataOptionsSymlinkArgs and MetadataOptionsSymlinkOutput values.
-// You can construct a concrete instance of `MetadataOptionsSymlinkInput` via:
+// MetadataOptionsSymlinkInput is an input type that accepts values of the MetadataOptionsSymlink enum
+// A concrete instance of `MetadataOptionsSymlinkInput` can be one of the following:
 //
-//	MetadataOptionsSymlinkArgs{...}
+//	MetadataOptionsSymlinkSymlinkUnspecified
+//	MetadataOptionsSymlinkSymlinkSkip
+//	MetadataOptionsSymlinkSymlinkPreserve
 type MetadataOptionsSymlinkInput interface {
 	pulumi.Input
 
@@ -1501,12 +1479,6 @@ func (in *metadataOptionsSymlinkPtr) ToMetadataOptionsSymlinkPtrOutput() Metadat
 
 func (in *metadataOptionsSymlinkPtr) ToMetadataOptionsSymlinkPtrOutputWithContext(ctx context.Context) MetadataOptionsSymlinkPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsSymlinkPtrOutput)
-}
-
-func (in *metadataOptionsSymlinkPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsSymlink] {
-	return pulumix.Output[*MetadataOptionsSymlink]{
-		OutputState: in.ToMetadataOptionsSymlinkPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how each object's temporary hold status should be preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as TEMPORARY_HOLD_PRESERVE.
@@ -1640,10 +1612,12 @@ func (o MetadataOptionsTemporaryHoldPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsTemporaryHoldInput is an input type that accepts MetadataOptionsTemporaryHoldArgs and MetadataOptionsTemporaryHoldOutput values.
-// You can construct a concrete instance of `MetadataOptionsTemporaryHoldInput` via:
+// MetadataOptionsTemporaryHoldInput is an input type that accepts values of the MetadataOptionsTemporaryHold enum
+// A concrete instance of `MetadataOptionsTemporaryHoldInput` can be one of the following:
 //
-//	MetadataOptionsTemporaryHoldArgs{...}
+//	MetadataOptionsTemporaryHoldTemporaryHoldUnspecified
+//	MetadataOptionsTemporaryHoldTemporaryHoldSkip
+//	MetadataOptionsTemporaryHoldTemporaryHoldPreserve
 type MetadataOptionsTemporaryHoldInput interface {
 	pulumi.Input
 
@@ -1676,12 +1650,6 @@ func (in *metadataOptionsTemporaryHoldPtr) ToMetadataOptionsTemporaryHoldPtrOutp
 
 func (in *metadataOptionsTemporaryHoldPtr) ToMetadataOptionsTemporaryHoldPtrOutputWithContext(ctx context.Context) MetadataOptionsTemporaryHoldPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsTemporaryHoldPtrOutput)
-}
-
-func (in *metadataOptionsTemporaryHoldPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsTemporaryHold] {
-	return pulumix.Output[*MetadataOptionsTemporaryHold]{
-		OutputState: in.ToMetadataOptionsTemporaryHoldPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how each object's `timeCreated` metadata is preserved for transfers between Google Cloud Storage buckets. If unspecified, the default behavior is the same as TIME_CREATED_SKIP.
@@ -1815,10 +1783,12 @@ func (o MetadataOptionsTimeCreatedPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsTimeCreatedInput is an input type that accepts MetadataOptionsTimeCreatedArgs and MetadataOptionsTimeCreatedOutput values.
-// You can construct a concrete instance of `MetadataOptionsTimeCreatedInput` via:
+// MetadataOptionsTimeCreatedInput is an input type that accepts values of the MetadataOptionsTimeCreated enum
+// A concrete instance of `MetadataOptionsTimeCreatedInput` can be one of the following:
 //
-//	MetadataOptionsTimeCreatedArgs{...}
+//	MetadataOptionsTimeCreatedTimeCreatedUnspecified
+//	MetadataOptionsTimeCreatedTimeCreatedSkip
+//	MetadataOptionsTimeCreatedTimeCreatedPreserveAsCustomTime
 type MetadataOptionsTimeCreatedInput interface {
 	pulumi.Input
 
@@ -1851,12 +1821,6 @@ func (in *metadataOptionsTimeCreatedPtr) ToMetadataOptionsTimeCreatedPtrOutput()
 
 func (in *metadataOptionsTimeCreatedPtr) ToMetadataOptionsTimeCreatedPtrOutputWithContext(ctx context.Context) MetadataOptionsTimeCreatedPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsTimeCreatedPtrOutput)
-}
-
-func (in *metadataOptionsTimeCreatedPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsTimeCreated] {
-	return pulumix.Output[*MetadataOptionsTimeCreated]{
-		OutputState: in.ToMetadataOptionsTimeCreatedPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies how each file's POSIX user ID (UID) attribute should be handled by the transfer. By default, UID is not preserved. Only applicable to transfers involving POSIX file systems, and ignored for other transfers.
@@ -1990,10 +1954,12 @@ func (o MetadataOptionsUidPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetadataOptionsUidInput is an input type that accepts MetadataOptionsUidArgs and MetadataOptionsUidOutput values.
-// You can construct a concrete instance of `MetadataOptionsUidInput` via:
+// MetadataOptionsUidInput is an input type that accepts values of the MetadataOptionsUid enum
+// A concrete instance of `MetadataOptionsUidInput` can be one of the following:
 //
-//	MetadataOptionsUidArgs{...}
+//	MetadataOptionsUidUidUnspecified
+//	MetadataOptionsUidUidSkip
+//	MetadataOptionsUidUidNumber
 type MetadataOptionsUidInput interface {
 	pulumi.Input
 
@@ -2026,12 +1992,6 @@ func (in *metadataOptionsUidPtr) ToMetadataOptionsUidPtrOutput() MetadataOptions
 
 func (in *metadataOptionsUidPtr) ToMetadataOptionsUidPtrOutputWithContext(ctx context.Context) MetadataOptionsUidPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetadataOptionsUidPtrOutput)
-}
-
-func (in *metadataOptionsUidPtr) ToOutput(ctx context.Context) pulumix.Output[*MetadataOptionsUid] {
-	return pulumix.Output[*MetadataOptionsUid]{
-		OutputState: in.ToMetadataOptionsUidPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type NotificationConfigEventTypesItem string
@@ -2166,10 +2126,13 @@ func (o NotificationConfigEventTypesItemPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationConfigEventTypesItemInput is an input type that accepts NotificationConfigEventTypesItemArgs and NotificationConfigEventTypesItemOutput values.
-// You can construct a concrete instance of `NotificationConfigEventTypesItemInput` via:
+// NotificationConfigEventTypesItemInput is an input type that accepts values of the NotificationConfigEventTypesItem enum
+// A concrete instance of `NotificationConfigEventTypesItemInput` can be one of the following:
 //
-//	NotificationConfigEventTypesItemArgs{...}
+//	NotificationConfigEventTypesItemEventTypeUnspecified
+//	NotificationConfigEventTypesItemTransferOperationSuccess
+//	NotificationConfigEventTypesItemTransferOperationFailed
+//	NotificationConfigEventTypesItemTransferOperationAborted
 type NotificationConfigEventTypesItemInput interface {
 	pulumi.Input
 
@@ -2202,12 +2165,6 @@ func (in *notificationConfigEventTypesItemPtr) ToNotificationConfigEventTypesIte
 
 func (in *notificationConfigEventTypesItemPtr) ToNotificationConfigEventTypesItemPtrOutputWithContext(ctx context.Context) NotificationConfigEventTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationConfigEventTypesItemPtrOutput)
-}
-
-func (in *notificationConfigEventTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*NotificationConfigEventTypesItem] {
-	return pulumix.Output[*NotificationConfigEventTypesItem]{
-		OutputState: in.ToNotificationConfigEventTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // NotificationConfigEventTypesItemArrayInput is an input type that accepts NotificationConfigEventTypesItemArray and NotificationConfigEventTypesItemArrayOutput values.
@@ -2386,10 +2343,12 @@ func (o NotificationConfigPayloadFormatPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// NotificationConfigPayloadFormatInput is an input type that accepts NotificationConfigPayloadFormatArgs and NotificationConfigPayloadFormatOutput values.
-// You can construct a concrete instance of `NotificationConfigPayloadFormatInput` via:
+// NotificationConfigPayloadFormatInput is an input type that accepts values of the NotificationConfigPayloadFormat enum
+// A concrete instance of `NotificationConfigPayloadFormatInput` can be one of the following:
 //
-//	NotificationConfigPayloadFormatArgs{...}
+//	NotificationConfigPayloadFormatPayloadFormatUnspecified
+//	NotificationConfigPayloadFormatNone
+//	NotificationConfigPayloadFormatJson
 type NotificationConfigPayloadFormatInput interface {
 	pulumi.Input
 
@@ -2422,12 +2381,6 @@ func (in *notificationConfigPayloadFormatPtr) ToNotificationConfigPayloadFormatP
 
 func (in *notificationConfigPayloadFormatPtr) ToNotificationConfigPayloadFormatPtrOutputWithContext(ctx context.Context) NotificationConfigPayloadFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NotificationConfigPayloadFormatPtrOutput)
-}
-
-func (in *notificationConfigPayloadFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*NotificationConfigPayloadFormat] {
-	return pulumix.Output[*NotificationConfigPayloadFormat]{
-		OutputState: in.ToNotificationConfigPayloadFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the authentication and authorization method used by the storage service. When not specified, Transfer Service will attempt to determine right auth method to use.
@@ -2561,10 +2514,12 @@ func (o S3CompatibleMetadataAuthMethodPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// S3CompatibleMetadataAuthMethodInput is an input type that accepts S3CompatibleMetadataAuthMethodArgs and S3CompatibleMetadataAuthMethodOutput values.
-// You can construct a concrete instance of `S3CompatibleMetadataAuthMethodInput` via:
+// S3CompatibleMetadataAuthMethodInput is an input type that accepts values of the S3CompatibleMetadataAuthMethod enum
+// A concrete instance of `S3CompatibleMetadataAuthMethodInput` can be one of the following:
 //
-//	S3CompatibleMetadataAuthMethodArgs{...}
+//	S3CompatibleMetadataAuthMethodAuthMethodUnspecified
+//	S3CompatibleMetadataAuthMethodAuthMethodAwsSignatureV4
+//	S3CompatibleMetadataAuthMethodAuthMethodAwsSignatureV2
 type S3CompatibleMetadataAuthMethodInput interface {
 	pulumi.Input
 
@@ -2597,12 +2552,6 @@ func (in *s3compatibleMetadataAuthMethodPtr) ToS3CompatibleMetadataAuthMethodPtr
 
 func (in *s3compatibleMetadataAuthMethodPtr) ToS3CompatibleMetadataAuthMethodPtrOutputWithContext(ctx context.Context) S3CompatibleMetadataAuthMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(S3CompatibleMetadataAuthMethodPtrOutput)
-}
-
-func (in *s3compatibleMetadataAuthMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*S3CompatibleMetadataAuthMethod] {
-	return pulumix.Output[*S3CompatibleMetadataAuthMethod]{
-		OutputState: in.ToS3CompatibleMetadataAuthMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The Listing API to use for discovering objects. When not specified, Transfer Service will attempt to determine the right API to use.
@@ -2736,10 +2685,12 @@ func (o S3CompatibleMetadataListApiPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// S3CompatibleMetadataListApiInput is an input type that accepts S3CompatibleMetadataListApiArgs and S3CompatibleMetadataListApiOutput values.
-// You can construct a concrete instance of `S3CompatibleMetadataListApiInput` via:
+// S3CompatibleMetadataListApiInput is an input type that accepts values of the S3CompatibleMetadataListApi enum
+// A concrete instance of `S3CompatibleMetadataListApiInput` can be one of the following:
 //
-//	S3CompatibleMetadataListApiArgs{...}
+//	S3CompatibleMetadataListApiListApiUnspecified
+//	S3CompatibleMetadataListApiListObjectsV2
+//	S3CompatibleMetadataListApiListObjects
 type S3CompatibleMetadataListApiInput interface {
 	pulumi.Input
 
@@ -2772,12 +2723,6 @@ func (in *s3compatibleMetadataListApiPtr) ToS3CompatibleMetadataListApiPtrOutput
 
 func (in *s3compatibleMetadataListApiPtr) ToS3CompatibleMetadataListApiPtrOutputWithContext(ctx context.Context) S3CompatibleMetadataListApiPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(S3CompatibleMetadataListApiPtrOutput)
-}
-
-func (in *s3compatibleMetadataListApiPtr) ToOutput(ctx context.Context) pulumix.Output[*S3CompatibleMetadataListApi] {
-	return pulumix.Output[*S3CompatibleMetadataListApi]{
-		OutputState: in.ToS3CompatibleMetadataListApiPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the network protocol of the agent. When not specified, the default value of NetworkProtocol NETWORK_PROTOCOL_HTTPS is used.
@@ -2911,10 +2856,12 @@ func (o S3CompatibleMetadataProtocolPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// S3CompatibleMetadataProtocolInput is an input type that accepts S3CompatibleMetadataProtocolArgs and S3CompatibleMetadataProtocolOutput values.
-// You can construct a concrete instance of `S3CompatibleMetadataProtocolInput` via:
+// S3CompatibleMetadataProtocolInput is an input type that accepts values of the S3CompatibleMetadataProtocol enum
+// A concrete instance of `S3CompatibleMetadataProtocolInput` can be one of the following:
 //
-//	S3CompatibleMetadataProtocolArgs{...}
+//	S3CompatibleMetadataProtocolNetworkProtocolUnspecified
+//	S3CompatibleMetadataProtocolNetworkProtocolHttps
+//	S3CompatibleMetadataProtocolNetworkProtocolHttp
 type S3CompatibleMetadataProtocolInput interface {
 	pulumi.Input
 
@@ -2947,12 +2894,6 @@ func (in *s3compatibleMetadataProtocolPtr) ToS3CompatibleMetadataProtocolPtrOutp
 
 func (in *s3compatibleMetadataProtocolPtr) ToS3CompatibleMetadataProtocolPtrOutputWithContext(ctx context.Context) S3CompatibleMetadataProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(S3CompatibleMetadataProtocolPtrOutput)
-}
-
-func (in *s3compatibleMetadataProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*S3CompatibleMetadataProtocol] {
-	return pulumix.Output[*S3CompatibleMetadataProtocol]{
-		OutputState: in.ToS3CompatibleMetadataProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the API request model used to call the storage service. When not specified, the default value of RequestModel REQUEST_MODEL_VIRTUAL_HOSTED_STYLE is used.
@@ -3086,10 +3027,12 @@ func (o S3CompatibleMetadataRequestModelPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// S3CompatibleMetadataRequestModelInput is an input type that accepts S3CompatibleMetadataRequestModelArgs and S3CompatibleMetadataRequestModelOutput values.
-// You can construct a concrete instance of `S3CompatibleMetadataRequestModelInput` via:
+// S3CompatibleMetadataRequestModelInput is an input type that accepts values of the S3CompatibleMetadataRequestModel enum
+// A concrete instance of `S3CompatibleMetadataRequestModelInput` can be one of the following:
 //
-//	S3CompatibleMetadataRequestModelArgs{...}
+//	S3CompatibleMetadataRequestModelRequestModelUnspecified
+//	S3CompatibleMetadataRequestModelRequestModelVirtualHostedStyle
+//	S3CompatibleMetadataRequestModelRequestModelPathStyle
 type S3CompatibleMetadataRequestModelInput interface {
 	pulumi.Input
 
@@ -3122,12 +3065,6 @@ func (in *s3compatibleMetadataRequestModelPtr) ToS3CompatibleMetadataRequestMode
 
 func (in *s3compatibleMetadataRequestModelPtr) ToS3CompatibleMetadataRequestModelPtrOutputWithContext(ctx context.Context) S3CompatibleMetadataRequestModelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(S3CompatibleMetadataRequestModelPtrOutput)
-}
-
-func (in *s3compatibleMetadataRequestModelPtr) ToOutput(ctx context.Context) pulumix.Output[*S3CompatibleMetadataRequestModel] {
-	return pulumix.Output[*S3CompatibleMetadataRequestModel]{
-		OutputState: in.ToS3CompatibleMetadataRequestModelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Status of the job. This value MUST be specified for `CreateTransferJobRequests`. **Note:** The effect of the new job status takes place during a subsequent job run. For example, if you change the job status from ENABLED to DISABLED, and an operation spawned by the transfer is running, the status change would not affect the current operation.
@@ -3263,10 +3200,13 @@ func (o TransferJobStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// TransferJobStatusInput is an input type that accepts TransferJobStatusArgs and TransferJobStatusOutput values.
-// You can construct a concrete instance of `TransferJobStatusInput` via:
+// TransferJobStatusInput is an input type that accepts values of the TransferJobStatus enum
+// A concrete instance of `TransferJobStatusInput` can be one of the following:
 //
-//	TransferJobStatusArgs{...}
+//	TransferJobStatusStatusUnspecified
+//	TransferJobStatusEnabled
+//	TransferJobStatusDisabled
+//	TransferJobStatusDeleted
 type TransferJobStatusInput interface {
 	pulumi.Input
 
@@ -3299,12 +3239,6 @@ func (in *transferJobStatusPtr) ToTransferJobStatusPtrOutput() TransferJobStatus
 
 func (in *transferJobStatusPtr) ToTransferJobStatusPtrOutputWithContext(ctx context.Context) TransferJobStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TransferJobStatusPtrOutput)
-}
-
-func (in *transferJobStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*TransferJobStatus] {
-	return pulumix.Output[*TransferJobStatus]{
-		OutputState: in.ToTransferJobStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // When to overwrite objects that already exist in the sink. If not set, overwrite behavior is determined by overwrite_objects_already_existing_in_sink.
@@ -3440,10 +3374,13 @@ func (o TransferOptionsOverwriteWhenPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// TransferOptionsOverwriteWhenInput is an input type that accepts TransferOptionsOverwriteWhenArgs and TransferOptionsOverwriteWhenOutput values.
-// You can construct a concrete instance of `TransferOptionsOverwriteWhenInput` via:
+// TransferOptionsOverwriteWhenInput is an input type that accepts values of the TransferOptionsOverwriteWhen enum
+// A concrete instance of `TransferOptionsOverwriteWhenInput` can be one of the following:
 //
-//	TransferOptionsOverwriteWhenArgs{...}
+//	TransferOptionsOverwriteWhenOverwriteWhenUnspecified
+//	TransferOptionsOverwriteWhenDifferent
+//	TransferOptionsOverwriteWhenNever
+//	TransferOptionsOverwriteWhenAlways
 type TransferOptionsOverwriteWhenInput interface {
 	pulumi.Input
 
@@ -3476,12 +3413,6 @@ func (in *transferOptionsOverwriteWhenPtr) ToTransferOptionsOverwriteWhenPtrOutp
 
 func (in *transferOptionsOverwriteWhenPtr) ToTransferOptionsOverwriteWhenPtrOutputWithContext(ctx context.Context) TransferOptionsOverwriteWhenPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TransferOptionsOverwriteWhenPtrOutput)
-}
-
-func (in *transferOptionsOverwriteWhenPtr) ToOutput(ctx context.Context) pulumix.Output[*TransferOptionsOverwriteWhen] {
-	return pulumix.Output[*TransferOptionsOverwriteWhen]{
-		OutputState: in.ToTransferOptionsOverwriteWhenPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

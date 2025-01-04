@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type BudgetOwnershipScope string
@@ -141,10 +140,12 @@ func (o BudgetOwnershipScopePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// BudgetOwnershipScopeInput is an input type that accepts BudgetOwnershipScopeArgs and BudgetOwnershipScopeOutput values.
-// You can construct a concrete instance of `BudgetOwnershipScopeInput` via:
+// BudgetOwnershipScopeInput is an input type that accepts values of the BudgetOwnershipScope enum
+// A concrete instance of `BudgetOwnershipScopeInput` can be one of the following:
 //
-//	BudgetOwnershipScopeArgs{...}
+//	BudgetOwnershipScopeOwnershipScopeUnspecified
+//	BudgetOwnershipScopeAllUsers
+//	BudgetOwnershipScopeBillingAccount
 type BudgetOwnershipScopeInput interface {
 	pulumi.Input
 
@@ -177,12 +178,6 @@ func (in *budgetOwnershipScopePtr) ToBudgetOwnershipScopePtrOutput() BudgetOwner
 
 func (in *budgetOwnershipScopePtr) ToBudgetOwnershipScopePtrOutputWithContext(ctx context.Context) BudgetOwnershipScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BudgetOwnershipScopePtrOutput)
-}
-
-func (in *budgetOwnershipScopePtr) ToOutput(ctx context.Context) pulumix.Output[*BudgetOwnershipScope] {
-	return pulumix.Output[*BudgetOwnershipScope]{
-		OutputState: in.ToBudgetOwnershipScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Specifies to track usage for recurring calendar period. For example, assume that CalendarPeriod.QUARTER is set. The budget will track usage from April 1 to June 30, when the current calendar month is April, May, June. After that, it will track usage from July 1 to September 30 when the current calendar month is July, August, September, so on.
@@ -318,10 +313,13 @@ func (o GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodPtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodInput is an input type that accepts GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodArgs and GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodOutput values.
-// You can construct a concrete instance of `GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodInput` via:
+// GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodInput is an input type that accepts values of the GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriod enum
+// A concrete instance of `GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodInput` can be one of the following:
 //
-//	GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodArgs{...}
+//	GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodCalendarPeriodUnspecified
+//	GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodMonth
+//	GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodQuarter
+//	GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodYear
 type GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodInput interface {
 	pulumi.Input
 
@@ -354,12 +352,6 @@ func (in *googleCloudBillingBudgetsV1beta1FilterCalendarPeriodPtr) ToGoogleCloud
 
 func (in *googleCloudBillingBudgetsV1beta1FilterCalendarPeriodPtr) ToGoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodPtrOutputWithContext(ctx context.Context) GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodPtrOutput)
-}
-
-func (in *googleCloudBillingBudgetsV1beta1FilterCalendarPeriodPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriod] {
-	return pulumix.Output[*GoogleCloudBillingBudgetsV1beta1FilterCalendarPeriod]{
-		OutputState: in.ToGoogleCloudBillingBudgetsV1beta1FilterCalendarPeriodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. If not set, default behavior is `INCLUDE_ALL_CREDITS`.
@@ -494,10 +486,13 @@ func (o GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentPtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentInput is an input type that accepts GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentArgs and GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentOutput values.
-// You can construct a concrete instance of `GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentInput` via:
+// GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentInput is an input type that accepts values of the GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatment enum
+// A concrete instance of `GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentInput` can be one of the following:
 //
-//	GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentArgs{...}
+//	GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentCreditTypesTreatmentUnspecified
+//	GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentIncludeAllCredits
+//	GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentExcludeAllCredits
+//	GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentIncludeSpecifiedCredits
 type GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentInput interface {
 	pulumi.Input
 
@@ -530,12 +525,6 @@ func (in *googleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentPtr) ToGoogl
 
 func (in *googleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentPtr) ToGoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentPtrOutputWithContext(ctx context.Context) GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentPtrOutput)
-}
-
-func (in *googleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatment] {
-	return pulumix.Output[*GoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatment]{
-		OutputState: in.ToGoogleCloudBillingBudgetsV1beta1FilterCreditTypesTreatmentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The type of basis used to determine if spend has passed the threshold. Behavior defaults to CURRENT_SPEND if not set.
@@ -669,10 +658,12 @@ func (o GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisPtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisInput is an input type that accepts GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisArgs and GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisOutput values.
-// You can construct a concrete instance of `GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisInput` via:
+// GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisInput is an input type that accepts values of the GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasis enum
+// A concrete instance of `GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisInput` can be one of the following:
 //
-//	GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisArgs{...}
+//	GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisBasisUnspecified
+//	GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisCurrentSpend
+//	GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisForecastedSpend
 type GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisInput interface {
 	pulumi.Input
 
@@ -705,12 +696,6 @@ func (in *googleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisPtr) ToGoogleCl
 
 func (in *googleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisPtr) ToGoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisPtrOutputWithContext(ctx context.Context) GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisPtrOutput)
-}
-
-func (in *googleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasis] {
-	return pulumix.Output[*GoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasis]{
-		OutputState: in.ToGoogleCloudBillingBudgetsV1beta1ThresholdRuleSpendBasisPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

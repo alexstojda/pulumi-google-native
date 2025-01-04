@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The source syntax of the service.
@@ -142,10 +141,12 @@ func (o ApiSyntaxPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// ApiSyntaxInput is an input type that accepts ApiSyntaxArgs and ApiSyntaxOutput values.
-// You can construct a concrete instance of `ApiSyntaxInput` via:
+// ApiSyntaxInput is an input type that accepts values of the ApiSyntax enum
+// A concrete instance of `ApiSyntaxInput` can be one of the following:
 //
-//	ApiSyntaxArgs{...}
+//	ApiSyntaxSyntaxProto2
+//	ApiSyntaxSyntaxProto3
+//	ApiSyntaxSyntaxEditions
 type ApiSyntaxInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *apiSyntaxPtr) ToApiSyntaxPtrOutput() ApiSyntaxPtrOutput {
 
 func (in *apiSyntaxPtr) ToApiSyntaxPtrOutputWithContext(ctx context.Context) ApiSyntaxPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ApiSyntaxPtrOutput)
-}
-
-func (in *apiSyntaxPtr) ToOutput(ctx context.Context) pulumix.Output[*ApiSyntax] {
-	return pulumix.Output[*ApiSyntax]{
-		OutputState: in.ToApiSyntaxPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -319,10 +314,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type BackendRulePathTranslation string
@@ -492,10 +484,12 @@ func (o BackendRulePathTranslationPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// BackendRulePathTranslationInput is an input type that accepts BackendRulePathTranslationArgs and BackendRulePathTranslationOutput values.
-// You can construct a concrete instance of `BackendRulePathTranslationInput` via:
+// BackendRulePathTranslationInput is an input type that accepts values of the BackendRulePathTranslation enum
+// A concrete instance of `BackendRulePathTranslationInput` can be one of the following:
 //
-//	BackendRulePathTranslationArgs{...}
+//	BackendRulePathTranslationPathTranslationUnspecified
+//	BackendRulePathTranslationConstantAddress
+//	BackendRulePathTranslationAppendPathToAddress
 type BackendRulePathTranslationInput interface {
 	pulumi.Input
 
@@ -528,12 +522,6 @@ func (in *backendRulePathTranslationPtr) ToBackendRulePathTranslationPtrOutput()
 
 func (in *backendRulePathTranslationPtr) ToBackendRulePathTranslationPtrOutputWithContext(ctx context.Context) BackendRulePathTranslationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BackendRulePathTranslationPtrOutput)
-}
-
-func (in *backendRulePathTranslationPtr) ToOutput(ctx context.Context) pulumix.Output[*BackendRulePathTranslation] {
-	return pulumix.Output[*BackendRulePathTranslation]{
-		OutputState: in.ToBackendRulePathTranslationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Launch stage of this version of the API.
@@ -677,10 +665,17 @@ func (o ClientLibrarySettingsLaunchStagePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// ClientLibrarySettingsLaunchStageInput is an input type that accepts ClientLibrarySettingsLaunchStageArgs and ClientLibrarySettingsLaunchStageOutput values.
-// You can construct a concrete instance of `ClientLibrarySettingsLaunchStageInput` via:
+// ClientLibrarySettingsLaunchStageInput is an input type that accepts values of the ClientLibrarySettingsLaunchStage enum
+// A concrete instance of `ClientLibrarySettingsLaunchStageInput` can be one of the following:
 //
-//	ClientLibrarySettingsLaunchStageArgs{...}
+//	ClientLibrarySettingsLaunchStageLaunchStageUnspecified
+//	ClientLibrarySettingsLaunchStageUnimplemented
+//	ClientLibrarySettingsLaunchStagePrelaunch
+//	ClientLibrarySettingsLaunchStageEarlyAccess
+//	ClientLibrarySettingsLaunchStageAlpha
+//	ClientLibrarySettingsLaunchStageBeta
+//	ClientLibrarySettingsLaunchStageGa
+//	ClientLibrarySettingsLaunchStageDeprecated
 type ClientLibrarySettingsLaunchStageInput interface {
 	pulumi.Input
 
@@ -713,12 +708,6 @@ func (in *clientLibrarySettingsLaunchStagePtr) ToClientLibrarySettingsLaunchStag
 
 func (in *clientLibrarySettingsLaunchStagePtr) ToClientLibrarySettingsLaunchStagePtrOutputWithContext(ctx context.Context) ClientLibrarySettingsLaunchStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ClientLibrarySettingsLaunchStagePtrOutput)
-}
-
-func (in *clientLibrarySettingsLaunchStagePtr) ToOutput(ctx context.Context) pulumix.Output[*ClientLibrarySettingsLaunchStage] {
-	return pulumix.Output[*ClientLibrarySettingsLaunchStage]{
-		OutputState: in.ToClientLibrarySettingsLaunchStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CommonLanguageSettingsDestinationsItem string
@@ -851,10 +840,12 @@ func (o CommonLanguageSettingsDestinationsItemPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// CommonLanguageSettingsDestinationsItemInput is an input type that accepts CommonLanguageSettingsDestinationsItemArgs and CommonLanguageSettingsDestinationsItemOutput values.
-// You can construct a concrete instance of `CommonLanguageSettingsDestinationsItemInput` via:
+// CommonLanguageSettingsDestinationsItemInput is an input type that accepts values of the CommonLanguageSettingsDestinationsItem enum
+// A concrete instance of `CommonLanguageSettingsDestinationsItemInput` can be one of the following:
 //
-//	CommonLanguageSettingsDestinationsItemArgs{...}
+//	CommonLanguageSettingsDestinationsItemClientLibraryDestinationUnspecified
+//	CommonLanguageSettingsDestinationsItemGithub
+//	CommonLanguageSettingsDestinationsItemPackageManager
 type CommonLanguageSettingsDestinationsItemInput interface {
 	pulumi.Input
 
@@ -887,12 +878,6 @@ func (in *commonLanguageSettingsDestinationsItemPtr) ToCommonLanguageSettingsDes
 
 func (in *commonLanguageSettingsDestinationsItemPtr) ToCommonLanguageSettingsDestinationsItemPtrOutputWithContext(ctx context.Context) CommonLanguageSettingsDestinationsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CommonLanguageSettingsDestinationsItemPtrOutput)
-}
-
-func (in *commonLanguageSettingsDestinationsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*CommonLanguageSettingsDestinationsItem] {
-	return pulumix.Output[*CommonLanguageSettingsDestinationsItem]{
-		OutputState: in.ToCommonLanguageSettingsDestinationsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CommonLanguageSettingsDestinationsItemArrayInput is an input type that accepts CommonLanguageSettingsDestinationsItemArray and CommonLanguageSettingsDestinationsItemArrayOutput values.
@@ -1071,10 +1056,12 @@ func (o EnumSyntaxPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnumSyntaxInput is an input type that accepts EnumSyntaxArgs and EnumSyntaxOutput values.
-// You can construct a concrete instance of `EnumSyntaxInput` via:
+// EnumSyntaxInput is an input type that accepts values of the EnumSyntax enum
+// A concrete instance of `EnumSyntaxInput` can be one of the following:
 //
-//	EnumSyntaxArgs{...}
+//	EnumSyntaxSyntaxProto2
+//	EnumSyntaxSyntaxProto3
+//	EnumSyntaxSyntaxEditions
 type EnumSyntaxInput interface {
 	pulumi.Input
 
@@ -1107,12 +1094,6 @@ func (in *enumSyntaxPtr) ToEnumSyntaxPtrOutput() EnumSyntaxPtrOutput {
 
 func (in *enumSyntaxPtr) ToEnumSyntaxPtrOutputWithContext(ctx context.Context) EnumSyntaxPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnumSyntaxPtrOutput)
-}
-
-func (in *enumSyntaxPtr) ToOutput(ctx context.Context) pulumix.Output[*EnumSyntax] {
-	return pulumix.Output[*EnumSyntax]{
-		OutputState: in.ToEnumSyntaxPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The field cardinality.
@@ -1248,10 +1229,13 @@ func (o FieldCardinalityPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FieldCardinalityInput is an input type that accepts FieldCardinalityArgs and FieldCardinalityOutput values.
-// You can construct a concrete instance of `FieldCardinalityInput` via:
+// FieldCardinalityInput is an input type that accepts values of the FieldCardinality enum
+// A concrete instance of `FieldCardinalityInput` can be one of the following:
 //
-//	FieldCardinalityArgs{...}
+//	FieldCardinalityCardinalityUnknown
+//	FieldCardinalityCardinalityOptional
+//	FieldCardinalityCardinalityRequired
+//	FieldCardinalityCardinalityRepeated
 type FieldCardinalityInput interface {
 	pulumi.Input
 
@@ -1284,12 +1268,6 @@ func (in *fieldCardinalityPtr) ToFieldCardinalityPtrOutput() FieldCardinalityPtr
 
 func (in *fieldCardinalityPtr) ToFieldCardinalityPtrOutputWithContext(ctx context.Context) FieldCardinalityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FieldCardinalityPtrOutput)
-}
-
-func (in *fieldCardinalityPtr) ToOutput(ctx context.Context) pulumix.Output[*FieldCardinality] {
-	return pulumix.Output[*FieldCardinality]{
-		OutputState: in.ToFieldCardinalityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The field type.
@@ -1455,10 +1433,28 @@ func (o FieldKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// FieldKindInput is an input type that accepts FieldKindArgs and FieldKindOutput values.
-// You can construct a concrete instance of `FieldKindInput` via:
+// FieldKindInput is an input type that accepts values of the FieldKind enum
+// A concrete instance of `FieldKindInput` can be one of the following:
 //
-//	FieldKindArgs{...}
+//	FieldKindTypeUnknown
+//	FieldKindTypeDouble
+//	FieldKindTypeFloat
+//	FieldKindTypeInt64
+//	FieldKindTypeUint64
+//	FieldKindTypeInt32
+//	FieldKindTypeFixed64
+//	FieldKindTypeFixed32
+//	FieldKindTypeBool
+//	FieldKindTypeString
+//	FieldKindTypeGroup
+//	FieldKindTypeMessage
+//	FieldKindTypeBytes
+//	FieldKindTypeUint32
+//	FieldKindTypeEnum
+//	FieldKindTypeSfixed32
+//	FieldKindTypeSfixed64
+//	FieldKindTypeSint32
+//	FieldKindTypeSint64
 type FieldKindInput interface {
 	pulumi.Input
 
@@ -1491,12 +1487,6 @@ func (in *fieldKindPtr) ToFieldKindPtrOutput() FieldKindPtrOutput {
 
 func (in *fieldKindPtr) ToFieldKindPtrOutputWithContext(ctx context.Context) FieldKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FieldKindPtrOutput)
-}
-
-func (in *fieldKindPtr) ToOutput(ctx context.Context) pulumix.Output[*FieldKind] {
-	return pulumix.Output[*FieldKind]{
-		OutputState: in.ToFieldKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of data that can be assigned to the label.
@@ -1630,10 +1620,12 @@ func (o LabelDescriptorValueTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// LabelDescriptorValueTypeInput is an input type that accepts LabelDescriptorValueTypeArgs and LabelDescriptorValueTypeOutput values.
-// You can construct a concrete instance of `LabelDescriptorValueTypeInput` via:
+// LabelDescriptorValueTypeInput is an input type that accepts values of the LabelDescriptorValueType enum
+// A concrete instance of `LabelDescriptorValueTypeInput` can be one of the following:
 //
-//	LabelDescriptorValueTypeArgs{...}
+//	LabelDescriptorValueTypeString
+//	LabelDescriptorValueTypeBool
+//	LabelDescriptorValueTypeInt64
 type LabelDescriptorValueTypeInput interface {
 	pulumi.Input
 
@@ -1666,12 +1658,6 @@ func (in *labelDescriptorValueTypePtr) ToLabelDescriptorValueTypePtrOutput() Lab
 
 func (in *labelDescriptorValueTypePtr) ToLabelDescriptorValueTypePtrOutputWithContext(ctx context.Context) LabelDescriptorValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(LabelDescriptorValueTypePtrOutput)
-}
-
-func (in *labelDescriptorValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*LabelDescriptorValueType] {
-	return pulumix.Output[*LabelDescriptorValueType]{
-		OutputState: in.ToLabelDescriptorValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The source syntax of this method.
@@ -1805,10 +1791,12 @@ func (o MethodSyntaxPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// MethodSyntaxInput is an input type that accepts MethodSyntaxArgs and MethodSyntaxOutput values.
-// You can construct a concrete instance of `MethodSyntaxInput` via:
+// MethodSyntaxInput is an input type that accepts values of the MethodSyntax enum
+// A concrete instance of `MethodSyntaxInput` can be one of the following:
 //
-//	MethodSyntaxArgs{...}
+//	MethodSyntaxSyntaxProto2
+//	MethodSyntaxSyntaxProto3
+//	MethodSyntaxSyntaxEditions
 type MethodSyntaxInput interface {
 	pulumi.Input
 
@@ -1841,12 +1829,6 @@ func (in *methodSyntaxPtr) ToMethodSyntaxPtrOutput() MethodSyntaxPtrOutput {
 
 func (in *methodSyntaxPtr) ToMethodSyntaxPtrOutputWithContext(ctx context.Context) MethodSyntaxPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MethodSyntaxPtrOutput)
-}
-
-func (in *methodSyntaxPtr) ToOutput(ctx context.Context) pulumix.Output[*MethodSyntax] {
-	return pulumix.Output[*MethodSyntax]{
-		OutputState: in.ToMethodSyntaxPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The launch stage of the metric definition.
@@ -1990,10 +1972,17 @@ func (o MetricDescriptorLaunchStagePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorLaunchStageInput is an input type that accepts MetricDescriptorLaunchStageArgs and MetricDescriptorLaunchStageOutput values.
-// You can construct a concrete instance of `MetricDescriptorLaunchStageInput` via:
+// MetricDescriptorLaunchStageInput is an input type that accepts values of the MetricDescriptorLaunchStage enum
+// A concrete instance of `MetricDescriptorLaunchStageInput` can be one of the following:
 //
-//	MetricDescriptorLaunchStageArgs{...}
+//	MetricDescriptorLaunchStageLaunchStageUnspecified
+//	MetricDescriptorLaunchStageUnimplemented
+//	MetricDescriptorLaunchStagePrelaunch
+//	MetricDescriptorLaunchStageEarlyAccess
+//	MetricDescriptorLaunchStageAlpha
+//	MetricDescriptorLaunchStageBeta
+//	MetricDescriptorLaunchStageGa
+//	MetricDescriptorLaunchStageDeprecated
 type MetricDescriptorLaunchStageInput interface {
 	pulumi.Input
 
@@ -2026,12 +2015,6 @@ func (in *metricDescriptorLaunchStagePtr) ToMetricDescriptorLaunchStagePtrOutput
 
 func (in *metricDescriptorLaunchStagePtr) ToMetricDescriptorLaunchStagePtrOutputWithContext(ctx context.Context) MetricDescriptorLaunchStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorLaunchStagePtrOutput)
-}
-
-func (in *metricDescriptorLaunchStagePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorLaunchStage] {
-	return pulumix.Output[*MetricDescriptorLaunchStage]{
-		OutputState: in.ToMetricDescriptorLaunchStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deprecated. Must use the MetricDescriptor.launch_stage instead.
@@ -2175,10 +2158,17 @@ func (o MetricDescriptorMetadataLaunchStagePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorMetadataLaunchStageInput is an input type that accepts MetricDescriptorMetadataLaunchStageArgs and MetricDescriptorMetadataLaunchStageOutput values.
-// You can construct a concrete instance of `MetricDescriptorMetadataLaunchStageInput` via:
+// MetricDescriptorMetadataLaunchStageInput is an input type that accepts values of the MetricDescriptorMetadataLaunchStage enum
+// A concrete instance of `MetricDescriptorMetadataLaunchStageInput` can be one of the following:
 //
-//	MetricDescriptorMetadataLaunchStageArgs{...}
+//	MetricDescriptorMetadataLaunchStageLaunchStageUnspecified
+//	MetricDescriptorMetadataLaunchStageUnimplemented
+//	MetricDescriptorMetadataLaunchStagePrelaunch
+//	MetricDescriptorMetadataLaunchStageEarlyAccess
+//	MetricDescriptorMetadataLaunchStageAlpha
+//	MetricDescriptorMetadataLaunchStageBeta
+//	MetricDescriptorMetadataLaunchStageGa
+//	MetricDescriptorMetadataLaunchStageDeprecated
 type MetricDescriptorMetadataLaunchStageInput interface {
 	pulumi.Input
 
@@ -2211,12 +2201,6 @@ func (in *metricDescriptorMetadataLaunchStagePtr) ToMetricDescriptorMetadataLaun
 
 func (in *metricDescriptorMetadataLaunchStagePtr) ToMetricDescriptorMetadataLaunchStagePtrOutputWithContext(ctx context.Context) MetricDescriptorMetadataLaunchStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorMetadataLaunchStagePtrOutput)
-}
-
-func (in *metricDescriptorMetadataLaunchStagePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorMetadataLaunchStage] {
-	return pulumix.Output[*MetricDescriptorMetadataLaunchStage]{
-		OutputState: in.ToMetricDescriptorMetadataLaunchStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the metric records instantaneous values, changes to a value, etc. Some combinations of `metric_kind` and `value_type` might not be supported.
@@ -2352,10 +2336,13 @@ func (o MetricDescriptorMetricKindPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorMetricKindInput is an input type that accepts MetricDescriptorMetricKindArgs and MetricDescriptorMetricKindOutput values.
-// You can construct a concrete instance of `MetricDescriptorMetricKindInput` via:
+// MetricDescriptorMetricKindInput is an input type that accepts values of the MetricDescriptorMetricKind enum
+// A concrete instance of `MetricDescriptorMetricKindInput` can be one of the following:
 //
-//	MetricDescriptorMetricKindArgs{...}
+//	MetricDescriptorMetricKindMetricKindUnspecified
+//	MetricDescriptorMetricKindGauge
+//	MetricDescriptorMetricKindDelta
+//	MetricDescriptorMetricKindCumulative
 type MetricDescriptorMetricKindInput interface {
 	pulumi.Input
 
@@ -2388,12 +2375,6 @@ func (in *metricDescriptorMetricKindPtr) ToMetricDescriptorMetricKindPtrOutput()
 
 func (in *metricDescriptorMetricKindPtr) ToMetricDescriptorMetricKindPtrOutputWithContext(ctx context.Context) MetricDescriptorMetricKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorMetricKindPtrOutput)
-}
-
-func (in *metricDescriptorMetricKindPtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorMetricKind] {
-	return pulumix.Output[*MetricDescriptorMetricKind]{
-		OutputState: in.ToMetricDescriptorMetricKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the measurement is an integer, a floating-point number, etc. Some combinations of `metric_kind` and `value_type` might not be supported.
@@ -2535,10 +2516,16 @@ func (o MetricDescriptorValueTypePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// MetricDescriptorValueTypeInput is an input type that accepts MetricDescriptorValueTypeArgs and MetricDescriptorValueTypeOutput values.
-// You can construct a concrete instance of `MetricDescriptorValueTypeInput` via:
+// MetricDescriptorValueTypeInput is an input type that accepts values of the MetricDescriptorValueType enum
+// A concrete instance of `MetricDescriptorValueTypeInput` can be one of the following:
 //
-//	MetricDescriptorValueTypeArgs{...}
+//	MetricDescriptorValueTypeValueTypeUnspecified
+//	MetricDescriptorValueTypeBool
+//	MetricDescriptorValueTypeInt64
+//	MetricDescriptorValueTypeDouble
+//	MetricDescriptorValueTypeString
+//	MetricDescriptorValueTypeDistribution
+//	MetricDescriptorValueTypeMoney
 type MetricDescriptorValueTypeInput interface {
 	pulumi.Input
 
@@ -2571,12 +2558,6 @@ func (in *metricDescriptorValueTypePtr) ToMetricDescriptorValueTypePtrOutput() M
 
 func (in *metricDescriptorValueTypePtr) ToMetricDescriptorValueTypePtrOutputWithContext(ctx context.Context) MetricDescriptorValueTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MetricDescriptorValueTypePtrOutput)
-}
-
-func (in *metricDescriptorValueTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MetricDescriptorValueType] {
-	return pulumix.Output[*MetricDescriptorValueType]{
-		OutputState: in.ToMetricDescriptorValueTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The launch stage of the monitored resource definition.
@@ -2720,10 +2701,17 @@ func (o MonitoredResourceDescriptorLaunchStagePtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// MonitoredResourceDescriptorLaunchStageInput is an input type that accepts MonitoredResourceDescriptorLaunchStageArgs and MonitoredResourceDescriptorLaunchStageOutput values.
-// You can construct a concrete instance of `MonitoredResourceDescriptorLaunchStageInput` via:
+// MonitoredResourceDescriptorLaunchStageInput is an input type that accepts values of the MonitoredResourceDescriptorLaunchStage enum
+// A concrete instance of `MonitoredResourceDescriptorLaunchStageInput` can be one of the following:
 //
-//	MonitoredResourceDescriptorLaunchStageArgs{...}
+//	MonitoredResourceDescriptorLaunchStageLaunchStageUnspecified
+//	MonitoredResourceDescriptorLaunchStageUnimplemented
+//	MonitoredResourceDescriptorLaunchStagePrelaunch
+//	MonitoredResourceDescriptorLaunchStageEarlyAccess
+//	MonitoredResourceDescriptorLaunchStageAlpha
+//	MonitoredResourceDescriptorLaunchStageBeta
+//	MonitoredResourceDescriptorLaunchStageGa
+//	MonitoredResourceDescriptorLaunchStageDeprecated
 type MonitoredResourceDescriptorLaunchStageInput interface {
 	pulumi.Input
 
@@ -2756,12 +2744,6 @@ func (in *monitoredResourceDescriptorLaunchStagePtr) ToMonitoredResourceDescript
 
 func (in *monitoredResourceDescriptorLaunchStagePtr) ToMonitoredResourceDescriptorLaunchStagePtrOutputWithContext(ctx context.Context) MonitoredResourceDescriptorLaunchStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MonitoredResourceDescriptorLaunchStagePtrOutput)
-}
-
-func (in *monitoredResourceDescriptorLaunchStagePtr) ToOutput(ctx context.Context) pulumix.Output[*MonitoredResourceDescriptorLaunchStage] {
-	return pulumix.Output[*MonitoredResourceDescriptorLaunchStage]{
-		OutputState: in.ToMonitoredResourceDescriptorLaunchStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // For whom the client library is being published.
@@ -2905,10 +2887,17 @@ func (o PublishingOrganizationPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// PublishingOrganizationInput is an input type that accepts PublishingOrganizationArgs and PublishingOrganizationOutput values.
-// You can construct a concrete instance of `PublishingOrganizationInput` via:
+// PublishingOrganizationInput is an input type that accepts values of the PublishingOrganization enum
+// A concrete instance of `PublishingOrganizationInput` can be one of the following:
 //
-//	PublishingOrganizationArgs{...}
+//	PublishingOrganizationClientLibraryOrganizationUnspecified
+//	PublishingOrganizationCloud
+//	PublishingOrganizationAds
+//	PublishingOrganizationPhotos
+//	PublishingOrganizationStreetView
+//	PublishingOrganizationShopping
+//	PublishingOrganizationGeo
+//	PublishingOrganizationGenerativeAi
 type PublishingOrganizationInput interface {
 	pulumi.Input
 
@@ -2941,12 +2930,6 @@ func (in *publishingOrganizationPtr) ToPublishingOrganizationPtrOutput() Publish
 
 func (in *publishingOrganizationPtr) ToPublishingOrganizationPtrOutputWithContext(ctx context.Context) PublishingOrganizationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PublishingOrganizationPtrOutput)
-}
-
-func (in *publishingOrganizationPtr) ToOutput(ctx context.Context) pulumix.Output[*PublishingOrganization] {
-	return pulumix.Output[*PublishingOrganization]{
-		OutputState: in.ToPublishingOrganizationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The status of this rollout. Readonly. In case of a failed rollout, the system will automatically rollback to the current Rollout version. Readonly.
@@ -3100,10 +3083,12 @@ func (o TypeSyntaxPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// TypeSyntaxInput is an input type that accepts TypeSyntaxArgs and TypeSyntaxOutput values.
-// You can construct a concrete instance of `TypeSyntaxInput` via:
+// TypeSyntaxInput is an input type that accepts values of the TypeSyntax enum
+// A concrete instance of `TypeSyntaxInput` can be one of the following:
 //
-//	TypeSyntaxArgs{...}
+//	TypeSyntaxSyntaxProto2
+//	TypeSyntaxSyntaxProto3
+//	TypeSyntaxSyntaxEditions
 type TypeSyntaxInput interface {
 	pulumi.Input
 
@@ -3136,12 +3121,6 @@ func (in *typeSyntaxPtr) ToTypeSyntaxPtrOutput() TypeSyntaxPtrOutput {
 
 func (in *typeSyntaxPtr) ToTypeSyntaxPtrOutputWithContext(ctx context.Context) TypeSyntaxPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TypeSyntaxPtrOutput)
-}
-
-func (in *typeSyntaxPtr) ToOutput(ctx context.Context) pulumix.Output[*TypeSyntax] {
-	return pulumix.Output[*TypeSyntax]{
-		OutputState: in.ToTypeSyntaxPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

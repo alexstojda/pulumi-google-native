@@ -31,6 +31,7 @@ __all__ = [
     'GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceArgs',
     'GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySourceArgs',
     'GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourceArgs',
+    'GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs',
     'GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigArgs',
     'GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionTriggerSettingsArgs',
     'GoogleCloudDialogflowV2HumanAgentAssistantConfigArgs',
@@ -147,12 +148,12 @@ class GoogleCloudDialogflowV2ContextArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  lifespan_count: Optional[pulumi.Input[int]] = None,
-                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Dialogflow contexts are similar to natural language context. If a person says to you "they are orange", you need context in order to understand what "they" is referring to. Similarly, for Dialogflow to handle an end-user expression like that, it needs to be provided with context in order to correctly match an intent. Using contexts, you can control the flow of a conversation. You can configure contexts for an intent by setting input and output contexts, which are identified by string names. When an intent is matched, any configured output contexts for that intent become active. While any contexts are active, Dialogflow is more likely to match intents that are configured with input contexts that correspond to the currently active contexts. For more information about context, see the [Contexts guide](https://cloud.google.com/dialogflow/docs/contexts-overview).
         :param pulumi.Input[str] name: The unique identifier of the context. Format: `projects//agent/sessions//contexts/`, or `projects//agent/environments//users//sessions//contexts/`. The `Context ID` is always converted to lowercase, may only contain characters in `a-zA-Z0-9_-%` and may be at most 250 bytes long. If `Environment ID` is not specified, we assume default 'draft' environment. If `User ID` is not specified, we assume default '-' user. The following context names are reserved for internal use by Dialogflow. You should not use these contexts or create contexts with these names: * `__system_counters__` * `*_id_dialog_context` * `*_dialog_params_size`
         :param pulumi.Input[int] lifespan_count: Optional. The number of conversational query requests after which the context expires. The default is `0`. If set to `0`, the context expires immediately. Contexts expire automatically after 20 minutes if there are no matching queries.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] parameters: Optional. The collection of parameters associated with this context. Depending on your protocol or client library language, this is a map, associative array, symbol table, dictionary, or JSON object composed of a collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter name * MapValue type: If parameter's entity type is a composite entity then use map, otherwise, depending on the parameter value type, it could be one of string, number, boolean, null, list or map. * MapValue value: If parameter's entity type is a composite entity then use map from composite entity property names to property values, otherwise, use parameter value.
+        :param pulumi.Input[Mapping[str, Any]] parameters: Optional. The collection of parameters associated with this context. Depending on your protocol or client library language, this is a map, associative array, symbol table, dictionary, or JSON object composed of a collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter name * MapValue type: If parameter's entity type is a composite entity then use map, otherwise, depending on the parameter value type, it could be one of string, number, boolean, null, list or map. * MapValue value: If parameter's entity type is a composite entity then use map from composite entity property names to property values, otherwise, use parameter value.
         """
         pulumi.set(__self__, "name", name)
         if lifespan_count is not None:
@@ -186,14 +187,14 @@ class GoogleCloudDialogflowV2ContextArgs:
 
     @property
     @pulumi.getter
-    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Optional. The collection of parameters associated with this context. Depending on your protocol or client library language, this is a map, associative array, symbol table, dictionary, or JSON object composed of a collection of (MapKey, MapValue) pairs: * MapKey type: string * MapKey value: parameter name * MapValue type: If parameter's entity type is a composite entity then use map, otherwise, depending on the parameter value type, it could be one of string, number, boolean, null, list or map. * MapValue value: If parameter's entity type is a composite entity then use map from composite entity property names to property values, otherwise, use parameter value.
         """
         return pulumi.get(self, "parameters")
 
     @parameters.setter
-    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "parameters", value)
 
 
@@ -996,6 +997,30 @@ class GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowl
 
 
 @pulumi.input_type
+class GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs:
+    def __init__(__self__, *,
+                 section_types: Optional[pulumi.Input[Sequence[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem']]]] = None):
+        """
+        Custom sections to return when requesting a summary of a conversation. This is only supported when `baseline_model_version` == '2.0'. Supported features: CONVERSATION_SUMMARIZATION, CONVERSATION_SUMMARIZATION_VOICE.
+        :param pulumi.Input[Sequence[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem']]] section_types: The selected sections chosen to return when requesting a summary of a conversation. A duplicate selected section will be treated as a single selected section. If section types are not provided, the default will be {SITUATION, ACTION, RESULT}.
+        """
+        if section_types is not None:
+            pulumi.set(__self__, "section_types", section_types)
+
+    @property
+    @pulumi.getter(name="sectionTypes")
+    def section_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem']]]]:
+        """
+        The selected sections chosen to return when requesting a summary of a conversation. A duplicate selected section will be treated as a single selected section. If section types are not provided, the default will be {SITUATION, ACTION, RESULT}.
+        """
+        return pulumi.get(self, "section_types")
+
+    @section_types.setter
+    def section_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsSectionTypesItem']]]]):
+        pulumi.set(self, "section_types", value)
+
+
+@pulumi.input_type
 class GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigArgs:
     def __init__(__self__, *,
                  confidence_threshold: Optional[pulumi.Input[float]] = None,
@@ -1003,7 +1028,8 @@ class GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigArgs:
                  dialogflow_query_source: Optional[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDialogflowQuerySourceArgs']] = None,
                  document_query_source: Optional[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySourceArgs']] = None,
                  knowledge_base_query_source: Optional[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourceArgs']] = None,
-                 max_results: Optional[pulumi.Input[int]] = None):
+                 max_results: Optional[pulumi.Input[int]] = None,
+                 sections: Optional[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs']] = None):
         """
         Config for suggestion query.
         :param pulumi.Input[float] confidence_threshold: Confidence threshold of query result. Agent Assist gives each suggestion a score in the range [0.0, 1.0], based on the relevance between the suggestion and the current conversation context. A score of 0.0 has no relevance, while a score of 1.0 has high relevance. Only suggestions with a score greater than or equal to the value of this field are included in the results. For a baseline model (the default), the recommended value is in the range [0.05, 0.1]. For a custom model, there is no recommended value. Tune this value by starting from a very low value and slowly increasing until you have desired results. If this field is not set, it defaults to 0.0, which means that all suggestions are returned. Supported features: ARTICLE_SUGGESTION, FAQ, SMART_REPLY, SMART_COMPOSE, KNOWLEDGE_SEARCH, KNOWLEDGE_ASSIST, ENTITY_EXTRACTION.
@@ -1012,6 +1038,7 @@ class GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigArgs:
         :param pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigDocumentQuerySourceArgs'] document_query_source: Query from knowledge base document. It is used by: SMART_REPLY, SMART_COMPOSE.
         :param pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigKnowledgeBaseQuerySourceArgs'] knowledge_base_query_source: Query from knowledgebase. It is used by: ARTICLE_SUGGESTION, FAQ.
         :param pulumi.Input[int] max_results: Maximum number of results to return. Currently, if unset, defaults to 10. And the max number is 20.
+        :param pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs'] sections: Optional. The customized sections chosen to return when requesting a summary of a conversation.
         """
         if confidence_threshold is not None:
             pulumi.set(__self__, "confidence_threshold", confidence_threshold)
@@ -1025,6 +1052,8 @@ class GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigArgs:
             pulumi.set(__self__, "knowledge_base_query_source", knowledge_base_query_source)
         if max_results is not None:
             pulumi.set(__self__, "max_results", max_results)
+        if sections is not None:
+            pulumi.set(__self__, "sections", sections)
 
     @property
     @pulumi.getter(name="confidenceThreshold")
@@ -1097,6 +1126,18 @@ class GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigArgs:
     @max_results.setter
     def max_results(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_results", value)
+
+    @property
+    @pulumi.getter
+    def sections(self) -> Optional[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs']]:
+        """
+        Optional. The customized sections chosen to return when requesting a summary of a conversation.
+        """
+        return pulumi.get(self, "sections")
+
+    @sections.setter
+    def sections(self, value: Optional[pulumi.Input['GoogleCloudDialogflowV2HumanAgentAssistantConfigSuggestionQueryConfigSectionsArgs']]):
+        pulumi.set(self, "sections", value)
 
 
 @pulumi.input_type
@@ -2655,7 +2696,7 @@ class GoogleCloudDialogflowV2IntentMessageArgs:
                  link_out_suggestion: Optional[pulumi.Input['GoogleCloudDialogflowV2IntentMessageLinkOutSuggestionArgs']] = None,
                  list_select: Optional[pulumi.Input['GoogleCloudDialogflowV2IntentMessageListSelectArgs']] = None,
                  media_content: Optional[pulumi.Input['GoogleCloudDialogflowV2IntentMessageMediaContentArgs']] = None,
-                 payload: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 payload: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  platform: Optional[pulumi.Input['GoogleCloudDialogflowV2IntentMessagePlatform']] = None,
                  quick_replies: Optional[pulumi.Input['GoogleCloudDialogflowV2IntentMessageQuickRepliesArgs']] = None,
                  simple_responses: Optional[pulumi.Input['GoogleCloudDialogflowV2IntentMessageSimpleResponsesArgs']] = None,
@@ -2672,7 +2713,7 @@ class GoogleCloudDialogflowV2IntentMessageArgs:
         :param pulumi.Input['GoogleCloudDialogflowV2IntentMessageLinkOutSuggestionArgs'] link_out_suggestion: The link out suggestion chip for Actions on Google.
         :param pulumi.Input['GoogleCloudDialogflowV2IntentMessageListSelectArgs'] list_select: The list card response for Actions on Google.
         :param pulumi.Input['GoogleCloudDialogflowV2IntentMessageMediaContentArgs'] media_content: The media content card for Actions on Google.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] payload: A custom platform-specific response.
+        :param pulumi.Input[Mapping[str, Any]] payload: A custom platform-specific response.
         :param pulumi.Input['GoogleCloudDialogflowV2IntentMessagePlatform'] platform: Optional. The platform that this message is intended for.
         :param pulumi.Input['GoogleCloudDialogflowV2IntentMessageQuickRepliesArgs'] quick_replies: The quick replies response.
         :param pulumi.Input['GoogleCloudDialogflowV2IntentMessageSimpleResponsesArgs'] simple_responses: The voice and text-only responses for Actions on Google.
@@ -2809,14 +2850,14 @@ class GoogleCloudDialogflowV2IntentMessageArgs:
 
     @property
     @pulumi.getter
-    def payload(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def payload(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         A custom platform-specific response.
         """
         return pulumi.get(self, "payload")
 
     @payload.setter
-    def payload(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def payload(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "payload", value)
 
     @property
@@ -3414,13 +3455,13 @@ class GoogleCloudDialogflowV2TextToSpeechSettingsArgs:
                  output_audio_encoding: pulumi.Input['GoogleCloudDialogflowV2TextToSpeechSettingsOutputAudioEncoding'],
                  enable_text_to_speech: Optional[pulumi.Input[bool]] = None,
                  sample_rate_hertz: Optional[pulumi.Input[int]] = None,
-                 synthesize_speech_configs: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+                 synthesize_speech_configs: Optional[pulumi.Input[Mapping[str, pulumi.Input['GoogleCloudDialogflowV2SynthesizeSpeechConfigArgs']]]] = None):
         """
         Instructs the speech synthesizer on how to generate the output audio content.
         :param pulumi.Input['GoogleCloudDialogflowV2TextToSpeechSettingsOutputAudioEncoding'] output_audio_encoding: Audio encoding of the synthesized audio content.
         :param pulumi.Input[bool] enable_text_to_speech: Optional. Indicates whether text to speech is enabled. Even when this field is false, other settings in this proto are still retained.
         :param pulumi.Input[int] sample_rate_hertz: Optional. The synthesis sample rate (in hertz) for this audio. If not provided, then the synthesizer will use the default sample rate based on the audio encoding. If this is different from the voice's natural sample rate, then the synthesizer will honor this request by converting to the desired sample rate (which might result in worse audio quality).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] synthesize_speech_configs: Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
+        :param pulumi.Input[Mapping[str, pulumi.Input['GoogleCloudDialogflowV2SynthesizeSpeechConfigArgs']]] synthesize_speech_configs: Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
         """
         pulumi.set(__self__, "output_audio_encoding", output_audio_encoding)
         if enable_text_to_speech is not None:
@@ -3468,14 +3509,14 @@ class GoogleCloudDialogflowV2TextToSpeechSettingsArgs:
 
     @property
     @pulumi.getter(name="synthesizeSpeechConfigs")
-    def synthesize_speech_configs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def synthesize_speech_configs(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['GoogleCloudDialogflowV2SynthesizeSpeechConfigArgs']]]]:
         """
         Optional. Configuration of how speech should be synthesized, mapping from language (https://cloud.google.com/dialogflow/docs/reference/language) to SynthesizeSpeechConfig.
         """
         return pulumi.get(self, "synthesize_speech_configs")
 
     @synthesize_speech_configs.setter
-    def synthesize_speech_configs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def synthesize_speech_configs(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['GoogleCloudDialogflowV2SynthesizeSpeechConfigArgs']]]]):
         pulumi.set(self, "synthesize_speech_configs", value)
 
 

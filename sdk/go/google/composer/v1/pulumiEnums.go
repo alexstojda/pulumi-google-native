@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Optional. The size of the Cloud Composer environment. This field is supported for Cloud Composer environments in versions composer-2.*.*-airflow-*.*.* and newer.
@@ -144,10 +143,13 @@ func (o EnvironmentConfigEnvironmentSizePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentConfigEnvironmentSizeInput is an input type that accepts EnvironmentConfigEnvironmentSizeArgs and EnvironmentConfigEnvironmentSizeOutput values.
-// You can construct a concrete instance of `EnvironmentConfigEnvironmentSizeInput` via:
+// EnvironmentConfigEnvironmentSizeInput is an input type that accepts values of the EnvironmentConfigEnvironmentSize enum
+// A concrete instance of `EnvironmentConfigEnvironmentSizeInput` can be one of the following:
 //
-//	EnvironmentConfigEnvironmentSizeArgs{...}
+//	EnvironmentConfigEnvironmentSizeEnvironmentSizeUnspecified
+//	EnvironmentConfigEnvironmentSizeEnvironmentSizeSmall
+//	EnvironmentConfigEnvironmentSizeEnvironmentSizeMedium
+//	EnvironmentConfigEnvironmentSizeEnvironmentSizeLarge
 type EnvironmentConfigEnvironmentSizeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *environmentConfigEnvironmentSizePtr) ToEnvironmentConfigEnvironmentSiz
 
 func (in *environmentConfigEnvironmentSizePtr) ToEnvironmentConfigEnvironmentSizePtrOutputWithContext(ctx context.Context) EnvironmentConfigEnvironmentSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentConfigEnvironmentSizePtrOutput)
-}
-
-func (in *environmentConfigEnvironmentSizePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentConfigEnvironmentSize] {
-	return pulumix.Output[*EnvironmentConfigEnvironmentSize]{
-		OutputState: in.ToEnvironmentConfigEnvironmentSizePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Resilience mode of the Cloud Composer Environment. This field is supported for Cloud Composer environments in versions composer-2.2.0-airflow-*.*.* and newer.
@@ -317,10 +313,11 @@ func (o EnvironmentConfigResilienceModePtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentConfigResilienceModeInput is an input type that accepts EnvironmentConfigResilienceModeArgs and EnvironmentConfigResilienceModeOutput values.
-// You can construct a concrete instance of `EnvironmentConfigResilienceModeInput` via:
+// EnvironmentConfigResilienceModeInput is an input type that accepts values of the EnvironmentConfigResilienceMode enum
+// A concrete instance of `EnvironmentConfigResilienceModeInput` can be one of the following:
 //
-//	EnvironmentConfigResilienceModeArgs{...}
+//	EnvironmentConfigResilienceModeResilienceModeUnspecified
+//	EnvironmentConfigResilienceModeHighResilience
 type EnvironmentConfigResilienceModeInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *environmentConfigResilienceModePtr) ToEnvironmentConfigResilienceModeP
 
 func (in *environmentConfigResilienceModePtr) ToEnvironmentConfigResilienceModePtrOutputWithContext(ctx context.Context) EnvironmentConfigResilienceModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentConfigResilienceModePtrOutput)
-}
-
-func (in *environmentConfigResilienceModePtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentConfigResilienceMode] {
-	return pulumix.Output[*EnvironmentConfigResilienceMode]{
-		OutputState: in.ToEnvironmentConfigResilienceModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current state of the environment.
@@ -498,10 +489,15 @@ func (o EnvironmentStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// EnvironmentStateEnumInput is an input type that accepts EnvironmentStateEnumArgs and EnvironmentStateEnumOutput values.
-// You can construct a concrete instance of `EnvironmentStateEnumInput` via:
+// EnvironmentStateEnumInput is an input type that accepts values of the EnvironmentStateEnum enum
+// A concrete instance of `EnvironmentStateEnumInput` can be one of the following:
 //
-//	EnvironmentStateEnumArgs{...}
+//	EnvironmentStateEnumStateUnspecified
+//	EnvironmentStateEnumCreating
+//	EnvironmentStateEnumRunning
+//	EnvironmentStateEnumUpdating
+//	EnvironmentStateEnumDeleting
+//	EnvironmentStateEnumError
 type EnvironmentStateEnumInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *environmentStateEnumPtr) ToEnvironmentStateEnumPtrOutput() Environment
 
 func (in *environmentStateEnumPtr) ToEnvironmentStateEnumPtrOutputWithContext(ctx context.Context) EnvironmentStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EnvironmentStateEnumPtrOutput)
-}
-
-func (in *environmentStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*EnvironmentStateEnum] {
-	return pulumix.Output[*EnvironmentStateEnum]{
-		OutputState: in.ToEnvironmentStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Indicates the user requested specifc connection type between Tenant and Customer projects. You cannot set networking connection type in public IP environment.
@@ -673,10 +663,12 @@ func (o NetworkingConfigConnectionTypePtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// NetworkingConfigConnectionTypeInput is an input type that accepts NetworkingConfigConnectionTypeArgs and NetworkingConfigConnectionTypeOutput values.
-// You can construct a concrete instance of `NetworkingConfigConnectionTypeInput` via:
+// NetworkingConfigConnectionTypeInput is an input type that accepts values of the NetworkingConfigConnectionType enum
+// A concrete instance of `NetworkingConfigConnectionTypeInput` can be one of the following:
 //
-//	NetworkingConfigConnectionTypeArgs{...}
+//	NetworkingConfigConnectionTypeConnectionTypeUnspecified
+//	NetworkingConfigConnectionTypeVpcPeering
+//	NetworkingConfigConnectionTypePrivateServiceConnect
 type NetworkingConfigConnectionTypeInput interface {
 	pulumi.Input
 
@@ -709,12 +701,6 @@ func (in *networkingConfigConnectionTypePtr) ToNetworkingConfigConnectionTypePtr
 
 func (in *networkingConfigConnectionTypePtr) ToNetworkingConfigConnectionTypePtrOutputWithContext(ctx context.Context) NetworkingConfigConnectionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NetworkingConfigConnectionTypePtrOutput)
-}
-
-func (in *networkingConfigConnectionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*NetworkingConfigConnectionType] {
-	return pulumix.Output[*NetworkingConfigConnectionType]{
-		OutputState: in.ToNetworkingConfigConnectionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

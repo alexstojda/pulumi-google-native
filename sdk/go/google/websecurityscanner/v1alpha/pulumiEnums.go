@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type ScanConfigTargetPlatformsItem string
@@ -145,10 +144,14 @@ func (o ScanConfigTargetPlatformsItemPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScanConfigTargetPlatformsItemInput is an input type that accepts ScanConfigTargetPlatformsItemArgs and ScanConfigTargetPlatformsItemOutput values.
-// You can construct a concrete instance of `ScanConfigTargetPlatformsItemInput` via:
+// ScanConfigTargetPlatformsItemInput is an input type that accepts values of the ScanConfigTargetPlatformsItem enum
+// A concrete instance of `ScanConfigTargetPlatformsItemInput` can be one of the following:
 //
-//	ScanConfigTargetPlatformsItemArgs{...}
+//	ScanConfigTargetPlatformsItemTargetPlatformUnspecified
+//	ScanConfigTargetPlatformsItemAppEngine
+//	ScanConfigTargetPlatformsItemCompute
+//	ScanConfigTargetPlatformsItemCloudRun
+//	ScanConfigTargetPlatformsItemCloudFunctions
 type ScanConfigTargetPlatformsItemInput interface {
 	pulumi.Input
 
@@ -181,12 +184,6 @@ func (in *scanConfigTargetPlatformsItemPtr) ToScanConfigTargetPlatformsItemPtrOu
 
 func (in *scanConfigTargetPlatformsItemPtr) ToScanConfigTargetPlatformsItemPtrOutputWithContext(ctx context.Context) ScanConfigTargetPlatformsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScanConfigTargetPlatformsItemPtrOutput)
-}
-
-func (in *scanConfigTargetPlatformsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*ScanConfigTargetPlatformsItem] {
-	return pulumix.Output[*ScanConfigTargetPlatformsItem]{
-		OutputState: in.ToScanConfigTargetPlatformsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ScanConfigTargetPlatformsItemArrayInput is an input type that accepts ScanConfigTargetPlatformsItemArray and ScanConfigTargetPlatformsItemArrayOutput values.
@@ -367,10 +364,13 @@ func (o ScanConfigUserAgentPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScanConfigUserAgentInput is an input type that accepts ScanConfigUserAgentArgs and ScanConfigUserAgentOutput values.
-// You can construct a concrete instance of `ScanConfigUserAgentInput` via:
+// ScanConfigUserAgentInput is an input type that accepts values of the ScanConfigUserAgent enum
+// A concrete instance of `ScanConfigUserAgentInput` can be one of the following:
 //
-//	ScanConfigUserAgentArgs{...}
+//	ScanConfigUserAgentUserAgentUnspecified
+//	ScanConfigUserAgentChromeLinux
+//	ScanConfigUserAgentChromeAndroid
+//	ScanConfigUserAgentSafariIphone
 type ScanConfigUserAgentInput interface {
 	pulumi.Input
 
@@ -403,12 +403,6 @@ func (in *scanConfigUserAgentPtr) ToScanConfigUserAgentPtrOutput() ScanConfigUse
 
 func (in *scanConfigUserAgentPtr) ToScanConfigUserAgentPtrOutputWithContext(ctx context.Context) ScanConfigUserAgentPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScanConfigUserAgentPtrOutput)
-}
-
-func (in *scanConfigUserAgentPtr) ToOutput(ctx context.Context) pulumix.Output[*ScanConfigUserAgent] {
-	return pulumix.Output[*ScanConfigUserAgent]{
-		OutputState: in.ToScanConfigUserAgentPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The execution state of the ScanRun.
@@ -544,10 +538,13 @@ func (o ScanRunExecutionStatePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScanRunExecutionStateInput is an input type that accepts ScanRunExecutionStateArgs and ScanRunExecutionStateOutput values.
-// You can construct a concrete instance of `ScanRunExecutionStateInput` via:
+// ScanRunExecutionStateInput is an input type that accepts values of the ScanRunExecutionState enum
+// A concrete instance of `ScanRunExecutionStateInput` can be one of the following:
 //
-//	ScanRunExecutionStateArgs{...}
+//	ScanRunExecutionStateExecutionStateUnspecified
+//	ScanRunExecutionStateQueued
+//	ScanRunExecutionStateScanning
+//	ScanRunExecutionStateFinished
 type ScanRunExecutionStateInput interface {
 	pulumi.Input
 
@@ -580,12 +577,6 @@ func (in *scanRunExecutionStatePtr) ToScanRunExecutionStatePtrOutput() ScanRunEx
 
 func (in *scanRunExecutionStatePtr) ToScanRunExecutionStatePtrOutputWithContext(ctx context.Context) ScanRunExecutionStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScanRunExecutionStatePtrOutput)
-}
-
-func (in *scanRunExecutionStatePtr) ToOutput(ctx context.Context) pulumix.Output[*ScanRunExecutionState] {
-	return pulumix.Output[*ScanRunExecutionState]{
-		OutputState: in.ToScanRunExecutionStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The result state of the ScanRun. This field is only available after the execution state reaches "FINISHED".
@@ -721,10 +712,13 @@ func (o ScanRunResultStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScanRunResultStateInput is an input type that accepts ScanRunResultStateArgs and ScanRunResultStateOutput values.
-// You can construct a concrete instance of `ScanRunResultStateInput` via:
+// ScanRunResultStateInput is an input type that accepts values of the ScanRunResultState enum
+// A concrete instance of `ScanRunResultStateInput` can be one of the following:
 //
-//	ScanRunResultStateArgs{...}
+//	ScanRunResultStateResultStateUnspecified
+//	ScanRunResultStateSuccess
+//	ScanRunResultStateError
+//	ScanRunResultStateKilled
 type ScanRunResultStateInput interface {
 	pulumi.Input
 
@@ -757,12 +751,6 @@ func (in *scanRunResultStatePtr) ToScanRunResultStatePtrOutput() ScanRunResultSt
 
 func (in *scanRunResultStatePtr) ToScanRunResultStatePtrOutputWithContext(ctx context.Context) ScanRunResultStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScanRunResultStatePtrOutput)
-}
-
-func (in *scanRunResultStatePtr) ToOutput(ctx context.Context) pulumix.Output[*ScanRunResultState] {
-	return pulumix.Output[*ScanRunResultState]{
-		OutputState: in.ToScanRunResultStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CompositeTypeStatus string
@@ -329,10 +325,13 @@ func (o DiagnosticLevelPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DiagnosticLevelInput is an input type that accepts DiagnosticLevelArgs and DiagnosticLevelOutput values.
-// You can construct a concrete instance of `DiagnosticLevelInput` via:
+// DiagnosticLevelInput is an input type that accepts values of the DiagnosticLevel enum
+// A concrete instance of `DiagnosticLevelInput` can be one of the following:
 //
-//	DiagnosticLevelArgs{...}
+//	DiagnosticLevelUnknown
+//	DiagnosticLevelInformation
+//	DiagnosticLevelWarning
+//	DiagnosticLevelError
 type DiagnosticLevelInput interface {
 	pulumi.Input
 
@@ -365,12 +364,6 @@ func (in *diagnosticLevelPtr) ToDiagnosticLevelPtrOutput() DiagnosticLevelPtrOut
 
 func (in *diagnosticLevelPtr) ToDiagnosticLevelPtrOutputWithContext(ctx context.Context) DiagnosticLevelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DiagnosticLevelPtrOutput)
-}
-
-func (in *diagnosticLevelPtr) ToOutput(ctx context.Context) pulumix.Output[*DiagnosticLevel] {
-	return pulumix.Output[*DiagnosticLevel]{
-		OutputState: in.ToDiagnosticLevelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The location where this mapping applies.
@@ -503,10 +496,14 @@ func (o InputMappingLocationPtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// InputMappingLocationInput is an input type that accepts InputMappingLocationArgs and InputMappingLocationOutput values.
-// You can construct a concrete instance of `InputMappingLocationInput` via:
+// InputMappingLocationInput is an input type that accepts values of the InputMappingLocation enum
+// A concrete instance of `InputMappingLocationInput` can be one of the following:
 //
-//	InputMappingLocationArgs{...}
+//	InputMappingLocationUnknown
+//	InputMappingLocationPath
+//	InputMappingLocationQuery
+//	InputMappingLocationBody
+//	InputMappingLocationHeader
 type InputMappingLocationInput interface {
 	pulumi.Input
 
@@ -539,12 +536,6 @@ func (in *inputMappingLocationPtr) ToInputMappingLocationPtrOutput() InputMappin
 
 func (in *inputMappingLocationPtr) ToInputMappingLocationPtrOutputWithContext(ctx context.Context) InputMappingLocationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InputMappingLocationPtrOutput)
-}
-
-func (in *inputMappingLocationPtr) ToOutput(ctx context.Context) pulumix.Output[*InputMappingLocation] {
-	return pulumix.Output[*InputMappingLocation]{
-		OutputState: in.ToInputMappingLocationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Which interpreter (python or jinja) should be used during expansion.
@@ -675,10 +666,12 @@ func (o TemplateContentsInterpreterPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// TemplateContentsInterpreterInput is an input type that accepts TemplateContentsInterpreterArgs and TemplateContentsInterpreterOutput values.
-// You can construct a concrete instance of `TemplateContentsInterpreterInput` via:
+// TemplateContentsInterpreterInput is an input type that accepts values of the TemplateContentsInterpreter enum
+// A concrete instance of `TemplateContentsInterpreterInput` can be one of the following:
 //
-//	TemplateContentsInterpreterArgs{...}
+//	TemplateContentsInterpreterUnknownInterpreter
+//	TemplateContentsInterpreterPython
+//	TemplateContentsInterpreterJinja
 type TemplateContentsInterpreterInput interface {
 	pulumi.Input
 
@@ -711,12 +704,6 @@ func (in *templateContentsInterpreterPtr) ToTemplateContentsInterpreterPtrOutput
 
 func (in *templateContentsInterpreterPtr) ToTemplateContentsInterpreterPtrOutputWithContext(ctx context.Context) TemplateContentsInterpreterPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TemplateContentsInterpreterPtrOutput)
-}
-
-func (in *templateContentsInterpreterPtr) ToOutput(ctx context.Context) pulumix.Output[*TemplateContentsInterpreter] {
-	return pulumix.Output[*TemplateContentsInterpreter]{
-		OutputState: in.ToTemplateContentsInterpreterPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Customize how deployment manager will validate the resource against schema errors.
@@ -851,10 +838,13 @@ func (o ValidationOptionsSchemaValidationPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// ValidationOptionsSchemaValidationInput is an input type that accepts ValidationOptionsSchemaValidationArgs and ValidationOptionsSchemaValidationOutput values.
-// You can construct a concrete instance of `ValidationOptionsSchemaValidationInput` via:
+// ValidationOptionsSchemaValidationInput is an input type that accepts values of the ValidationOptionsSchemaValidation enum
+// A concrete instance of `ValidationOptionsSchemaValidationInput` can be one of the following:
 //
-//	ValidationOptionsSchemaValidationArgs{...}
+//	ValidationOptionsSchemaValidationUnknown
+//	ValidationOptionsSchemaValidationIgnore
+//	ValidationOptionsSchemaValidationIgnoreWithWarnings
+//	ValidationOptionsSchemaValidationFail
 type ValidationOptionsSchemaValidationInput interface {
 	pulumi.Input
 
@@ -887,12 +877,6 @@ func (in *validationOptionsSchemaValidationPtr) ToValidationOptionsSchemaValidat
 
 func (in *validationOptionsSchemaValidationPtr) ToValidationOptionsSchemaValidationPtrOutputWithContext(ctx context.Context) ValidationOptionsSchemaValidationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ValidationOptionsSchemaValidationPtrOutput)
-}
-
-func (in *validationOptionsSchemaValidationPtr) ToOutput(ctx context.Context) pulumix.Output[*ValidationOptionsSchemaValidation] {
-	return pulumix.Output[*ValidationOptionsSchemaValidation]{
-		OutputState: in.ToValidationOptionsSchemaValidationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specify what to do with extra properties when executing a request.
@@ -1031,10 +1015,15 @@ func (o ValidationOptionsUndeclaredPropertiesPtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// ValidationOptionsUndeclaredPropertiesInput is an input type that accepts ValidationOptionsUndeclaredPropertiesArgs and ValidationOptionsUndeclaredPropertiesOutput values.
-// You can construct a concrete instance of `ValidationOptionsUndeclaredPropertiesInput` via:
+// ValidationOptionsUndeclaredPropertiesInput is an input type that accepts values of the ValidationOptionsUndeclaredProperties enum
+// A concrete instance of `ValidationOptionsUndeclaredPropertiesInput` can be one of the following:
 //
-//	ValidationOptionsUndeclaredPropertiesArgs{...}
+//	ValidationOptionsUndeclaredPropertiesUnknown
+//	ValidationOptionsUndeclaredPropertiesInclude
+//	ValidationOptionsUndeclaredPropertiesIgnore
+//	ValidationOptionsUndeclaredPropertiesIncludeWithWarnings
+//	ValidationOptionsUndeclaredPropertiesIgnoreWithWarnings
+//	ValidationOptionsUndeclaredPropertiesFail
 type ValidationOptionsUndeclaredPropertiesInput interface {
 	pulumi.Input
 
@@ -1067,12 +1056,6 @@ func (in *validationOptionsUndeclaredPropertiesPtr) ToValidationOptionsUndeclare
 
 func (in *validationOptionsUndeclaredPropertiesPtr) ToValidationOptionsUndeclaredPropertiesPtrOutputWithContext(ctx context.Context) ValidationOptionsUndeclaredPropertiesPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ValidationOptionsUndeclaredPropertiesPtrOutput)
-}
-
-func (in *validationOptionsUndeclaredPropertiesPtr) ToOutput(ctx context.Context) pulumix.Output[*ValidationOptionsUndeclaredProperties] {
-	return pulumix.Output[*ValidationOptionsUndeclaredProperties]{
-		OutputState: in.ToValidationOptionsUndeclaredPropertiesPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Edition of the capacity commitment.
@@ -144,10 +143,13 @@ func (o CapacityCommitmentEditionPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapacityCommitmentEditionInput is an input type that accepts CapacityCommitmentEditionArgs and CapacityCommitmentEditionOutput values.
-// You can construct a concrete instance of `CapacityCommitmentEditionInput` via:
+// CapacityCommitmentEditionInput is an input type that accepts values of the CapacityCommitmentEdition enum
+// A concrete instance of `CapacityCommitmentEditionInput` can be one of the following:
 //
-//	CapacityCommitmentEditionArgs{...}
+//	CapacityCommitmentEditionEditionUnspecified
+//	CapacityCommitmentEditionStandard
+//	CapacityCommitmentEditionEnterprise
+//	CapacityCommitmentEditionEnterprisePlus
 type CapacityCommitmentEditionInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *capacityCommitmentEditionPtr) ToCapacityCommitmentEditionPtrOutput() C
 
 func (in *capacityCommitmentEditionPtr) ToCapacityCommitmentEditionPtrOutputWithContext(ctx context.Context) CapacityCommitmentEditionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityCommitmentEditionPtrOutput)
-}
-
-func (in *capacityCommitmentEditionPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityCommitmentEdition] {
-	return pulumix.Output[*CapacityCommitmentEdition]{
-		OutputState: in.ToCapacityCommitmentEditionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Capacity commitment commitment plan.
@@ -333,10 +329,19 @@ func (o CapacityCommitmentPlanPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapacityCommitmentPlanInput is an input type that accepts CapacityCommitmentPlanArgs and CapacityCommitmentPlanOutput values.
-// You can construct a concrete instance of `CapacityCommitmentPlanInput` via:
+// CapacityCommitmentPlanInput is an input type that accepts values of the CapacityCommitmentPlan enum
+// A concrete instance of `CapacityCommitmentPlanInput` can be one of the following:
 //
-//	CapacityCommitmentPlanArgs{...}
+//	CapacityCommitmentPlanCommitmentPlanUnspecified
+//	CapacityCommitmentPlanFlex
+//	CapacityCommitmentPlanFlexFlatRate
+//	CapacityCommitmentPlanTrial
+//	CapacityCommitmentPlanMonthly
+//	CapacityCommitmentPlanMonthlyFlatRate
+//	CapacityCommitmentPlanAnnual
+//	CapacityCommitmentPlanAnnualFlatRate
+//	CapacityCommitmentPlanThreeYear
+//	CapacityCommitmentPlanNone
 type CapacityCommitmentPlanInput interface {
 	pulumi.Input
 
@@ -369,12 +374,6 @@ func (in *capacityCommitmentPlanPtr) ToCapacityCommitmentPlanPtrOutput() Capacit
 
 func (in *capacityCommitmentPlanPtr) ToCapacityCommitmentPlanPtrOutputWithContext(ctx context.Context) CapacityCommitmentPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityCommitmentPlanPtrOutput)
-}
-
-func (in *capacityCommitmentPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityCommitmentPlan] {
-	return pulumix.Output[*CapacityCommitmentPlan]{
-		OutputState: in.ToCapacityCommitmentPlanPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The plan this capacity commitment is converted to after commitment_end_time passes. Once the plan is changed, committed period is extended according to commitment plan. Only applicable for ANNUAL and TRIAL commitments.
@@ -522,10 +521,19 @@ func (o CapacityCommitmentRenewalPlanPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// CapacityCommitmentRenewalPlanInput is an input type that accepts CapacityCommitmentRenewalPlanArgs and CapacityCommitmentRenewalPlanOutput values.
-// You can construct a concrete instance of `CapacityCommitmentRenewalPlanInput` via:
+// CapacityCommitmentRenewalPlanInput is an input type that accepts values of the CapacityCommitmentRenewalPlan enum
+// A concrete instance of `CapacityCommitmentRenewalPlanInput` can be one of the following:
 //
-//	CapacityCommitmentRenewalPlanArgs{...}
+//	CapacityCommitmentRenewalPlanCommitmentPlanUnspecified
+//	CapacityCommitmentRenewalPlanFlex
+//	CapacityCommitmentRenewalPlanFlexFlatRate
+//	CapacityCommitmentRenewalPlanTrial
+//	CapacityCommitmentRenewalPlanMonthly
+//	CapacityCommitmentRenewalPlanMonthlyFlatRate
+//	CapacityCommitmentRenewalPlanAnnual
+//	CapacityCommitmentRenewalPlanAnnualFlatRate
+//	CapacityCommitmentRenewalPlanThreeYear
+//	CapacityCommitmentRenewalPlanNone
 type CapacityCommitmentRenewalPlanInput interface {
 	pulumi.Input
 
@@ -558,12 +566,6 @@ func (in *capacityCommitmentRenewalPlanPtr) ToCapacityCommitmentRenewalPlanPtrOu
 
 func (in *capacityCommitmentRenewalPlanPtr) ToCapacityCommitmentRenewalPlanPtrOutputWithContext(ctx context.Context) CapacityCommitmentRenewalPlanPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CapacityCommitmentRenewalPlanPtrOutput)
-}
-
-func (in *capacityCommitmentRenewalPlanPtr) ToOutput(ctx context.Context) pulumix.Output[*CapacityCommitmentRenewalPlan] {
-	return pulumix.Output[*CapacityCommitmentRenewalPlan]{
-		OutputState: in.ToCapacityCommitmentRenewalPlanPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Edition of the reservation.
@@ -699,10 +701,13 @@ func (o ReservationEditionPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReservationEditionInput is an input type that accepts ReservationEditionArgs and ReservationEditionOutput values.
-// You can construct a concrete instance of `ReservationEditionInput` via:
+// ReservationEditionInput is an input type that accepts values of the ReservationEdition enum
+// A concrete instance of `ReservationEditionInput` can be one of the following:
 //
-//	ReservationEditionArgs{...}
+//	ReservationEditionEditionUnspecified
+//	ReservationEditionStandard
+//	ReservationEditionEnterprise
+//	ReservationEditionEnterprisePlus
 type ReservationEditionInput interface {
 	pulumi.Input
 
@@ -735,12 +740,6 @@ func (in *reservationEditionPtr) ToReservationEditionPtrOutput() ReservationEdit
 
 func (in *reservationEditionPtr) ToReservationEditionPtrOutputWithContext(ctx context.Context) ReservationEditionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReservationEditionPtrOutput)
-}
-
-func (in *reservationEditionPtr) ToOutput(ctx context.Context) pulumix.Output[*ReservationEdition] {
-	return pulumix.Output[*ReservationEdition]{
-		OutputState: in.ToReservationEditionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

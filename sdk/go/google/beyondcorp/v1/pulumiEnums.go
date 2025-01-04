@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. The type of network connectivity used by the AppConnection.
@@ -140,10 +139,11 @@ func (o AppConnectionTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppConnectionTypeInput is an input type that accepts AppConnectionTypeArgs and AppConnectionTypeOutput values.
-// You can construct a concrete instance of `AppConnectionTypeInput` via:
+// AppConnectionTypeInput is an input type that accepts values of the AppConnectionType enum
+// A concrete instance of `AppConnectionTypeInput` can be one of the following:
 //
-//	AppConnectionTypeArgs{...}
+//	AppConnectionTypeTypeUnspecified
+//	AppConnectionTypeTcpProxy
 type AppConnectionTypeInput interface {
 	pulumi.Input
 
@@ -176,12 +176,6 @@ func (in *appConnectionTypePtr) ToAppConnectionTypePtrOutput() AppConnectionType
 
 func (in *appConnectionTypePtr) ToAppConnectionTypePtrOutputWithContext(ctx context.Context) AppConnectionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppConnectionTypePtrOutput)
-}
-
-func (in *appConnectionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AppConnectionType] {
-	return pulumix.Output[*AppConnectionType]{
-		OutputState: in.ToAppConnectionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of hosting used by the AppGateway.
@@ -313,10 +307,11 @@ func (o AppGatewayHostTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppGatewayHostTypeInput is an input type that accepts AppGatewayHostTypeArgs and AppGatewayHostTypeOutput values.
-// You can construct a concrete instance of `AppGatewayHostTypeInput` via:
+// AppGatewayHostTypeInput is an input type that accepts values of the AppGatewayHostType enum
+// A concrete instance of `AppGatewayHostTypeInput` can be one of the following:
 //
-//	AppGatewayHostTypeArgs{...}
+//	AppGatewayHostTypeHostTypeUnspecified
+//	AppGatewayHostTypeGcpRegionalMig
 type AppGatewayHostTypeInput interface {
 	pulumi.Input
 
@@ -349,12 +344,6 @@ func (in *appGatewayHostTypePtr) ToAppGatewayHostTypePtrOutput() AppGatewayHostT
 
 func (in *appGatewayHostTypePtr) ToAppGatewayHostTypePtrOutputWithContext(ctx context.Context) AppGatewayHostTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppGatewayHostTypePtrOutput)
-}
-
-func (in *appGatewayHostTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AppGatewayHostType] {
-	return pulumix.Output[*AppGatewayHostType]{
-		OutputState: in.ToAppGatewayHostTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of network connectivity used by the AppGateway.
@@ -486,10 +475,11 @@ func (o AppGatewayTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// AppGatewayTypeInput is an input type that accepts AppGatewayTypeArgs and AppGatewayTypeOutput values.
-// You can construct a concrete instance of `AppGatewayTypeInput` via:
+// AppGatewayTypeInput is an input type that accepts values of the AppGatewayType enum
+// A concrete instance of `AppGatewayTypeInput` can be one of the following:
 //
-//	AppGatewayTypeArgs{...}
+//	AppGatewayTypeTypeUnspecified
+//	AppGatewayTypeTcpProxy
 type AppGatewayTypeInput interface {
 	pulumi.Input
 
@@ -522,12 +512,6 @@ func (in *appGatewayTypePtr) ToAppGatewayTypePtrOutput() AppGatewayTypePtrOutput
 
 func (in *appGatewayTypePtr) ToAppGatewayTypePtrOutputWithContext(ctx context.Context) AppGatewayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AppGatewayTypePtrOutput)
-}
-
-func (in *appGatewayTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AppGatewayType] {
-	return pulumix.Output[*AppGatewayType]{
-		OutputState: in.ToAppGatewayTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of hosting used by the gateway.
@@ -659,10 +643,11 @@ func (o GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeInput is an input type that accepts GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeArgs and GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeInput` via:
+// GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeInput is an input type that accepts values of the GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayType enum
+// A concrete instance of `GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeInput` can be one of the following:
 //
-//	GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeArgs{...}
+//	GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeTypeUnspecified
+//	GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeGcpRegionalMig
 type GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypeInput interface {
 	pulumi.Input
 
@@ -695,12 +680,6 @@ func (in *googleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypePtr) ToGo
 
 func (in *googleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypePtr) ToGoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypePtrOutputWithContext(ctx context.Context) GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypePtrOutput)
-}
-
-func (in *googleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayType] {
-	return pulumix.Output[*GoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayType]{
-		OutputState: in.ToGoogleCloudBeyondcorpAppconnectionsV1AppConnectionGatewayTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Overall health status. Overall status is derived based on the status of each sub level resources.
@@ -838,10 +817,14 @@ func (o GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusInput is an input type that accepts GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusArgs and GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusOutput values.
-// You can construct a concrete instance of `GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusInput` via:
+// GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusInput is an input type that accepts values of the GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatus enum
+// A concrete instance of `GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusInput` can be one of the following:
 //
-//	GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusArgs{...}
+//	GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusHealthStatusUnspecified
+//	GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusHealthy
+//	GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusUnhealthy
+//	GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusUnresponsive
+//	GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusDegraded
 type GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusInput interface {
 	pulumi.Input
 
@@ -874,12 +857,6 @@ func (in *googleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusPtr) ToGoogleClo
 
 func (in *googleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusPtr) ToGoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusPtrOutputWithContext(ctx context.Context) GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusPtrOutput)
-}
-
-func (in *googleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatus] {
-	return pulumix.Output[*GoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatus]{
-		OutputState: in.ToGoogleCloudBeyondcorpAppconnectorsV1ResourceInfoStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -1015,10 +992,13 @@ func (o GoogleIamV1AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts GoogleIamV1AuditLogConfigLogTypeArgs and GoogleIamV1AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` via:
+// GoogleIamV1AuditLogConfigLogTypeInput is an input type that accepts values of the GoogleIamV1AuditLogConfigLogType enum
+// A concrete instance of `GoogleIamV1AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	GoogleIamV1AuditLogConfigLogTypeArgs{...}
+//	GoogleIamV1AuditLogConfigLogTypeLogTypeUnspecified
+//	GoogleIamV1AuditLogConfigLogTypeAdminRead
+//	GoogleIamV1AuditLogConfigLogTypeDataWrite
+//	GoogleIamV1AuditLogConfigLogTypeDataRead
 type GoogleIamV1AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -1051,12 +1031,6 @@ func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTyp
 
 func (in *googleIamV1AuditLogConfigLogTypePtr) ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) GoogleIamV1AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamV1AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *googleIamV1AuditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamV1AuditLogConfigLogType] {
-	return pulumix.Output[*GoogleIamV1AuditLogConfigLogType]{
-		OutputState: in.ToGoogleIamV1AuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

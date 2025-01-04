@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The behavior for how OIDC Claims are included in the `assertion` object used for attribute mapping and attribute condition.
@@ -319,10 +315,12 @@ func (o GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBeha
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorInput is an input type that accepts GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorArgs and GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorOutput values.
-// You can construct a concrete instance of `GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorInput` via:
+// GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorInput is an input type that accepts values of the GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehavior enum
+// A concrete instance of `GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorInput` can be one of the following:
 //
-//	GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorArgs{...}
+//	GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorAssertionClaimsBehaviorUnspecified
+//	GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorMergeUserInfoOverIdTokenClaims
+//	GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorOnlyIdTokenClaims
 type GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *googleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBe
 
 func (in *googleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorPtr) ToGoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorPtrOutputWithContext(ctx context.Context) GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorPtrOutput)
-}
-
-func (in *googleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehavior] {
-	return pulumix.Output[*GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehavior]{
-		OutputState: in.ToGoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigAssertionClaimsBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The Response Type to request for in the OIDC Authorization Request for web sign-in. The `CODE` Response Type is recommended to avoid the Implicit Flow, for security reasons.
@@ -494,10 +486,12 @@ func (o GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypePtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeInput is an input type that accepts GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeArgs and GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeOutput values.
-// You can construct a concrete instance of `GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeInput` via:
+// GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeInput is an input type that accepts values of the GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseType enum
+// A concrete instance of `GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeInput` can be one of the following:
 //
-//	GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeArgs{...}
+//	GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeResponseTypeUnspecified
+//	GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeCode
+//	GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeIdToken
 type GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypeInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *googleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypePtr) 
 
 func (in *googleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypePtr) ToGoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypePtrOutputWithContext(ctx context.Context) GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypePtrOutput)
-}
-
-func (in *googleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseType] {
-	return pulumix.Output[*GoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseType]{
-		OutputState: in.ToGoogleIamAdminV1WorkforcePoolProviderOidcWebSsoConfigResponseTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The specifications for the key.
@@ -671,10 +659,13 @@ func (o KeyDataKeySpecPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyDataKeySpecInput is an input type that accepts KeyDataKeySpecArgs and KeyDataKeySpecOutput values.
-// You can construct a concrete instance of `KeyDataKeySpecInput` via:
+// KeyDataKeySpecInput is an input type that accepts values of the KeyDataKeySpec enum
+// A concrete instance of `KeyDataKeySpecInput` can be one of the following:
 //
-//	KeyDataKeySpecArgs{...}
+//	KeyDataKeySpecKeySpecUnspecified
+//	KeyDataKeySpecRsa2048
+//	KeyDataKeySpecRsa3072
+//	KeyDataKeySpecRsa4096
 type KeyDataKeySpecInput interface {
 	pulumi.Input
 
@@ -707,12 +698,6 @@ func (in *keyDataKeySpecPtr) ToKeyDataKeySpecPtrOutput() KeyDataKeySpecPtrOutput
 
 func (in *keyDataKeySpecPtr) ToKeyDataKeySpecPtrOutputWithContext(ctx context.Context) KeyDataKeySpecPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyDataKeySpecPtrOutput)
-}
-
-func (in *keyDataKeySpecPtr) ToOutput(ctx context.Context) pulumix.Output[*KeyDataKeySpec] {
-	return pulumix.Output[*KeyDataKeySpec]{
-		OutputState: in.ToKeyDataKeySpecPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Which type of key and algorithm to use for the key. The default is currently a 2K RSA key. However this may change in the future.
@@ -846,10 +831,12 @@ func (o KeyKeyAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyKeyAlgorithmInput is an input type that accepts KeyKeyAlgorithmArgs and KeyKeyAlgorithmOutput values.
-// You can construct a concrete instance of `KeyKeyAlgorithmInput` via:
+// KeyKeyAlgorithmInput is an input type that accepts values of the KeyKeyAlgorithm enum
+// A concrete instance of `KeyKeyAlgorithmInput` can be one of the following:
 //
-//	KeyKeyAlgorithmArgs{...}
+//	KeyKeyAlgorithmKeyAlgUnspecified
+//	KeyKeyAlgorithmKeyAlgRsa1024
+//	KeyKeyAlgorithmKeyAlgRsa2048
 type KeyKeyAlgorithmInput interface {
 	pulumi.Input
 
@@ -882,12 +869,6 @@ func (in *keyKeyAlgorithmPtr) ToKeyKeyAlgorithmPtrOutput() KeyKeyAlgorithmPtrOut
 
 func (in *keyKeyAlgorithmPtr) ToKeyKeyAlgorithmPtrOutputWithContext(ctx context.Context) KeyKeyAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyKeyAlgorithmPtrOutput)
-}
-
-func (in *keyKeyAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*KeyKeyAlgorithm] {
-	return pulumix.Output[*KeyKeyAlgorithm]{
-		OutputState: in.ToKeyKeyAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The output format of the private key. The default value is `TYPE_GOOGLE_CREDENTIALS_FILE`, which is the Google Credentials File format.
@@ -1021,10 +1002,12 @@ func (o KeyPrivateKeyTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// KeyPrivateKeyTypeInput is an input type that accepts KeyPrivateKeyTypeArgs and KeyPrivateKeyTypeOutput values.
-// You can construct a concrete instance of `KeyPrivateKeyTypeInput` via:
+// KeyPrivateKeyTypeInput is an input type that accepts values of the KeyPrivateKeyType enum
+// A concrete instance of `KeyPrivateKeyTypeInput` can be one of the following:
 //
-//	KeyPrivateKeyTypeArgs{...}
+//	KeyPrivateKeyTypeTypeUnspecified
+//	KeyPrivateKeyTypeTypePkcs12File
+//	KeyPrivateKeyTypeTypeGoogleCredentialsFile
 type KeyPrivateKeyTypeInput interface {
 	pulumi.Input
 
@@ -1057,12 +1040,6 @@ func (in *keyPrivateKeyTypePtr) ToKeyPrivateKeyTypePtrOutput() KeyPrivateKeyType
 
 func (in *keyPrivateKeyTypePtr) ToKeyPrivateKeyTypePtrOutputWithContext(ctx context.Context) KeyPrivateKeyTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(KeyPrivateKeyTypePtrOutput)
-}
-
-func (in *keyPrivateKeyTypePtr) ToOutput(ctx context.Context) pulumix.Output[*KeyPrivateKeyType] {
-	return pulumix.Output[*KeyPrivateKeyType]{
-		OutputState: in.ToKeyPrivateKeyTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current launch stage of the role. If the `ALPHA` launch stage has been selected for a role, the `stage` field will not be included in the returned definition for the role.
@@ -1202,10 +1179,15 @@ func (o OrganizationRoleStagePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// OrganizationRoleStageInput is an input type that accepts OrganizationRoleStageArgs and OrganizationRoleStageOutput values.
-// You can construct a concrete instance of `OrganizationRoleStageInput` via:
+// OrganizationRoleStageInput is an input type that accepts values of the OrganizationRoleStage enum
+// A concrete instance of `OrganizationRoleStageInput` can be one of the following:
 //
-//	OrganizationRoleStageArgs{...}
+//	OrganizationRoleStageAlpha
+//	OrganizationRoleStageBeta
+//	OrganizationRoleStageGa
+//	OrganizationRoleStageDeprecated
+//	OrganizationRoleStageDisabled
+//	OrganizationRoleStageEap
 type OrganizationRoleStageInput interface {
 	pulumi.Input
 
@@ -1238,12 +1220,6 @@ func (in *organizationRoleStagePtr) ToOrganizationRoleStagePtrOutput() Organizat
 
 func (in *organizationRoleStagePtr) ToOrganizationRoleStagePtrOutputWithContext(ctx context.Context) OrganizationRoleStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationRoleStagePtrOutput)
-}
-
-func (in *organizationRoleStagePtr) ToOutput(ctx context.Context) pulumix.Output[*OrganizationRoleStage] {
-	return pulumix.Output[*OrganizationRoleStage]{
-		OutputState: in.ToOrganizationRoleStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current launch stage of the role. If the `ALPHA` launch stage has been selected for a role, the `stage` field will not be included in the returned definition for the role.
@@ -1383,10 +1359,15 @@ func (o RoleStagePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pu
 	}).(pulumi.StringPtrOutput)
 }
 
-// RoleStageInput is an input type that accepts RoleStageArgs and RoleStageOutput values.
-// You can construct a concrete instance of `RoleStageInput` via:
+// RoleStageInput is an input type that accepts values of the RoleStage enum
+// A concrete instance of `RoleStageInput` can be one of the following:
 //
-//	RoleStageArgs{...}
+//	RoleStageAlpha
+//	RoleStageBeta
+//	RoleStageGa
+//	RoleStageDeprecated
+//	RoleStageDisabled
+//	RoleStageEap
 type RoleStageInput interface {
 	pulumi.Input
 
@@ -1419,12 +1400,6 @@ func (in *roleStagePtr) ToRoleStagePtrOutput() RoleStagePtrOutput {
 
 func (in *roleStagePtr) ToRoleStagePtrOutputWithContext(ctx context.Context) RoleStagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RoleStagePtrOutput)
-}
-
-func (in *roleStagePtr) ToOutput(ctx context.Context) pulumix.Output[*RoleStage] {
-	return pulumix.Output[*RoleStage]{
-		OutputState: in.ToRoleStagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The purpose of the key.
@@ -1556,10 +1531,11 @@ func (o WorkforcePoolKeyUsePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkforcePoolKeyUseInput is an input type that accepts WorkforcePoolKeyUseArgs and WorkforcePoolKeyUseOutput values.
-// You can construct a concrete instance of `WorkforcePoolKeyUseInput` via:
+// WorkforcePoolKeyUseInput is an input type that accepts values of the WorkforcePoolKeyUse enum
+// A concrete instance of `WorkforcePoolKeyUseInput` can be one of the following:
 //
-//	WorkforcePoolKeyUseArgs{...}
+//	WorkforcePoolKeyUseKeyUseUnspecified
+//	WorkforcePoolKeyUseEncryption
 type WorkforcePoolKeyUseInput interface {
 	pulumi.Input
 
@@ -1592,12 +1568,6 @@ func (in *workforcePoolKeyUsePtr) ToWorkforcePoolKeyUsePtrOutput() WorkforcePool
 
 func (in *workforcePoolKeyUsePtr) ToWorkforcePoolKeyUsePtrOutputWithContext(ctx context.Context) WorkforcePoolKeyUsePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkforcePoolKeyUsePtrOutput)
-}
-
-func (in *workforcePoolKeyUsePtr) ToOutput(ctx context.Context) pulumix.Output[*WorkforcePoolKeyUse] {
-	return pulumix.Output[*WorkforcePoolKeyUse]{
-		OutputState: in.ToWorkforcePoolKeyUsePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The purpose of the key.
@@ -1729,10 +1699,11 @@ func (o WorkloadIdentityPoolKeyUsePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkloadIdentityPoolKeyUseInput is an input type that accepts WorkloadIdentityPoolKeyUseArgs and WorkloadIdentityPoolKeyUseOutput values.
-// You can construct a concrete instance of `WorkloadIdentityPoolKeyUseInput` via:
+// WorkloadIdentityPoolKeyUseInput is an input type that accepts values of the WorkloadIdentityPoolKeyUse enum
+// A concrete instance of `WorkloadIdentityPoolKeyUseInput` can be one of the following:
 //
-//	WorkloadIdentityPoolKeyUseArgs{...}
+//	WorkloadIdentityPoolKeyUseKeyUseUnspecified
+//	WorkloadIdentityPoolKeyUseEncryption
 type WorkloadIdentityPoolKeyUseInput interface {
 	pulumi.Input
 
@@ -1765,12 +1736,6 @@ func (in *workloadIdentityPoolKeyUsePtr) ToWorkloadIdentityPoolKeyUsePtrOutput()
 
 func (in *workloadIdentityPoolKeyUsePtr) ToWorkloadIdentityPoolKeyUsePtrOutputWithContext(ctx context.Context) WorkloadIdentityPoolKeyUsePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkloadIdentityPoolKeyUsePtrOutput)
-}
-
-func (in *workloadIdentityPoolKeyUsePtr) ToOutput(ctx context.Context) pulumix.Output[*WorkloadIdentityPoolKeyUse] {
-	return pulumix.Output[*WorkloadIdentityPoolKeyUse]{
-		OutputState: in.ToWorkloadIdentityPoolKeyUsePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

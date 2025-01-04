@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of the Cloud SQL database.
@@ -319,10 +315,12 @@ func (o CloudSqlPropertiesTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// CloudSqlPropertiesTypeInput is an input type that accepts CloudSqlPropertiesTypeArgs and CloudSqlPropertiesTypeOutput values.
-// You can construct a concrete instance of `CloudSqlPropertiesTypeInput` via:
+// CloudSqlPropertiesTypeInput is an input type that accepts values of the CloudSqlPropertiesType enum
+// A concrete instance of `CloudSqlPropertiesTypeInput` can be one of the following:
 //
-//	CloudSqlPropertiesTypeArgs{...}
+//	CloudSqlPropertiesTypeDatabaseTypeUnspecified
+//	CloudSqlPropertiesTypePostgres
+//	CloudSqlPropertiesTypeMysql
 type CloudSqlPropertiesTypeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *cloudSqlPropertiesTypePtr) ToCloudSqlPropertiesTypePtrOutput() CloudSq
 
 func (in *cloudSqlPropertiesTypePtr) ToCloudSqlPropertiesTypePtrOutputWithContext(ctx context.Context) CloudSqlPropertiesTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CloudSqlPropertiesTypePtrOutput)
-}
-
-func (in *cloudSqlPropertiesTypePtr) ToOutput(ctx context.Context) pulumix.Output[*CloudSqlPropertiesType] {
-	return pulumix.Output[*CloudSqlPropertiesType]{
-		OutputState: in.ToCloudSqlPropertiesTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

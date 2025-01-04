@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Domain state.
@@ -327,10 +323,16 @@ func (o CustomDomainStatePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomDomainStateInput is an input type that accepts CustomDomainStateArgs and CustomDomainStateOutput values.
-// You can construct a concrete instance of `CustomDomainStateInput` via:
+// CustomDomainStateInput is an input type that accepts values of the CustomDomainState enum
+// A concrete instance of `CustomDomainStateInput` can be one of the following:
 //
-//	CustomDomainStateArgs{...}
+//	CustomDomainStateCustomDomainStateUnspecified
+//	CustomDomainStateUnverified
+//	CustomDomainStateVerified
+//	CustomDomainStateModifying
+//	CustomDomainStateAvailable
+//	CustomDomainStateUnavailable
+//	CustomDomainStateUnknown
 type CustomDomainStateInput interface {
 	pulumi.Input
 
@@ -363,12 +365,6 @@ func (in *customDomainStatePtr) ToCustomDomainStatePtrOutput() CustomDomainState
 
 func (in *customDomainStatePtr) ToCustomDomainStatePtrOutputWithContext(ctx context.Context) CustomDomainStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomDomainStatePtrOutput)
-}
-
-func (in *customDomainStatePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomDomainState] {
-	return pulumix.Output[*CustomDomainState]{
-		OutputState: in.ToCustomDomainStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Platform edition.
@@ -508,10 +504,15 @@ func (o InstancePlatformEditionPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstancePlatformEditionInput is an input type that accepts InstancePlatformEditionArgs and InstancePlatformEditionOutput values.
-// You can construct a concrete instance of `InstancePlatformEditionInput` via:
+// InstancePlatformEditionInput is an input type that accepts values of the InstancePlatformEdition enum
+// A concrete instance of `InstancePlatformEditionInput` can be one of the following:
 //
-//	InstancePlatformEditionArgs{...}
+//	InstancePlatformEditionPlatformEditionUnspecified
+//	InstancePlatformEditionLookerCoreTrial
+//	InstancePlatformEditionLookerCoreStandard
+//	InstancePlatformEditionLookerCoreStandardAnnual
+//	InstancePlatformEditionLookerCoreEnterpriseAnnual
+//	InstancePlatformEditionLookerCoreEmbedAnnual
 type InstancePlatformEditionInput interface {
 	pulumi.Input
 
@@ -544,12 +545,6 @@ func (in *instancePlatformEditionPtr) ToInstancePlatformEditionPtrOutput() Insta
 
 func (in *instancePlatformEditionPtr) ToInstancePlatformEditionPtrOutputWithContext(ctx context.Context) InstancePlatformEditionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstancePlatformEditionPtrOutput)
-}
-
-func (in *instancePlatformEditionPtr) ToOutput(ctx context.Context) pulumix.Output[*InstancePlatformEdition] {
-	return pulumix.Output[*InstancePlatformEdition]{
-		OutputState: in.ToInstancePlatformEditionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Day of the week for this MaintenanceWindow (in UTC).
@@ -693,10 +688,17 @@ func (o MaintenanceWindowDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MaintenanceWindowDayOfWeekInput is an input type that accepts MaintenanceWindowDayOfWeekArgs and MaintenanceWindowDayOfWeekOutput values.
-// You can construct a concrete instance of `MaintenanceWindowDayOfWeekInput` via:
+// MaintenanceWindowDayOfWeekInput is an input type that accepts values of the MaintenanceWindowDayOfWeek enum
+// A concrete instance of `MaintenanceWindowDayOfWeekInput` can be one of the following:
 //
-//	MaintenanceWindowDayOfWeekArgs{...}
+//	MaintenanceWindowDayOfWeekDayOfWeekUnspecified
+//	MaintenanceWindowDayOfWeekMonday
+//	MaintenanceWindowDayOfWeekTuesday
+//	MaintenanceWindowDayOfWeekWednesday
+//	MaintenanceWindowDayOfWeekThursday
+//	MaintenanceWindowDayOfWeekFriday
+//	MaintenanceWindowDayOfWeekSaturday
+//	MaintenanceWindowDayOfWeekSunday
 type MaintenanceWindowDayOfWeekInput interface {
 	pulumi.Input
 
@@ -729,12 +731,6 @@ func (in *maintenanceWindowDayOfWeekPtr) ToMaintenanceWindowDayOfWeekPtrOutput()
 
 func (in *maintenanceWindowDayOfWeekPtr) ToMaintenanceWindowDayOfWeekPtrOutputWithContext(ctx context.Context) MaintenanceWindowDayOfWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MaintenanceWindowDayOfWeekPtrOutput)
-}
-
-func (in *maintenanceWindowDayOfWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowDayOfWeek] {
-	return pulumix.Output[*MaintenanceWindowDayOfWeek]{
-		OutputState: in.ToMaintenanceWindowDayOfWeekPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

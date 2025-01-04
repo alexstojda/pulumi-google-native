@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The infrastructure type this Membership is running on.
@@ -319,10 +315,12 @@ func (o MembershipInfrastructureTypePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// MembershipInfrastructureTypeInput is an input type that accepts MembershipInfrastructureTypeArgs and MembershipInfrastructureTypeOutput values.
-// You can construct a concrete instance of `MembershipInfrastructureTypeInput` via:
+// MembershipInfrastructureTypeInput is an input type that accepts values of the MembershipInfrastructureType enum
+// A concrete instance of `MembershipInfrastructureTypeInput` can be one of the following:
 //
-//	MembershipInfrastructureTypeArgs{...}
+//	MembershipInfrastructureTypeInfrastructureTypeUnspecified
+//	MembershipInfrastructureTypeOnPrem
+//	MembershipInfrastructureTypeMultiCloud
 type MembershipInfrastructureTypeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *membershipInfrastructureTypePtr) ToMembershipInfrastructureTypePtrOutp
 
 func (in *membershipInfrastructureTypePtr) ToMembershipInfrastructureTypePtrOutputWithContext(ctx context.Context) MembershipInfrastructureTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MembershipInfrastructureTypePtrOutput)
-}
-
-func (in *membershipInfrastructureTypePtr) ToOutput(ctx context.Context) pulumix.Output[*MembershipInfrastructureType] {
-	return pulumix.Output[*MembershipInfrastructureType]{
-		OutputState: in.ToMembershipInfrastructureTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The on prem cluster's type.
@@ -498,10 +490,14 @@ func (o OnPremClusterClusterTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// OnPremClusterClusterTypeInput is an input type that accepts OnPremClusterClusterTypeArgs and OnPremClusterClusterTypeOutput values.
-// You can construct a concrete instance of `OnPremClusterClusterTypeInput` via:
+// OnPremClusterClusterTypeInput is an input type that accepts values of the OnPremClusterClusterType enum
+// A concrete instance of `OnPremClusterClusterTypeInput` can be one of the following:
 //
-//	OnPremClusterClusterTypeArgs{...}
+//	OnPremClusterClusterTypeClustertypeUnspecified
+//	OnPremClusterClusterTypeBootstrap
+//	OnPremClusterClusterTypeHybrid
+//	OnPremClusterClusterTypeStandalone
+//	OnPremClusterClusterTypeUser
 type OnPremClusterClusterTypeInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *onPremClusterClusterTypePtr) ToOnPremClusterClusterTypePtrOutput() OnP
 
 func (in *onPremClusterClusterTypePtr) ToOnPremClusterClusterTypePtrOutputWithContext(ctx context.Context) OnPremClusterClusterTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OnPremClusterClusterTypePtrOutput)
-}
-
-func (in *onPremClusterClusterTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OnPremClusterClusterType] {
-	return pulumix.Output[*OnPremClusterClusterType]{
-		OutputState: in.ToOnPremClusterClusterTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

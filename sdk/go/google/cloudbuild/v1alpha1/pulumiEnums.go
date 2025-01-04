@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 type WorkerPoolRegionsItem string
@@ -145,10 +144,14 @@ func (o WorkerPoolRegionsItemPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// WorkerPoolRegionsItemInput is an input type that accepts WorkerPoolRegionsItemArgs and WorkerPoolRegionsItemOutput values.
-// You can construct a concrete instance of `WorkerPoolRegionsItemInput` via:
+// WorkerPoolRegionsItemInput is an input type that accepts values of the WorkerPoolRegionsItem enum
+// A concrete instance of `WorkerPoolRegionsItemInput` can be one of the following:
 //
-//	WorkerPoolRegionsItemArgs{...}
+//	WorkerPoolRegionsItemRegionUnspecified
+//	WorkerPoolRegionsItemUsCentral1
+//	WorkerPoolRegionsItemUsWest1
+//	WorkerPoolRegionsItemUsEast1
+//	WorkerPoolRegionsItemUsEast4
 type WorkerPoolRegionsItemInput interface {
 	pulumi.Input
 
@@ -181,12 +184,6 @@ func (in *workerPoolRegionsItemPtr) ToWorkerPoolRegionsItemPtrOutput() WorkerPoo
 
 func (in *workerPoolRegionsItemPtr) ToWorkerPoolRegionsItemPtrOutputWithContext(ctx context.Context) WorkerPoolRegionsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WorkerPoolRegionsItemPtrOutput)
-}
-
-func (in *workerPoolRegionsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*WorkerPoolRegionsItem] {
-	return pulumix.Output[*WorkerPoolRegionsItem]{
-		OutputState: in.ToWorkerPoolRegionsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WorkerPoolRegionsItemArrayInput is an input type that accepts WorkerPoolRegionsItemArray and WorkerPoolRegionsItemArrayOutput values.

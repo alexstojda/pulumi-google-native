@@ -67,9 +67,10 @@ class GetSecurityProfileResult:
 
     @property
     @pulumi.getter(name="displayName")
+    @_utilities.deprecated("""DEPRECATED: DO NOT USE Display name of the security profile.""")
     def display_name(self) -> str:
         """
-        Display name of the security profile.
+        DEPRECATED: DO NOT USE Display name of the security profile.
         """
         return pulumi.get(self, "display_name")
 
@@ -131,9 +132,10 @@ class GetSecurityProfileResult:
 
     @property
     @pulumi.getter(name="revisionPublishTime")
+    @_utilities.deprecated("""Output only. DEPRECATED: DO NOT USE The time when revision was published. Once published, the security profile revision cannot be updated further and can be attached to environments.""")
     def revision_publish_time(self) -> str:
         """
-        The time when revision was published. Once published, the security profile revision cannot be updated further and can be attached to environments.
+        DEPRECATED: DO NOT USE The time when revision was published. Once published, the security profile revision cannot be updated further and can be attached to environments.
         """
         return pulumi.get(self, "revision_publish_time")
 

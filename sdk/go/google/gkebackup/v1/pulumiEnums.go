@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Defines the behavior for handling the situation where cluster-scoped resources being restored already exist in the target cluster. This MUST be set to a value other than CLUSTER_RESOURCE_CONFLICT_POLICY_UNSPECIFIED if cluster_resource_restore_scope is not empty.
@@ -319,10 +315,12 @@ func (o RestoreConfigClusterResourceConflictPolicyPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// RestoreConfigClusterResourceConflictPolicyInput is an input type that accepts RestoreConfigClusterResourceConflictPolicyArgs and RestoreConfigClusterResourceConflictPolicyOutput values.
-// You can construct a concrete instance of `RestoreConfigClusterResourceConflictPolicyInput` via:
+// RestoreConfigClusterResourceConflictPolicyInput is an input type that accepts values of the RestoreConfigClusterResourceConflictPolicy enum
+// A concrete instance of `RestoreConfigClusterResourceConflictPolicyInput` can be one of the following:
 //
-//	RestoreConfigClusterResourceConflictPolicyArgs{...}
+//	RestoreConfigClusterResourceConflictPolicyClusterResourceConflictPolicyUnspecified
+//	RestoreConfigClusterResourceConflictPolicyUseExistingVersion
+//	RestoreConfigClusterResourceConflictPolicyUseBackupVersion
 type RestoreConfigClusterResourceConflictPolicyInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *restoreConfigClusterResourceConflictPolicyPtr) ToRestoreConfigClusterR
 
 func (in *restoreConfigClusterResourceConflictPolicyPtr) ToRestoreConfigClusterResourceConflictPolicyPtrOutputWithContext(ctx context.Context) RestoreConfigClusterResourceConflictPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RestoreConfigClusterResourceConflictPolicyPtrOutput)
-}
-
-func (in *restoreConfigClusterResourceConflictPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*RestoreConfigClusterResourceConflictPolicy] {
-	return pulumix.Output[*RestoreConfigClusterResourceConflictPolicy]{
-		OutputState: in.ToRestoreConfigClusterResourceConflictPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Defines the behavior for handling the situation where sets of namespaced resources being restored already exist in the target cluster. This MUST be set to a value other than NAMESPACED_RESOURCE_RESTORE_MODE_UNSPECIFIED.
@@ -494,10 +486,12 @@ func (o RestoreConfigNamespacedResourceRestoreModePtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// RestoreConfigNamespacedResourceRestoreModeInput is an input type that accepts RestoreConfigNamespacedResourceRestoreModeArgs and RestoreConfigNamespacedResourceRestoreModeOutput values.
-// You can construct a concrete instance of `RestoreConfigNamespacedResourceRestoreModeInput` via:
+// RestoreConfigNamespacedResourceRestoreModeInput is an input type that accepts values of the RestoreConfigNamespacedResourceRestoreMode enum
+// A concrete instance of `RestoreConfigNamespacedResourceRestoreModeInput` can be one of the following:
 //
-//	RestoreConfigNamespacedResourceRestoreModeArgs{...}
+//	RestoreConfigNamespacedResourceRestoreModeNamespacedResourceRestoreModeUnspecified
+//	RestoreConfigNamespacedResourceRestoreModeDeleteAndRestore
+//	RestoreConfigNamespacedResourceRestoreModeFailOnConflict
 type RestoreConfigNamespacedResourceRestoreModeInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *restoreConfigNamespacedResourceRestoreModePtr) ToRestoreConfigNamespac
 
 func (in *restoreConfigNamespacedResourceRestoreModePtr) ToRestoreConfigNamespacedResourceRestoreModePtrOutputWithContext(ctx context.Context) RestoreConfigNamespacedResourceRestoreModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RestoreConfigNamespacedResourceRestoreModePtrOutput)
-}
-
-func (in *restoreConfigNamespacedResourceRestoreModePtr) ToOutput(ctx context.Context) pulumix.Output[*RestoreConfigNamespacedResourceRestoreMode] {
-	return pulumix.Output[*RestoreConfigNamespacedResourceRestoreMode]{
-		OutputState: in.ToRestoreConfigNamespacedResourceRestoreModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Specifies the mechanism to be used to restore volume data. Default: VOLUME_DATA_RESTORE_POLICY_UNSPECIFIED (will be treated as NO_VOLUME_DATA_RESTORATION).
@@ -671,10 +659,13 @@ func (o RestoreConfigVolumeDataRestorePolicyPtrOutput) ToStringPtrOutputWithCont
 	}).(pulumi.StringPtrOutput)
 }
 
-// RestoreConfigVolumeDataRestorePolicyInput is an input type that accepts RestoreConfigVolumeDataRestorePolicyArgs and RestoreConfigVolumeDataRestorePolicyOutput values.
-// You can construct a concrete instance of `RestoreConfigVolumeDataRestorePolicyInput` via:
+// RestoreConfigVolumeDataRestorePolicyInput is an input type that accepts values of the RestoreConfigVolumeDataRestorePolicy enum
+// A concrete instance of `RestoreConfigVolumeDataRestorePolicyInput` can be one of the following:
 //
-//	RestoreConfigVolumeDataRestorePolicyArgs{...}
+//	RestoreConfigVolumeDataRestorePolicyVolumeDataRestorePolicyUnspecified
+//	RestoreConfigVolumeDataRestorePolicyRestoreVolumeDataFromBackup
+//	RestoreConfigVolumeDataRestorePolicyReuseVolumeHandleFromBackup
+//	RestoreConfigVolumeDataRestorePolicyNoVolumeDataRestoration
 type RestoreConfigVolumeDataRestorePolicyInput interface {
 	pulumi.Input
 
@@ -707,12 +698,6 @@ func (in *restoreConfigVolumeDataRestorePolicyPtr) ToRestoreConfigVolumeDataRest
 
 func (in *restoreConfigVolumeDataRestorePolicyPtr) ToRestoreConfigVolumeDataRestorePolicyPtrOutputWithContext(ctx context.Context) RestoreConfigVolumeDataRestorePolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RestoreConfigVolumeDataRestorePolicyPtrOutput)
-}
-
-func (in *restoreConfigVolumeDataRestorePolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*RestoreConfigVolumeDataRestorePolicy] {
-	return pulumix.Output[*RestoreConfigVolumeDataRestorePolicy]{
-		OutputState: in.ToRestoreConfigVolumeDataRestorePolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. op specifies the operation to perform.
@@ -854,10 +839,16 @@ func (o TransformationRuleActionOpPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// TransformationRuleActionOpInput is an input type that accepts TransformationRuleActionOpArgs and TransformationRuleActionOpOutput values.
-// You can construct a concrete instance of `TransformationRuleActionOpInput` via:
+// TransformationRuleActionOpInput is an input type that accepts values of the TransformationRuleActionOp enum
+// A concrete instance of `TransformationRuleActionOpInput` can be one of the following:
 //
-//	TransformationRuleActionOpArgs{...}
+//	TransformationRuleActionOpOpUnspecified
+//	TransformationRuleActionOpRemove
+//	TransformationRuleActionOpMove
+//	TransformationRuleActionOpCopy
+//	TransformationRuleActionOpAdd
+//	TransformationRuleActionOpTest
+//	TransformationRuleActionOpReplace
 type TransformationRuleActionOpInput interface {
 	pulumi.Input
 
@@ -890,12 +881,6 @@ func (in *transformationRuleActionOpPtr) ToTransformationRuleActionOpPtrOutput()
 
 func (in *transformationRuleActionOpPtr) ToTransformationRuleActionOpPtrOutputWithContext(ctx context.Context) TransformationRuleActionOpPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TransformationRuleActionOpPtrOutput)
-}
-
-func (in *transformationRuleActionOpPtr) ToOutput(ctx context.Context) pulumix.Output[*TransformationRuleActionOp] {
-	return pulumix.Output[*TransformationRuleActionOp]{
-		OutputState: in.ToTransformationRuleActionOpPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

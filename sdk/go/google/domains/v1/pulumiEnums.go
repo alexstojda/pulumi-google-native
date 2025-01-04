@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Privacy setting for the contacts associated with the `Registration`.
@@ -321,10 +317,13 @@ func (o ContactSettingsPrivacyPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// ContactSettingsPrivacyInput is an input type that accepts ContactSettingsPrivacyArgs and ContactSettingsPrivacyOutput values.
-// You can construct a concrete instance of `ContactSettingsPrivacyInput` via:
+// ContactSettingsPrivacyInput is an input type that accepts values of the ContactSettingsPrivacy enum
+// A concrete instance of `ContactSettingsPrivacyInput` can be one of the following:
 //
-//	ContactSettingsPrivacyArgs{...}
+//	ContactSettingsPrivacyContactPrivacyUnspecified
+//	ContactSettingsPrivacyPublicContactData
+//	ContactSettingsPrivacyPrivateContactData
+//	ContactSettingsPrivacyRedactedContactData
 type ContactSettingsPrivacyInput interface {
 	pulumi.Input
 
@@ -357,12 +356,6 @@ func (in *contactSettingsPrivacyPtr) ToContactSettingsPrivacyPtrOutput() Contact
 
 func (in *contactSettingsPrivacyPtr) ToContactSettingsPrivacyPtrOutputWithContext(ctx context.Context) ContactSettingsPrivacyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ContactSettingsPrivacyPtrOutput)
-}
-
-func (in *contactSettingsPrivacyPtr) ToOutput(ctx context.Context) pulumix.Output[*ContactSettingsPrivacy] {
-	return pulumix.Output[*ContactSettingsPrivacy]{
-		OutputState: in.ToContactSettingsPrivacyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The algorithm used to generate the referenced DNSKEY.
@@ -526,10 +519,27 @@ func (o DsRecordAlgorithmPtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// DsRecordAlgorithmInput is an input type that accepts DsRecordAlgorithmArgs and DsRecordAlgorithmOutput values.
-// You can construct a concrete instance of `DsRecordAlgorithmInput` via:
+// DsRecordAlgorithmInput is an input type that accepts values of the DsRecordAlgorithm enum
+// A concrete instance of `DsRecordAlgorithmInput` can be one of the following:
 //
-//	DsRecordAlgorithmArgs{...}
+//	DsRecordAlgorithmAlgorithmUnspecified
+//	DsRecordAlgorithmRsamd5
+//	DsRecordAlgorithmDh
+//	DsRecordAlgorithmDsa
+//	DsRecordAlgorithmEcc
+//	DsRecordAlgorithmRsasha1
+//	DsRecordAlgorithmDsansec3sha1
+//	DsRecordAlgorithmRsasha1nsec3sha1
+//	DsRecordAlgorithmRsasha256
+//	DsRecordAlgorithmRsasha512
+//	DsRecordAlgorithmEccgost
+//	DsRecordAlgorithmEcdsap256sha256
+//	DsRecordAlgorithmEcdsap384sha384
+//	DsRecordAlgorithmEd25519
+//	DsRecordAlgorithmEd448
+//	DsRecordAlgorithmIndirect
+//	DsRecordAlgorithmPrivatedns
+//	DsRecordAlgorithmPrivateoid
 type DsRecordAlgorithmInput interface {
 	pulumi.Input
 
@@ -562,12 +572,6 @@ func (in *dsRecordAlgorithmPtr) ToDsRecordAlgorithmPtrOutput() DsRecordAlgorithm
 
 func (in *dsRecordAlgorithmPtr) ToDsRecordAlgorithmPtrOutputWithContext(ctx context.Context) DsRecordAlgorithmPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DsRecordAlgorithmPtrOutput)
-}
-
-func (in *dsRecordAlgorithmPtr) ToOutput(ctx context.Context) pulumix.Output[*DsRecordAlgorithm] {
-	return pulumix.Output[*DsRecordAlgorithm]{
-		OutputState: in.ToDsRecordAlgorithmPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The hash function used to generate the digest of the referenced DNSKEY.
@@ -705,10 +709,14 @@ func (o DsRecordDigestTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// DsRecordDigestTypeInput is an input type that accepts DsRecordDigestTypeArgs and DsRecordDigestTypeOutput values.
-// You can construct a concrete instance of `DsRecordDigestTypeInput` via:
+// DsRecordDigestTypeInput is an input type that accepts values of the DsRecordDigestType enum
+// A concrete instance of `DsRecordDigestTypeInput` can be one of the following:
 //
-//	DsRecordDigestTypeArgs{...}
+//	DsRecordDigestTypeDigestTypeUnspecified
+//	DsRecordDigestTypeSha1
+//	DsRecordDigestTypeSha256
+//	DsRecordDigestTypeGost3411
+//	DsRecordDigestTypeSha384
 type DsRecordDigestTypeInput interface {
 	pulumi.Input
 
@@ -741,12 +749,6 @@ func (in *dsRecordDigestTypePtr) ToDsRecordDigestTypePtrOutput() DsRecordDigestT
 
 func (in *dsRecordDigestTypePtr) ToDsRecordDigestTypePtrOutputWithContext(ctx context.Context) DsRecordDigestTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DsRecordDigestTypePtrOutput)
-}
-
-func (in *dsRecordDigestTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DsRecordDigestType] {
-	return pulumix.Output[*DsRecordDigestType]{
-		OutputState: in.ToDsRecordDigestTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The state of DS records for this domain. Used to enable or disable automatic DNSSEC.
@@ -880,10 +882,12 @@ func (o GoogleDomainsDnsDsStatePtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleDomainsDnsDsStateInput is an input type that accepts GoogleDomainsDnsDsStateArgs and GoogleDomainsDnsDsStateOutput values.
-// You can construct a concrete instance of `GoogleDomainsDnsDsStateInput` via:
+// GoogleDomainsDnsDsStateInput is an input type that accepts values of the GoogleDomainsDnsDsState enum
+// A concrete instance of `GoogleDomainsDnsDsStateInput` can be one of the following:
 //
-//	GoogleDomainsDnsDsStateArgs{...}
+//	GoogleDomainsDnsDsStateDsStateUnspecified
+//	GoogleDomainsDnsDsStateDsRecordsUnpublished
+//	GoogleDomainsDnsDsStateDsRecordsPublished
 type GoogleDomainsDnsDsStateInput interface {
 	pulumi.Input
 
@@ -916,12 +920,6 @@ func (in *googleDomainsDnsDsStatePtr) ToGoogleDomainsDnsDsStatePtrOutput() Googl
 
 func (in *googleDomainsDnsDsStatePtr) ToGoogleDomainsDnsDsStatePtrOutputWithContext(ctx context.Context) GoogleDomainsDnsDsStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleDomainsDnsDsStatePtrOutput)
-}
-
-func (in *googleDomainsDnsDsStatePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleDomainsDnsDsState] {
-	return pulumix.Output[*GoogleDomainsDnsDsState]{
-		OutputState: in.ToGoogleDomainsDnsDsStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The desired renewal method for this `Registration`. The actual `renewal_method` is automatically updated to reflect this choice. If unset or equal to `RENEWAL_METHOD_UNSPECIFIED`, it will be treated as if it were set to `AUTOMATIC_RENEWAL`. Can't be set to `RENEWAL_DISABLED` during resource creation and can only be updated when the `Registration` resource has state `ACTIVE` or `SUSPENDED`. When `preferred_renewal_method` is set to `AUTOMATIC_RENEWAL` the actual `renewal_method` can be set to `RENEWAL_DISABLED` in case of e.g. problems with the Billing Account or reported domain abuse. In such cases check the `issues` field on the `Registration`. After the problem is resolved the `renewal_method` will be automatically updated to `preferred_renewal_method` in a few hours.
@@ -1057,10 +1055,13 @@ func (o ManagementSettingsPreferredRenewalMethodPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagementSettingsPreferredRenewalMethodInput is an input type that accepts ManagementSettingsPreferredRenewalMethodArgs and ManagementSettingsPreferredRenewalMethodOutput values.
-// You can construct a concrete instance of `ManagementSettingsPreferredRenewalMethodInput` via:
+// ManagementSettingsPreferredRenewalMethodInput is an input type that accepts values of the ManagementSettingsPreferredRenewalMethod enum
+// A concrete instance of `ManagementSettingsPreferredRenewalMethodInput` can be one of the following:
 //
-//	ManagementSettingsPreferredRenewalMethodArgs{...}
+//	ManagementSettingsPreferredRenewalMethodRenewalMethodUnspecified
+//	ManagementSettingsPreferredRenewalMethodAutomaticRenewal
+//	ManagementSettingsPreferredRenewalMethodManualRenewal
+//	ManagementSettingsPreferredRenewalMethodRenewalDisabled
 type ManagementSettingsPreferredRenewalMethodInput interface {
 	pulumi.Input
 
@@ -1093,12 +1094,6 @@ func (in *managementSettingsPreferredRenewalMethodPtr) ToManagementSettingsPrefe
 
 func (in *managementSettingsPreferredRenewalMethodPtr) ToManagementSettingsPreferredRenewalMethodPtrOutputWithContext(ctx context.Context) ManagementSettingsPreferredRenewalMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManagementSettingsPreferredRenewalMethodPtrOutput)
-}
-
-func (in *managementSettingsPreferredRenewalMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*ManagementSettingsPreferredRenewalMethod] {
-	return pulumix.Output[*ManagementSettingsPreferredRenewalMethod]{
-		OutputState: in.ToManagementSettingsPreferredRenewalMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Controls whether the domain can be transferred to another registrar.
@@ -1232,10 +1227,12 @@ func (o ManagementSettingsTransferLockStatePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManagementSettingsTransferLockStateInput is an input type that accepts ManagementSettingsTransferLockStateArgs and ManagementSettingsTransferLockStateOutput values.
-// You can construct a concrete instance of `ManagementSettingsTransferLockStateInput` via:
+// ManagementSettingsTransferLockStateInput is an input type that accepts values of the ManagementSettingsTransferLockState enum
+// A concrete instance of `ManagementSettingsTransferLockStateInput` can be one of the following:
 //
-//	ManagementSettingsTransferLockStateArgs{...}
+//	ManagementSettingsTransferLockStateTransferLockStateUnspecified
+//	ManagementSettingsTransferLockStateUnlocked
+//	ManagementSettingsTransferLockStateLocked
 type ManagementSettingsTransferLockStateInput interface {
 	pulumi.Input
 
@@ -1268,12 +1265,6 @@ func (in *managementSettingsTransferLockStatePtr) ToManagementSettingsTransferLo
 
 func (in *managementSettingsTransferLockStatePtr) ToManagementSettingsTransferLockStatePtrOutputWithContext(ctx context.Context) ManagementSettingsTransferLockStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManagementSettingsTransferLockStatePtrOutput)
-}
-
-func (in *managementSettingsTransferLockStatePtr) ToOutput(ctx context.Context) pulumix.Output[*ManagementSettingsTransferLockState] {
-	return pulumix.Output[*ManagementSettingsTransferLockState]{
-		OutputState: in.ToManagementSettingsTransferLockStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type RegistrationContactNoticesItem string
@@ -1404,10 +1395,11 @@ func (o RegistrationContactNoticesItemPtrOutput) ToStringPtrOutputWithContext(ct
 	}).(pulumi.StringPtrOutput)
 }
 
-// RegistrationContactNoticesItemInput is an input type that accepts RegistrationContactNoticesItemArgs and RegistrationContactNoticesItemOutput values.
-// You can construct a concrete instance of `RegistrationContactNoticesItemInput` via:
+// RegistrationContactNoticesItemInput is an input type that accepts values of the RegistrationContactNoticesItem enum
+// A concrete instance of `RegistrationContactNoticesItemInput` can be one of the following:
 //
-//	RegistrationContactNoticesItemArgs{...}
+//	RegistrationContactNoticesItemContactNoticeUnspecified
+//	RegistrationContactNoticesItemPublicContactDataAcknowledgement
 type RegistrationContactNoticesItemInput interface {
 	pulumi.Input
 
@@ -1440,12 +1432,6 @@ func (in *registrationContactNoticesItemPtr) ToRegistrationContactNoticesItemPtr
 
 func (in *registrationContactNoticesItemPtr) ToRegistrationContactNoticesItemPtrOutputWithContext(ctx context.Context) RegistrationContactNoticesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RegistrationContactNoticesItemPtrOutput)
-}
-
-func (in *registrationContactNoticesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*RegistrationContactNoticesItem] {
-	return pulumix.Output[*RegistrationContactNoticesItem]{
-		OutputState: in.ToRegistrationContactNoticesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RegistrationContactNoticesItemArrayInput is an input type that accepts RegistrationContactNoticesItemArray and RegistrationContactNoticesItemArrayOutput values.
@@ -1621,10 +1607,11 @@ func (o RegistrationDomainNoticesItemPtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// RegistrationDomainNoticesItemInput is an input type that accepts RegistrationDomainNoticesItemArgs and RegistrationDomainNoticesItemOutput values.
-// You can construct a concrete instance of `RegistrationDomainNoticesItemInput` via:
+// RegistrationDomainNoticesItemInput is an input type that accepts values of the RegistrationDomainNoticesItem enum
+// A concrete instance of `RegistrationDomainNoticesItemInput` can be one of the following:
 //
-//	RegistrationDomainNoticesItemArgs{...}
+//	RegistrationDomainNoticesItemDomainNoticeUnspecified
+//	RegistrationDomainNoticesItemHstsPreloaded
 type RegistrationDomainNoticesItemInput interface {
 	pulumi.Input
 
@@ -1657,12 +1644,6 @@ func (in *registrationDomainNoticesItemPtr) ToRegistrationDomainNoticesItemPtrOu
 
 func (in *registrationDomainNoticesItemPtr) ToRegistrationDomainNoticesItemPtrOutputWithContext(ctx context.Context) RegistrationDomainNoticesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RegistrationDomainNoticesItemPtrOutput)
-}
-
-func (in *registrationDomainNoticesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*RegistrationDomainNoticesItem] {
-	return pulumix.Output[*RegistrationDomainNoticesItem]{
-		OutputState: in.ToRegistrationDomainNoticesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RegistrationDomainNoticesItemArrayInput is an input type that accepts RegistrationDomainNoticesItemArray and RegistrationDomainNoticesItemArrayOutput values.

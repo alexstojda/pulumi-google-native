@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // By changing the type to DIST, the patching is performed using `apt-get dist-upgrade` instead.
@@ -142,10 +141,12 @@ func (o AptSettingsTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// AptSettingsTypeInput is an input type that accepts AptSettingsTypeArgs and AptSettingsTypeOutput values.
-// You can construct a concrete instance of `AptSettingsTypeInput` via:
+// AptSettingsTypeInput is an input type that accepts values of the AptSettingsType enum
+// A concrete instance of `AptSettingsTypeInput` can be one of the following:
 //
-//	AptSettingsTypeArgs{...}
+//	AptSettingsTypeTypeUnspecified
+//	AptSettingsTypeDist
+//	AptSettingsTypeUpgrade
 type AptSettingsTypeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *aptSettingsTypePtr) ToAptSettingsTypePtrOutput() AptSettingsTypePtrOut
 
 func (in *aptSettingsTypePtr) ToAptSettingsTypePtrOutputWithContext(ctx context.Context) AptSettingsTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AptSettingsTypePtrOutput)
-}
-
-func (in *aptSettingsTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AptSettingsType] {
-	return pulumix.Output[*AptSettingsType]{
-		OutputState: in.ToAptSettingsTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The script interpreter to use to run the script. If no interpreter is specified the script will be executed directly, which will likely only succeed for scripts with [shebang lines] (https://en.wikipedia.org/wiki/Shebang_\(Unix\)).
@@ -319,10 +314,13 @@ func (o ExecStepConfigInterpreterPtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExecStepConfigInterpreterInput is an input type that accepts ExecStepConfigInterpreterArgs and ExecStepConfigInterpreterOutput values.
-// You can construct a concrete instance of `ExecStepConfigInterpreterInput` via:
+// ExecStepConfigInterpreterInput is an input type that accepts values of the ExecStepConfigInterpreter enum
+// A concrete instance of `ExecStepConfigInterpreterInput` can be one of the following:
 //
-//	ExecStepConfigInterpreterArgs{...}
+//	ExecStepConfigInterpreterInterpreterUnspecified
+//	ExecStepConfigInterpreterNone
+//	ExecStepConfigInterpreterShell
+//	ExecStepConfigInterpreterPowershell
 type ExecStepConfigInterpreterInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *execStepConfigInterpreterPtr) ToExecStepConfigInterpreterPtrOutput() E
 
 func (in *execStepConfigInterpreterPtr) ToExecStepConfigInterpreterPtrOutputWithContext(ctx context.Context) ExecStepConfigInterpreterPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExecStepConfigInterpreterPtrOutput)
-}
-
-func (in *execStepConfigInterpreterPtr) ToOutput(ctx context.Context) pulumix.Output[*ExecStepConfigInterpreter] {
-	return pulumix.Output[*ExecStepConfigInterpreter]{
-		OutputState: in.ToExecStepConfigInterpreterPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Policy mode
@@ -494,10 +486,12 @@ func (o OSPolicyModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyModeInput is an input type that accepts OSPolicyModeArgs and OSPolicyModeOutput values.
-// You can construct a concrete instance of `OSPolicyModeInput` via:
+// OSPolicyModeInput is an input type that accepts values of the OSPolicyMode enum
+// A concrete instance of `OSPolicyModeInput` can be one of the following:
 //
-//	OSPolicyModeArgs{...}
+//	OSPolicyModeModeUnspecified
+//	OSPolicyModeValidation
+//	OSPolicyModeEnforcement
 type OSPolicyModeInput interface {
 	pulumi.Input
 
@@ -530,12 +524,6 @@ func (in *ospolicyModePtr) ToOSPolicyModePtrOutput() OSPolicyModePtrOutput {
 
 func (in *ospolicyModePtr) ToOSPolicyModePtrOutputWithContext(ctx context.Context) OSPolicyModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyModePtrOutput)
-}
-
-func (in *ospolicyModePtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyMode] {
-	return pulumix.Output[*OSPolicyMode]{
-		OutputState: in.ToOSPolicyModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The script interpreter to use.
@@ -671,10 +659,13 @@ func (o OSPolicyResourceExecResourceExecInterpreterPtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyResourceExecResourceExecInterpreterInput is an input type that accepts OSPolicyResourceExecResourceExecInterpreterArgs and OSPolicyResourceExecResourceExecInterpreterOutput values.
-// You can construct a concrete instance of `OSPolicyResourceExecResourceExecInterpreterInput` via:
+// OSPolicyResourceExecResourceExecInterpreterInput is an input type that accepts values of the OSPolicyResourceExecResourceExecInterpreter enum
+// A concrete instance of `OSPolicyResourceExecResourceExecInterpreterInput` can be one of the following:
 //
-//	OSPolicyResourceExecResourceExecInterpreterArgs{...}
+//	OSPolicyResourceExecResourceExecInterpreterInterpreterUnspecified
+//	OSPolicyResourceExecResourceExecInterpreterNone
+//	OSPolicyResourceExecResourceExecInterpreterShell
+//	OSPolicyResourceExecResourceExecInterpreterPowershell
 type OSPolicyResourceExecResourceExecInterpreterInput interface {
 	pulumi.Input
 
@@ -707,12 +698,6 @@ func (in *ospolicyResourceExecResourceExecInterpreterPtr) ToOSPolicyResourceExec
 
 func (in *ospolicyResourceExecResourceExecInterpreterPtr) ToOSPolicyResourceExecResourceExecInterpreterPtrOutputWithContext(ctx context.Context) OSPolicyResourceExecResourceExecInterpreterPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyResourceExecResourceExecInterpreterPtrOutput)
-}
-
-func (in *ospolicyResourceExecResourceExecInterpreterPtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyResourceExecResourceExecInterpreter] {
-	return pulumix.Output[*OSPolicyResourceExecResourceExecInterpreter]{
-		OutputState: in.ToOSPolicyResourceExecResourceExecInterpreterPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Desired state of the file.
@@ -848,10 +833,13 @@ func (o OSPolicyResourceFileResourceStatePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyResourceFileResourceStateInput is an input type that accepts OSPolicyResourceFileResourceStateArgs and OSPolicyResourceFileResourceStateOutput values.
-// You can construct a concrete instance of `OSPolicyResourceFileResourceStateInput` via:
+// OSPolicyResourceFileResourceStateInput is an input type that accepts values of the OSPolicyResourceFileResourceState enum
+// A concrete instance of `OSPolicyResourceFileResourceStateInput` can be one of the following:
 //
-//	OSPolicyResourceFileResourceStateArgs{...}
+//	OSPolicyResourceFileResourceStateDesiredStateUnspecified
+//	OSPolicyResourceFileResourceStatePresent
+//	OSPolicyResourceFileResourceStateAbsent
+//	OSPolicyResourceFileResourceStateContentsMatch
 type OSPolicyResourceFileResourceStateInput interface {
 	pulumi.Input
 
@@ -884,12 +872,6 @@ func (in *ospolicyResourceFileResourceStatePtr) ToOSPolicyResourceFileResourceSt
 
 func (in *ospolicyResourceFileResourceStatePtr) ToOSPolicyResourceFileResourceStatePtrOutputWithContext(ctx context.Context) OSPolicyResourceFileResourceStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyResourceFileResourceStatePtrOutput)
-}
-
-func (in *ospolicyResourceFileResourceStatePtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyResourceFileResourceState] {
-	return pulumix.Output[*OSPolicyResourceFileResourceState]{
-		OutputState: in.ToOSPolicyResourceFileResourceStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The desired state the agent should maintain for this package.
@@ -1023,10 +1005,12 @@ func (o OSPolicyResourcePackageResourceDesiredStatePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyResourcePackageResourceDesiredStateInput is an input type that accepts OSPolicyResourcePackageResourceDesiredStateArgs and OSPolicyResourcePackageResourceDesiredStateOutput values.
-// You can construct a concrete instance of `OSPolicyResourcePackageResourceDesiredStateInput` via:
+// OSPolicyResourcePackageResourceDesiredStateInput is an input type that accepts values of the OSPolicyResourcePackageResourceDesiredState enum
+// A concrete instance of `OSPolicyResourcePackageResourceDesiredStateInput` can be one of the following:
 //
-//	OSPolicyResourcePackageResourceDesiredStateArgs{...}
+//	OSPolicyResourcePackageResourceDesiredStateDesiredStateUnspecified
+//	OSPolicyResourcePackageResourceDesiredStateInstalled
+//	OSPolicyResourcePackageResourceDesiredStateRemoved
 type OSPolicyResourcePackageResourceDesiredStateInput interface {
 	pulumi.Input
 
@@ -1059,12 +1043,6 @@ func (in *ospolicyResourcePackageResourceDesiredStatePtr) ToOSPolicyResourcePack
 
 func (in *ospolicyResourcePackageResourceDesiredStatePtr) ToOSPolicyResourcePackageResourceDesiredStatePtrOutputWithContext(ctx context.Context) OSPolicyResourcePackageResourceDesiredStatePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyResourcePackageResourceDesiredStatePtrOutput)
-}
-
-func (in *ospolicyResourcePackageResourceDesiredStatePtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyResourcePackageResourceDesiredState] {
-	return pulumix.Output[*OSPolicyResourcePackageResourceDesiredState]{
-		OutputState: in.ToOSPolicyResourcePackageResourceDesiredStatePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Type of archive files in this repository.
@@ -1198,10 +1176,12 @@ func (o OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput is an input type that accepts OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeArgs and OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeOutput values.
-// You can construct a concrete instance of `OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput` via:
+// OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput is an input type that accepts values of the OSPolicyResourceRepositoryResourceAptRepositoryArchiveType enum
+// A concrete instance of `OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput` can be one of the following:
 //
-//	OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeArgs{...}
+//	OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeArchiveTypeUnspecified
+//	OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeDeb
+//	OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeDebSrc
 type OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypeInput interface {
 	pulumi.Input
 
@@ -1234,12 +1214,6 @@ func (in *ospolicyResourceRepositoryResourceAptRepositoryArchiveTypePtr) ToOSPol
 
 func (in *ospolicyResourceRepositoryResourceAptRepositoryArchiveTypePtr) ToOSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutputWithContext(ctx context.Context) OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutput)
-}
-
-func (in *ospolicyResourceRepositoryResourceAptRepositoryArchiveTypePtr) ToOutput(ctx context.Context) pulumix.Output[*OSPolicyResourceRepositoryResourceAptRepositoryArchiveType] {
-	return pulumix.Output[*OSPolicyResourceRepositoryResourceAptRepositoryArchiveType]{
-		OutputState: in.ToOSPolicyResourceRepositoryResourceAptRepositoryArchiveTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Post-patch reboot settings.
@@ -1375,10 +1349,13 @@ func (o PatchConfigRebootConfigPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// PatchConfigRebootConfigInput is an input type that accepts PatchConfigRebootConfigArgs and PatchConfigRebootConfigOutput values.
-// You can construct a concrete instance of `PatchConfigRebootConfigInput` via:
+// PatchConfigRebootConfigInput is an input type that accepts values of the PatchConfigRebootConfig enum
+// A concrete instance of `PatchConfigRebootConfigInput` can be one of the following:
 //
-//	PatchConfigRebootConfigArgs{...}
+//	PatchConfigRebootConfigRebootConfigUnspecified
+//	PatchConfigRebootConfigDefault
+//	PatchConfigRebootConfigAlways
+//	PatchConfigRebootConfigNever
 type PatchConfigRebootConfigInput interface {
 	pulumi.Input
 
@@ -1411,12 +1388,6 @@ func (in *patchConfigRebootConfigPtr) ToPatchConfigRebootConfigPtrOutput() Patch
 
 func (in *patchConfigRebootConfigPtr) ToPatchConfigRebootConfigPtrOutputWithContext(ctx context.Context) PatchConfigRebootConfigPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PatchConfigRebootConfigPtrOutput)
-}
-
-func (in *patchConfigRebootConfigPtr) ToOutput(ctx context.Context) pulumix.Output[*PatchConfigRebootConfig] {
-	return pulumix.Output[*PatchConfigRebootConfig]{
-		OutputState: in.ToPatchConfigRebootConfigPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Mode of the patch rollout.
@@ -1550,10 +1521,12 @@ func (o PatchRolloutModePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// PatchRolloutModeInput is an input type that accepts PatchRolloutModeArgs and PatchRolloutModeOutput values.
-// You can construct a concrete instance of `PatchRolloutModeInput` via:
+// PatchRolloutModeInput is an input type that accepts values of the PatchRolloutMode enum
+// A concrete instance of `PatchRolloutModeInput` can be one of the following:
 //
-//	PatchRolloutModeArgs{...}
+//	PatchRolloutModeModeUnspecified
+//	PatchRolloutModeZoneByZone
+//	PatchRolloutModeConcurrentZones
 type PatchRolloutModeInput interface {
 	pulumi.Input
 
@@ -1586,12 +1559,6 @@ func (in *patchRolloutModePtr) ToPatchRolloutModePtrOutput() PatchRolloutModePtr
 
 func (in *patchRolloutModePtr) ToPatchRolloutModePtrOutputWithContext(ctx context.Context) PatchRolloutModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PatchRolloutModePtrOutput)
-}
-
-func (in *patchRolloutModePtr) ToOutput(ctx context.Context) pulumix.Output[*PatchRolloutMode] {
-	return pulumix.Output[*PatchRolloutMode]{
-		OutputState: in.ToPatchRolloutModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The frequency unit of this recurring schedule.
@@ -1727,10 +1694,13 @@ func (o RecurringScheduleFrequencyPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// RecurringScheduleFrequencyInput is an input type that accepts RecurringScheduleFrequencyArgs and RecurringScheduleFrequencyOutput values.
-// You can construct a concrete instance of `RecurringScheduleFrequencyInput` via:
+// RecurringScheduleFrequencyInput is an input type that accepts values of the RecurringScheduleFrequency enum
+// A concrete instance of `RecurringScheduleFrequencyInput` can be one of the following:
 //
-//	RecurringScheduleFrequencyArgs{...}
+//	RecurringScheduleFrequencyFrequencyUnspecified
+//	RecurringScheduleFrequencyWeekly
+//	RecurringScheduleFrequencyMonthly
+//	RecurringScheduleFrequencyDaily
 type RecurringScheduleFrequencyInput interface {
 	pulumi.Input
 
@@ -1763,12 +1733,6 @@ func (in *recurringScheduleFrequencyPtr) ToRecurringScheduleFrequencyPtrOutput()
 
 func (in *recurringScheduleFrequencyPtr) ToRecurringScheduleFrequencyPtrOutputWithContext(ctx context.Context) RecurringScheduleFrequencyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(RecurringScheduleFrequencyPtrOutput)
-}
-
-func (in *recurringScheduleFrequencyPtr) ToOutput(ctx context.Context) pulumix.Output[*RecurringScheduleFrequency] {
-	return pulumix.Output[*RecurringScheduleFrequency]{
-		OutputState: in.ToRecurringScheduleFrequencyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. A day of the week.
@@ -1912,10 +1876,17 @@ func (o WeekDayOfMonthDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// WeekDayOfMonthDayOfWeekInput is an input type that accepts WeekDayOfMonthDayOfWeekArgs and WeekDayOfMonthDayOfWeekOutput values.
-// You can construct a concrete instance of `WeekDayOfMonthDayOfWeekInput` via:
+// WeekDayOfMonthDayOfWeekInput is an input type that accepts values of the WeekDayOfMonthDayOfWeek enum
+// A concrete instance of `WeekDayOfMonthDayOfWeekInput` can be one of the following:
 //
-//	WeekDayOfMonthDayOfWeekArgs{...}
+//	WeekDayOfMonthDayOfWeekDayOfWeekUnspecified
+//	WeekDayOfMonthDayOfWeekMonday
+//	WeekDayOfMonthDayOfWeekTuesday
+//	WeekDayOfMonthDayOfWeekWednesday
+//	WeekDayOfMonthDayOfWeekThursday
+//	WeekDayOfMonthDayOfWeekFriday
+//	WeekDayOfMonthDayOfWeekSaturday
+//	WeekDayOfMonthDayOfWeekSunday
 type WeekDayOfMonthDayOfWeekInput interface {
 	pulumi.Input
 
@@ -1948,12 +1919,6 @@ func (in *weekDayOfMonthDayOfWeekPtr) ToWeekDayOfMonthDayOfWeekPtrOutput() WeekD
 
 func (in *weekDayOfMonthDayOfWeekPtr) ToWeekDayOfMonthDayOfWeekPtrOutputWithContext(ctx context.Context) WeekDayOfMonthDayOfWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WeekDayOfMonthDayOfWeekPtrOutput)
-}
-
-func (in *weekDayOfMonthDayOfWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*WeekDayOfMonthDayOfWeek] {
-	return pulumix.Output[*WeekDayOfMonthDayOfWeek]{
-		OutputState: in.ToWeekDayOfMonthDayOfWeekPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Day of the week.
@@ -2097,10 +2062,17 @@ func (o WeeklyScheduleDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// WeeklyScheduleDayOfWeekInput is an input type that accepts WeeklyScheduleDayOfWeekArgs and WeeklyScheduleDayOfWeekOutput values.
-// You can construct a concrete instance of `WeeklyScheduleDayOfWeekInput` via:
+// WeeklyScheduleDayOfWeekInput is an input type that accepts values of the WeeklyScheduleDayOfWeek enum
+// A concrete instance of `WeeklyScheduleDayOfWeekInput` can be one of the following:
 //
-//	WeeklyScheduleDayOfWeekArgs{...}
+//	WeeklyScheduleDayOfWeekDayOfWeekUnspecified
+//	WeeklyScheduleDayOfWeekMonday
+//	WeeklyScheduleDayOfWeekTuesday
+//	WeeklyScheduleDayOfWeekWednesday
+//	WeeklyScheduleDayOfWeekThursday
+//	WeeklyScheduleDayOfWeekFriday
+//	WeeklyScheduleDayOfWeekSaturday
+//	WeeklyScheduleDayOfWeekSunday
 type WeeklyScheduleDayOfWeekInput interface {
 	pulumi.Input
 
@@ -2133,12 +2105,6 @@ func (in *weeklyScheduleDayOfWeekPtr) ToWeeklyScheduleDayOfWeekPtrOutput() Weekl
 
 func (in *weeklyScheduleDayOfWeekPtr) ToWeeklyScheduleDayOfWeekPtrOutputWithContext(ctx context.Context) WeeklyScheduleDayOfWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WeeklyScheduleDayOfWeekPtrOutput)
-}
-
-func (in *weeklyScheduleDayOfWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*WeeklyScheduleDayOfWeek] {
-	return pulumix.Output[*WeeklyScheduleDayOfWeek]{
-		OutputState: in.ToWeeklyScheduleDayOfWeekPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type WindowsUpdateSettingsClassificationsItem string
@@ -2285,10 +2251,19 @@ func (o WindowsUpdateSettingsClassificationsItemPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// WindowsUpdateSettingsClassificationsItemInput is an input type that accepts WindowsUpdateSettingsClassificationsItemArgs and WindowsUpdateSettingsClassificationsItemOutput values.
-// You can construct a concrete instance of `WindowsUpdateSettingsClassificationsItemInput` via:
+// WindowsUpdateSettingsClassificationsItemInput is an input type that accepts values of the WindowsUpdateSettingsClassificationsItem enum
+// A concrete instance of `WindowsUpdateSettingsClassificationsItemInput` can be one of the following:
 //
-//	WindowsUpdateSettingsClassificationsItemArgs{...}
+//	WindowsUpdateSettingsClassificationsItemClassificationUnspecified
+//	WindowsUpdateSettingsClassificationsItemCritical
+//	WindowsUpdateSettingsClassificationsItemSecurity
+//	WindowsUpdateSettingsClassificationsItemDefinition
+//	WindowsUpdateSettingsClassificationsItemDriver
+//	WindowsUpdateSettingsClassificationsItemFeaturePack
+//	WindowsUpdateSettingsClassificationsItemServicePack
+//	WindowsUpdateSettingsClassificationsItemTool
+//	WindowsUpdateSettingsClassificationsItemUpdateRollup
+//	WindowsUpdateSettingsClassificationsItemUpdate
 type WindowsUpdateSettingsClassificationsItemInput interface {
 	pulumi.Input
 
@@ -2321,12 +2296,6 @@ func (in *windowsUpdateSettingsClassificationsItemPtr) ToWindowsUpdateSettingsCl
 
 func (in *windowsUpdateSettingsClassificationsItemPtr) ToWindowsUpdateSettingsClassificationsItemPtrOutputWithContext(ctx context.Context) WindowsUpdateSettingsClassificationsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WindowsUpdateSettingsClassificationsItemPtrOutput)
-}
-
-func (in *windowsUpdateSettingsClassificationsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*WindowsUpdateSettingsClassificationsItem] {
-	return pulumix.Output[*WindowsUpdateSettingsClassificationsItem]{
-		OutputState: in.ToWindowsUpdateSettingsClassificationsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // WindowsUpdateSettingsClassificationsItemArrayInput is an input type that accepts WindowsUpdateSettingsClassificationsItemArray and WindowsUpdateSettingsClassificationsItemArrayOutput values.

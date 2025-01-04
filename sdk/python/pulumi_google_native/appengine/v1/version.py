@@ -33,7 +33,7 @@ class VersionArgs:
                  env_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  error_handlers: Optional[pulumi.Input[Sequence[pulumi.Input['ErrorHandlerArgs']]]] = None,
                  flexible_runtime_settings: Optional[pulumi.Input['FlexibleRuntimeSettingsArgs']] = None,
-                 generated_customer_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 generated_customer_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  handlers: Optional[pulumi.Input[Sequence[pulumi.Input['UrlMapArgs']]]] = None,
                  health_check: Optional[pulumi.Input['HealthCheckArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -72,7 +72,7 @@ class VersionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] env_variables: Environment variables available to the application.Only returned in GET requests if view=FULL is set.
         :param pulumi.Input[Sequence[pulumi.Input['ErrorHandlerArgs']]] error_handlers: Custom static error pages. Limited to 10KB per page.Only returned in GET requests if view=FULL is set.
         :param pulumi.Input['FlexibleRuntimeSettingsArgs'] flexible_runtime_settings: Settings for App Engine flexible runtimes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] generated_customer_metadata: Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetVersionRequest
+        :param pulumi.Input[Mapping[str, Any]] generated_customer_metadata: Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetVersionRequest
         :param pulumi.Input[Sequence[pulumi.Input['UrlMapArgs']]] handlers: An ordered list of URL-matching patterns that should be applied to incoming requests. The first matching URL handles the request and other request handlers are not attempted.Only returned in GET requests if view=FULL is set.
         :param pulumi.Input['HealthCheckArgs'] health_check: Configures health checking for instances. Unhealthy instances are stopped and replaced with new instances. Only applicable in the App Engine flexible environment.
         :param pulumi.Input[str] id: Relative name of the version within the service. Example: v1. Version names can contain only lowercase letters, numbers, or hyphens. Reserved names: "default", "latest", and any name with the prefix "ah-".
@@ -364,14 +364,14 @@ class VersionArgs:
 
     @property
     @pulumi.getter(name="generatedCustomerMetadata")
-    def generated_customer_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+    def generated_customer_metadata(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
         Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetVersionRequest
         """
         return pulumi.get(self, "generated_customer_metadata")
 
     @generated_customer_metadata.setter
-    def generated_customer_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+    def generated_customer_metadata(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
         pulumi.set(self, "generated_customer_metadata", value)
 
     @property
@@ -628,13 +628,11 @@ class VersionArgs:
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""")
     def zones(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.
         """
-        warnings.warn("""The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""", DeprecationWarning)
-        pulumi.log.warn("""zones is deprecated: The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""")
-
         return pulumi.get(self, "zones")
 
     @zones.setter
@@ -662,7 +660,7 @@ class Version(pulumi.CustomResource):
                  env_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  error_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ErrorHandlerArgs']]]]] = None,
                  flexible_runtime_settings: Optional[pulumi.Input[pulumi.InputType['FlexibleRuntimeSettingsArgs']]] = None,
-                 generated_customer_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 generated_customer_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UrlMapArgs']]]]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['HealthCheckArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -707,7 +705,7 @@ class Version(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] env_variables: Environment variables available to the application.Only returned in GET requests if view=FULL is set.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ErrorHandlerArgs']]]] error_handlers: Custom static error pages. Limited to 10KB per page.Only returned in GET requests if view=FULL is set.
         :param pulumi.Input[pulumi.InputType['FlexibleRuntimeSettingsArgs']] flexible_runtime_settings: Settings for App Engine flexible runtimes.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] generated_customer_metadata: Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetVersionRequest
+        :param pulumi.Input[Mapping[str, Any]] generated_customer_metadata: Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetVersionRequest
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UrlMapArgs']]]] handlers: An ordered list of URL-matching patterns that should be applied to incoming requests. The first matching URL handles the request and other request handlers are not attempted.Only returned in GET requests if view=FULL is set.
         :param pulumi.Input[pulumi.InputType['HealthCheckArgs']] health_check: Configures health checking for instances. Unhealthy instances are stopped and replaced with new instances. Only applicable in the App Engine flexible environment.
         :param pulumi.Input[str] id: Relative name of the version within the service. Example: v1. Version names can contain only lowercase letters, numbers, or hyphens. Reserved names: "default", "latest", and any name with the prefix "ah-".
@@ -771,7 +769,7 @@ class Version(pulumi.CustomResource):
                  env_variables: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  error_handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ErrorHandlerArgs']]]]] = None,
                  flexible_runtime_settings: Optional[pulumi.Input[pulumi.InputType['FlexibleRuntimeSettingsArgs']]] = None,
-                 generated_customer_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 generated_customer_metadata: Optional[pulumi.Input[Mapping[str, Any]]] = None,
                  handlers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['UrlMapArgs']]]]] = None,
                  health_check: Optional[pulumi.Input[pulumi.InputType['HealthCheckArgs']]] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -852,7 +850,7 @@ class Version(pulumi.CustomResource):
             __props__.__dict__["disk_usage_bytes"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["version_url"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["app_id", "service_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["appId", "serviceId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Version, __self__).__init__(
             'google-native:appengine/v1:Version',
@@ -1064,7 +1062,7 @@ class Version(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="generatedCustomerMetadata")
-    def generated_customer_metadata(self) -> pulumi.Output[Mapping[str, str]]:
+    def generated_customer_metadata(self) -> pulumi.Output[Mapping[str, Any]]:
         """
         Additional Google Generated Customer Metadata, this field won't be provided by default and can be requested by setting the IncludeExtraData field in GetVersionRequest
         """
@@ -1253,12 +1251,10 @@ class Version(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    @_utilities.deprecated("""The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""")
     def zones(self) -> pulumi.Output[Sequence[str]]:
         """
         The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.
         """
-        warnings.warn("""The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""", DeprecationWarning)
-        pulumi.log.warn("""zones is deprecated: The Google Compute Engine zones that are supported by this version in the App Engine flexible environment. Deprecated.""")
-
         return pulumi.get(self, "zones")
 

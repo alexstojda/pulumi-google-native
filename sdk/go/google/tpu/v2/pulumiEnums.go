@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. Type of TPU.
@@ -144,10 +143,13 @@ func (o AcceleratorConfigTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AcceleratorConfigTypeInput is an input type that accepts AcceleratorConfigTypeArgs and AcceleratorConfigTypeOutput values.
-// You can construct a concrete instance of `AcceleratorConfigTypeInput` via:
+// AcceleratorConfigTypeInput is an input type that accepts values of the AcceleratorConfigType enum
+// A concrete instance of `AcceleratorConfigTypeInput` can be one of the following:
 //
-//	AcceleratorConfigTypeArgs{...}
+//	AcceleratorConfigTypeTypeUnspecified
+//	AcceleratorConfigTypeV2
+//	AcceleratorConfigTypeV3
+//	AcceleratorConfigTypeV4
 type AcceleratorConfigTypeInput interface {
 	pulumi.Input
 
@@ -180,12 +182,6 @@ func (in *acceleratorConfigTypePtr) ToAcceleratorConfigTypePtrOutput() Accelerat
 
 func (in *acceleratorConfigTypePtr) ToAcceleratorConfigTypePtrOutputWithContext(ctx context.Context) AcceleratorConfigTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AcceleratorConfigTypePtrOutput)
-}
-
-func (in *acceleratorConfigTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AcceleratorConfigType] {
-	return pulumix.Output[*AcceleratorConfigType]{
-		OutputState: in.ToAcceleratorConfigTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The mode in which to attach this disk. If not specified, the default is READ_WRITE mode. Only applicable to data_disks.
@@ -319,10 +315,12 @@ func (o AttachedDiskModePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// AttachedDiskModeInput is an input type that accepts AttachedDiskModeArgs and AttachedDiskModeOutput values.
-// You can construct a concrete instance of `AttachedDiskModeInput` via:
+// AttachedDiskModeInput is an input type that accepts values of the AttachedDiskMode enum
+// A concrete instance of `AttachedDiskModeInput` can be one of the following:
 //
-//	AttachedDiskModeArgs{...}
+//	AttachedDiskModeDiskModeUnspecified
+//	AttachedDiskModeReadWrite
+//	AttachedDiskModeReadOnly
 type AttachedDiskModeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *attachedDiskModePtr) ToAttachedDiskModePtrOutput() AttachedDiskModePtr
 
 func (in *attachedDiskModePtr) ToAttachedDiskModePtrOutputWithContext(ctx context.Context) AttachedDiskModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AttachedDiskModePtrOutput)
-}
-
-func (in *attachedDiskModePtr) ToOutput(ctx context.Context) pulumix.Output[*AttachedDiskMode] {
-	return pulumix.Output[*AttachedDiskMode]{
-		OutputState: in.ToAttachedDiskModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The health status of the TPU node.
@@ -498,10 +490,14 @@ func (o NodeHealthPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) p
 	}).(pulumi.StringPtrOutput)
 }
 
-// NodeHealthInput is an input type that accepts NodeHealthArgs and NodeHealthOutput values.
-// You can construct a concrete instance of `NodeHealthInput` via:
+// NodeHealthInput is an input type that accepts values of the NodeHealth enum
+// A concrete instance of `NodeHealthInput` can be one of the following:
 //
-//	NodeHealthArgs{...}
+//	NodeHealthHealthUnspecified
+//	NodeHealthHealthy
+//	NodeHealthTimeout
+//	NodeHealthUnhealthyTensorflow
+//	NodeHealthUnhealthyMaintenance
 type NodeHealthInput interface {
 	pulumi.Input
 
@@ -534,12 +530,6 @@ func (in *nodeHealthPtr) ToNodeHealthPtrOutput() NodeHealthPtrOutput {
 
 func (in *nodeHealthPtr) ToNodeHealthPtrOutputWithContext(ctx context.Context) NodeHealthPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NodeHealthPtrOutput)
-}
-
-func (in *nodeHealthPtr) ToOutput(ctx context.Context) pulumix.Output[*NodeHealth] {
-	return pulumix.Output[*NodeHealth]{
-		OutputState: in.ToNodeHealthPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

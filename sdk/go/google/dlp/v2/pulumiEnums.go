@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. A status for this configuration.
@@ -142,10 +141,12 @@ func (o DiscoveryConfigStatusPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// DiscoveryConfigStatusInput is an input type that accepts DiscoveryConfigStatusArgs and DiscoveryConfigStatusOutput values.
-// You can construct a concrete instance of `DiscoveryConfigStatusInput` via:
+// DiscoveryConfigStatusInput is an input type that accepts values of the DiscoveryConfigStatus enum
+// A concrete instance of `DiscoveryConfigStatusInput` can be one of the following:
 //
-//	DiscoveryConfigStatusArgs{...}
+//	DiscoveryConfigStatusStatusUnspecified
+//	DiscoveryConfigStatusRunning
+//	DiscoveryConfigStatusPaused
 type DiscoveryConfigStatusInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *discoveryConfigStatusPtr) ToDiscoveryConfigStatusPtrOutput() Discovery
 
 func (in *discoveryConfigStatusPtr) ToDiscoveryConfigStatusPtrOutputWithContext(ctx context.Context) DiscoveryConfigStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DiscoveryConfigStatusPtrOutput)
-}
-
-func (in *discoveryConfigStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*DiscoveryConfigStatus] {
-	return pulumix.Output[*DiscoveryConfigStatus]{
-		OutputState: in.ToDiscoveryConfigStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GooglePrivacyDlpV2BigQueryOptionsSampleMethod string
@@ -315,10 +310,12 @@ func (o GooglePrivacyDlpV2BigQueryOptionsSampleMethodPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2BigQueryOptionsSampleMethodInput is an input type that accepts GooglePrivacyDlpV2BigQueryOptionsSampleMethodArgs and GooglePrivacyDlpV2BigQueryOptionsSampleMethodOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2BigQueryOptionsSampleMethodInput` via:
+// GooglePrivacyDlpV2BigQueryOptionsSampleMethodInput is an input type that accepts values of the GooglePrivacyDlpV2BigQueryOptionsSampleMethod enum
+// A concrete instance of `GooglePrivacyDlpV2BigQueryOptionsSampleMethodInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2BigQueryOptionsSampleMethodArgs{...}
+//	GooglePrivacyDlpV2BigQueryOptionsSampleMethodSampleMethodUnspecified
+//	GooglePrivacyDlpV2BigQueryOptionsSampleMethodTop
+//	GooglePrivacyDlpV2BigQueryOptionsSampleMethodRandomStart
 type GooglePrivacyDlpV2BigQueryOptionsSampleMethodInput interface {
 	pulumi.Input
 
@@ -351,12 +348,6 @@ func (in *googlePrivacyDlpV2BigQueryOptionsSampleMethodPtr) ToGooglePrivacyDlpV2
 
 func (in *googlePrivacyDlpV2BigQueryOptionsSampleMethodPtr) ToGooglePrivacyDlpV2BigQueryOptionsSampleMethodPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2BigQueryOptionsSampleMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2BigQueryOptionsSampleMethodPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2BigQueryOptionsSampleMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2BigQueryOptionsSampleMethod] {
-	return pulumix.Output[*GooglePrivacyDlpV2BigQueryOptionsSampleMethod]{
-		OutputState: in.ToGooglePrivacyDlpV2BigQueryOptionsSampleMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GooglePrivacyDlpV2BigQueryTableTypesTypesItem string
@@ -489,10 +480,12 @@ func (o GooglePrivacyDlpV2BigQueryTableTypesTypesItemPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2BigQueryTableTypesTypesItemInput is an input type that accepts GooglePrivacyDlpV2BigQueryTableTypesTypesItemArgs and GooglePrivacyDlpV2BigQueryTableTypesTypesItemOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2BigQueryTableTypesTypesItemInput` via:
+// GooglePrivacyDlpV2BigQueryTableTypesTypesItemInput is an input type that accepts values of the GooglePrivacyDlpV2BigQueryTableTypesTypesItem enum
+// A concrete instance of `GooglePrivacyDlpV2BigQueryTableTypesTypesItemInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2BigQueryTableTypesTypesItemArgs{...}
+//	GooglePrivacyDlpV2BigQueryTableTypesTypesItemBigQueryTableTypeUnspecified
+//	GooglePrivacyDlpV2BigQueryTableTypesTypesItemBigQueryTableTypeTable
+//	GooglePrivacyDlpV2BigQueryTableTypesTypesItemBigQueryTableTypeExternalBigLake
 type GooglePrivacyDlpV2BigQueryTableTypesTypesItemInput interface {
 	pulumi.Input
 
@@ -525,12 +518,6 @@ func (in *googlePrivacyDlpV2BigQueryTableTypesTypesItemPtr) ToGooglePrivacyDlpV2
 
 func (in *googlePrivacyDlpV2BigQueryTableTypesTypesItemPtr) ToGooglePrivacyDlpV2BigQueryTableTypesTypesItemPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2BigQueryTableTypesTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2BigQueryTableTypesTypesItemPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2BigQueryTableTypesTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2BigQueryTableTypesTypesItem] {
-	return pulumix.Output[*GooglePrivacyDlpV2BigQueryTableTypesTypesItem]{
-		OutputState: in.ToGooglePrivacyDlpV2BigQueryTableTypesTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GooglePrivacyDlpV2BigQueryTableTypesTypesItemArrayInput is an input type that accepts GooglePrivacyDlpV2BigQueryTableTypesTypesItemArray and GooglePrivacyDlpV2BigQueryTableTypesTypesItemArrayOutput values.
@@ -715,10 +702,15 @@ func (o GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePtrOutput) ToStri
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreInput is an input type that accepts GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreArgs and GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreInput` via:
+// GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreInput is an input type that accepts values of the GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnore enum
+// A concrete instance of `GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreArgs{...}
+//	GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreCommonCharsToIgnoreUnspecified
+//	GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreNumeric
+//	GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreAlphaUpperCase
+//	GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreAlphaLowerCase
+//	GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePunctuation
+//	GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreWhitespace
 type GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnoreInput interface {
 	pulumi.Input
 
@@ -751,12 +743,6 @@ func (in *googlePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePtr) ToGooglePr
 
 func (in *googlePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePtr) ToGooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePtrOutput)
-}
-
-func (in *googlePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnore] {
-	return pulumix.Output[*GooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnore]{
-		OutputState: in.ToGooglePrivacyDlpV2CharsToIgnoreCommonCharactersToIgnorePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GooglePrivacyDlpV2CloudStorageOptionsFileTypesItem string
@@ -905,10 +891,20 @@ func (o GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemInput is an input type that accepts GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemArgs and GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemInput` via:
+// GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemInput is an input type that accepts values of the GooglePrivacyDlpV2CloudStorageOptionsFileTypesItem enum
+// A concrete instance of `GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemArgs{...}
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemFileTypeUnspecified
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemBinaryFile
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemTextFile
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemImage
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemWord
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemPdf
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemAvro
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemCsv
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemTsv
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemPowerpoint
+//	GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemExcel
 type GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemInput interface {
 	pulumi.Input
 
@@ -941,12 +937,6 @@ func (in *googlePrivacyDlpV2CloudStorageOptionsFileTypesItemPtr) ToGooglePrivacy
 
 func (in *googlePrivacyDlpV2CloudStorageOptionsFileTypesItemPtr) ToGooglePrivacyDlpV2CloudStorageOptionsFileTypesItemPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2CloudStorageOptionsFileTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2CloudStorageOptionsFileTypesItem] {
-	return pulumix.Output[*GooglePrivacyDlpV2CloudStorageOptionsFileTypesItem]{
-		OutputState: in.ToGooglePrivacyDlpV2CloudStorageOptionsFileTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemArrayInput is an input type that accepts GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemArray and GooglePrivacyDlpV2CloudStorageOptionsFileTypesItemArrayOutput values.
@@ -1123,10 +1113,12 @@ func (o GooglePrivacyDlpV2CloudStorageOptionsSampleMethodPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2CloudStorageOptionsSampleMethodInput is an input type that accepts GooglePrivacyDlpV2CloudStorageOptionsSampleMethodArgs and GooglePrivacyDlpV2CloudStorageOptionsSampleMethodOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2CloudStorageOptionsSampleMethodInput` via:
+// GooglePrivacyDlpV2CloudStorageOptionsSampleMethodInput is an input type that accepts values of the GooglePrivacyDlpV2CloudStorageOptionsSampleMethod enum
+// A concrete instance of `GooglePrivacyDlpV2CloudStorageOptionsSampleMethodInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2CloudStorageOptionsSampleMethodArgs{...}
+//	GooglePrivacyDlpV2CloudStorageOptionsSampleMethodSampleMethodUnspecified
+//	GooglePrivacyDlpV2CloudStorageOptionsSampleMethodTop
+//	GooglePrivacyDlpV2CloudStorageOptionsSampleMethodRandomStart
 type GooglePrivacyDlpV2CloudStorageOptionsSampleMethodInput interface {
 	pulumi.Input
 
@@ -1159,12 +1151,6 @@ func (in *googlePrivacyDlpV2CloudStorageOptionsSampleMethodPtr) ToGooglePrivacyD
 
 func (in *googlePrivacyDlpV2CloudStorageOptionsSampleMethodPtr) ToGooglePrivacyDlpV2CloudStorageOptionsSampleMethodPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2CloudStorageOptionsSampleMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2CloudStorageOptionsSampleMethodPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2CloudStorageOptionsSampleMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2CloudStorageOptionsSampleMethod] {
-	return pulumix.Output[*GooglePrivacyDlpV2CloudStorageOptionsSampleMethod]{
-		OutputState: in.ToGooglePrivacyDlpV2CloudStorageOptionsSampleMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Operator used to compare the field or infoType to the value.
@@ -1308,10 +1294,17 @@ func (o GooglePrivacyDlpV2ConditionOperatorPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2ConditionOperatorInput is an input type that accepts GooglePrivacyDlpV2ConditionOperatorArgs and GooglePrivacyDlpV2ConditionOperatorOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2ConditionOperatorInput` via:
+// GooglePrivacyDlpV2ConditionOperatorInput is an input type that accepts values of the GooglePrivacyDlpV2ConditionOperator enum
+// A concrete instance of `GooglePrivacyDlpV2ConditionOperatorInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2ConditionOperatorArgs{...}
+//	GooglePrivacyDlpV2ConditionOperatorRelationalOperatorUnspecified
+//	GooglePrivacyDlpV2ConditionOperatorEqualTo
+//	GooglePrivacyDlpV2ConditionOperatorNotEqualTo
+//	GooglePrivacyDlpV2ConditionOperatorGreaterThan
+//	GooglePrivacyDlpV2ConditionOperatorLessThan
+//	GooglePrivacyDlpV2ConditionOperatorGreaterThanOrEquals
+//	GooglePrivacyDlpV2ConditionOperatorLessThanOrEquals
+//	GooglePrivacyDlpV2ConditionOperatorExists
 type GooglePrivacyDlpV2ConditionOperatorInput interface {
 	pulumi.Input
 
@@ -1344,12 +1337,6 @@ func (in *googlePrivacyDlpV2ConditionOperatorPtr) ToGooglePrivacyDlpV2ConditionO
 
 func (in *googlePrivacyDlpV2ConditionOperatorPtr) ToGooglePrivacyDlpV2ConditionOperatorPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2ConditionOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2ConditionOperatorPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2ConditionOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2ConditionOperator] {
-	return pulumix.Output[*GooglePrivacyDlpV2ConditionOperator]{
-		OutputState: in.ToGooglePrivacyDlpV2ConditionOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Common alphabets.
@@ -1487,10 +1474,14 @@ func (o GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetInput is an input type that accepts GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetArgs and GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetInput` via:
+// GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetInput is an input type that accepts values of the GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabet enum
+// A concrete instance of `GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetArgs{...}
+//	GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetFfxCommonNativeAlphabetUnspecified
+//	GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetNumeric
+//	GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetHexadecimal
+//	GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetUpperCaseAlphaNumeric
+//	GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetAlphaNumeric
 type GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetInput interface {
 	pulumi.Input
 
@@ -1523,12 +1514,6 @@ func (in *googlePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetPtr) ToGoogle
 
 func (in *googlePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetPtr) ToGooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabet] {
-	return pulumix.Output[*GooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabet]{
-		OutputState: in.ToGooglePrivacyDlpV2CryptoReplaceFfxFpeConfigCommonAlphabetPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // If set to EXCLUSION_TYPE_EXCLUDE this infoType will not cause a finding to be returned. It still can be used for rules matching.
@@ -1660,10 +1645,11 @@ func (o GooglePrivacyDlpV2CustomInfoTypeExclusionTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2CustomInfoTypeExclusionTypeInput is an input type that accepts GooglePrivacyDlpV2CustomInfoTypeExclusionTypeArgs and GooglePrivacyDlpV2CustomInfoTypeExclusionTypeOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2CustomInfoTypeExclusionTypeInput` via:
+// GooglePrivacyDlpV2CustomInfoTypeExclusionTypeInput is an input type that accepts values of the GooglePrivacyDlpV2CustomInfoTypeExclusionType enum
+// A concrete instance of `GooglePrivacyDlpV2CustomInfoTypeExclusionTypeInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2CustomInfoTypeExclusionTypeArgs{...}
+//	GooglePrivacyDlpV2CustomInfoTypeExclusionTypeExclusionTypeUnspecified
+//	GooglePrivacyDlpV2CustomInfoTypeExclusionTypeExclusionTypeExclude
 type GooglePrivacyDlpV2CustomInfoTypeExclusionTypeInput interface {
 	pulumi.Input
 
@@ -1696,12 +1682,6 @@ func (in *googlePrivacyDlpV2CustomInfoTypeExclusionTypePtr) ToGooglePrivacyDlpV2
 
 func (in *googlePrivacyDlpV2CustomInfoTypeExclusionTypePtr) ToGooglePrivacyDlpV2CustomInfoTypeExclusionTypePtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2CustomInfoTypeExclusionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2CustomInfoTypeExclusionTypePtrOutput)
-}
-
-func (in *googlePrivacyDlpV2CustomInfoTypeExclusionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2CustomInfoTypeExclusionType] {
-	return pulumix.Output[*GooglePrivacyDlpV2CustomInfoTypeExclusionType]{
-		OutputState: in.ToGooglePrivacyDlpV2CustomInfoTypeExclusionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Likelihood to return for this CustomInfoType. This base value can be altered by a detection rule if the finding meets the criteria specified by the rule. Defaults to `VERY_LIKELY` if not specified.
@@ -1841,10 +1821,15 @@ func (o GooglePrivacyDlpV2CustomInfoTypeLikelihoodPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2CustomInfoTypeLikelihoodInput is an input type that accepts GooglePrivacyDlpV2CustomInfoTypeLikelihoodArgs and GooglePrivacyDlpV2CustomInfoTypeLikelihoodOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2CustomInfoTypeLikelihoodInput` via:
+// GooglePrivacyDlpV2CustomInfoTypeLikelihoodInput is an input type that accepts values of the GooglePrivacyDlpV2CustomInfoTypeLikelihood enum
+// A concrete instance of `GooglePrivacyDlpV2CustomInfoTypeLikelihoodInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2CustomInfoTypeLikelihoodArgs{...}
+//	GooglePrivacyDlpV2CustomInfoTypeLikelihoodLikelihoodUnspecified
+//	GooglePrivacyDlpV2CustomInfoTypeLikelihoodVeryUnlikely
+//	GooglePrivacyDlpV2CustomInfoTypeLikelihoodUnlikely
+//	GooglePrivacyDlpV2CustomInfoTypeLikelihoodPossible
+//	GooglePrivacyDlpV2CustomInfoTypeLikelihoodLikely
+//	GooglePrivacyDlpV2CustomInfoTypeLikelihoodVeryLikely
 type GooglePrivacyDlpV2CustomInfoTypeLikelihoodInput interface {
 	pulumi.Input
 
@@ -1877,12 +1862,6 @@ func (in *googlePrivacyDlpV2CustomInfoTypeLikelihoodPtr) ToGooglePrivacyDlpV2Cus
 
 func (in *googlePrivacyDlpV2CustomInfoTypeLikelihoodPtr) ToGooglePrivacyDlpV2CustomInfoTypeLikelihoodPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2CustomInfoTypeLikelihoodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2CustomInfoTypeLikelihoodPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2CustomInfoTypeLikelihoodPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2CustomInfoTypeLikelihood] {
-	return pulumix.Output[*GooglePrivacyDlpV2CustomInfoTypeLikelihood]{
-		OutputState: in.ToGooglePrivacyDlpV2CustomInfoTypeLikelihoodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GooglePrivacyDlpV2DeidentifyFileTypesToTransformItem string
@@ -2031,10 +2010,20 @@ func (o GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemPtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemInput is an input type that accepts GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemArgs and GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemInput` via:
+// GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemInput is an input type that accepts values of the GooglePrivacyDlpV2DeidentifyFileTypesToTransformItem enum
+// A concrete instance of `GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemArgs{...}
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemFileTypeUnspecified
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemBinaryFile
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemTextFile
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemImage
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemWord
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemPdf
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemAvro
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemCsv
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemTsv
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemPowerpoint
+//	GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemExcel
 type GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemInput interface {
 	pulumi.Input
 
@@ -2067,12 +2056,6 @@ func (in *googlePrivacyDlpV2DeidentifyFileTypesToTransformItemPtr) ToGooglePriva
 
 func (in *googlePrivacyDlpV2DeidentifyFileTypesToTransformItemPtr) ToGooglePrivacyDlpV2DeidentifyFileTypesToTransformItemPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2DeidentifyFileTypesToTransformItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2DeidentifyFileTypesToTransformItem] {
-	return pulumix.Output[*GooglePrivacyDlpV2DeidentifyFileTypesToTransformItem]{
-		OutputState: in.ToGooglePrivacyDlpV2DeidentifyFileTypesToTransformItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemArrayInput is an input type that accepts GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemArray and GooglePrivacyDlpV2DeidentifyFileTypesToTransformItemArrayOutput values.
@@ -2251,10 +2234,12 @@ func (o GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionPtrOutput) To
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionInput is an input type that accepts GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionArgs and GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionInput` via:
+// GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionInput is an input type that accepts values of the GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollection enum
+// A concrete instance of `GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionArgs{...}
+//	GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionBigQueryCollectionUnspecified
+//	GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionBigQueryCollectionAllTypes
+//	GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionBigQueryCollectionOnlySupportedTypes
 type GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionInput interface {
 	pulumi.Input
 
@@ -2287,12 +2272,6 @@ func (in *googlePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionPtr) ToGoog
 
 func (in *googlePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionPtr) ToGooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollection] {
-	return pulumix.Output[*GooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollection]{
-		OutputState: in.ToGooglePrivacyDlpV2DiscoveryBigQueryConditionsTypeCollectionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // How frequently profiles may be updated when schemas are modified. Defaults to monthly.
@@ -2428,10 +2407,13 @@ func (o GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyInput is an input type that accepts GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyArgs and GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyInput` via:
+// GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyInput is an input type that accepts values of the GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequency enum
+// A concrete instance of `GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyArgs{...}
+//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyUpdateFrequencyUnspecified
+//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyUpdateFrequencyNever
+//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyUpdateFrequencyDaily
+//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyUpdateFrequencyMonthly
 type GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyInput interface {
 	pulumi.Input
 
@@ -2464,12 +2446,6 @@ func (in *googlePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyPtr) ToGoogle
 
 func (in *googlePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyPtr) ToGooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequency] {
-	return pulumix.Output[*GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequency]{
-		OutputState: in.ToGooglePrivacyDlpV2DiscoverySchemaModifiedCadenceFrequencyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItem string
@@ -2602,10 +2578,12 @@ func (o GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemPtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemInput is an input type that accepts GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemArgs and GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemInput` via:
+// GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemInput is an input type that accepts values of the GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItem enum
+// A concrete instance of `GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemArgs{...}
+//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemSchemaModificationUnspecified
+//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemSchemaNewColumns
+//	GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemSchemaRemovedColumns
 type GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemInput interface {
 	pulumi.Input
 
@@ -2638,12 +2616,6 @@ func (in *googlePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemPtr) ToGoogle
 
 func (in *googlePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemPtr) ToGooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItem] {
-	return pulumix.Output[*GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItem]{
-		OutputState: in.ToGooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemArrayInput is an input type that accepts GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemArray and GooglePrivacyDlpV2DiscoverySchemaModifiedCadenceTypesItemArrayOutput values.
@@ -2824,10 +2796,13 @@ func (o GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyPtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyInput is an input type that accepts GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyArgs and GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyInput` via:
+// GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyInput is an input type that accepts values of the GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequency enum
+// A concrete instance of `GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyArgs{...}
+//	GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyUpdateFrequencyUnspecified
+//	GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyUpdateFrequencyNever
+//	GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyUpdateFrequencyDaily
+//	GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyUpdateFrequencyMonthly
 type GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyInput interface {
 	pulumi.Input
 
@@ -2860,12 +2835,6 @@ func (in *googlePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyPtr) ToGoogleP
 
 func (in *googlePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyPtr) ToGooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequency] {
-	return pulumix.Output[*GooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequency]{
-		OutputState: in.ToGooglePrivacyDlpV2DiscoveryTableModifiedCadenceFrequencyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItem string
@@ -2996,10 +2965,11 @@ func (o GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemPtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemInput is an input type that accepts GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemArgs and GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemInput` via:
+// GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemInput is an input type that accepts values of the GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItem enum
+// A concrete instance of `GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemArgs{...}
+//	GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemTableModificationUnspecified
+//	GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemTableModifiedTimestamp
 type GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemInput interface {
 	pulumi.Input
 
@@ -3032,12 +3002,6 @@ func (in *googlePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemPtr) ToGoogleP
 
 func (in *googlePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemPtr) ToGooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItem] {
-	return pulumix.Output[*GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItem]{
-		OutputState: in.ToGooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemArrayInput is an input type that accepts GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemArray and GooglePrivacyDlpV2DiscoveryTableModifiedCadenceTypesItemArrayOutput values.
@@ -3218,10 +3182,13 @@ func (o GooglePrivacyDlpV2ExclusionRuleMatchingTypePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2ExclusionRuleMatchingTypeInput is an input type that accepts GooglePrivacyDlpV2ExclusionRuleMatchingTypeArgs and GooglePrivacyDlpV2ExclusionRuleMatchingTypeOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2ExclusionRuleMatchingTypeInput` via:
+// GooglePrivacyDlpV2ExclusionRuleMatchingTypeInput is an input type that accepts values of the GooglePrivacyDlpV2ExclusionRuleMatchingType enum
+// A concrete instance of `GooglePrivacyDlpV2ExclusionRuleMatchingTypeInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2ExclusionRuleMatchingTypeArgs{...}
+//	GooglePrivacyDlpV2ExclusionRuleMatchingTypeMatchingTypeUnspecified
+//	GooglePrivacyDlpV2ExclusionRuleMatchingTypeMatchingTypeFullMatch
+//	GooglePrivacyDlpV2ExclusionRuleMatchingTypeMatchingTypePartialMatch
+//	GooglePrivacyDlpV2ExclusionRuleMatchingTypeMatchingTypeInverseMatch
 type GooglePrivacyDlpV2ExclusionRuleMatchingTypeInput interface {
 	pulumi.Input
 
@@ -3254,12 +3221,6 @@ func (in *googlePrivacyDlpV2ExclusionRuleMatchingTypePtr) ToGooglePrivacyDlpV2Ex
 
 func (in *googlePrivacyDlpV2ExclusionRuleMatchingTypePtr) ToGooglePrivacyDlpV2ExclusionRuleMatchingTypePtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2ExclusionRuleMatchingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2ExclusionRuleMatchingTypePtrOutput)
-}
-
-func (in *googlePrivacyDlpV2ExclusionRuleMatchingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2ExclusionRuleMatchingType] {
-	return pulumix.Output[*GooglePrivacyDlpV2ExclusionRuleMatchingType]{
-		OutputState: in.ToGooglePrivacyDlpV2ExclusionRuleMatchingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The operator to apply to the result of conditions. Default and currently only supported value is `AND`.
@@ -3391,10 +3352,11 @@ func (o GooglePrivacyDlpV2ExpressionsLogicalOperatorPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2ExpressionsLogicalOperatorInput is an input type that accepts GooglePrivacyDlpV2ExpressionsLogicalOperatorArgs and GooglePrivacyDlpV2ExpressionsLogicalOperatorOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2ExpressionsLogicalOperatorInput` via:
+// GooglePrivacyDlpV2ExpressionsLogicalOperatorInput is an input type that accepts values of the GooglePrivacyDlpV2ExpressionsLogicalOperator enum
+// A concrete instance of `GooglePrivacyDlpV2ExpressionsLogicalOperatorInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2ExpressionsLogicalOperatorArgs{...}
+//	GooglePrivacyDlpV2ExpressionsLogicalOperatorLogicalOperatorUnspecified
+//	GooglePrivacyDlpV2ExpressionsLogicalOperatorAnd
 type GooglePrivacyDlpV2ExpressionsLogicalOperatorInput interface {
 	pulumi.Input
 
@@ -3427,12 +3389,6 @@ func (in *googlePrivacyDlpV2ExpressionsLogicalOperatorPtr) ToGooglePrivacyDlpV2E
 
 func (in *googlePrivacyDlpV2ExpressionsLogicalOperatorPtr) ToGooglePrivacyDlpV2ExpressionsLogicalOperatorPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2ExpressionsLogicalOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2ExpressionsLogicalOperatorPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2ExpressionsLogicalOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2ExpressionsLogicalOperator] {
-	return pulumix.Output[*GooglePrivacyDlpV2ExpressionsLogicalOperator]{
-		OutputState: in.ToGooglePrivacyDlpV2ExpressionsLogicalOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Only returns findings equal to or above this threshold. This field is required or else the configuration fails.
@@ -3572,10 +3528,15 @@ func (o GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodInput is an input type that accepts GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodArgs and GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodInput` via:
+// GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodInput is an input type that accepts values of the GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihood enum
+// A concrete instance of `GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodArgs{...}
+//	GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodLikelihoodUnspecified
+//	GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodVeryUnlikely
+//	GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodUnlikely
+//	GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPossible
+//	GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodLikely
+//	GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodVeryLikely
 type GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodInput interface {
 	pulumi.Input
 
@@ -3608,12 +3569,6 @@ func (in *googlePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPtr) ToGooglePrivacyD
 
 func (in *googlePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPtr) ToGooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihood] {
-	return pulumix.Output[*GooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihood]{
-		OutputState: in.ToGooglePrivacyDlpV2InfoTypeLikelihoodMinLikelihoodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type GooglePrivacyDlpV2InspectConfigContentOptionsItem string
@@ -3746,10 +3701,12 @@ func (o GooglePrivacyDlpV2InspectConfigContentOptionsItemPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2InspectConfigContentOptionsItemInput is an input type that accepts GooglePrivacyDlpV2InspectConfigContentOptionsItemArgs and GooglePrivacyDlpV2InspectConfigContentOptionsItemOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2InspectConfigContentOptionsItemInput` via:
+// GooglePrivacyDlpV2InspectConfigContentOptionsItemInput is an input type that accepts values of the GooglePrivacyDlpV2InspectConfigContentOptionsItem enum
+// A concrete instance of `GooglePrivacyDlpV2InspectConfigContentOptionsItemInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2InspectConfigContentOptionsItemArgs{...}
+//	GooglePrivacyDlpV2InspectConfigContentOptionsItemContentUnspecified
+//	GooglePrivacyDlpV2InspectConfigContentOptionsItemContentText
+//	GooglePrivacyDlpV2InspectConfigContentOptionsItemContentImage
 type GooglePrivacyDlpV2InspectConfigContentOptionsItemInput interface {
 	pulumi.Input
 
@@ -3782,12 +3739,6 @@ func (in *googlePrivacyDlpV2InspectConfigContentOptionsItemPtr) ToGooglePrivacyD
 
 func (in *googlePrivacyDlpV2InspectConfigContentOptionsItemPtr) ToGooglePrivacyDlpV2InspectConfigContentOptionsItemPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2InspectConfigContentOptionsItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2InspectConfigContentOptionsItemPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2InspectConfigContentOptionsItemPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2InspectConfigContentOptionsItem] {
-	return pulumix.Output[*GooglePrivacyDlpV2InspectConfigContentOptionsItem]{
-		OutputState: in.ToGooglePrivacyDlpV2InspectConfigContentOptionsItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GooglePrivacyDlpV2InspectConfigContentOptionsItemArrayInput is an input type that accepts GooglePrivacyDlpV2InspectConfigContentOptionsItemArray and GooglePrivacyDlpV2InspectConfigContentOptionsItemArrayOutput values.
@@ -3972,10 +3923,15 @@ func (o GooglePrivacyDlpV2InspectConfigMinLikelihoodPtrOutput) ToStringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2InspectConfigMinLikelihoodInput is an input type that accepts GooglePrivacyDlpV2InspectConfigMinLikelihoodArgs and GooglePrivacyDlpV2InspectConfigMinLikelihoodOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2InspectConfigMinLikelihoodInput` via:
+// GooglePrivacyDlpV2InspectConfigMinLikelihoodInput is an input type that accepts values of the GooglePrivacyDlpV2InspectConfigMinLikelihood enum
+// A concrete instance of `GooglePrivacyDlpV2InspectConfigMinLikelihoodInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2InspectConfigMinLikelihoodArgs{...}
+//	GooglePrivacyDlpV2InspectConfigMinLikelihoodLikelihoodUnspecified
+//	GooglePrivacyDlpV2InspectConfigMinLikelihoodVeryUnlikely
+//	GooglePrivacyDlpV2InspectConfigMinLikelihoodUnlikely
+//	GooglePrivacyDlpV2InspectConfigMinLikelihoodPossible
+//	GooglePrivacyDlpV2InspectConfigMinLikelihoodLikely
+//	GooglePrivacyDlpV2InspectConfigMinLikelihoodVeryLikely
 type GooglePrivacyDlpV2InspectConfigMinLikelihoodInput interface {
 	pulumi.Input
 
@@ -4008,12 +3964,6 @@ func (in *googlePrivacyDlpV2InspectConfigMinLikelihoodPtr) ToGooglePrivacyDlpV2I
 
 func (in *googlePrivacyDlpV2InspectConfigMinLikelihoodPtr) ToGooglePrivacyDlpV2InspectConfigMinLikelihoodPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2InspectConfigMinLikelihoodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2InspectConfigMinLikelihoodPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2InspectConfigMinLikelihoodPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2InspectConfigMinLikelihood] {
-	return pulumix.Output[*GooglePrivacyDlpV2InspectConfigMinLikelihood]{
-		OutputState: in.ToGooglePrivacyDlpV2InspectConfigMinLikelihoodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Set the likelihood of a finding to a fixed value.
@@ -4153,10 +4103,15 @@ func (o GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodInput is an input type that accepts GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodArgs and GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodInput` via:
+// GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodInput is an input type that accepts values of the GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihood enum
+// A concrete instance of `GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodArgs{...}
+//	GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodLikelihoodUnspecified
+//	GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodVeryUnlikely
+//	GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodUnlikely
+//	GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPossible
+//	GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodLikely
+//	GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodVeryLikely
 type GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodInput interface {
 	pulumi.Input
 
@@ -4189,12 +4144,6 @@ func (in *googlePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPtr) ToGooglePriv
 
 func (in *googlePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPtr) ToGooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihood] {
-	return pulumix.Output[*GooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihood]{
-		OutputState: in.ToGooglePrivacyDlpV2LikelihoodAdjustmentFixedLikelihoodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Schema used for writing the findings for Inspect jobs. This field is only used for Inspect and must be unspecified for Risk jobs. Columns are derived from the `Finding` object. If appending to an existing table, any columns from the predefined schema that are missing will be added. No columns in the existing table will be deleted. If unspecified, then all available columns will be used for a new table or an (existing) table with no schema, and no changes will be made to an existing table that has a schema. Only for use with external storage.
@@ -4334,10 +4283,15 @@ func (o GooglePrivacyDlpV2OutputStorageConfigOutputSchemaPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2OutputStorageConfigOutputSchemaInput is an input type that accepts GooglePrivacyDlpV2OutputStorageConfigOutputSchemaArgs and GooglePrivacyDlpV2OutputStorageConfigOutputSchemaOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2OutputStorageConfigOutputSchemaInput` via:
+// GooglePrivacyDlpV2OutputStorageConfigOutputSchemaInput is an input type that accepts values of the GooglePrivacyDlpV2OutputStorageConfigOutputSchema enum
+// A concrete instance of `GooglePrivacyDlpV2OutputStorageConfigOutputSchemaInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2OutputStorageConfigOutputSchemaArgs{...}
+//	GooglePrivacyDlpV2OutputStorageConfigOutputSchemaOutputSchemaUnspecified
+//	GooglePrivacyDlpV2OutputStorageConfigOutputSchemaBasicColumns
+//	GooglePrivacyDlpV2OutputStorageConfigOutputSchemaGcsColumns
+//	GooglePrivacyDlpV2OutputStorageConfigOutputSchemaDatastoreColumns
+//	GooglePrivacyDlpV2OutputStorageConfigOutputSchemaBigQueryColumns
+//	GooglePrivacyDlpV2OutputStorageConfigOutputSchemaAllColumns
 type GooglePrivacyDlpV2OutputStorageConfigOutputSchemaInput interface {
 	pulumi.Input
 
@@ -4370,12 +4324,6 @@ func (in *googlePrivacyDlpV2OutputStorageConfigOutputSchemaPtr) ToGooglePrivacyD
 
 func (in *googlePrivacyDlpV2OutputStorageConfigOutputSchemaPtr) ToGooglePrivacyDlpV2OutputStorageConfigOutputSchemaPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2OutputStorageConfigOutputSchemaPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2OutputStorageConfigOutputSchemaPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2OutputStorageConfigOutputSchemaPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2OutputStorageConfigOutputSchema] {
-	return pulumix.Output[*GooglePrivacyDlpV2OutputStorageConfigOutputSchema]{
-		OutputState: in.ToGooglePrivacyDlpV2OutputStorageConfigOutputSchemaPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The minimum data risk score that triggers the condition.
@@ -4509,10 +4457,12 @@ func (o GooglePrivacyDlpV2PubSubConditionMinimumRiskScorePtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreInput is an input type that accepts GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreArgs and GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreInput` via:
+// GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreInput is an input type that accepts values of the GooglePrivacyDlpV2PubSubConditionMinimumRiskScore enum
+// A concrete instance of `GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreArgs{...}
+//	GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreProfileScoreBucketUnspecified
+//	GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreHigh
+//	GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreMediumOrHigh
 type GooglePrivacyDlpV2PubSubConditionMinimumRiskScoreInput interface {
 	pulumi.Input
 
@@ -4545,12 +4495,6 @@ func (in *googlePrivacyDlpV2PubSubConditionMinimumRiskScorePtr) ToGooglePrivacyD
 
 func (in *googlePrivacyDlpV2PubSubConditionMinimumRiskScorePtr) ToGooglePrivacyDlpV2PubSubConditionMinimumRiskScorePtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2PubSubConditionMinimumRiskScorePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2PubSubConditionMinimumRiskScorePtrOutput)
-}
-
-func (in *googlePrivacyDlpV2PubSubConditionMinimumRiskScorePtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2PubSubConditionMinimumRiskScore] {
-	return pulumix.Output[*GooglePrivacyDlpV2PubSubConditionMinimumRiskScore]{
-		OutputState: in.ToGooglePrivacyDlpV2PubSubConditionMinimumRiskScorePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The minimum sensitivity level that triggers the condition.
@@ -4684,10 +4628,12 @@ func (o GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScorePtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreInput is an input type that accepts GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreArgs and GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreInput` via:
+// GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreInput is an input type that accepts values of the GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScore enum
+// A concrete instance of `GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreArgs{...}
+//	GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreProfileScoreBucketUnspecified
+//	GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreHigh
+//	GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreMediumOrHigh
 type GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScoreInput interface {
 	pulumi.Input
 
@@ -4720,12 +4666,6 @@ func (in *googlePrivacyDlpV2PubSubConditionMinimumSensitivityScorePtr) ToGoogleP
 
 func (in *googlePrivacyDlpV2PubSubConditionMinimumSensitivityScorePtr) ToGooglePrivacyDlpV2PubSubConditionMinimumSensitivityScorePtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScorePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScorePtrOutput)
-}
-
-func (in *googlePrivacyDlpV2PubSubConditionMinimumSensitivityScorePtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScore] {
-	return pulumix.Output[*GooglePrivacyDlpV2PubSubConditionMinimumSensitivityScore]{
-		OutputState: in.ToGooglePrivacyDlpV2PubSubConditionMinimumSensitivityScorePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The operator to apply to the collection of conditions.
@@ -4859,10 +4799,12 @@ func (o GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorPtrOutput) ToStringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorInput is an input type that accepts GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorArgs and GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorInput` via:
+// GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorInput is an input type that accepts values of the GooglePrivacyDlpV2PubSubExpressionsLogicalOperator enum
+// A concrete instance of `GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorArgs{...}
+//	GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorLogicalOperatorUnspecified
+//	GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorOr
+//	GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorAnd
 type GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorInput interface {
 	pulumi.Input
 
@@ -4895,12 +4837,6 @@ func (in *googlePrivacyDlpV2PubSubExpressionsLogicalOperatorPtr) ToGooglePrivacy
 
 func (in *googlePrivacyDlpV2PubSubExpressionsLogicalOperatorPtr) ToGooglePrivacyDlpV2PubSubExpressionsLogicalOperatorPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2PubSubExpressionsLogicalOperatorPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2PubSubExpressionsLogicalOperatorPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2PubSubExpressionsLogicalOperator] {
-	return pulumix.Output[*GooglePrivacyDlpV2PubSubExpressionsLogicalOperator]{
-		OutputState: in.ToGooglePrivacyDlpV2PubSubExpressionsLogicalOperatorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // How much data to include in the Pub/Sub message. If the user wishes to limit the size of the message, they can use resource_name and fetch the profile fields they wish to. Per table profile (not per column).
@@ -5034,10 +4970,12 @@ func (o GooglePrivacyDlpV2PubSubNotificationDetailOfMessagePtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2PubSubNotificationDetailOfMessageInput is an input type that accepts GooglePrivacyDlpV2PubSubNotificationDetailOfMessageArgs and GooglePrivacyDlpV2PubSubNotificationDetailOfMessageOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2PubSubNotificationDetailOfMessageInput` via:
+// GooglePrivacyDlpV2PubSubNotificationDetailOfMessageInput is an input type that accepts values of the GooglePrivacyDlpV2PubSubNotificationDetailOfMessage enum
+// A concrete instance of `GooglePrivacyDlpV2PubSubNotificationDetailOfMessageInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2PubSubNotificationDetailOfMessageArgs{...}
+//	GooglePrivacyDlpV2PubSubNotificationDetailOfMessageDetailLevelUnspecified
+//	GooglePrivacyDlpV2PubSubNotificationDetailOfMessageTableProfile
+//	GooglePrivacyDlpV2PubSubNotificationDetailOfMessageResourceName
 type GooglePrivacyDlpV2PubSubNotificationDetailOfMessageInput interface {
 	pulumi.Input
 
@@ -5070,12 +5008,6 @@ func (in *googlePrivacyDlpV2PubSubNotificationDetailOfMessagePtr) ToGooglePrivac
 
 func (in *googlePrivacyDlpV2PubSubNotificationDetailOfMessagePtr) ToGooglePrivacyDlpV2PubSubNotificationDetailOfMessagePtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2PubSubNotificationDetailOfMessagePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2PubSubNotificationDetailOfMessagePtrOutput)
-}
-
-func (in *googlePrivacyDlpV2PubSubNotificationDetailOfMessagePtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2PubSubNotificationDetailOfMessage] {
-	return pulumix.Output[*GooglePrivacyDlpV2PubSubNotificationDetailOfMessage]{
-		OutputState: in.ToGooglePrivacyDlpV2PubSubNotificationDetailOfMessagePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of event that triggers a Pub/Sub. At most one `PubSubNotification` per EventType is permitted.
@@ -5213,10 +5145,14 @@ func (o GooglePrivacyDlpV2PubSubNotificationEventPtrOutput) ToStringPtrOutputWit
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2PubSubNotificationEventInput is an input type that accepts GooglePrivacyDlpV2PubSubNotificationEventArgs and GooglePrivacyDlpV2PubSubNotificationEventOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2PubSubNotificationEventInput` via:
+// GooglePrivacyDlpV2PubSubNotificationEventInput is an input type that accepts values of the GooglePrivacyDlpV2PubSubNotificationEvent enum
+// A concrete instance of `GooglePrivacyDlpV2PubSubNotificationEventInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2PubSubNotificationEventArgs{...}
+//	GooglePrivacyDlpV2PubSubNotificationEventEventTypeUnspecified
+//	GooglePrivacyDlpV2PubSubNotificationEventNewProfile
+//	GooglePrivacyDlpV2PubSubNotificationEventChangedProfile
+//	GooglePrivacyDlpV2PubSubNotificationEventScoreIncreased
+//	GooglePrivacyDlpV2PubSubNotificationEventErrorChanged
 type GooglePrivacyDlpV2PubSubNotificationEventInput interface {
 	pulumi.Input
 
@@ -5249,12 +5185,6 @@ func (in *googlePrivacyDlpV2PubSubNotificationEventPtr) ToGooglePrivacyDlpV2PubS
 
 func (in *googlePrivacyDlpV2PubSubNotificationEventPtr) ToGooglePrivacyDlpV2PubSubNotificationEventPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2PubSubNotificationEventPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2PubSubNotificationEventPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2PubSubNotificationEventPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2PubSubNotificationEvent] {
-	return pulumix.Output[*GooglePrivacyDlpV2PubSubNotificationEvent]{
-		OutputState: in.ToGooglePrivacyDlpV2PubSubNotificationEventPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The sensitivity score applied to the resource.
@@ -5390,10 +5320,13 @@ func (o GooglePrivacyDlpV2SensitivityScoreScorePtrOutput) ToStringPtrOutputWithC
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2SensitivityScoreScoreInput is an input type that accepts GooglePrivacyDlpV2SensitivityScoreScoreArgs and GooglePrivacyDlpV2SensitivityScoreScoreOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2SensitivityScoreScoreInput` via:
+// GooglePrivacyDlpV2SensitivityScoreScoreInput is an input type that accepts values of the GooglePrivacyDlpV2SensitivityScoreScore enum
+// A concrete instance of `GooglePrivacyDlpV2SensitivityScoreScoreInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2SensitivityScoreScoreArgs{...}
+//	GooglePrivacyDlpV2SensitivityScoreScoreSensitivityScoreUnspecified
+//	GooglePrivacyDlpV2SensitivityScoreScoreSensitivityLow
+//	GooglePrivacyDlpV2SensitivityScoreScoreSensitivityModerate
+//	GooglePrivacyDlpV2SensitivityScoreScoreSensitivityHigh
 type GooglePrivacyDlpV2SensitivityScoreScoreInput interface {
 	pulumi.Input
 
@@ -5426,12 +5359,6 @@ func (in *googlePrivacyDlpV2SensitivityScoreScorePtr) ToGooglePrivacyDlpV2Sensit
 
 func (in *googlePrivacyDlpV2SensitivityScoreScorePtr) ToGooglePrivacyDlpV2SensitivityScoreScorePtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2SensitivityScoreScorePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2SensitivityScoreScorePtrOutput)
-}
-
-func (in *googlePrivacyDlpV2SensitivityScoreScorePtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2SensitivityScoreScore] {
-	return pulumix.Output[*GooglePrivacyDlpV2SensitivityScoreScore]{
-		OutputState: in.ToGooglePrivacyDlpV2SensitivityScoreScorePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The part of the time to keep.
@@ -5573,10 +5500,16 @@ func (o GooglePrivacyDlpV2TimePartConfigPartToExtractPtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2TimePartConfigPartToExtractInput is an input type that accepts GooglePrivacyDlpV2TimePartConfigPartToExtractArgs and GooglePrivacyDlpV2TimePartConfigPartToExtractOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2TimePartConfigPartToExtractInput` via:
+// GooglePrivacyDlpV2TimePartConfigPartToExtractInput is an input type that accepts values of the GooglePrivacyDlpV2TimePartConfigPartToExtract enum
+// A concrete instance of `GooglePrivacyDlpV2TimePartConfigPartToExtractInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2TimePartConfigPartToExtractArgs{...}
+//	GooglePrivacyDlpV2TimePartConfigPartToExtractTimePartUnspecified
+//	GooglePrivacyDlpV2TimePartConfigPartToExtractYear
+//	GooglePrivacyDlpV2TimePartConfigPartToExtractMonth
+//	GooglePrivacyDlpV2TimePartConfigPartToExtractDayOfMonth
+//	GooglePrivacyDlpV2TimePartConfigPartToExtractDayOfWeek
+//	GooglePrivacyDlpV2TimePartConfigPartToExtractWeekOfYear
+//	GooglePrivacyDlpV2TimePartConfigPartToExtractHourOfDay
 type GooglePrivacyDlpV2TimePartConfigPartToExtractInput interface {
 	pulumi.Input
 
@@ -5609,12 +5542,6 @@ func (in *googlePrivacyDlpV2TimePartConfigPartToExtractPtr) ToGooglePrivacyDlpV2
 
 func (in *googlePrivacyDlpV2TimePartConfigPartToExtractPtr) ToGooglePrivacyDlpV2TimePartConfigPartToExtractPtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2TimePartConfigPartToExtractPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2TimePartConfigPartToExtractPtrOutput)
-}
-
-func (in *googlePrivacyDlpV2TimePartConfigPartToExtractPtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2TimePartConfigPartToExtract] {
-	return pulumix.Output[*GooglePrivacyDlpV2TimePartConfigPartToExtract]{
-		OutputState: in.ToGooglePrivacyDlpV2TimePartConfigPartToExtractPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // day of week
@@ -5758,10 +5685,17 @@ func (o GooglePrivacyDlpV2ValueDayOfWeekValuePtrOutput) ToStringPtrOutputWithCon
 	}).(pulumi.StringPtrOutput)
 }
 
-// GooglePrivacyDlpV2ValueDayOfWeekValueInput is an input type that accepts GooglePrivacyDlpV2ValueDayOfWeekValueArgs and GooglePrivacyDlpV2ValueDayOfWeekValueOutput values.
-// You can construct a concrete instance of `GooglePrivacyDlpV2ValueDayOfWeekValueInput` via:
+// GooglePrivacyDlpV2ValueDayOfWeekValueInput is an input type that accepts values of the GooglePrivacyDlpV2ValueDayOfWeekValue enum
+// A concrete instance of `GooglePrivacyDlpV2ValueDayOfWeekValueInput` can be one of the following:
 //
-//	GooglePrivacyDlpV2ValueDayOfWeekValueArgs{...}
+//	GooglePrivacyDlpV2ValueDayOfWeekValueDayOfWeekUnspecified
+//	GooglePrivacyDlpV2ValueDayOfWeekValueMonday
+//	GooglePrivacyDlpV2ValueDayOfWeekValueTuesday
+//	GooglePrivacyDlpV2ValueDayOfWeekValueWednesday
+//	GooglePrivacyDlpV2ValueDayOfWeekValueThursday
+//	GooglePrivacyDlpV2ValueDayOfWeekValueFriday
+//	GooglePrivacyDlpV2ValueDayOfWeekValueSaturday
+//	GooglePrivacyDlpV2ValueDayOfWeekValueSunday
 type GooglePrivacyDlpV2ValueDayOfWeekValueInput interface {
 	pulumi.Input
 
@@ -5794,12 +5728,6 @@ func (in *googlePrivacyDlpV2ValueDayOfWeekValuePtr) ToGooglePrivacyDlpV2ValueDay
 
 func (in *googlePrivacyDlpV2ValueDayOfWeekValuePtr) ToGooglePrivacyDlpV2ValueDayOfWeekValuePtrOutputWithContext(ctx context.Context) GooglePrivacyDlpV2ValueDayOfWeekValuePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GooglePrivacyDlpV2ValueDayOfWeekValuePtrOutput)
-}
-
-func (in *googlePrivacyDlpV2ValueDayOfWeekValuePtr) ToOutput(ctx context.Context) pulumix.Output[*GooglePrivacyDlpV2ValueDayOfWeekValue] {
-	return pulumix.Output[*GooglePrivacyDlpV2ValueDayOfWeekValue]{
-		OutputState: in.ToGooglePrivacyDlpV2ValueDayOfWeekValuePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. A status for this trigger.
@@ -5935,10 +5863,13 @@ func (o JobTriggerStatusPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobTriggerStatusInput is an input type that accepts JobTriggerStatusArgs and JobTriggerStatusOutput values.
-// You can construct a concrete instance of `JobTriggerStatusInput` via:
+// JobTriggerStatusInput is an input type that accepts values of the JobTriggerStatus enum
+// A concrete instance of `JobTriggerStatusInput` can be one of the following:
 //
-//	JobTriggerStatusArgs{...}
+//	JobTriggerStatusStatusUnspecified
+//	JobTriggerStatusHealthy
+//	JobTriggerStatusPaused
+//	JobTriggerStatusCancelled
 type JobTriggerStatusInput interface {
 	pulumi.Input
 
@@ -5971,12 +5902,6 @@ func (in *jobTriggerStatusPtr) ToJobTriggerStatusPtrOutput() JobTriggerStatusPtr
 
 func (in *jobTriggerStatusPtr) ToJobTriggerStatusPtrOutputWithContext(ctx context.Context) JobTriggerStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JobTriggerStatusPtrOutput)
-}
-
-func (in *jobTriggerStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*JobTriggerStatus] {
-	return pulumix.Output[*JobTriggerStatus]{
-		OutputState: in.ToJobTriggerStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. A status for this configuration.
@@ -6110,10 +6035,12 @@ func (o OrganizationDiscoveryConfigStatusPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// OrganizationDiscoveryConfigStatusInput is an input type that accepts OrganizationDiscoveryConfigStatusArgs and OrganizationDiscoveryConfigStatusOutput values.
-// You can construct a concrete instance of `OrganizationDiscoveryConfigStatusInput` via:
+// OrganizationDiscoveryConfigStatusInput is an input type that accepts values of the OrganizationDiscoveryConfigStatus enum
+// A concrete instance of `OrganizationDiscoveryConfigStatusInput` can be one of the following:
 //
-//	OrganizationDiscoveryConfigStatusArgs{...}
+//	OrganizationDiscoveryConfigStatusStatusUnspecified
+//	OrganizationDiscoveryConfigStatusRunning
+//	OrganizationDiscoveryConfigStatusPaused
 type OrganizationDiscoveryConfigStatusInput interface {
 	pulumi.Input
 
@@ -6146,12 +6073,6 @@ func (in *organizationDiscoveryConfigStatusPtr) ToOrganizationDiscoveryConfigSta
 
 func (in *organizationDiscoveryConfigStatusPtr) ToOrganizationDiscoveryConfigStatusPtrOutputWithContext(ctx context.Context) OrganizationDiscoveryConfigStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationDiscoveryConfigStatusPtrOutput)
-}
-
-func (in *organizationDiscoveryConfigStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*OrganizationDiscoveryConfigStatus] {
-	return pulumix.Output[*OrganizationDiscoveryConfigStatus]{
-		OutputState: in.ToOrganizationDiscoveryConfigStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. A status for this trigger.
@@ -6287,10 +6208,13 @@ func (o OrganizationJobTriggerStatusPtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// OrganizationJobTriggerStatusInput is an input type that accepts OrganizationJobTriggerStatusArgs and OrganizationJobTriggerStatusOutput values.
-// You can construct a concrete instance of `OrganizationJobTriggerStatusInput` via:
+// OrganizationJobTriggerStatusInput is an input type that accepts values of the OrganizationJobTriggerStatus enum
+// A concrete instance of `OrganizationJobTriggerStatusInput` can be one of the following:
 //
-//	OrganizationJobTriggerStatusArgs{...}
+//	OrganizationJobTriggerStatusStatusUnspecified
+//	OrganizationJobTriggerStatusHealthy
+//	OrganizationJobTriggerStatusPaused
+//	OrganizationJobTriggerStatusCancelled
 type OrganizationJobTriggerStatusInput interface {
 	pulumi.Input
 
@@ -6323,12 +6247,6 @@ func (in *organizationJobTriggerStatusPtr) ToOrganizationJobTriggerStatusPtrOutp
 
 func (in *organizationJobTriggerStatusPtr) ToOrganizationJobTriggerStatusPtrOutputWithContext(ctx context.Context) OrganizationJobTriggerStatusPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(OrganizationJobTriggerStatusPtrOutput)
-}
-
-func (in *organizationJobTriggerStatusPtr) ToOutput(ctx context.Context) pulumix.Output[*OrganizationJobTriggerStatus] {
-	return pulumix.Output[*OrganizationJobTriggerStatus]{
-		OutputState: in.ToOrganizationJobTriggerStatusPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

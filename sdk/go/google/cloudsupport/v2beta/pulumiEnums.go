@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The priority of this case.
@@ -148,10 +147,15 @@ func (o CasePriorityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// CasePriorityInput is an input type that accepts CasePriorityArgs and CasePriorityOutput values.
-// You can construct a concrete instance of `CasePriorityInput` via:
+// CasePriorityInput is an input type that accepts values of the CasePriority enum
+// A concrete instance of `CasePriorityInput` can be one of the following:
 //
-//	CasePriorityArgs{...}
+//	CasePriorityPriorityUnspecified
+//	CasePriorityP0
+//	CasePriorityP1
+//	CasePriorityP2
+//	CasePriorityP3
+//	CasePriorityP4
 type CasePriorityInput interface {
 	pulumi.Input
 
@@ -184,12 +188,6 @@ func (in *casePriorityPtr) ToCasePriorityPtrOutput() CasePriorityPtrOutput {
 
 func (in *casePriorityPtr) ToCasePriorityPtrOutputWithContext(ctx context.Context) CasePriorityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CasePriorityPtrOutput)
-}
-
-func (in *casePriorityPtr) ToOutput(ctx context.Context) pulumix.Output[*CasePriority] {
-	return pulumix.Output[*CasePriority]{
-		OutputState: in.ToCasePriorityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // REMOVED. The severity of this case. Use priority instead.
@@ -329,10 +327,15 @@ func (o CaseSeverityPtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// CaseSeverityInput is an input type that accepts CaseSeverityArgs and CaseSeverityOutput values.
-// You can construct a concrete instance of `CaseSeverityInput` via:
+// CaseSeverityInput is an input type that accepts values of the CaseSeverity enum
+// A concrete instance of `CaseSeverityInput` can be one of the following:
 //
-//	CaseSeverityArgs{...}
+//	CaseSeveritySeverityUnspecified
+//	CaseSeverityS0
+//	CaseSeverityS1
+//	CaseSeverityS2
+//	CaseSeverityS3
+//	CaseSeverityS4
 type CaseSeverityInput interface {
 	pulumi.Input
 
@@ -365,12 +368,6 @@ func (in *caseSeverityPtr) ToCaseSeverityPtrOutput() CaseSeverityPtrOutput {
 
 func (in *caseSeverityPtr) ToCaseSeverityPtrOutputWithContext(ctx context.Context) CaseSeverityPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CaseSeverityPtrOutput)
-}
-
-func (in *caseSeverityPtr) ToOutput(ctx context.Context) pulumix.Output[*CaseSeverity] {
-	return pulumix.Output[*CaseSeverity]{
-		OutputState: in.ToCaseSeverityPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

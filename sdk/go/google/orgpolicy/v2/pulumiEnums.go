@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Allow or deny type.
@@ -142,10 +141,12 @@ func (o CustomConstraintActionTypePtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomConstraintActionTypeInput is an input type that accepts CustomConstraintActionTypeArgs and CustomConstraintActionTypeOutput values.
-// You can construct a concrete instance of `CustomConstraintActionTypeInput` via:
+// CustomConstraintActionTypeInput is an input type that accepts values of the CustomConstraintActionType enum
+// A concrete instance of `CustomConstraintActionTypeInput` can be one of the following:
 //
-//	CustomConstraintActionTypeArgs{...}
+//	CustomConstraintActionTypeActionTypeUnspecified
+//	CustomConstraintActionTypeAllow
+//	CustomConstraintActionTypeDeny
 type CustomConstraintActionTypeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *customConstraintActionTypePtr) ToCustomConstraintActionTypePtrOutput()
 
 func (in *customConstraintActionTypePtr) ToCustomConstraintActionTypePtrOutputWithContext(ctx context.Context) CustomConstraintActionTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomConstraintActionTypePtrOutput)
-}
-
-func (in *customConstraintActionTypePtr) ToOutput(ctx context.Context) pulumix.Output[*CustomConstraintActionType] {
-	return pulumix.Output[*CustomConstraintActionType]{
-		OutputState: in.ToCustomConstraintActionTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type CustomConstraintMethodTypesItem string
@@ -318,10 +313,13 @@ func (o CustomConstraintMethodTypesItemPtrOutput) ToStringPtrOutputWithContext(c
 	}).(pulumi.StringPtrOutput)
 }
 
-// CustomConstraintMethodTypesItemInput is an input type that accepts CustomConstraintMethodTypesItemArgs and CustomConstraintMethodTypesItemOutput values.
-// You can construct a concrete instance of `CustomConstraintMethodTypesItemInput` via:
+// CustomConstraintMethodTypesItemInput is an input type that accepts values of the CustomConstraintMethodTypesItem enum
+// A concrete instance of `CustomConstraintMethodTypesItemInput` can be one of the following:
 //
-//	CustomConstraintMethodTypesItemArgs{...}
+//	CustomConstraintMethodTypesItemMethodTypeUnspecified
+//	CustomConstraintMethodTypesItemCreate
+//	CustomConstraintMethodTypesItemUpdate
+//	CustomConstraintMethodTypesItemDelete
 type CustomConstraintMethodTypesItemInput interface {
 	pulumi.Input
 
@@ -354,12 +352,6 @@ func (in *customConstraintMethodTypesItemPtr) ToCustomConstraintMethodTypesItemP
 
 func (in *customConstraintMethodTypesItemPtr) ToCustomConstraintMethodTypesItemPtrOutputWithContext(ctx context.Context) CustomConstraintMethodTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(CustomConstraintMethodTypesItemPtrOutput)
-}
-
-func (in *customConstraintMethodTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*CustomConstraintMethodTypesItem] {
-	return pulumix.Output[*CustomConstraintMethodTypesItem]{
-		OutputState: in.ToCustomConstraintMethodTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CustomConstraintMethodTypesItemArrayInput is an input type that accepts CustomConstraintMethodTypesItemArray and CustomConstraintMethodTypesItemArrayOutput values.

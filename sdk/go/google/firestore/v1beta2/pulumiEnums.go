@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Indicates that this field supports operations on `array_value`s.
@@ -140,10 +139,11 @@ func (o GoogleFirestoreAdminV1beta2IndexFieldArrayConfigPtrOutput) ToStringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleFirestoreAdminV1beta2IndexFieldArrayConfigInput is an input type that accepts GoogleFirestoreAdminV1beta2IndexFieldArrayConfigArgs and GoogleFirestoreAdminV1beta2IndexFieldArrayConfigOutput values.
-// You can construct a concrete instance of `GoogleFirestoreAdminV1beta2IndexFieldArrayConfigInput` via:
+// GoogleFirestoreAdminV1beta2IndexFieldArrayConfigInput is an input type that accepts values of the GoogleFirestoreAdminV1beta2IndexFieldArrayConfig enum
+// A concrete instance of `GoogleFirestoreAdminV1beta2IndexFieldArrayConfigInput` can be one of the following:
 //
-//	GoogleFirestoreAdminV1beta2IndexFieldArrayConfigArgs{...}
+//	GoogleFirestoreAdminV1beta2IndexFieldArrayConfigArrayConfigUnspecified
+//	GoogleFirestoreAdminV1beta2IndexFieldArrayConfigContains
 type GoogleFirestoreAdminV1beta2IndexFieldArrayConfigInput interface {
 	pulumi.Input
 
@@ -176,12 +176,6 @@ func (in *googleFirestoreAdminV1beta2IndexFieldArrayConfigPtr) ToGoogleFirestore
 
 func (in *googleFirestoreAdminV1beta2IndexFieldArrayConfigPtr) ToGoogleFirestoreAdminV1beta2IndexFieldArrayConfigPtrOutputWithContext(ctx context.Context) GoogleFirestoreAdminV1beta2IndexFieldArrayConfigPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleFirestoreAdminV1beta2IndexFieldArrayConfigPtrOutput)
-}
-
-func (in *googleFirestoreAdminV1beta2IndexFieldArrayConfigPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleFirestoreAdminV1beta2IndexFieldArrayConfig] {
-	return pulumix.Output[*GoogleFirestoreAdminV1beta2IndexFieldArrayConfig]{
-		OutputState: in.ToGoogleFirestoreAdminV1beta2IndexFieldArrayConfigPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates that this field supports ordering by the specified order or comparing using =, <, <=, >, >=.
@@ -315,10 +309,12 @@ func (o GoogleFirestoreAdminV1beta2IndexFieldOrderPtrOutput) ToStringPtrOutputWi
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleFirestoreAdminV1beta2IndexFieldOrderInput is an input type that accepts GoogleFirestoreAdminV1beta2IndexFieldOrderArgs and GoogleFirestoreAdminV1beta2IndexFieldOrderOutput values.
-// You can construct a concrete instance of `GoogleFirestoreAdminV1beta2IndexFieldOrderInput` via:
+// GoogleFirestoreAdminV1beta2IndexFieldOrderInput is an input type that accepts values of the GoogleFirestoreAdminV1beta2IndexFieldOrder enum
+// A concrete instance of `GoogleFirestoreAdminV1beta2IndexFieldOrderInput` can be one of the following:
 //
-//	GoogleFirestoreAdminV1beta2IndexFieldOrderArgs{...}
+//	GoogleFirestoreAdminV1beta2IndexFieldOrderOrderUnspecified
+//	GoogleFirestoreAdminV1beta2IndexFieldOrderAscending
+//	GoogleFirestoreAdminV1beta2IndexFieldOrderDescending
 type GoogleFirestoreAdminV1beta2IndexFieldOrderInput interface {
 	pulumi.Input
 
@@ -351,12 +347,6 @@ func (in *googleFirestoreAdminV1beta2IndexFieldOrderPtr) ToGoogleFirestoreAdminV
 
 func (in *googleFirestoreAdminV1beta2IndexFieldOrderPtr) ToGoogleFirestoreAdminV1beta2IndexFieldOrderPtrOutputWithContext(ctx context.Context) GoogleFirestoreAdminV1beta2IndexFieldOrderPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleFirestoreAdminV1beta2IndexFieldOrderPtrOutput)
-}
-
-func (in *googleFirestoreAdminV1beta2IndexFieldOrderPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleFirestoreAdminV1beta2IndexFieldOrder] {
-	return pulumix.Output[*GoogleFirestoreAdminV1beta2IndexFieldOrder]{
-		OutputState: in.ToGoogleFirestoreAdminV1beta2IndexFieldOrderPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indexes with a collection query scope specified allow queries against a collection that is the child of a specific document, specified at query time, and that has the same collection id. Indexes with a collection group query scope specified allow queries against all collections descended from a specific document, specified at query time, and that have the same collection id as this index.
@@ -490,10 +480,12 @@ func (o IndexQueryScopePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// IndexQueryScopeInput is an input type that accepts IndexQueryScopeArgs and IndexQueryScopeOutput values.
-// You can construct a concrete instance of `IndexQueryScopeInput` via:
+// IndexQueryScopeInput is an input type that accepts values of the IndexQueryScope enum
+// A concrete instance of `IndexQueryScopeInput` can be one of the following:
 //
-//	IndexQueryScopeArgs{...}
+//	IndexQueryScopeQueryScopeUnspecified
+//	IndexQueryScopeCollection
+//	IndexQueryScopeCollectionGroup
 type IndexQueryScopeInput interface {
 	pulumi.Input
 
@@ -526,12 +518,6 @@ func (in *indexQueryScopePtr) ToIndexQueryScopePtrOutput() IndexQueryScopePtrOut
 
 func (in *indexQueryScopePtr) ToIndexQueryScopePtrOutputWithContext(ctx context.Context) IndexQueryScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IndexQueryScopePtrOutput)
-}
-
-func (in *indexQueryScopePtr) ToOutput(ctx context.Context) pulumix.Output[*IndexQueryScope] {
-	return pulumix.Output[*IndexQueryScope]{
-		OutputState: in.ToIndexQueryScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

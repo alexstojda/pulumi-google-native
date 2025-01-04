@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Optional. The dialect of the Cloud Spanner Database.
@@ -142,10 +141,12 @@ func (o DatabaseDatabaseDialectPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatabaseDatabaseDialectInput is an input type that accepts DatabaseDatabaseDialectArgs and DatabaseDatabaseDialectOutput values.
-// You can construct a concrete instance of `DatabaseDatabaseDialectInput` via:
+// DatabaseDatabaseDialectInput is an input type that accepts values of the DatabaseDatabaseDialect enum
+// A concrete instance of `DatabaseDatabaseDialectInput` can be one of the following:
 //
-//	DatabaseDatabaseDialectArgs{...}
+//	DatabaseDatabaseDialectDatabaseDialectUnspecified
+//	DatabaseDatabaseDialectGoogleStandardSql
+//	DatabaseDatabaseDialectPostgresql
 type DatabaseDatabaseDialectInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *databaseDatabaseDialectPtr) ToDatabaseDatabaseDialectPtrOutput() Datab
 
 func (in *databaseDatabaseDialectPtr) ToDatabaseDatabaseDialectPtrOutputWithContext(ctx context.Context) DatabaseDatabaseDialectPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseDatabaseDialectPtrOutput)
-}
-
-func (in *databaseDatabaseDialectPtr) ToOutput(ctx context.Context) pulumix.Output[*DatabaseDatabaseDialect] {
-	return pulumix.Output[*DatabaseDatabaseDialect]{
-		OutputState: in.ToDatabaseDatabaseDialectPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the expiration behavior of a free instance. The default of ExpireBehavior is `REMOVE_AFTER_GRACE_PERIOD`. This can be modified during or after creation, and before expiration.
@@ -317,10 +312,12 @@ func (o FreeInstanceMetadataExpireBehaviorPtrOutput) ToStringPtrOutputWithContex
 	}).(pulumi.StringPtrOutput)
 }
 
-// FreeInstanceMetadataExpireBehaviorInput is an input type that accepts FreeInstanceMetadataExpireBehaviorArgs and FreeInstanceMetadataExpireBehaviorOutput values.
-// You can construct a concrete instance of `FreeInstanceMetadataExpireBehaviorInput` via:
+// FreeInstanceMetadataExpireBehaviorInput is an input type that accepts values of the FreeInstanceMetadataExpireBehavior enum
+// A concrete instance of `FreeInstanceMetadataExpireBehaviorInput` can be one of the following:
 //
-//	FreeInstanceMetadataExpireBehaviorArgs{...}
+//	FreeInstanceMetadataExpireBehaviorExpireBehaviorUnspecified
+//	FreeInstanceMetadataExpireBehaviorFreeToProvisioned
+//	FreeInstanceMetadataExpireBehaviorRemoveAfterGracePeriod
 type FreeInstanceMetadataExpireBehaviorInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *freeInstanceMetadataExpireBehaviorPtr) ToFreeInstanceMetadataExpireBeh
 
 func (in *freeInstanceMetadataExpireBehaviorPtr) ToFreeInstanceMetadataExpireBehaviorPtrOutputWithContext(ctx context.Context) FreeInstanceMetadataExpireBehaviorPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FreeInstanceMetadataExpireBehaviorPtrOutput)
-}
-
-func (in *freeInstanceMetadataExpireBehaviorPtr) ToOutput(ctx context.Context) pulumix.Output[*FreeInstanceMetadataExpireBehavior] {
-	return pulumix.Output[*FreeInstanceMetadataExpireBehavior]{
-		OutputState: in.ToFreeInstanceMetadataExpireBehaviorPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The `InstanceType` of the current instance.
@@ -492,10 +483,12 @@ func (o InstanceInstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceInstanceTypeInput is an input type that accepts InstanceInstanceTypeArgs and InstanceInstanceTypeOutput values.
-// You can construct a concrete instance of `InstanceInstanceTypeInput` via:
+// InstanceInstanceTypeInput is an input type that accepts values of the InstanceInstanceType enum
+// A concrete instance of `InstanceInstanceTypeInput` can be one of the following:
 //
-//	InstanceInstanceTypeArgs{...}
+//	InstanceInstanceTypeInstanceTypeUnspecified
+//	InstanceInstanceTypeProvisioned
+//	InstanceInstanceTypeFreeInstance
 type InstanceInstanceTypeInput interface {
 	pulumi.Input
 
@@ -528,12 +521,6 @@ func (in *instanceInstanceTypePtr) ToInstanceInstanceTypePtrOutput() InstanceIns
 
 func (in *instanceInstanceTypePtr) ToInstanceInstanceTypePtrOutputWithContext(ctx context.Context) InstanceInstanceTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceInstanceTypePtrOutput)
-}
-
-func (in *instanceInstanceTypePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceInstanceType] {
-	return pulumix.Output[*InstanceInstanceType]{
-		OutputState: in.ToInstanceInstanceTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of replica.
@@ -669,10 +656,13 @@ func (o ReplicaInfoTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// ReplicaInfoTypeInput is an input type that accepts ReplicaInfoTypeArgs and ReplicaInfoTypeOutput values.
-// You can construct a concrete instance of `ReplicaInfoTypeInput` via:
+// ReplicaInfoTypeInput is an input type that accepts values of the ReplicaInfoType enum
+// A concrete instance of `ReplicaInfoTypeInput` can be one of the following:
 //
-//	ReplicaInfoTypeArgs{...}
+//	ReplicaInfoTypeTypeUnspecified
+//	ReplicaInfoTypeReadWrite
+//	ReplicaInfoTypeReadOnly
+//	ReplicaInfoTypeWitness
 type ReplicaInfoTypeInput interface {
 	pulumi.Input
 
@@ -705,12 +695,6 @@ func (in *replicaInfoTypePtr) ToReplicaInfoTypePtrOutput() ReplicaInfoTypePtrOut
 
 func (in *replicaInfoTypePtr) ToReplicaInfoTypePtrOutputWithContext(ctx context.Context) ReplicaInfoTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ReplicaInfoTypePtrOutput)
-}
-
-func (in *replicaInfoTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ReplicaInfoType] {
-	return pulumix.Output[*ReplicaInfoType]{
-		OutputState: in.ToReplicaInfoTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

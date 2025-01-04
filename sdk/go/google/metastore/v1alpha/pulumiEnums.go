@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The log type that this config enables.
@@ -144,10 +143,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -182,10 +184,178 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
 }
 
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
+// The type of the backend metastore.
+type BackendMetastoreMetastoreType string
+
+const (
+	// The metastore type is not set.
+	BackendMetastoreMetastoreTypeMetastoreTypeUnspecified = BackendMetastoreMetastoreType("METASTORE_TYPE_UNSPECIFIED")
+	// The backend metastore is Dataplex.
+	BackendMetastoreMetastoreTypeDataplex = BackendMetastoreMetastoreType("DATAPLEX")
+	// The backend metastore is BigQuery.
+	BackendMetastoreMetastoreTypeBigquery = BackendMetastoreMetastoreType("BIGQUERY")
+	// The backend metastore is Dataproc Metastore.
+	BackendMetastoreMetastoreTypeDataprocMetastore = BackendMetastoreMetastoreType("DATAPROC_METASTORE")
+)
+
+func (BackendMetastoreMetastoreType) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendMetastoreMetastoreType)(nil)).Elem()
+}
+
+func (e BackendMetastoreMetastoreType) ToBackendMetastoreMetastoreTypeOutput() BackendMetastoreMetastoreTypeOutput {
+	return pulumi.ToOutput(e).(BackendMetastoreMetastoreTypeOutput)
+}
+
+func (e BackendMetastoreMetastoreType) ToBackendMetastoreMetastoreTypeOutputWithContext(ctx context.Context) BackendMetastoreMetastoreTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(BackendMetastoreMetastoreTypeOutput)
+}
+
+func (e BackendMetastoreMetastoreType) ToBackendMetastoreMetastoreTypePtrOutput() BackendMetastoreMetastoreTypePtrOutput {
+	return e.ToBackendMetastoreMetastoreTypePtrOutputWithContext(context.Background())
+}
+
+func (e BackendMetastoreMetastoreType) ToBackendMetastoreMetastoreTypePtrOutputWithContext(ctx context.Context) BackendMetastoreMetastoreTypePtrOutput {
+	return BackendMetastoreMetastoreType(e).ToBackendMetastoreMetastoreTypeOutputWithContext(ctx).ToBackendMetastoreMetastoreTypePtrOutputWithContext(ctx)
+}
+
+func (e BackendMetastoreMetastoreType) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackendMetastoreMetastoreType) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e BackendMetastoreMetastoreType) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e BackendMetastoreMetastoreType) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type BackendMetastoreMetastoreTypeOutput struct{ *pulumi.OutputState }
+
+func (BackendMetastoreMetastoreTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackendMetastoreMetastoreType)(nil)).Elem()
+}
+
+func (o BackendMetastoreMetastoreTypeOutput) ToBackendMetastoreMetastoreTypeOutput() BackendMetastoreMetastoreTypeOutput {
+	return o
+}
+
+func (o BackendMetastoreMetastoreTypeOutput) ToBackendMetastoreMetastoreTypeOutputWithContext(ctx context.Context) BackendMetastoreMetastoreTypeOutput {
+	return o
+}
+
+func (o BackendMetastoreMetastoreTypeOutput) ToBackendMetastoreMetastoreTypePtrOutput() BackendMetastoreMetastoreTypePtrOutput {
+	return o.ToBackendMetastoreMetastoreTypePtrOutputWithContext(context.Background())
+}
+
+func (o BackendMetastoreMetastoreTypeOutput) ToBackendMetastoreMetastoreTypePtrOutputWithContext(ctx context.Context) BackendMetastoreMetastoreTypePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackendMetastoreMetastoreType) *BackendMetastoreMetastoreType {
+		return &v
+	}).(BackendMetastoreMetastoreTypePtrOutput)
+}
+
+func (o BackendMetastoreMetastoreTypeOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o BackendMetastoreMetastoreTypeOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackendMetastoreMetastoreType) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o BackendMetastoreMetastoreTypeOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackendMetastoreMetastoreTypeOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e BackendMetastoreMetastoreType) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type BackendMetastoreMetastoreTypePtrOutput struct{ *pulumi.OutputState }
+
+func (BackendMetastoreMetastoreTypePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackendMetastoreMetastoreType)(nil)).Elem()
+}
+
+func (o BackendMetastoreMetastoreTypePtrOutput) ToBackendMetastoreMetastoreTypePtrOutput() BackendMetastoreMetastoreTypePtrOutput {
+	return o
+}
+
+func (o BackendMetastoreMetastoreTypePtrOutput) ToBackendMetastoreMetastoreTypePtrOutputWithContext(ctx context.Context) BackendMetastoreMetastoreTypePtrOutput {
+	return o
+}
+
+func (o BackendMetastoreMetastoreTypePtrOutput) Elem() BackendMetastoreMetastoreTypeOutput {
+	return o.ApplyT(func(v *BackendMetastoreMetastoreType) BackendMetastoreMetastoreType {
+		if v != nil {
+			return *v
+		}
+		var ret BackendMetastoreMetastoreType
+		return ret
+	}).(BackendMetastoreMetastoreTypeOutput)
+}
+
+func (o BackendMetastoreMetastoreTypePtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o BackendMetastoreMetastoreTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *BackendMetastoreMetastoreType) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// BackendMetastoreMetastoreTypeInput is an input type that accepts values of the BackendMetastoreMetastoreType enum
+// A concrete instance of `BackendMetastoreMetastoreTypeInput` can be one of the following:
+//
+//	BackendMetastoreMetastoreTypeMetastoreTypeUnspecified
+//	BackendMetastoreMetastoreTypeDataplex
+//	BackendMetastoreMetastoreTypeBigquery
+//	BackendMetastoreMetastoreTypeDataprocMetastore
+type BackendMetastoreMetastoreTypeInput interface {
+	pulumi.Input
+
+	ToBackendMetastoreMetastoreTypeOutput() BackendMetastoreMetastoreTypeOutput
+	ToBackendMetastoreMetastoreTypeOutputWithContext(context.Context) BackendMetastoreMetastoreTypeOutput
+}
+
+var backendMetastoreMetastoreTypePtrType = reflect.TypeOf((**BackendMetastoreMetastoreType)(nil)).Elem()
+
+type BackendMetastoreMetastoreTypePtrInput interface {
+	pulumi.Input
+
+	ToBackendMetastoreMetastoreTypePtrOutput() BackendMetastoreMetastoreTypePtrOutput
+	ToBackendMetastoreMetastoreTypePtrOutputWithContext(context.Context) BackendMetastoreMetastoreTypePtrOutput
+}
+
+type backendMetastoreMetastoreTypePtr string
+
+func BackendMetastoreMetastoreTypePtr(v string) BackendMetastoreMetastoreTypePtrInput {
+	return (*backendMetastoreMetastoreTypePtr)(&v)
+}
+
+func (*backendMetastoreMetastoreTypePtr) ElementType() reflect.Type {
+	return backendMetastoreMetastoreTypePtrType
+}
+
+func (in *backendMetastoreMetastoreTypePtr) ToBackendMetastoreMetastoreTypePtrOutput() BackendMetastoreMetastoreTypePtrOutput {
+	return pulumi.ToOutput(in).(BackendMetastoreMetastoreTypePtrOutput)
+}
+
+func (in *backendMetastoreMetastoreTypePtr) ToBackendMetastoreMetastoreTypePtrOutputWithContext(ctx context.Context) BackendMetastoreMetastoreTypePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(BackendMetastoreMetastoreTypePtrOutput)
 }
 
 // The type of the database.
@@ -317,10 +487,11 @@ func (o DatabaseDumpDatabaseTypePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatabaseDumpDatabaseTypeInput is an input type that accepts DatabaseDumpDatabaseTypeArgs and DatabaseDumpDatabaseTypeOutput values.
-// You can construct a concrete instance of `DatabaseDumpDatabaseTypeInput` via:
+// DatabaseDumpDatabaseTypeInput is an input type that accepts values of the DatabaseDumpDatabaseType enum
+// A concrete instance of `DatabaseDumpDatabaseTypeInput` can be one of the following:
 //
-//	DatabaseDumpDatabaseTypeArgs{...}
+//	DatabaseDumpDatabaseTypeDatabaseTypeUnspecified
+//	DatabaseDumpDatabaseTypeMysql
 type DatabaseDumpDatabaseTypeInput interface {
 	pulumi.Input
 
@@ -353,12 +524,6 @@ func (in *databaseDumpDatabaseTypePtr) ToDatabaseDumpDatabaseTypePtrOutput() Dat
 
 func (in *databaseDumpDatabaseTypePtr) ToDatabaseDumpDatabaseTypePtrOutputWithContext(ctx context.Context) DatabaseDumpDatabaseTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseDumpDatabaseTypePtrOutput)
-}
-
-func (in *databaseDumpDatabaseTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DatabaseDumpDatabaseType] {
-	return pulumix.Output[*DatabaseDumpDatabaseType]{
-		OutputState: in.ToDatabaseDumpDatabaseTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The type of the database dump. If unspecified, defaults to MYSQL.
@@ -492,10 +657,12 @@ func (o DatabaseDumpTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DatabaseDumpTypeInput is an input type that accepts DatabaseDumpTypeArgs and DatabaseDumpTypeOutput values.
-// You can construct a concrete instance of `DatabaseDumpTypeInput` via:
+// DatabaseDumpTypeInput is an input type that accepts values of the DatabaseDumpType enum
+// A concrete instance of `DatabaseDumpTypeInput` can be one of the following:
 //
-//	DatabaseDumpTypeArgs{...}
+//	DatabaseDumpTypeTypeUnspecified
+//	DatabaseDumpTypeMysql
+//	DatabaseDumpTypeAvro
 type DatabaseDumpTypeInput interface {
 	pulumi.Input
 
@@ -528,12 +695,6 @@ func (in *databaseDumpTypePtr) ToDatabaseDumpTypePtrOutput() DatabaseDumpTypePtr
 
 func (in *databaseDumpTypePtr) ToDatabaseDumpTypePtrOutputWithContext(ctx context.Context) DatabaseDumpTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DatabaseDumpTypePtrOutput)
-}
-
-func (in *databaseDumpTypePtr) ToOutput(ctx context.Context) pulumix.Output[*DatabaseDumpType] {
-	return pulumix.Output[*DatabaseDumpType]{
-		OutputState: in.ToDatabaseDumpTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The protocol to use for the metastore service endpoint. If unspecified, defaults to THRIFT.
@@ -667,10 +828,12 @@ func (o HiveMetastoreConfigEndpointProtocolPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// HiveMetastoreConfigEndpointProtocolInput is an input type that accepts HiveMetastoreConfigEndpointProtocolArgs and HiveMetastoreConfigEndpointProtocolOutput values.
-// You can construct a concrete instance of `HiveMetastoreConfigEndpointProtocolInput` via:
+// HiveMetastoreConfigEndpointProtocolInput is an input type that accepts values of the HiveMetastoreConfigEndpointProtocol enum
+// A concrete instance of `HiveMetastoreConfigEndpointProtocolInput` can be one of the following:
 //
-//	HiveMetastoreConfigEndpointProtocolArgs{...}
+//	HiveMetastoreConfigEndpointProtocolEndpointProtocolUnspecified
+//	HiveMetastoreConfigEndpointProtocolThrift
+//	HiveMetastoreConfigEndpointProtocolGrpc
 type HiveMetastoreConfigEndpointProtocolInput interface {
 	pulumi.Input
 
@@ -703,12 +866,6 @@ func (in *hiveMetastoreConfigEndpointProtocolPtr) ToHiveMetastoreConfigEndpointP
 
 func (in *hiveMetastoreConfigEndpointProtocolPtr) ToHiveMetastoreConfigEndpointProtocolPtrOutputWithContext(ctx context.Context) HiveMetastoreConfigEndpointProtocolPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(HiveMetastoreConfigEndpointProtocolPtrOutput)
-}
-
-func (in *hiveMetastoreConfigEndpointProtocolPtr) ToOutput(ctx context.Context) pulumix.Output[*HiveMetastoreConfigEndpointProtocol] {
-	return pulumix.Output[*HiveMetastoreConfigEndpointProtocol]{
-		OutputState: in.ToHiveMetastoreConfigEndpointProtocolPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The day of week, when the window starts.
@@ -852,10 +1009,17 @@ func (o MaintenanceWindowDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// MaintenanceWindowDayOfWeekInput is an input type that accepts MaintenanceWindowDayOfWeekArgs and MaintenanceWindowDayOfWeekOutput values.
-// You can construct a concrete instance of `MaintenanceWindowDayOfWeekInput` via:
+// MaintenanceWindowDayOfWeekInput is an input type that accepts values of the MaintenanceWindowDayOfWeek enum
+// A concrete instance of `MaintenanceWindowDayOfWeekInput` can be one of the following:
 //
-//	MaintenanceWindowDayOfWeekArgs{...}
+//	MaintenanceWindowDayOfWeekDayOfWeekUnspecified
+//	MaintenanceWindowDayOfWeekMonday
+//	MaintenanceWindowDayOfWeekTuesday
+//	MaintenanceWindowDayOfWeekWednesday
+//	MaintenanceWindowDayOfWeekThursday
+//	MaintenanceWindowDayOfWeekFriday
+//	MaintenanceWindowDayOfWeekSaturday
+//	MaintenanceWindowDayOfWeekSunday
 type MaintenanceWindowDayOfWeekInput interface {
 	pulumi.Input
 
@@ -888,12 +1052,6 @@ func (in *maintenanceWindowDayOfWeekPtr) ToMaintenanceWindowDayOfWeekPtrOutput()
 
 func (in *maintenanceWindowDayOfWeekPtr) ToMaintenanceWindowDayOfWeekPtrOutputWithContext(ctx context.Context) MaintenanceWindowDayOfWeekPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(MaintenanceWindowDayOfWeekPtrOutput)
-}
-
-func (in *maintenanceWindowDayOfWeekPtr) ToOutput(ctx context.Context) pulumix.Output[*MaintenanceWindowDayOfWeek] {
-	return pulumix.Output[*MaintenanceWindowDayOfWeek]{
-		OutputState: in.ToMaintenanceWindowDayOfWeekPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // An enum of readable instance sizes, with each instance size mapping to a float value (e.g. InstanceSize.EXTRA_SMALL = scaling_factor(0.1))
@@ -1033,10 +1191,15 @@ func (o ScalingConfigInstanceSizePtrOutput) ToStringPtrOutputWithContext(ctx con
 	}).(pulumi.StringPtrOutput)
 }
 
-// ScalingConfigInstanceSizeInput is an input type that accepts ScalingConfigInstanceSizeArgs and ScalingConfigInstanceSizeOutput values.
-// You can construct a concrete instance of `ScalingConfigInstanceSizeInput` via:
+// ScalingConfigInstanceSizeInput is an input type that accepts values of the ScalingConfigInstanceSize enum
+// A concrete instance of `ScalingConfigInstanceSizeInput` can be one of the following:
 //
-//	ScalingConfigInstanceSizeArgs{...}
+//	ScalingConfigInstanceSizeInstanceSizeUnspecified
+//	ScalingConfigInstanceSizeExtraSmall
+//	ScalingConfigInstanceSizeSmall
+//	ScalingConfigInstanceSizeMedium
+//	ScalingConfigInstanceSizeLarge
+//	ScalingConfigInstanceSizeExtraLarge
 type ScalingConfigInstanceSizeInput interface {
 	pulumi.Input
 
@@ -1069,12 +1232,6 @@ func (in *scalingConfigInstanceSizePtr) ToScalingConfigInstanceSizePtrOutput() S
 
 func (in *scalingConfigInstanceSizePtr) ToScalingConfigInstanceSizePtrOutputWithContext(ctx context.Context) ScalingConfigInstanceSizePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ScalingConfigInstanceSizePtrOutput)
-}
-
-func (in *scalingConfigInstanceSizePtr) ToOutput(ctx context.Context) pulumix.Output[*ScalingConfigInstanceSize] {
-	return pulumix.Output[*ScalingConfigInstanceSize]{
-		OutputState: in.ToScalingConfigInstanceSizePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The database type that the Metastore service stores its data.
@@ -1208,10 +1365,12 @@ func (o ServiceDatabaseTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceDatabaseTypeInput is an input type that accepts ServiceDatabaseTypeArgs and ServiceDatabaseTypeOutput values.
-// You can construct a concrete instance of `ServiceDatabaseTypeInput` via:
+// ServiceDatabaseTypeInput is an input type that accepts values of the ServiceDatabaseType enum
+// A concrete instance of `ServiceDatabaseTypeInput` can be one of the following:
 //
-//	ServiceDatabaseTypeArgs{...}
+//	ServiceDatabaseTypeDatabaseTypeUnspecified
+//	ServiceDatabaseTypeMysql
+//	ServiceDatabaseTypeSpanner
 type ServiceDatabaseTypeInput interface {
 	pulumi.Input
 
@@ -1244,12 +1403,6 @@ func (in *serviceDatabaseTypePtr) ToServiceDatabaseTypePtrOutput() ServiceDataba
 
 func (in *serviceDatabaseTypePtr) ToServiceDatabaseTypePtrOutputWithContext(ctx context.Context) ServiceDatabaseTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceDatabaseTypePtrOutput)
-}
-
-func (in *serviceDatabaseTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceDatabaseType] {
-	return pulumix.Output[*ServiceDatabaseType]{
-		OutputState: in.ToServiceDatabaseTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The release channel of the service. If unspecified, defaults to STABLE.
@@ -1383,10 +1536,12 @@ func (o ServiceReleaseChannelPtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceReleaseChannelInput is an input type that accepts ServiceReleaseChannelArgs and ServiceReleaseChannelOutput values.
-// You can construct a concrete instance of `ServiceReleaseChannelInput` via:
+// ServiceReleaseChannelInput is an input type that accepts values of the ServiceReleaseChannel enum
+// A concrete instance of `ServiceReleaseChannelInput` can be one of the following:
 //
-//	ServiceReleaseChannelArgs{...}
+//	ServiceReleaseChannelReleaseChannelUnspecified
+//	ServiceReleaseChannelCanary
+//	ServiceReleaseChannelStable
 type ServiceReleaseChannelInput interface {
 	pulumi.Input
 
@@ -1419,12 +1574,6 @@ func (in *serviceReleaseChannelPtr) ToServiceReleaseChannelPtrOutput() ServiceRe
 
 func (in *serviceReleaseChannelPtr) ToServiceReleaseChannelPtrOutputWithContext(ctx context.Context) ServiceReleaseChannelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceReleaseChannelPtrOutput)
-}
-
-func (in *serviceReleaseChannelPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceReleaseChannel] {
-	return pulumix.Output[*ServiceReleaseChannel]{
-		OutputState: in.ToServiceReleaseChannelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The tier of the service.
@@ -1558,10 +1707,12 @@ func (o ServiceTierPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ServiceTierInput is an input type that accepts ServiceTierArgs and ServiceTierOutput values.
-// You can construct a concrete instance of `ServiceTierInput` via:
+// ServiceTierInput is an input type that accepts values of the ServiceTier enum
+// A concrete instance of `ServiceTierInput` can be one of the following:
 //
-//	ServiceTierArgs{...}
+//	ServiceTierTierUnspecified
+//	ServiceTierDeveloper
+//	ServiceTierEnterprise
 type ServiceTierInput interface {
 	pulumi.Input
 
@@ -1594,12 +1745,6 @@ func (in *serviceTierPtr) ToServiceTierPtrOutput() ServiceTierPtrOutput {
 
 func (in *serviceTierPtr) ToServiceTierPtrOutputWithContext(ctx context.Context) ServiceTierPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ServiceTierPtrOutput)
-}
-
-func (in *serviceTierPtr) ToOutput(ctx context.Context) pulumix.Output[*ServiceTier] {
-	return pulumix.Output[*ServiceTier]{
-		OutputState: in.ToServiceTierPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The output format of the Dataproc Metastore service's logs.
@@ -1733,10 +1878,12 @@ func (o TelemetryConfigLogFormatPtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// TelemetryConfigLogFormatInput is an input type that accepts TelemetryConfigLogFormatArgs and TelemetryConfigLogFormatOutput values.
-// You can construct a concrete instance of `TelemetryConfigLogFormatInput` via:
+// TelemetryConfigLogFormatInput is an input type that accepts values of the TelemetryConfigLogFormat enum
+// A concrete instance of `TelemetryConfigLogFormatInput` can be one of the following:
 //
-//	TelemetryConfigLogFormatArgs{...}
+//	TelemetryConfigLogFormatLogFormatUnspecified
+//	TelemetryConfigLogFormatLegacy
+//	TelemetryConfigLogFormatJson
 type TelemetryConfigLogFormatInput interface {
 	pulumi.Input
 
@@ -1771,15 +1918,11 @@ func (in *telemetryConfigLogFormatPtr) ToTelemetryConfigLogFormatPtrOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, in).(TelemetryConfigLogFormatPtrOutput)
 }
 
-func (in *telemetryConfigLogFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*TelemetryConfigLogFormat] {
-	return pulumix.Output[*TelemetryConfigLogFormat]{
-		OutputState: in.ToTelemetryConfigLogFormatPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AuditLogConfigLogTypeInput)(nil)).Elem(), AuditLogConfigLogType("LOG_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*AuditLogConfigLogTypePtrInput)(nil)).Elem(), AuditLogConfigLogType("LOG_TYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendMetastoreMetastoreTypeInput)(nil)).Elem(), BackendMetastoreMetastoreType("METASTORE_TYPE_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*BackendMetastoreMetastoreTypePtrInput)(nil)).Elem(), BackendMetastoreMetastoreType("METASTORE_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDumpDatabaseTypeInput)(nil)).Elem(), DatabaseDumpDatabaseType("DATABASE_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDumpDatabaseTypePtrInput)(nil)).Elem(), DatabaseDumpDatabaseType("DATABASE_TYPE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*DatabaseDumpTypeInput)(nil)).Elem(), DatabaseDumpType("TYPE_UNSPECIFIED"))
@@ -1800,6 +1943,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TelemetryConfigLogFormatPtrInput)(nil)).Elem(), TelemetryConfigLogFormat("LOG_FORMAT_UNSPECIFIED"))
 	pulumi.RegisterOutputType(AuditLogConfigLogTypeOutput{})
 	pulumi.RegisterOutputType(AuditLogConfigLogTypePtrOutput{})
+	pulumi.RegisterOutputType(BackendMetastoreMetastoreTypeOutput{})
+	pulumi.RegisterOutputType(BackendMetastoreMetastoreTypePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDumpDatabaseTypeOutput{})
 	pulumi.RegisterOutputType(DatabaseDumpDatabaseTypePtrOutput{})
 	pulumi.RegisterOutputType(DatabaseDumpTypeOutput{})

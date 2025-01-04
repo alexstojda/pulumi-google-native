@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. Type of fade animation: `FADE_IN` or `FADE_OUT`.
@@ -142,10 +141,12 @@ func (o AnimationFadeFadeTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AnimationFadeFadeTypeInput is an input type that accepts AnimationFadeFadeTypeArgs and AnimationFadeFadeTypeOutput values.
-// You can construct a concrete instance of `AnimationFadeFadeTypeInput` via:
+// AnimationFadeFadeTypeInput is an input type that accepts values of the AnimationFadeFadeType enum
+// A concrete instance of `AnimationFadeFadeTypeInput` can be one of the following:
 //
-//	AnimationFadeFadeTypeArgs{...}
+//	AnimationFadeFadeTypeFadeTypeUnspecified
+//	AnimationFadeFadeTypeFadeIn
+//	AnimationFadeFadeTypeFadeOut
 type AnimationFadeFadeTypeInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *animationFadeFadeTypePtr) ToAnimationFadeFadeTypePtrOutput() Animation
 
 func (in *animationFadeFadeTypePtr) ToAnimationFadeFadeTypePtrOutputWithContext(ctx context.Context) AnimationFadeFadeTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AnimationFadeFadeTypePtrOutput)
-}
-
-func (in *animationFadeFadeTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AnimationFadeFadeType] {
-	return pulumix.Output[*AnimationFadeFadeType]{
-		OutputState: in.ToAnimationFadeFadeTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The segment reference scheme for a `DASH` manifest. The default is `SEGMENT_LIST`.
@@ -317,10 +312,12 @@ func (o DashConfigSegmentReferenceSchemePtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// DashConfigSegmentReferenceSchemeInput is an input type that accepts DashConfigSegmentReferenceSchemeArgs and DashConfigSegmentReferenceSchemeOutput values.
-// You can construct a concrete instance of `DashConfigSegmentReferenceSchemeInput` via:
+// DashConfigSegmentReferenceSchemeInput is an input type that accepts values of the DashConfigSegmentReferenceScheme enum
+// A concrete instance of `DashConfigSegmentReferenceSchemeInput` can be one of the following:
 //
-//	DashConfigSegmentReferenceSchemeArgs{...}
+//	DashConfigSegmentReferenceSchemeSegmentReferenceSchemeUnspecified
+//	DashConfigSegmentReferenceSchemeSegmentList
+//	DashConfigSegmentReferenceSchemeSegmentTemplateNumber
 type DashConfigSegmentReferenceSchemeInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *dashConfigSegmentReferenceSchemePtr) ToDashConfigSegmentReferenceSchem
 
 func (in *dashConfigSegmentReferenceSchemePtr) ToDashConfigSegmentReferenceSchemePtrOutputWithContext(ctx context.Context) DashConfigSegmentReferenceSchemePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DashConfigSegmentReferenceSchemePtrOutput)
-}
-
-func (in *dashConfigSegmentReferenceSchemePtr) ToOutput(ctx context.Context) pulumix.Output[*DashConfigSegmentReferenceScheme] {
-	return pulumix.Output[*DashConfigSegmentReferenceScheme]{
-		OutputState: in.ToDashConfigSegmentReferenceSchemePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The processing mode of the job. The default is `PROCESSING_MODE_INTERACTIVE`.
@@ -492,10 +483,12 @@ func (o JobModePtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobModeInput is an input type that accepts JobModeArgs and JobModeOutput values.
-// You can construct a concrete instance of `JobModeInput` via:
+// JobModeInput is an input type that accepts values of the JobMode enum
+// A concrete instance of `JobModeInput` can be one of the following:
 //
-//	JobModeArgs{...}
+//	JobModeProcessingModeUnspecified
+//	JobModeProcessingModeInteractive
+//	JobModeProcessingModeBatch
 type JobModeInput interface {
 	pulumi.Input
 
@@ -528,12 +521,6 @@ func (in *jobModePtr) ToJobModePtrOutput() JobModePtrOutput {
 
 func (in *jobModePtr) ToJobModePtrOutputWithContext(ctx context.Context) JobModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JobModePtrOutput)
-}
-
-func (in *jobModePtr) ToOutput(ctx context.Context) pulumix.Output[*JobMode] {
-	return pulumix.Output[*JobMode]{
-		OutputState: in.ToJobModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. The optimization strategy of the job. The default is `AUTODETECT`.
@@ -667,10 +654,12 @@ func (o JobOptimizationPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// JobOptimizationInput is an input type that accepts JobOptimizationArgs and JobOptimizationOutput values.
-// You can construct a concrete instance of `JobOptimizationInput` via:
+// JobOptimizationInput is an input type that accepts values of the JobOptimization enum
+// A concrete instance of `JobOptimizationInput` can be one of the following:
 //
-//	JobOptimizationArgs{...}
+//	JobOptimizationOptimizationStrategyUnspecified
+//	JobOptimizationAutodetect
+//	JobOptimizationDisabled
 type JobOptimizationInput interface {
 	pulumi.Input
 
@@ -703,12 +692,6 @@ func (in *jobOptimizationPtr) ToJobOptimizationPtrOutput() JobOptimizationPtrOut
 
 func (in *jobOptimizationPtr) ToJobOptimizationPtrOutputWithContext(ctx context.Context) JobOptimizationPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(JobOptimizationPtrOutput)
-}
-
-func (in *jobOptimizationPtr) ToOutput(ctx context.Context) pulumix.Output[*JobOptimization] {
-	return pulumix.Output[*JobOptimization]{
-		OutputState: in.ToJobOptimizationPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Type of the manifest.
@@ -842,10 +825,12 @@ func (o ManifestTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 	}).(pulumi.StringPtrOutput)
 }
 
-// ManifestTypeInput is an input type that accepts ManifestTypeArgs and ManifestTypeOutput values.
-// You can construct a concrete instance of `ManifestTypeInput` via:
+// ManifestTypeInput is an input type that accepts values of the ManifestType enum
+// A concrete instance of `ManifestTypeInput` can be one of the following:
 //
-//	ManifestTypeArgs{...}
+//	ManifestTypeManifestTypeUnspecified
+//	ManifestTypeHls
+//	ManifestTypeDash
 type ManifestTypeInput interface {
 	pulumi.Input
 
@@ -878,12 +863,6 @@ func (in *manifestTypePtr) ToManifestTypePtrOutput() ManifestTypePtrOutput {
 
 func (in *manifestTypePtr) ToManifestTypePtrOutputWithContext(ctx context.Context) ManifestTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ManifestTypePtrOutput)
-}
-
-func (in *manifestTypePtr) ToOutput(ctx context.Context) pulumix.Output[*ManifestType] {
-	return pulumix.Output[*ManifestType]{
-		OutputState: in.ToManifestTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

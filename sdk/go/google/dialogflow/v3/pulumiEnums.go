@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Indicates whether the entity type can be automatically expanded.
@@ -140,10 +139,11 @@ func (o EntityTypeAutoExpansionModePtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// EntityTypeAutoExpansionModeInput is an input type that accepts EntityTypeAutoExpansionModeArgs and EntityTypeAutoExpansionModeOutput values.
-// You can construct a concrete instance of `EntityTypeAutoExpansionModeInput` via:
+// EntityTypeAutoExpansionModeInput is an input type that accepts values of the EntityTypeAutoExpansionMode enum
+// A concrete instance of `EntityTypeAutoExpansionModeInput` can be one of the following:
 //
-//	EntityTypeAutoExpansionModeArgs{...}
+//	EntityTypeAutoExpansionModeAutoExpansionModeUnspecified
+//	EntityTypeAutoExpansionModeAutoExpansionModeDefault
 type EntityTypeAutoExpansionModeInput interface {
 	pulumi.Input
 
@@ -176,12 +176,6 @@ func (in *entityTypeAutoExpansionModePtr) ToEntityTypeAutoExpansionModePtrOutput
 
 func (in *entityTypeAutoExpansionModePtr) ToEntityTypeAutoExpansionModePtrOutputWithContext(ctx context.Context) EntityTypeAutoExpansionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTypeAutoExpansionModePtrOutput)
-}
-
-func (in *entityTypeAutoExpansionModePtr) ToOutput(ctx context.Context) pulumix.Output[*EntityTypeAutoExpansionMode] {
-	return pulumix.Output[*EntityTypeAutoExpansionMode]{
-		OutputState: in.ToEntityTypeAutoExpansionModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Indicates the kind of entity type.
@@ -317,10 +311,13 @@ func (o EntityTypeKindPtrOutput) ToStringPtrOutputWithContext(ctx context.Contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// EntityTypeKindInput is an input type that accepts EntityTypeKindArgs and EntityTypeKindOutput values.
-// You can construct a concrete instance of `EntityTypeKindInput` via:
+// EntityTypeKindInput is an input type that accepts values of the EntityTypeKind enum
+// A concrete instance of `EntityTypeKindInput` can be one of the following:
 //
-//	EntityTypeKindArgs{...}
+//	EntityTypeKindKindUnspecified
+//	EntityTypeKindKindMap
+//	EntityTypeKindKindList
+//	EntityTypeKindKindRegexp
 type EntityTypeKindInput interface {
 	pulumi.Input
 
@@ -353,12 +350,6 @@ func (in *entityTypeKindPtr) ToEntityTypeKindPtrOutput() EntityTypeKindPtrOutput
 
 func (in *entityTypeKindPtr) ToEntityTypeKindPtrOutputWithContext(ctx context.Context) EntityTypeKindPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(EntityTypeKindPtrOutput)
-}
-
-func (in *entityTypeKindPtr) ToOutput(ctx context.Context) pulumix.Output[*EntityTypeKind] {
-	return pulumix.Output[*EntityTypeKind]{
-		OutputState: in.ToEntityTypeKindPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The current state of the experiment. Transition triggered by Experiments.StartExperiment: DRAFT->RUNNING. Transition triggered by Experiments.CancelExperiment: DRAFT->DONE or RUNNING->DONE.
@@ -496,10 +487,14 @@ func (o ExperimentStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ExperimentStateEnumInput is an input type that accepts ExperimentStateEnumArgs and ExperimentStateEnumOutput values.
-// You can construct a concrete instance of `ExperimentStateEnumInput` via:
+// ExperimentStateEnumInput is an input type that accepts values of the ExperimentStateEnum enum
+// A concrete instance of `ExperimentStateEnumInput` can be one of the following:
 //
-//	ExperimentStateEnumArgs{...}
+//	ExperimentStateEnumStateUnspecified
+//	ExperimentStateEnumDraft
+//	ExperimentStateEnumRunning
+//	ExperimentStateEnumDone
+//	ExperimentStateEnumRolloutFailed
 type ExperimentStateEnumInput interface {
 	pulumi.Input
 
@@ -532,12 +527,6 @@ func (in *experimentStateEnumPtr) ToExperimentStateEnumPtrOutput() ExperimentSta
 
 func (in *experimentStateEnumPtr) ToExperimentStateEnumPtrOutputWithContext(ctx context.Context) ExperimentStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ExperimentStateEnumPtrOutput)
-}
-
-func (in *experimentStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ExperimentStateEnum] {
-	return pulumix.Output[*ExperimentStateEnum]{
-		OutputState: in.ToExperimentStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The type of the connected data store.
@@ -673,10 +662,13 @@ func (o GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePtrOutput) ToSt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeInput is an input type that accepts GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeArgs and GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeInput` via:
+// GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeInput is an input type that accepts values of the GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreType enum
+// A concrete instance of `GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeArgs{...}
+//	GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeDataStoreTypeUnspecified
+//	GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePublicWeb
+//	GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeUnstructured
+//	GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeStructured
 type GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypeInput interface {
 	pulumi.Input
 
@@ -709,12 +701,6 @@ func (in *googleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePtr) ToGoogle
 
 func (in *googleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePtr) ToGoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreType] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3DataStoreConnectionDataStoreType]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3DataStoreConnectionDataStoreTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Count-based metric type. Only one of type or count_type is specified in each Metric.
@@ -850,10 +836,13 @@ func (o GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypePtrOutput) ToStr
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeInput is an input type that accepts GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeArgs and GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeInput` via:
+// GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeInput is an input type that accepts values of the GoogleCloudDialogflowCxV3ExperimentResultMetricCountType enum
+// A concrete instance of `GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeArgs{...}
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeCountTypeUnspecified
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeTotalNoMatchCount
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeTotalTurnCount
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeAverageTurnCount
 type GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypeInput interface {
 	pulumi.Input
 
@@ -886,12 +875,6 @@ func (in *googleCloudDialogflowCxV3ExperimentResultMetricCountTypePtr) ToGoogleC
 
 func (in *googleCloudDialogflowCxV3ExperimentResultMetricCountTypePtr) ToGoogleCloudDialogflowCxV3ExperimentResultMetricCountTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3ExperimentResultMetricCountTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3ExperimentResultMetricCountTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3ExperimentResultMetricCountType] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3ExperimentResultMetricCountType]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3ExperimentResultMetricCountTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Ratio-based metric type. Only one of type or count_type is specified in each Metric.
@@ -1031,10 +1014,15 @@ func (o GoogleCloudDialogflowCxV3ExperimentResultMetricTypePtrOutput) ToStringPt
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3ExperimentResultMetricTypeInput is an input type that accepts GoogleCloudDialogflowCxV3ExperimentResultMetricTypeArgs and GoogleCloudDialogflowCxV3ExperimentResultMetricTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3ExperimentResultMetricTypeInput` via:
+// GoogleCloudDialogflowCxV3ExperimentResultMetricTypeInput is an input type that accepts values of the GoogleCloudDialogflowCxV3ExperimentResultMetricType enum
+// A concrete instance of `GoogleCloudDialogflowCxV3ExperimentResultMetricTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3ExperimentResultMetricTypeArgs{...}
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricTypeMetricUnspecified
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricTypeContainedSessionNoCallbackRate
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricTypeLiveAgentHandoffRate
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricTypeCallbackSessionRate
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricTypeAbandonedSessionRate
+//	GoogleCloudDialogflowCxV3ExperimentResultMetricTypeSessionEndRate
 type GoogleCloudDialogflowCxV3ExperimentResultMetricTypeInput interface {
 	pulumi.Input
 
@@ -1067,12 +1055,6 @@ func (in *googleCloudDialogflowCxV3ExperimentResultMetricTypePtr) ToGoogleCloudD
 
 func (in *googleCloudDialogflowCxV3ExperimentResultMetricTypePtr) ToGoogleCloudDialogflowCxV3ExperimentResultMetricTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3ExperimentResultMetricTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3ExperimentResultMetricTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3ExperimentResultMetricTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3ExperimentResultMetricType] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3ExperimentResultMetricType]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3ExperimentResultMetricTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Audio encoding of the audio content to process.
@@ -1216,10 +1198,17 @@ func (o GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingPtrOutput) ToStrin
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingInput is an input type that accepts GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingArgs and GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingInput` via:
+// GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingInput is an input type that accepts values of the GoogleCloudDialogflowCxV3InputAudioConfigAudioEncoding enum
+// A concrete instance of `GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingArgs{...}
+//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingAudioEncodingUnspecified
+//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingAudioEncodingLinear16
+//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingAudioEncodingFlac
+//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingAudioEncodingMulaw
+//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingAudioEncodingAmr
+//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingAudioEncodingAmrWb
+//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingAudioEncodingOggOpus
+//	GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingAudioEncodingSpeexWithHeaderByte
 type GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingInput interface {
 	pulumi.Input
 
@@ -1252,12 +1241,6 @@ func (in *googleCloudDialogflowCxV3InputAudioConfigAudioEncodingPtr) ToGoogleClo
 
 func (in *googleCloudDialogflowCxV3InputAudioConfigAudioEncodingPtr) ToGoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingPtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3InputAudioConfigAudioEncodingPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3InputAudioConfigAudioEncoding] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3InputAudioConfigAudioEncoding]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3InputAudioConfigAudioEncodingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Which variant of the Speech model to use.
@@ -1393,10 +1376,13 @@ func (o GoogleCloudDialogflowCxV3InputAudioConfigModelVariantPtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3InputAudioConfigModelVariantInput is an input type that accepts GoogleCloudDialogflowCxV3InputAudioConfigModelVariantArgs and GoogleCloudDialogflowCxV3InputAudioConfigModelVariantOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3InputAudioConfigModelVariantInput` via:
+// GoogleCloudDialogflowCxV3InputAudioConfigModelVariantInput is an input type that accepts values of the GoogleCloudDialogflowCxV3InputAudioConfigModelVariant enum
+// A concrete instance of `GoogleCloudDialogflowCxV3InputAudioConfigModelVariantInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3InputAudioConfigModelVariantArgs{...}
+//	GoogleCloudDialogflowCxV3InputAudioConfigModelVariantSpeechModelVariantUnspecified
+//	GoogleCloudDialogflowCxV3InputAudioConfigModelVariantUseBestAvailable
+//	GoogleCloudDialogflowCxV3InputAudioConfigModelVariantUseStandard
+//	GoogleCloudDialogflowCxV3InputAudioConfigModelVariantUseEnhanced
 type GoogleCloudDialogflowCxV3InputAudioConfigModelVariantInput interface {
 	pulumi.Input
 
@@ -1429,12 +1415,6 @@ func (in *googleCloudDialogflowCxV3InputAudioConfigModelVariantPtr) ToGoogleClou
 
 func (in *googleCloudDialogflowCxV3InputAudioConfigModelVariantPtr) ToGoogleCloudDialogflowCxV3InputAudioConfigModelVariantPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3InputAudioConfigModelVariantPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3InputAudioConfigModelVariantPtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3InputAudioConfigModelVariantPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3InputAudioConfigModelVariant] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3InputAudioConfigModelVariant]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3InputAudioConfigModelVariantPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates NLU model training mode.
@@ -1568,10 +1548,12 @@ func (o GoogleCloudDialogflowCxV3NluSettingsModelTrainingModePtrOutput) ToString
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeInput is an input type that accepts GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeArgs and GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeInput` via:
+// GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeInput is an input type that accepts values of the GoogleCloudDialogflowCxV3NluSettingsModelTrainingMode enum
+// A concrete instance of `GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeArgs{...}
+//	GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeModelTrainingModeUnspecified
+//	GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeModelTrainingModeAutomatic
+//	GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeModelTrainingModeManual
 type GoogleCloudDialogflowCxV3NluSettingsModelTrainingModeInput interface {
 	pulumi.Input
 
@@ -1604,12 +1586,6 @@ func (in *googleCloudDialogflowCxV3NluSettingsModelTrainingModePtr) ToGoogleClou
 
 func (in *googleCloudDialogflowCxV3NluSettingsModelTrainingModePtr) ToGoogleCloudDialogflowCxV3NluSettingsModelTrainingModePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3NluSettingsModelTrainingModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3NluSettingsModelTrainingModePtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3NluSettingsModelTrainingModePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3NluSettingsModelTrainingMode] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3NluSettingsModelTrainingMode]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3NluSettingsModelTrainingModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Indicates the type of NLU model.
@@ -1743,10 +1719,12 @@ func (o GoogleCloudDialogflowCxV3NluSettingsModelTypePtrOutput) ToStringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3NluSettingsModelTypeInput is an input type that accepts GoogleCloudDialogflowCxV3NluSettingsModelTypeArgs and GoogleCloudDialogflowCxV3NluSettingsModelTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3NluSettingsModelTypeInput` via:
+// GoogleCloudDialogflowCxV3NluSettingsModelTypeInput is an input type that accepts values of the GoogleCloudDialogflowCxV3NluSettingsModelType enum
+// A concrete instance of `GoogleCloudDialogflowCxV3NluSettingsModelTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3NluSettingsModelTypeArgs{...}
+//	GoogleCloudDialogflowCxV3NluSettingsModelTypeModelTypeUnspecified
+//	GoogleCloudDialogflowCxV3NluSettingsModelTypeModelTypeStandard
+//	GoogleCloudDialogflowCxV3NluSettingsModelTypeModelTypeAdvanced
 type GoogleCloudDialogflowCxV3NluSettingsModelTypeInput interface {
 	pulumi.Input
 
@@ -1779,12 +1757,6 @@ func (in *googleCloudDialogflowCxV3NluSettingsModelTypePtr) ToGoogleCloudDialogf
 
 func (in *googleCloudDialogflowCxV3NluSettingsModelTypePtr) ToGoogleCloudDialogflowCxV3NluSettingsModelTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3NluSettingsModelTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3NluSettingsModelTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3NluSettingsModelTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3NluSettingsModelType] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3NluSettingsModelType]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3NluSettingsModelTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Response type.
@@ -1920,10 +1892,13 @@ func (o GoogleCloudDialogflowCxV3ResponseMessageResponseTypePtrOutput) ToStringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3ResponseMessageResponseTypeInput is an input type that accepts GoogleCloudDialogflowCxV3ResponseMessageResponseTypeArgs and GoogleCloudDialogflowCxV3ResponseMessageResponseTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3ResponseMessageResponseTypeInput` via:
+// GoogleCloudDialogflowCxV3ResponseMessageResponseTypeInput is an input type that accepts values of the GoogleCloudDialogflowCxV3ResponseMessageResponseType enum
+// A concrete instance of `GoogleCloudDialogflowCxV3ResponseMessageResponseTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3ResponseMessageResponseTypeArgs{...}
+//	GoogleCloudDialogflowCxV3ResponseMessageResponseTypeResponseTypeUnspecified
+//	GoogleCloudDialogflowCxV3ResponseMessageResponseTypeEntryPrompt
+//	GoogleCloudDialogflowCxV3ResponseMessageResponseTypeParameterPrompt
+//	GoogleCloudDialogflowCxV3ResponseMessageResponseTypeHandlerPrompt
 type GoogleCloudDialogflowCxV3ResponseMessageResponseTypeInput interface {
 	pulumi.Input
 
@@ -1956,12 +1931,6 @@ func (in *googleCloudDialogflowCxV3ResponseMessageResponseTypePtr) ToGoogleCloud
 
 func (in *googleCloudDialogflowCxV3ResponseMessageResponseTypePtr) ToGoogleCloudDialogflowCxV3ResponseMessageResponseTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3ResponseMessageResponseTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3ResponseMessageResponseTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3ResponseMessageResponseTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3ResponseMessageResponseType] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3ResponseMessageResponseType]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3ResponseMessageResponseTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // File format for exported audio file. Currently only in telephony recordings.
@@ -2097,10 +2066,13 @@ func (o GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatP
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatInput is an input type that accepts GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatArgs and GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatInput` via:
+// GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatInput is an input type that accepts values of the GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormat enum
+// A concrete instance of `GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatArgs{...}
+//	GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatAudioFormatUnspecified
+//	GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatMulaw
+//	GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatMp3
+//	GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatOgg
 type GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatInput interface {
 	pulumi.Input
 
@@ -2133,12 +2105,6 @@ func (in *googleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioForma
 
 func (in *googleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatPtr) ToGoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatPtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormat] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormat]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Whether the test case passed in the agent environment.
@@ -2272,10 +2238,12 @@ func (o GoogleCloudDialogflowCxV3TestCaseResultTestResultPtrOutput) ToStringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3TestCaseResultTestResultInput is an input type that accepts GoogleCloudDialogflowCxV3TestCaseResultTestResultArgs and GoogleCloudDialogflowCxV3TestCaseResultTestResultOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3TestCaseResultTestResultInput` via:
+// GoogleCloudDialogflowCxV3TestCaseResultTestResultInput is an input type that accepts values of the GoogleCloudDialogflowCxV3TestCaseResultTestResult enum
+// A concrete instance of `GoogleCloudDialogflowCxV3TestCaseResultTestResultInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3TestCaseResultTestResultArgs{...}
+//	GoogleCloudDialogflowCxV3TestCaseResultTestResultTestResultUnspecified
+//	GoogleCloudDialogflowCxV3TestCaseResultTestResultPassed
+//	GoogleCloudDialogflowCxV3TestCaseResultTestResultFailed
 type GoogleCloudDialogflowCxV3TestCaseResultTestResultInput interface {
 	pulumi.Input
 
@@ -2310,10 +2278,178 @@ func (in *googleCloudDialogflowCxV3TestCaseResultTestResultPtr) ToGoogleCloudDia
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3TestCaseResultTestResultPtrOutput)
 }
 
-func (in *googleCloudDialogflowCxV3TestCaseResultTestResultPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3TestCaseResultTestResult] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3TestCaseResultTestResult]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3TestCaseResultTestResultPtrOutputWithContext(ctx).OutputState,
-	}
+// Optional. The preferred gender of the voice. If not set, the service will choose a voice based on the other parameters such as language_code and name. Note that this is only a preference, not requirement. If a voice of the appropriate gender is not available, the synthesizer substitutes a voice with a different gender rather than failing the request.
+type GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender string
+
+const (
+	// An unspecified gender, which means that the client doesn't care which gender the selected voice will have.
+	GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderSsmlVoiceGenderUnspecified = GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender("SSML_VOICE_GENDER_UNSPECIFIED")
+	// A male voice.
+	GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderSsmlVoiceGenderMale = GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender("SSML_VOICE_GENDER_MALE")
+	// A female voice.
+	GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderSsmlVoiceGenderFemale = GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender("SSML_VOICE_GENDER_FEMALE")
+	// A gender-neutral voice.
+	GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderSsmlVoiceGenderNeutral = GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender("SSML_VOICE_GENDER_NEUTRAL")
+)
+
+func (GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender)(nil)).Elem()
+}
+
+func (e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput {
+	return pulumi.ToOutput(e).(GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput)
+}
+
+func (e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput)
+}
+
+func (e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput {
+	return e.ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutputWithContext(context.Background())
+}
+
+func (e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput {
+	return GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender(e).ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutputWithContext(ctx).ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutputWithContext(ctx)
+}
+
+func (e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput {
+	return o.ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) *GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender {
+		return &v
+	}).(GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput)
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput struct{ *pulumi.OutputState }
+
+func (GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender)(nil)).Elem()
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput {
+	return o
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput) Elem() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput {
+	return o.ApplyT(func(v *GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender {
+		if v != nil {
+			return *v
+		}
+		var ret GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender
+		return ret
+	}).(GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput)
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderInput is an input type that accepts values of the GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender enum
+// A concrete instance of `GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderInput` can be one of the following:
+//
+//	GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderSsmlVoiceGenderUnspecified
+//	GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderSsmlVoiceGenderMale
+//	GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderSsmlVoiceGenderFemale
+//	GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderSsmlVoiceGenderNeutral
+type GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput
+	ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutputWithContext(context.Context) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput
+}
+
+var googleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrType = reflect.TypeOf((**GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender)(nil)).Elem()
+
+type GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrInput interface {
+	pulumi.Input
+
+	ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput
+	ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutputWithContext(context.Context) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput
+}
+
+type googleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtr string
+
+func GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtr(v string) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrInput {
+	return (*googleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtr)(&v)
+}
+
+func (*googleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtr) ElementType() reflect.Type {
+	return googleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrType
+}
+
+func (in *googleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtr) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput() GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput {
+	return pulumi.ToOutput(in).(GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput)
+}
+
+func (in *googleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtr) ToGoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput)
 }
 
 // Optional. HTTP method for the flexible webhook calls. Standard webhook always uses POST.
@@ -2457,10 +2593,17 @@ func (o GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtrOutput) To
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodInput is an input type that accepts GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodArgs and GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodInput` via:
+// GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodInput is an input type that accepts values of the GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethod enum
+// A concrete instance of `GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodArgs{...}
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodHttpMethodUnspecified
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPost
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodGet
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodHead
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPut
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodDelete
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPatch
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodOptions
 type GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodInput interface {
 	pulumi.Input
 
@@ -2493,12 +2636,6 @@ func (in *googleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtr) ToGoog
 
 func (in *googleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtr) ToGoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethod] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethod]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Optional. Type of the webhook.
@@ -2632,10 +2769,12 @@ func (o GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypePtrOutput) T
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeInput is an input type that accepts GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeArgs and GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeInput` via:
+// GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeInput is an input type that accepts values of the GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookType enum
+// A concrete instance of `GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeInput` can be one of the following:
 //
-//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeArgs{...}
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeWebhookTypeUnspecified
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeStandard
+//	GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeFlexible
 type GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeInput interface {
 	pulumi.Input
 
@@ -2668,12 +2807,6 @@ func (in *googleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypePtr) ToGoo
 
 func (in *googleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypePtr) ToGoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypePtrOutputWithContext(ctx context.Context) GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypePtrOutput)
-}
-
-func (in *googleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookType] {
-	return pulumix.Output[*GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookType]{
-		OutputState: in.ToGoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 type SecuritySettingPurgeDataTypesItem string
@@ -2804,10 +2937,11 @@ func (o SecuritySettingPurgeDataTypesItemPtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecuritySettingPurgeDataTypesItemInput is an input type that accepts SecuritySettingPurgeDataTypesItemArgs and SecuritySettingPurgeDataTypesItemOutput values.
-// You can construct a concrete instance of `SecuritySettingPurgeDataTypesItemInput` via:
+// SecuritySettingPurgeDataTypesItemInput is an input type that accepts values of the SecuritySettingPurgeDataTypesItem enum
+// A concrete instance of `SecuritySettingPurgeDataTypesItemInput` can be one of the following:
 //
-//	SecuritySettingPurgeDataTypesItemArgs{...}
+//	SecuritySettingPurgeDataTypesItemPurgeDataTypeUnspecified
+//	SecuritySettingPurgeDataTypesItemDialogflowHistory
 type SecuritySettingPurgeDataTypesItemInput interface {
 	pulumi.Input
 
@@ -2840,12 +2974,6 @@ func (in *securitySettingPurgeDataTypesItemPtr) ToSecuritySettingPurgeDataTypesI
 
 func (in *securitySettingPurgeDataTypesItemPtr) ToSecuritySettingPurgeDataTypesItemPtrOutputWithContext(ctx context.Context) SecuritySettingPurgeDataTypesItemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SecuritySettingPurgeDataTypesItemPtrOutput)
-}
-
-func (in *securitySettingPurgeDataTypesItemPtr) ToOutput(ctx context.Context) pulumix.Output[*SecuritySettingPurgeDataTypesItem] {
-	return pulumix.Output[*SecuritySettingPurgeDataTypesItem]{
-		OutputState: in.ToSecuritySettingPurgeDataTypesItemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // SecuritySettingPurgeDataTypesItemArrayInput is an input type that accepts SecuritySettingPurgeDataTypesItemArray and SecuritySettingPurgeDataTypesItemArrayOutput values.
@@ -3022,10 +3150,11 @@ func (o SecuritySettingRedactionScopePtrOutput) ToStringPtrOutputWithContext(ctx
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecuritySettingRedactionScopeInput is an input type that accepts SecuritySettingRedactionScopeArgs and SecuritySettingRedactionScopeOutput values.
-// You can construct a concrete instance of `SecuritySettingRedactionScopeInput` via:
+// SecuritySettingRedactionScopeInput is an input type that accepts values of the SecuritySettingRedactionScope enum
+// A concrete instance of `SecuritySettingRedactionScopeInput` can be one of the following:
 //
-//	SecuritySettingRedactionScopeArgs{...}
+//	SecuritySettingRedactionScopeRedactionScopeUnspecified
+//	SecuritySettingRedactionScopeRedactDiskStorage
 type SecuritySettingRedactionScopeInput interface {
 	pulumi.Input
 
@@ -3058,12 +3187,6 @@ func (in *securitySettingRedactionScopePtr) ToSecuritySettingRedactionScopePtrOu
 
 func (in *securitySettingRedactionScopePtr) ToSecuritySettingRedactionScopePtrOutputWithContext(ctx context.Context) SecuritySettingRedactionScopePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SecuritySettingRedactionScopePtrOutput)
-}
-
-func (in *securitySettingRedactionScopePtr) ToOutput(ctx context.Context) pulumix.Output[*SecuritySettingRedactionScope] {
-	return pulumix.Output[*SecuritySettingRedactionScope]{
-		OutputState: in.ToSecuritySettingRedactionScopePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Strategy that defines how we do redaction.
@@ -3195,10 +3318,11 @@ func (o SecuritySettingRedactionStrategyPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecuritySettingRedactionStrategyInput is an input type that accepts SecuritySettingRedactionStrategyArgs and SecuritySettingRedactionStrategyOutput values.
-// You can construct a concrete instance of `SecuritySettingRedactionStrategyInput` via:
+// SecuritySettingRedactionStrategyInput is an input type that accepts values of the SecuritySettingRedactionStrategy enum
+// A concrete instance of `SecuritySettingRedactionStrategyInput` can be one of the following:
 //
-//	SecuritySettingRedactionStrategyArgs{...}
+//	SecuritySettingRedactionStrategyRedactionStrategyUnspecified
+//	SecuritySettingRedactionStrategyRedactWithService
 type SecuritySettingRedactionStrategyInput interface {
 	pulumi.Input
 
@@ -3231,12 +3355,6 @@ func (in *securitySettingRedactionStrategyPtr) ToSecuritySettingRedactionStrateg
 
 func (in *securitySettingRedactionStrategyPtr) ToSecuritySettingRedactionStrategyPtrOutputWithContext(ctx context.Context) SecuritySettingRedactionStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SecuritySettingRedactionStrategyPtrOutput)
-}
-
-func (in *securitySettingRedactionStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*SecuritySettingRedactionStrategy] {
-	return pulumix.Output[*SecuritySettingRedactionStrategy]{
-		OutputState: in.ToSecuritySettingRedactionStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the retention behavior defined by SecuritySettings.RetentionStrategy.
@@ -3368,10 +3486,11 @@ func (o SecuritySettingRetentionStrategyPtrOutput) ToStringPtrOutputWithContext(
 	}).(pulumi.StringPtrOutput)
 }
 
-// SecuritySettingRetentionStrategyInput is an input type that accepts SecuritySettingRetentionStrategyArgs and SecuritySettingRetentionStrategyOutput values.
-// You can construct a concrete instance of `SecuritySettingRetentionStrategyInput` via:
+// SecuritySettingRetentionStrategyInput is an input type that accepts values of the SecuritySettingRetentionStrategy enum
+// A concrete instance of `SecuritySettingRetentionStrategyInput` can be one of the following:
 //
-//	SecuritySettingRetentionStrategyArgs{...}
+//	SecuritySettingRetentionStrategyRetentionStrategyUnspecified
+//	SecuritySettingRetentionStrategyRemoveAfterConversation
 type SecuritySettingRetentionStrategyInput interface {
 	pulumi.Input
 
@@ -3404,12 +3523,6 @@ func (in *securitySettingRetentionStrategyPtr) ToSecuritySettingRetentionStrateg
 
 func (in *securitySettingRetentionStrategyPtr) ToSecuritySettingRetentionStrategyPtrOutputWithContext(ctx context.Context) SecuritySettingRetentionStrategyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SecuritySettingRetentionStrategyPtrOutput)
-}
-
-func (in *securitySettingRetentionStrategyPtr) ToOutput(ctx context.Context) pulumix.Output[*SecuritySettingRetentionStrategy] {
-	return pulumix.Output[*SecuritySettingRetentionStrategy]{
-		OutputState: in.ToSecuritySettingRetentionStrategyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Indicates whether the additional data should override or supplement the custom entity type definition.
@@ -3543,10 +3656,12 @@ func (o SessionEntityTypeEntityOverrideModePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SessionEntityTypeEntityOverrideModeInput is an input type that accepts SessionEntityTypeEntityOverrideModeArgs and SessionEntityTypeEntityOverrideModeOutput values.
-// You can construct a concrete instance of `SessionEntityTypeEntityOverrideModeInput` via:
+// SessionEntityTypeEntityOverrideModeInput is an input type that accepts values of the SessionEntityTypeEntityOverrideMode enum
+// A concrete instance of `SessionEntityTypeEntityOverrideModeInput` can be one of the following:
 //
-//	SessionEntityTypeEntityOverrideModeArgs{...}
+//	SessionEntityTypeEntityOverrideModeEntityOverrideModeUnspecified
+//	SessionEntityTypeEntityOverrideModeEntityOverrideModeOverride
+//	SessionEntityTypeEntityOverrideModeEntityOverrideModeSupplement
 type SessionEntityTypeEntityOverrideModeInput interface {
 	pulumi.Input
 
@@ -3581,12 +3696,6 @@ func (in *sessionEntityTypeEntityOverrideModePtr) ToSessionEntityTypeEntityOverr
 	return pulumi.ToOutputWithContext(ctx, in).(SessionEntityTypeEntityOverrideModePtrOutput)
 }
 
-func (in *sessionEntityTypeEntityOverrideModePtr) ToOutput(ctx context.Context) pulumix.Output[*SessionEntityTypeEntityOverrideMode] {
-	return pulumix.Output[*SessionEntityTypeEntityOverrideMode]{
-		OutputState: in.ToSessionEntityTypeEntityOverrideModePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTypeAutoExpansionModeInput)(nil)).Elem(), EntityTypeAutoExpansionMode("AUTO_EXPANSION_MODE_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*EntityTypeAutoExpansionModePtrInput)(nil)).Elem(), EntityTypeAutoExpansionMode("AUTO_EXPANSION_MODE_UNSPECIFIED"))
@@ -3614,6 +3723,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatPtrInput)(nil)).Elem(), GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormat("AUDIO_FORMAT_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowCxV3TestCaseResultTestResultInput)(nil)).Elem(), GoogleCloudDialogflowCxV3TestCaseResultTestResult("TEST_RESULT_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowCxV3TestCaseResultTestResultPtrInput)(nil)).Elem(), GoogleCloudDialogflowCxV3TestCaseResultTestResult("TEST_RESULT_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderInput)(nil)).Elem(), GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender("SSML_VOICE_GENDER_UNSPECIFIED"))
+	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrInput)(nil)).Elem(), GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGender("SSML_VOICE_GENDER_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodInput)(nil)).Elem(), GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethod("HTTP_METHOD_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtrInput)(nil)).Elem(), GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethod("HTTP_METHOD_UNSPECIFIED"))
 	pulumi.RegisterInputType(reflect.TypeOf((*GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeInput)(nil)).Elem(), GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookType("WEBHOOK_TYPE_UNSPECIFIED"))
@@ -3655,6 +3766,8 @@ func init() {
 	pulumi.RegisterOutputType(GoogleCloudDialogflowCxV3SecuritySettingsAudioExportSettingsAudioFormatPtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowCxV3TestCaseResultTestResultOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowCxV3TestCaseResultTestResultPtrOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderOutput{})
+	pulumi.RegisterOutputType(GoogleCloudDialogflowCxV3VoiceSelectionParamsSsmlGenderPtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowCxV3WebhookGenericWebServiceHttpMethodPtrOutput{})
 	pulumi.RegisterOutputType(GoogleCloudDialogflowCxV3WebhookGenericWebServiceWebhookTypeOutput{})

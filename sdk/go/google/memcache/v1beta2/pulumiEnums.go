@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // The major version of Memcached software. If not provided, latest supported version will be used. Currently the latest supported major version is `MEMCACHE_1_5`. The minor version will be automatically determined by our system based on the latest supported minor version.
@@ -142,10 +141,12 @@ func (o InstanceMemcacheVersionPtrOutput) ToStringPtrOutputWithContext(ctx conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceMemcacheVersionInput is an input type that accepts InstanceMemcacheVersionArgs and InstanceMemcacheVersionOutput values.
-// You can construct a concrete instance of `InstanceMemcacheVersionInput` via:
+// InstanceMemcacheVersionInput is an input type that accepts values of the InstanceMemcacheVersion enum
+// A concrete instance of `InstanceMemcacheVersionInput` can be one of the following:
 //
-//	InstanceMemcacheVersionArgs{...}
+//	InstanceMemcacheVersionMemcacheVersionUnspecified
+//	InstanceMemcacheVersionMemcache15
+//	InstanceMemcacheVersionMemcache1615
 type InstanceMemcacheVersionInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *instanceMemcacheVersionPtr) ToInstanceMemcacheVersionPtrOutput() Insta
 
 func (in *instanceMemcacheVersionPtr) ToInstanceMemcacheVersionPtrOutputWithContext(ctx context.Context) InstanceMemcacheVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceMemcacheVersionPtrOutput)
-}
-
-func (in *instanceMemcacheVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceMemcacheVersion] {
-	return pulumix.Output[*InstanceMemcacheVersion]{
-		OutputState: in.ToInstanceMemcacheVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // A code that correspond to one type of user-facing message.
@@ -315,10 +310,11 @@ func (o InstanceMessageCodePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// InstanceMessageCodeInput is an input type that accepts InstanceMessageCodeArgs and InstanceMessageCodeOutput values.
-// You can construct a concrete instance of `InstanceMessageCodeInput` via:
+// InstanceMessageCodeInput is an input type that accepts values of the InstanceMessageCode enum
+// A concrete instance of `InstanceMessageCodeInput` can be one of the following:
 //
-//	InstanceMessageCodeArgs{...}
+//	InstanceMessageCodeCodeUnspecified
+//	InstanceMessageCodeZoneDistributionUnbalanced
 type InstanceMessageCodeInput interface {
 	pulumi.Input
 
@@ -351,12 +347,6 @@ func (in *instanceMessageCodePtr) ToInstanceMessageCodePtrOutput() InstanceMessa
 
 func (in *instanceMessageCodePtr) ToInstanceMessageCodePtrOutputWithContext(ctx context.Context) InstanceMessageCodePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(InstanceMessageCodePtrOutput)
-}
-
-func (in *instanceMessageCodePtr) ToOutput(ctx context.Context) pulumix.Output[*InstanceMessageCode] {
-	return pulumix.Output[*InstanceMessageCode]{
-		OutputState: in.ToInstanceMessageCodePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Allows to define schedule that runs specified day of the week.
@@ -500,10 +490,17 @@ func (o WeeklyMaintenanceWindowDayPtrOutput) ToStringPtrOutputWithContext(ctx co
 	}).(pulumi.StringPtrOutput)
 }
 
-// WeeklyMaintenanceWindowDayInput is an input type that accepts WeeklyMaintenanceWindowDayArgs and WeeklyMaintenanceWindowDayOutput values.
-// You can construct a concrete instance of `WeeklyMaintenanceWindowDayInput` via:
+// WeeklyMaintenanceWindowDayInput is an input type that accepts values of the WeeklyMaintenanceWindowDay enum
+// A concrete instance of `WeeklyMaintenanceWindowDayInput` can be one of the following:
 //
-//	WeeklyMaintenanceWindowDayArgs{...}
+//	WeeklyMaintenanceWindowDayDayOfWeekUnspecified
+//	WeeklyMaintenanceWindowDayMonday
+//	WeeklyMaintenanceWindowDayTuesday
+//	WeeklyMaintenanceWindowDayWednesday
+//	WeeklyMaintenanceWindowDayThursday
+//	WeeklyMaintenanceWindowDayFriday
+//	WeeklyMaintenanceWindowDaySaturday
+//	WeeklyMaintenanceWindowDaySunday
 type WeeklyMaintenanceWindowDayInput interface {
 	pulumi.Input
 
@@ -536,12 +533,6 @@ func (in *weeklyMaintenanceWindowDayPtr) ToWeeklyMaintenanceWindowDayPtrOutput()
 
 func (in *weeklyMaintenanceWindowDayPtr) ToWeeklyMaintenanceWindowDayPtrOutputWithContext(ctx context.Context) WeeklyMaintenanceWindowDayPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(WeeklyMaintenanceWindowDayPtrOutput)
-}
-
-func (in *weeklyMaintenanceWindowDayPtr) ToOutput(ctx context.Context) pulumix.Output[*WeeklyMaintenanceWindowDay] {
-	return pulumix.Output[*WeeklyMaintenanceWindowDay]{
-		OutputState: in.ToWeeklyMaintenanceWindowDayPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

@@ -399,7 +399,7 @@ class Build(pulumi.CustomResource):
             __props__.__dict__["status_detail"] = None
             __props__.__dict__["timing"] = None
             __props__.__dict__["warnings"] = None
-        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["location", "project", "project_id"])
+        replace_on_changes = pulumi.ResourceOptions(replace_on_changes=["location", "project", "projectId"])
         opts = pulumi.ResourceOptions.merge(opts, replace_on_changes)
         super(Build, __self__).__init__(
             'google-native:cloudbuild/v1:Build',
@@ -675,7 +675,7 @@ class Build(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def timing(self) -> pulumi.Output[Mapping[str, str]]:
+    def timing(self) -> pulumi.Output[Mapping[str, 'outputs.TimeSpanResponse']]:
         """
         Stores timing information for phases of the build. Valid keys are: * BUILD: time to execute all build steps. * PUSH: time to push all artifacts including docker images and non docker artifacts. * FETCHSOURCE: time to fetch source. * SETUPBUILD: time to set up build. If the build does not specify source or images, these keys will not be included.
         """

@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Required. The category of the attribute. The value of this field cannot be changed after creation.
@@ -142,10 +141,12 @@ func (o AttributeDefinitionCategoryPtrOutput) ToStringPtrOutputWithContext(ctx c
 	}).(pulumi.StringPtrOutput)
 }
 
-// AttributeDefinitionCategoryInput is an input type that accepts AttributeDefinitionCategoryArgs and AttributeDefinitionCategoryOutput values.
-// You can construct a concrete instance of `AttributeDefinitionCategoryInput` via:
+// AttributeDefinitionCategoryInput is an input type that accepts values of the AttributeDefinitionCategory enum
+// A concrete instance of `AttributeDefinitionCategoryInput` can be one of the following:
 //
-//	AttributeDefinitionCategoryArgs{...}
+//	AttributeDefinitionCategoryCategoryUnspecified
+//	AttributeDefinitionCategoryResource
+//	AttributeDefinitionCategoryRequest
 type AttributeDefinitionCategoryInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *attributeDefinitionCategoryPtr) ToAttributeDefinitionCategoryPtrOutput
 
 func (in *attributeDefinitionCategoryPtr) ToAttributeDefinitionCategoryPtrOutputWithContext(ctx context.Context) AttributeDefinitionCategoryPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AttributeDefinitionCategoryPtrOutput)
-}
-
-func (in *attributeDefinitionCategoryPtr) ToOutput(ctx context.Context) pulumix.Output[*AttributeDefinitionCategory] {
-	return pulumix.Output[*AttributeDefinitionCategory]{
-		OutputState: in.ToAttributeDefinitionCategoryPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The log type that this config enables.
@@ -319,10 +314,13 @@ func (o AuditLogConfigLogTypePtrOutput) ToStringPtrOutputWithContext(ctx context
 	}).(pulumi.StringPtrOutput)
 }
 
-// AuditLogConfigLogTypeInput is an input type that accepts AuditLogConfigLogTypeArgs and AuditLogConfigLogTypeOutput values.
-// You can construct a concrete instance of `AuditLogConfigLogTypeInput` via:
+// AuditLogConfigLogTypeInput is an input type that accepts values of the AuditLogConfigLogType enum
+// A concrete instance of `AuditLogConfigLogTypeInput` can be one of the following:
 //
-//	AuditLogConfigLogTypeArgs{...}
+//	AuditLogConfigLogTypeLogTypeUnspecified
+//	AuditLogConfigLogTypeAdminRead
+//	AuditLogConfigLogTypeDataWrite
+//	AuditLogConfigLogTypeDataRead
 type AuditLogConfigLogTypeInput interface {
 	pulumi.Input
 
@@ -355,12 +353,6 @@ func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutput() AuditLogC
 
 func (in *auditLogConfigLogTypePtr) ToAuditLogConfigLogTypePtrOutputWithContext(ctx context.Context) AuditLogConfigLogTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(AuditLogConfigLogTypePtrOutput)
-}
-
-func (in *auditLogConfigLogTypePtr) ToOutput(ctx context.Context) pulumix.Output[*AuditLogConfigLogType] {
-	return pulumix.Output[*AuditLogConfigLogType]{
-		OutputState: in.ToAuditLogConfigLogTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. Indicates the current state of this Consent.
@@ -500,10 +492,15 @@ func (o ConsentStateEnumPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConsentStateEnumInput is an input type that accepts ConsentStateEnumArgs and ConsentStateEnumOutput values.
-// You can construct a concrete instance of `ConsentStateEnumInput` via:
+// ConsentStateEnumInput is an input type that accepts values of the ConsentStateEnum enum
+// A concrete instance of `ConsentStateEnumInput` can be one of the following:
 //
-//	ConsentStateEnumArgs{...}
+//	ConsentStateEnumStateUnspecified
+//	ConsentStateEnumActive
+//	ConsentStateEnumArchived
+//	ConsentStateEnumRevoked
+//	ConsentStateEnumDraft
+//	ConsentStateEnumRejected
 type ConsentStateEnumInput interface {
 	pulumi.Input
 
@@ -536,12 +533,6 @@ func (in *consentStateEnumPtr) ToConsentStateEnumPtrOutput() ConsentStateEnumPtr
 
 func (in *consentStateEnumPtr) ToConsentStateEnumPtrOutputWithContext(ctx context.Context) ConsentStateEnumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConsentStateEnumPtrOutput)
-}
-
-func (in *consentStateEnumPtr) ToOutput(ctx context.Context) pulumix.Output[*ConsentStateEnum] {
-	return pulumix.Output[*ConsentStateEnum]{
-		OutputState: in.ToConsentStateEnumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Tag filtering profile that determines which tags to keep/remove.
@@ -679,10 +670,14 @@ func (o DicomConfigFilterProfilePtrOutput) ToStringPtrOutputWithContext(ctx cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// DicomConfigFilterProfileInput is an input type that accepts DicomConfigFilterProfileArgs and DicomConfigFilterProfileOutput values.
-// You can construct a concrete instance of `DicomConfigFilterProfileInput` via:
+// DicomConfigFilterProfileInput is an input type that accepts values of the DicomConfigFilterProfile enum
+// A concrete instance of `DicomConfigFilterProfileInput` can be one of the following:
 //
-//	DicomConfigFilterProfileArgs{...}
+//	DicomConfigFilterProfileTagFilterProfileUnspecified
+//	DicomConfigFilterProfileMinimalKeepListProfile
+//	DicomConfigFilterProfileAttributeConfidentialityBasicProfile
+//	DicomConfigFilterProfileKeepAllProfile
+//	DicomConfigFilterProfileDeidentifyTagContents
 type DicomConfigFilterProfileInput interface {
 	pulumi.Input
 
@@ -715,12 +710,6 @@ func (in *dicomConfigFilterProfilePtr) ToDicomConfigFilterProfilePtrOutput() Dic
 
 func (in *dicomConfigFilterProfilePtr) ToDicomConfigFilterProfilePtrOutputWithContext(ctx context.Context) DicomConfigFilterProfilePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(DicomConfigFilterProfilePtrOutput)
-}
-
-func (in *dicomConfigFilterProfilePtr) ToOutput(ctx context.Context) pulumix.Output[*DicomConfigFilterProfile] {
-	return pulumix.Output[*DicomConfigFilterProfile]{
-		OutputState: in.ToDicomConfigFilterProfilePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Enable parsing of references within complex FHIR data types such as Extensions. If this value is set to ENABLED, then features like referential integrity and Bundle reference rewriting apply to all references. If this flag has not been specified the behavior of the FHIR store will not change, references in complex data types will not be parsed. New stores will have this value set to ENABLED after a notification period. Warning: turning on this flag causes processing existing resources to fail if they contain references to non-existent resources.
@@ -854,10 +843,12 @@ func (o FhirStoreComplexDataTypeReferenceParsingPtrOutput) ToStringPtrOutputWith
 	}).(pulumi.StringPtrOutput)
 }
 
-// FhirStoreComplexDataTypeReferenceParsingInput is an input type that accepts FhirStoreComplexDataTypeReferenceParsingArgs and FhirStoreComplexDataTypeReferenceParsingOutput values.
-// You can construct a concrete instance of `FhirStoreComplexDataTypeReferenceParsingInput` via:
+// FhirStoreComplexDataTypeReferenceParsingInput is an input type that accepts values of the FhirStoreComplexDataTypeReferenceParsing enum
+// A concrete instance of `FhirStoreComplexDataTypeReferenceParsingInput` can be one of the following:
 //
-//	FhirStoreComplexDataTypeReferenceParsingArgs{...}
+//	FhirStoreComplexDataTypeReferenceParsingComplexDataTypeReferenceParsingUnspecified
+//	FhirStoreComplexDataTypeReferenceParsingDisabled
+//	FhirStoreComplexDataTypeReferenceParsingEnabled
 type FhirStoreComplexDataTypeReferenceParsingInput interface {
 	pulumi.Input
 
@@ -890,12 +881,6 @@ func (in *fhirStoreComplexDataTypeReferenceParsingPtr) ToFhirStoreComplexDataTyp
 
 func (in *fhirStoreComplexDataTypeReferenceParsingPtr) ToFhirStoreComplexDataTypeReferenceParsingPtrOutputWithContext(ctx context.Context) FhirStoreComplexDataTypeReferenceParsingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FhirStoreComplexDataTypeReferenceParsingPtrOutput)
-}
-
-func (in *fhirStoreComplexDataTypeReferenceParsingPtr) ToOutput(ctx context.Context) pulumix.Output[*FhirStoreComplexDataTypeReferenceParsing] {
-	return pulumix.Output[*FhirStoreComplexDataTypeReferenceParsing]{
-		OutputState: in.ToFhirStoreComplexDataTypeReferenceParsingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. The FHIR specification version that this FHIR store supports natively. This field is immutable after store creation. Requests are rejected if they contain FHIR resources of a different version. Version is required for every FHIR store.
@@ -1031,10 +1016,13 @@ func (o FhirStoreVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.Cont
 	}).(pulumi.StringPtrOutput)
 }
 
-// FhirStoreVersionInput is an input type that accepts FhirStoreVersionArgs and FhirStoreVersionOutput values.
-// You can construct a concrete instance of `FhirStoreVersionInput` via:
+// FhirStoreVersionInput is an input type that accepts values of the FhirStoreVersion enum
+// A concrete instance of `FhirStoreVersionInput` can be one of the following:
 //
-//	FhirStoreVersionArgs{...}
+//	FhirStoreVersionVersionUnspecified
+//	FhirStoreVersionDstu2
+//	FhirStoreVersionStu3
+//	FhirStoreVersionR4
 type FhirStoreVersionInput interface {
 	pulumi.Input
 
@@ -1067,12 +1055,6 @@ func (in *fhirStoreVersionPtr) ToFhirStoreVersionPtrOutput() FhirStoreVersionPtr
 
 func (in *fhirStoreVersionPtr) ToFhirStoreVersionPtrOutputWithContext(ctx context.Context) FhirStoreVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FhirStoreVersionPtrOutput)
-}
-
-func (in *fhirStoreVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*FhirStoreVersion] {
-	return pulumix.Output[*FhirStoreVersion]{
-		OutputState: in.ToFhirStoreVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Deidentify action for one field.
@@ -1208,10 +1190,13 @@ func (o FieldMetadataActionPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// FieldMetadataActionInput is an input type that accepts FieldMetadataActionArgs and FieldMetadataActionOutput values.
-// You can construct a concrete instance of `FieldMetadataActionInput` via:
+// FieldMetadataActionInput is an input type that accepts values of the FieldMetadataAction enum
+// A concrete instance of `FieldMetadataActionInput` can be one of the following:
 //
-//	FieldMetadataActionArgs{...}
+//	FieldMetadataActionActionUnspecified
+//	FieldMetadataActionTransform
+//	FieldMetadataActionInspectAndTransform
+//	FieldMetadataActionDoNotTransform
 type FieldMetadataActionInput interface {
 	pulumi.Input
 
@@ -1244,12 +1229,6 @@ func (in *fieldMetadataActionPtr) ToFieldMetadataActionPtrOutput() FieldMetadata
 
 func (in *fieldMetadataActionPtr) ToFieldMetadataActionPtrOutputWithContext(ctx context.Context) FieldMetadataActionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(FieldMetadataActionPtrOutput)
-}
-
-func (in *fieldMetadataActionPtr) ToOutput(ctx context.Context) pulumix.Output[*FieldMetadataAction] {
-	return pulumix.Output[*FieldMetadataAction]{
-		OutputState: in.ToFieldMetadataActionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines whether the existing table in the destination is to be overwritten or appended to. If a write_disposition is specified, the `force` parameter is ignored.
@@ -1385,10 +1364,13 @@ func (o GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionInput is an input type that accepts GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionArgs and GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionOutput values.
-// You can construct a concrete instance of `GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionInput` via:
+// GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionInput is an input type that accepts values of the GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDisposition enum
+// A concrete instance of `GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionInput` can be one of the following:
 //
-//	GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionArgs{...}
+//	GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionWriteDispositionUnspecified
+//	GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionWriteEmpty
+//	GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionWriteTruncate
+//	GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionWriteAppend
 type GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionInput interface {
 	pulumi.Input
 
@@ -1421,12 +1403,6 @@ func (in *googleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionPtr) To
 
 func (in *googleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionPtr) ToGoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionPtrOutputWithContext(ctx context.Context) GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionPtrOutput)
-}
-
-func (in *googleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDisposition] {
-	return pulumix.Output[*GoogleCloudHealthcareV1DicomBigQueryDestinationWriteDisposition]{
-		OutputState: in.ToGoogleCloudHealthcareV1DicomBigQueryDestinationWriteDispositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines if existing data in the destination dataset is overwritten, appended to, or not written if the tables contain data. If a write_disposition is specified, the `force` parameter is ignored.
@@ -1562,10 +1538,13 @@ func (o GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionPtrOutput)
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionInput is an input type that accepts GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionArgs and GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionOutput values.
-// You can construct a concrete instance of `GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionInput` via:
+// GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionInput is an input type that accepts values of the GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDisposition enum
+// A concrete instance of `GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionInput` can be one of the following:
 //
-//	GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionArgs{...}
+//	GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionWriteDispositionUnspecified
+//	GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionWriteEmpty
+//	GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionWriteTruncate
+//	GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionWriteAppend
 type GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionInput interface {
 	pulumi.Input
 
@@ -1598,12 +1577,6 @@ func (in *googleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionPtr) ToG
 
 func (in *googleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionPtr) ToGoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionPtrOutputWithContext(ctx context.Context) GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionPtrOutput)
-}
-
-func (in *googleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDisposition] {
-	return pulumix.Output[*GoogleCloudHealthcareV1FhirBigQueryDestinationWriteDisposition]{
-		OutputState: in.ToGoogleCloudHealthcareV1FhirBigQueryDestinationWriteDispositionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines how to redact text from image.
@@ -1739,10 +1712,13 @@ func (o ImageConfigTextRedactionModePtrOutput) ToStringPtrOutputWithContext(ctx 
 	}).(pulumi.StringPtrOutput)
 }
 
-// ImageConfigTextRedactionModeInput is an input type that accepts ImageConfigTextRedactionModeArgs and ImageConfigTextRedactionModeOutput values.
-// You can construct a concrete instance of `ImageConfigTextRedactionModeInput` via:
+// ImageConfigTextRedactionModeInput is an input type that accepts values of the ImageConfigTextRedactionMode enum
+// A concrete instance of `ImageConfigTextRedactionModeInput` can be one of the following:
 //
-//	ImageConfigTextRedactionModeArgs{...}
+//	ImageConfigTextRedactionModeTextRedactionModeUnspecified
+//	ImageConfigTextRedactionModeRedactAllText
+//	ImageConfigTextRedactionModeRedactSensitiveText
+//	ImageConfigTextRedactionModeRedactNoText
 type ImageConfigTextRedactionModeInput interface {
 	pulumi.Input
 
@@ -1775,12 +1751,6 @@ func (in *imageConfigTextRedactionModePtr) ToImageConfigTextRedactionModePtrOutp
 
 func (in *imageConfigTextRedactionModePtr) ToImageConfigTextRedactionModePtrOutputWithContext(ctx context.Context) ImageConfigTextRedactionModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ImageConfigTextRedactionModePtrOutput)
-}
-
-func (in *imageConfigTextRedactionModePtr) ToOutput(ctx context.Context) pulumix.Output[*ImageConfigTextRedactionMode] {
-	return pulumix.Output[*ImageConfigTextRedactionMode]{
-		OutputState: in.ToImageConfigTextRedactionModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Immutable. Determines the version of both the default parser to be used when `schema` is not given, as well as the schematized parser used when `schema` is specified. This field is immutable after HL7v2 store creation.
@@ -1916,10 +1886,13 @@ func (o ParserConfigVersionPtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// ParserConfigVersionInput is an input type that accepts ParserConfigVersionArgs and ParserConfigVersionOutput values.
-// You can construct a concrete instance of `ParserConfigVersionInput` via:
+// ParserConfigVersionInput is an input type that accepts values of the ParserConfigVersion enum
+// A concrete instance of `ParserConfigVersionInput` can be one of the following:
 //
-//	ParserConfigVersionArgs{...}
+//	ParserConfigVersionParserVersionUnspecified
+//	ParserConfigVersionV1
+//	ParserConfigVersionV2
+//	ParserConfigVersionV3
 type ParserConfigVersionInput interface {
 	pulumi.Input
 
@@ -1952,12 +1925,6 @@ func (in *parserConfigVersionPtr) ToParserConfigVersionPtrOutput() ParserConfigV
 
 func (in *parserConfigVersionPtr) ToParserConfigVersionPtrOutputWithContext(ctx context.Context) ParserConfigVersionPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ParserConfigVersionPtrOutput)
-}
-
-func (in *parserConfigVersionPtr) ToOutput(ctx context.Context) pulumix.Output[*ParserConfigVersion] {
-	return pulumix.Output[*ParserConfigVersion]{
-		OutputState: in.ToParserConfigVersionPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the output schema type. Schema type is required.
@@ -2091,10 +2058,12 @@ func (o SchemaConfigSchemaTypePtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaConfigSchemaTypeInput is an input type that accepts SchemaConfigSchemaTypeArgs and SchemaConfigSchemaTypeOutput values.
-// You can construct a concrete instance of `SchemaConfigSchemaTypeInput` via:
+// SchemaConfigSchemaTypeInput is an input type that accepts values of the SchemaConfigSchemaType enum
+// A concrete instance of `SchemaConfigSchemaTypeInput` can be one of the following:
 //
-//	SchemaConfigSchemaTypeArgs{...}
+//	SchemaConfigSchemaTypeSchemaTypeUnspecified
+//	SchemaConfigSchemaTypeAnalytics
+//	SchemaConfigSchemaTypeAnalyticsV2
 type SchemaConfigSchemaTypeInput interface {
 	pulumi.Input
 
@@ -2127,12 +2096,6 @@ func (in *schemaConfigSchemaTypePtr) ToSchemaConfigSchemaTypePtrOutput() SchemaC
 
 func (in *schemaConfigSchemaTypePtr) ToSchemaConfigSchemaTypePtrOutputWithContext(ctx context.Context) SchemaConfigSchemaTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaConfigSchemaTypePtrOutput)
-}
-
-func (in *schemaConfigSchemaTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SchemaConfigSchemaType] {
-	return pulumix.Output[*SchemaConfigSchemaType]{
-		OutputState: in.ToSchemaConfigSchemaTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines how messages that fail to parse are handled.
@@ -2266,10 +2229,12 @@ func (o SchemaPackageSchematizedParsingTypePtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaPackageSchematizedParsingTypeInput is an input type that accepts SchemaPackageSchematizedParsingTypeArgs and SchemaPackageSchematizedParsingTypeOutput values.
-// You can construct a concrete instance of `SchemaPackageSchematizedParsingTypeInput` via:
+// SchemaPackageSchematizedParsingTypeInput is an input type that accepts values of the SchemaPackageSchematizedParsingType enum
+// A concrete instance of `SchemaPackageSchematizedParsingTypeInput` can be one of the following:
 //
-//	SchemaPackageSchematizedParsingTypeArgs{...}
+//	SchemaPackageSchematizedParsingTypeSchematizedParsingTypeUnspecified
+//	SchemaPackageSchematizedParsingTypeSoftFail
+//	SchemaPackageSchematizedParsingTypeHardFail
 type SchemaPackageSchematizedParsingTypeInput interface {
 	pulumi.Input
 
@@ -2302,12 +2267,6 @@ func (in *schemaPackageSchematizedParsingTypePtr) ToSchemaPackageSchematizedPars
 
 func (in *schemaPackageSchematizedParsingTypePtr) ToSchemaPackageSchematizedParsingTypePtrOutputWithContext(ctx context.Context) SchemaPackageSchematizedParsingTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaPackageSchematizedParsingTypePtrOutput)
-}
-
-func (in *schemaPackageSchematizedParsingTypePtr) ToOutput(ctx context.Context) pulumix.Output[*SchemaPackageSchematizedParsingType] {
-	return pulumix.Output[*SchemaPackageSchematizedParsingType]{
-		OutputState: in.ToSchemaPackageSchematizedParsingTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Determines how unexpected segments (segments not matched to the schema) are handled.
@@ -2443,10 +2402,13 @@ func (o SchemaPackageUnexpectedSegmentHandlingPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// SchemaPackageUnexpectedSegmentHandlingInput is an input type that accepts SchemaPackageUnexpectedSegmentHandlingArgs and SchemaPackageUnexpectedSegmentHandlingOutput values.
-// You can construct a concrete instance of `SchemaPackageUnexpectedSegmentHandlingInput` via:
+// SchemaPackageUnexpectedSegmentHandlingInput is an input type that accepts values of the SchemaPackageUnexpectedSegmentHandling enum
+// A concrete instance of `SchemaPackageUnexpectedSegmentHandlingInput` can be one of the following:
 //
-//	SchemaPackageUnexpectedSegmentHandlingArgs{...}
+//	SchemaPackageUnexpectedSegmentHandlingUnexpectedSegmentHandlingModeUnspecified
+//	SchemaPackageUnexpectedSegmentHandlingFail
+//	SchemaPackageUnexpectedSegmentHandlingSkip
+//	SchemaPackageUnexpectedSegmentHandlingParse
 type SchemaPackageUnexpectedSegmentHandlingInput interface {
 	pulumi.Input
 
@@ -2479,12 +2441,6 @@ func (in *schemaPackageUnexpectedSegmentHandlingPtr) ToSchemaPackageUnexpectedSe
 
 func (in *schemaPackageUnexpectedSegmentHandlingPtr) ToSchemaPackageUnexpectedSegmentHandlingPtrOutputWithContext(ctx context.Context) SchemaPackageUnexpectedSegmentHandlingPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(SchemaPackageUnexpectedSegmentHandlingPtrOutput)
-}
-
-func (in *schemaPackageUnexpectedSegmentHandlingPtr) ToOutput(ctx context.Context) pulumix.Output[*SchemaPackageUnexpectedSegmentHandling] {
-	return pulumix.Output[*SchemaPackageUnexpectedSegmentHandling]{
-		OutputState: in.ToSchemaPackageUnexpectedSegmentHandlingPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of partitioning.
@@ -2622,10 +2578,14 @@ func (o TimePartitioningTypePtrOutput) ToStringPtrOutputWithContext(ctx context.
 	}).(pulumi.StringPtrOutput)
 }
 
-// TimePartitioningTypeInput is an input type that accepts TimePartitioningTypeArgs and TimePartitioningTypeOutput values.
-// You can construct a concrete instance of `TimePartitioningTypeInput` via:
+// TimePartitioningTypeInput is an input type that accepts values of the TimePartitioningType enum
+// A concrete instance of `TimePartitioningTypeInput` can be one of the following:
 //
-//	TimePartitioningTypeArgs{...}
+//	TimePartitioningTypePartitionTypeUnspecified
+//	TimePartitioningTypeHour
+//	TimePartitioningTypeDay
+//	TimePartitioningTypeMonth
+//	TimePartitioningTypeYear
 type TimePartitioningTypeInput interface {
 	pulumi.Input
 
@@ -2658,12 +2618,6 @@ func (in *timePartitioningTypePtr) ToTimePartitioningTypePtrOutput() TimePartiti
 
 func (in *timePartitioningTypePtr) ToTimePartitioningTypePtrOutputWithContext(ctx context.Context) TimePartitioningTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TimePartitioningTypePtrOutput)
-}
-
-func (in *timePartitioningTypePtr) ToOutput(ctx context.Context) pulumix.Output[*TimePartitioningType] {
-	return pulumix.Output[*TimePartitioningType]{
-		OutputState: in.ToTimePartitioningTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // If this is a primitive type then this field is the type of the primitive For example, STRING. Leave unspecified for composite types.
@@ -2799,10 +2753,13 @@ func (o TypePrimitivePtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 	}).(pulumi.StringPtrOutput)
 }
 
-// TypePrimitiveInput is an input type that accepts TypePrimitiveArgs and TypePrimitiveOutput values.
-// You can construct a concrete instance of `TypePrimitiveInput` via:
+// TypePrimitiveInput is an input type that accepts values of the TypePrimitive enum
+// A concrete instance of `TypePrimitiveInput` can be one of the following:
 //
-//	TypePrimitiveArgs{...}
+//	TypePrimitivePrimitiveUnspecified
+//	TypePrimitiveString
+//	TypePrimitiveVaries
+//	TypePrimitiveUnescapedString
 type TypePrimitiveInput interface {
 	pulumi.Input
 
@@ -2835,12 +2792,6 @@ func (in *typePrimitivePtr) ToTypePrimitivePtrOutput() TypePrimitivePtrOutput {
 
 func (in *typePrimitivePtr) ToTypePrimitivePtrOutputWithContext(ctx context.Context) TypePrimitivePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(TypePrimitivePtrOutput)
-}
-
-func (in *typePrimitivePtr) ToOutput(ctx context.Context) pulumix.Output[*TypePrimitive] {
-	return pulumix.Output[*TypePrimitive]{
-		OutputState: in.ToTypePrimitivePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

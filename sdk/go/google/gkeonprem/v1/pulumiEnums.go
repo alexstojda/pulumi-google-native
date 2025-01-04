@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Specifies which upgrade policy to use.
@@ -142,10 +141,12 @@ func (o BareMetalClusterUpgradePolicyPolicyPtrOutput) ToStringPtrOutputWithConte
 	}).(pulumi.StringPtrOutput)
 }
 
-// BareMetalClusterUpgradePolicyPolicyInput is an input type that accepts BareMetalClusterUpgradePolicyPolicyArgs and BareMetalClusterUpgradePolicyPolicyOutput values.
-// You can construct a concrete instance of `BareMetalClusterUpgradePolicyPolicyInput` via:
+// BareMetalClusterUpgradePolicyPolicyInput is an input type that accepts values of the BareMetalClusterUpgradePolicyPolicy enum
+// A concrete instance of `BareMetalClusterUpgradePolicyPolicyInput` can be one of the following:
 //
-//	BareMetalClusterUpgradePolicyPolicyArgs{...}
+//	BareMetalClusterUpgradePolicyPolicyNodePoolPolicyUnspecified
+//	BareMetalClusterUpgradePolicyPolicySerial
+//	BareMetalClusterUpgradePolicyPolicyConcurrent
 type BareMetalClusterUpgradePolicyPolicyInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *bareMetalClusterUpgradePolicyPolicyPtr) ToBareMetalClusterUpgradePolic
 
 func (in *bareMetalClusterUpgradePolicyPolicyPtr) ToBareMetalClusterUpgradePolicyPolicyPtrOutputWithContext(ctx context.Context) BareMetalClusterUpgradePolicyPolicyPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BareMetalClusterUpgradePolicyPolicyPtrOutput)
-}
-
-func (in *bareMetalClusterUpgradePolicyPolicyPtr) ToOutput(ctx context.Context) pulumix.Output[*BareMetalClusterUpgradePolicyPolicy] {
-	return pulumix.Output[*BareMetalClusterUpgradePolicyPolicy]{
-		OutputState: in.ToBareMetalClusterUpgradePolicyPolicyPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies the nodes operating system (default: LINUX).
@@ -315,10 +310,11 @@ func (o BareMetalNodePoolConfigOperatingSystemPtrOutput) ToStringPtrOutputWithCo
 	}).(pulumi.StringPtrOutput)
 }
 
-// BareMetalNodePoolConfigOperatingSystemInput is an input type that accepts BareMetalNodePoolConfigOperatingSystemArgs and BareMetalNodePoolConfigOperatingSystemOutput values.
-// You can construct a concrete instance of `BareMetalNodePoolConfigOperatingSystemInput` via:
+// BareMetalNodePoolConfigOperatingSystemInput is an input type that accepts values of the BareMetalNodePoolConfigOperatingSystem enum
+// A concrete instance of `BareMetalNodePoolConfigOperatingSystemInput` can be one of the following:
 //
-//	BareMetalNodePoolConfigOperatingSystemArgs{...}
+//	BareMetalNodePoolConfigOperatingSystemOperatingSystemUnspecified
+//	BareMetalNodePoolConfigOperatingSystemLinux
 type BareMetalNodePoolConfigOperatingSystemInput interface {
 	pulumi.Input
 
@@ -351,12 +347,6 @@ func (in *bareMetalNodePoolConfigOperatingSystemPtr) ToBareMetalNodePoolConfigOp
 
 func (in *bareMetalNodePoolConfigOperatingSystemPtr) ToBareMetalNodePoolConfigOperatingSystemPtrOutputWithContext(ctx context.Context) BareMetalNodePoolConfigOperatingSystemPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BareMetalNodePoolConfigOperatingSystemPtrOutput)
-}
-
-func (in *bareMetalNodePoolConfigOperatingSystemPtr) ToOutput(ctx context.Context) pulumix.Output[*BareMetalNodePoolConfigOperatingSystem] {
-	return pulumix.Output[*BareMetalNodePoolConfigOperatingSystem]{
-		OutputState: in.ToBareMetalNodePoolConfigOperatingSystemPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Specifies which container runtime will be used.
@@ -488,10 +478,11 @@ func (o BareMetalWorkloadNodeConfigContainerRuntimePtrOutput) ToStringPtrOutputW
 	}).(pulumi.StringPtrOutput)
 }
 
-// BareMetalWorkloadNodeConfigContainerRuntimeInput is an input type that accepts BareMetalWorkloadNodeConfigContainerRuntimeArgs and BareMetalWorkloadNodeConfigContainerRuntimeOutput values.
-// You can construct a concrete instance of `BareMetalWorkloadNodeConfigContainerRuntimeInput` via:
+// BareMetalWorkloadNodeConfigContainerRuntimeInput is an input type that accepts values of the BareMetalWorkloadNodeConfigContainerRuntime enum
+// A concrete instance of `BareMetalWorkloadNodeConfigContainerRuntimeInput` can be one of the following:
 //
-//	BareMetalWorkloadNodeConfigContainerRuntimeArgs{...}
+//	BareMetalWorkloadNodeConfigContainerRuntimeContainerRuntimeUnspecified
+//	BareMetalWorkloadNodeConfigContainerRuntimeContainerd
 type BareMetalWorkloadNodeConfigContainerRuntimeInput interface {
 	pulumi.Input
 
@@ -524,12 +515,6 @@ func (in *bareMetalWorkloadNodeConfigContainerRuntimePtr) ToBareMetalWorkloadNod
 
 func (in *bareMetalWorkloadNodeConfigContainerRuntimePtr) ToBareMetalWorkloadNodeConfigContainerRuntimePtrOutputWithContext(ctx context.Context) BareMetalWorkloadNodeConfigContainerRuntimePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BareMetalWorkloadNodeConfigContainerRuntimePtrOutput)
-}
-
-func (in *bareMetalWorkloadNodeConfigContainerRuntimePtr) ToOutput(ctx context.Context) pulumix.Output[*BareMetalWorkloadNodeConfigContainerRuntime] {
-	return pulumix.Output[*BareMetalWorkloadNodeConfigContainerRuntime]{
-		OutputState: in.ToBareMetalWorkloadNodeConfigContainerRuntimePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Mode of operation for binauthz policy evaluation. If unspecified, defaults to DISABLED.
@@ -663,10 +648,12 @@ func (o BinaryAuthorizationEvaluationModePtrOutput) ToStringPtrOutputWithContext
 	}).(pulumi.StringPtrOutput)
 }
 
-// BinaryAuthorizationEvaluationModeInput is an input type that accepts BinaryAuthorizationEvaluationModeArgs and BinaryAuthorizationEvaluationModeOutput values.
-// You can construct a concrete instance of `BinaryAuthorizationEvaluationModeInput` via:
+// BinaryAuthorizationEvaluationModeInput is an input type that accepts values of the BinaryAuthorizationEvaluationMode enum
+// A concrete instance of `BinaryAuthorizationEvaluationModeInput` can be one of the following:
 //
-//	BinaryAuthorizationEvaluationModeArgs{...}
+//	BinaryAuthorizationEvaluationModeEvaluationModeUnspecified
+//	BinaryAuthorizationEvaluationModeDisabled
+//	BinaryAuthorizationEvaluationModeProjectSingletonPolicyEnforce
 type BinaryAuthorizationEvaluationModeInput interface {
 	pulumi.Input
 
@@ -699,12 +686,6 @@ func (in *binaryAuthorizationEvaluationModePtr) ToBinaryAuthorizationEvaluationM
 
 func (in *binaryAuthorizationEvaluationModePtr) ToBinaryAuthorizationEvaluationModePtrOutputWithContext(ctx context.Context) BinaryAuthorizationEvaluationModePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(BinaryAuthorizationEvaluationModePtrOutput)
-}
-
-func (in *binaryAuthorizationEvaluationModePtr) ToOutput(ctx context.Context) pulumix.Output[*BinaryAuthorizationEvaluationMode] {
-	return pulumix.Output[*BinaryAuthorizationEvaluationMode]{
-		OutputState: in.ToBinaryAuthorizationEvaluationModePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The taint effect.
@@ -840,10 +821,13 @@ func (o NodeTaintEffectPtrOutput) ToStringPtrOutputWithContext(ctx context.Conte
 	}).(pulumi.StringPtrOutput)
 }
 
-// NodeTaintEffectInput is an input type that accepts NodeTaintEffectArgs and NodeTaintEffectOutput values.
-// You can construct a concrete instance of `NodeTaintEffectInput` via:
+// NodeTaintEffectInput is an input type that accepts values of the NodeTaintEffect enum
+// A concrete instance of `NodeTaintEffectInput` can be one of the following:
 //
-//	NodeTaintEffectArgs{...}
+//	NodeTaintEffectEffectUnspecified
+//	NodeTaintEffectNoSchedule
+//	NodeTaintEffectPreferNoSchedule
+//	NodeTaintEffectNoExecute
 type NodeTaintEffectInput interface {
 	pulumi.Input
 
@@ -876,12 +860,6 @@ func (in *nodeTaintEffectPtr) ToNodeTaintEffectPtrOutput() NodeTaintEffectPtrOut
 
 func (in *nodeTaintEffectPtr) ToNodeTaintEffectPtrOutputWithContext(ctx context.Context) NodeTaintEffectPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(NodeTaintEffectPtrOutput)
-}
-
-func (in *nodeTaintEffectPtr) ToOutput(ctx context.Context) pulumix.Output[*NodeTaintEffect] {
-	return pulumix.Output[*NodeTaintEffect]{
-		OutputState: in.ToNodeTaintEffectPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

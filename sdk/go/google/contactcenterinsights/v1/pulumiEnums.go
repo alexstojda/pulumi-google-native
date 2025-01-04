@@ -8,7 +8,6 @@ import (
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Immutable. The conversation medium, if unspecified will default to PHONE_CALL.
@@ -142,10 +141,12 @@ func (o ConversationMediumPtrOutput) ToStringPtrOutputWithContext(ctx context.Co
 	}).(pulumi.StringPtrOutput)
 }
 
-// ConversationMediumInput is an input type that accepts ConversationMediumArgs and ConversationMediumOutput values.
-// You can construct a concrete instance of `ConversationMediumInput` via:
+// ConversationMediumInput is an input type that accepts values of the ConversationMedium enum
+// A concrete instance of `ConversationMediumInput` can be one of the following:
 //
-//	ConversationMediumArgs{...}
+//	ConversationMediumMediumUnspecified
+//	ConversationMediumPhoneCall
+//	ConversationMediumChat
 type ConversationMediumInput interface {
 	pulumi.Input
 
@@ -178,12 +179,6 @@ func (in *conversationMediumPtr) ToConversationMediumPtrOutput() ConversationMed
 
 func (in *conversationMediumPtr) ToConversationMediumPtrOutputWithContext(ctx context.Context) ConversationMediumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(ConversationMediumPtrOutput)
-}
-
-func (in *conversationMediumPtr) ToOutput(ctx context.Context) pulumix.Output[*ConversationMedium] {
-	return pulumix.Output[*ConversationMedium]{
-		OutputState: in.ToConversationMediumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Default summarization model to be used.
@@ -315,10 +310,11 @@ func (o GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSu
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelInput is an input type that accepts GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelArgs and GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelOutput values.
-// You can construct a concrete instance of `GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelInput` via:
+// GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelInput is an input type that accepts values of the GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModel enum
+// A concrete instance of `GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelInput` can be one of the following:
 //
-//	GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelArgs{...}
+//	GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelSummarizationModelUnspecified
+//	GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelBaselineModel
 type GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelInput interface {
 	pulumi.Input
 
@@ -351,12 +347,6 @@ func (in *googleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfig
 
 func (in *googleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelPtr) ToGoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelPtrOutputWithContext(ctx context.Context) GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelPtrOutput)
-}
-
-func (in *googleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModel] {
-	return pulumix.Output[*GoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModel]{
-		OutputState: in.ToGoogleCloudContactcenterinsightsV1AnnotatorSelectorSummarizationConfigSummarizationModelPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Medium of conversations used in training data. This field is being deprecated. To specify the medium to be used in training a new issue model, set the `medium` field on `filter`.
@@ -490,10 +480,12 @@ func (o GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumInput is an input type that accepts GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumArgs and GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumOutput values.
-// You can construct a concrete instance of `GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumInput` via:
+// GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumInput is an input type that accepts values of the GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMedium enum
+// A concrete instance of `GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumInput` can be one of the following:
 //
-//	GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumArgs{...}
+//	GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumMediumUnspecified
+//	GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPhoneCall
+//	GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumChat
 type GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumInput interface {
 	pulumi.Input
 
@@ -526,12 +518,6 @@ func (in *googleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPtr) 
 
 func (in *googleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPtr) ToGoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPtrOutputWithContext(ctx context.Context) GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPtrOutput)
-}
-
-func (in *googleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMedium] {
-	return pulumix.Output[*GoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMedium]{
-		OutputState: in.ToGoogleCloudContactcenterinsightsV1IssueModelInputDataConfigMediumPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of this phrase match rule group.
@@ -665,10 +651,12 @@ func (o GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePtrOutput) ToS
 	}).(pulumi.StringPtrOutput)
 }
 
-// GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeInput is an input type that accepts GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeArgs and GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeOutput values.
-// You can construct a concrete instance of `GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeInput` via:
+// GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeInput is an input type that accepts values of the GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupType enum
+// A concrete instance of `GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeInput` can be one of the following:
 //
-//	GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeArgs{...}
+//	GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePhraseMatchRuleGroupTypeUnspecified
+//	GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeAllOf
+//	GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeAnyOf
 type GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypeInput interface {
 	pulumi.Input
 
@@ -701,12 +689,6 @@ func (in *googleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePtr) ToGoogl
 
 func (in *googleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePtr) ToGoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePtrOutputWithContext(ctx context.Context) GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePtrOutput)
-}
-
-func (in *googleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePtr) ToOutput(ctx context.Context) pulumix.Output[*GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupType] {
-	return pulumix.Output[*GoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupType]{
-		OutputState: in.ToGoogleCloudContactcenterinsightsV1PhraseMatchRuleGroupTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Type of the model.
@@ -840,10 +822,12 @@ func (o IssueModelModelTypePtrOutput) ToStringPtrOutputWithContext(ctx context.C
 	}).(pulumi.StringPtrOutput)
 }
 
-// IssueModelModelTypeInput is an input type that accepts IssueModelModelTypeArgs and IssueModelModelTypeOutput values.
-// You can construct a concrete instance of `IssueModelModelTypeInput` via:
+// IssueModelModelTypeInput is an input type that accepts values of the IssueModelModelType enum
+// A concrete instance of `IssueModelModelTypeInput` can be one of the following:
 //
-//	IssueModelModelTypeArgs{...}
+//	IssueModelModelTypeModelTypeUnspecified
+//	IssueModelModelTypeTypeV1
+//	IssueModelModelTypeTypeV2
 type IssueModelModelTypeInput interface {
 	pulumi.Input
 
@@ -876,12 +860,6 @@ func (in *issueModelModelTypePtr) ToIssueModelModelTypePtrOutput() IssueModelMod
 
 func (in *issueModelModelTypePtr) ToIssueModelModelTypePtrOutputWithContext(ctx context.Context) IssueModelModelTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(IssueModelModelTypePtrOutput)
-}
-
-func (in *issueModelModelTypePtr) ToOutput(ctx context.Context) pulumix.Output[*IssueModelModelType] {
-	return pulumix.Output[*IssueModelModelType]{
-		OutputState: in.ToIssueModelModelTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // The role whose utterances the phrase matcher should be matched against. If the role is ROLE_UNSPECIFIED it will be matched against any utterances in the transcript.
@@ -1019,10 +997,14 @@ func (o PhraseMatcherRoleMatchPtrOutput) ToStringPtrOutputWithContext(ctx contex
 	}).(pulumi.StringPtrOutput)
 }
 
-// PhraseMatcherRoleMatchInput is an input type that accepts PhraseMatcherRoleMatchArgs and PhraseMatcherRoleMatchOutput values.
-// You can construct a concrete instance of `PhraseMatcherRoleMatchInput` via:
+// PhraseMatcherRoleMatchInput is an input type that accepts values of the PhraseMatcherRoleMatch enum
+// A concrete instance of `PhraseMatcherRoleMatchInput` can be one of the following:
 //
-//	PhraseMatcherRoleMatchArgs{...}
+//	PhraseMatcherRoleMatchRoleUnspecified
+//	PhraseMatcherRoleMatchHumanAgent
+//	PhraseMatcherRoleMatchAutomatedAgent
+//	PhraseMatcherRoleMatchEndUser
+//	PhraseMatcherRoleMatchAnyAgent
 type PhraseMatcherRoleMatchInput interface {
 	pulumi.Input
 
@@ -1055,12 +1037,6 @@ func (in *phraseMatcherRoleMatchPtr) ToPhraseMatcherRoleMatchPtrOutput() PhraseM
 
 func (in *phraseMatcherRoleMatchPtr) ToPhraseMatcherRoleMatchPtrOutputWithContext(ctx context.Context) PhraseMatcherRoleMatchPtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PhraseMatcherRoleMatchPtrOutput)
-}
-
-func (in *phraseMatcherRoleMatchPtr) ToOutput(ctx context.Context) pulumix.Output[*PhraseMatcherRoleMatch] {
-	return pulumix.Output[*PhraseMatcherRoleMatch]{
-		OutputState: in.ToPhraseMatcherRoleMatchPtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 // Required. The type of this phrase matcher.
@@ -1194,10 +1170,12 @@ func (o PhraseMatcherTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Con
 	}).(pulumi.StringPtrOutput)
 }
 
-// PhraseMatcherTypeInput is an input type that accepts PhraseMatcherTypeArgs and PhraseMatcherTypeOutput values.
-// You can construct a concrete instance of `PhraseMatcherTypeInput` via:
+// PhraseMatcherTypeInput is an input type that accepts values of the PhraseMatcherType enum
+// A concrete instance of `PhraseMatcherTypeInput` can be one of the following:
 //
-//	PhraseMatcherTypeArgs{...}
+//	PhraseMatcherTypePhraseMatcherTypeUnspecified
+//	PhraseMatcherTypeAllOf
+//	PhraseMatcherTypeAnyOf
 type PhraseMatcherTypeInput interface {
 	pulumi.Input
 
@@ -1230,12 +1208,6 @@ func (in *phraseMatcherTypePtr) ToPhraseMatcherTypePtrOutput() PhraseMatcherType
 
 func (in *phraseMatcherTypePtr) ToPhraseMatcherTypePtrOutputWithContext(ctx context.Context) PhraseMatcherTypePtrOutput {
 	return pulumi.ToOutputWithContext(ctx, in).(PhraseMatcherTypePtrOutput)
-}
-
-func (in *phraseMatcherTypePtr) ToOutput(ctx context.Context) pulumix.Output[*PhraseMatcherType] {
-	return pulumix.Output[*PhraseMatcherType]{
-		OutputState: in.ToPhraseMatcherTypePtrOutputWithContext(ctx).OutputState,
-	}
 }
 
 func init() {

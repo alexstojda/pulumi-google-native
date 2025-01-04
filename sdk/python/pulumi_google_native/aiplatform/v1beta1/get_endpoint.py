@@ -97,13 +97,11 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="enablePrivateServiceConnect")
+    @_utilities.deprecated("""Deprecated: If true, expose the Endpoint via private service connect. Only one of the fields, network or enable_private_service_connect, can be set.""")
     def enable_private_service_connect(self) -> bool:
         """
         Deprecated: If true, expose the Endpoint via private service connect. Only one of the fields, network or enable_private_service_connect, can be set.
         """
-        warnings.warn("""Deprecated: If true, expose the Endpoint via private service connect. Only one of the fields, network or enable_private_service_connect, can be set.""", DeprecationWarning)
-        pulumi.log.warn("""enable_private_service_connect is deprecated: Deprecated: If true, expose the Endpoint via private service connect. Only one of the fields, network or enable_private_service_connect, can be set.""")
-
         return pulumi.get(self, "enable_private_service_connect")
 
     @property
@@ -164,7 +162,7 @@ class GetEndpointResult:
 
     @property
     @pulumi.getter(name="trafficSplit")
-    def traffic_split(self) -> Mapping[str, str]:
+    def traffic_split(self) -> Mapping[str, int]:
         """
         A map from a DeployedModel's ID to the percentage of this Endpoint's traffic that should be forwarded to that DeployedModel. If a DeployedModel's ID is not listed in this map, then it receives no traffic. The traffic percentage values must add up to 100, or map must be empty if the Endpoint is to not accept any traffic at a moment.
         """
